@@ -6,7 +6,7 @@ import "temporal/yieldmos/delegation_timestamp.proto";
 
 message DelegationHistory {
   string address = 1; 
-  DelegationTimestamp history = 2; 
+  repeated DelegationTimestamp history = 2;
   
 }
 

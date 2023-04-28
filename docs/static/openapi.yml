@@ -43881,26 +43881,28 @@ paths:
                     address:
                       type: string
                     history:
-                      type: object
-                      properties:
-                        timestamp:
-                          type: string
-                        amount:
-                          type: object
-                          properties:
-                            denom:
-                              type: string
-                            amount:
-                              type: string
-                          description: >-
-                            Coin defines a token with a denomination and an
-                            amount.
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          timestamp:
+                            type: string
+                          amount:
+                            type: object
+                            properties:
+                              denom:
+                                type: string
+                              amount:
+                                type: string
+                            description: >-
+                              Coin defines a token with a denomination and an
+                              amount.
 
 
-                            NOTE: The amount field is an Int which implements
-                            the custom method
+                              NOTE: The amount field is an Int which implements
+                              the custom method
 
-                            signatures required by gogoproto.
+                              signatures required by gogoproto.
               pagination:
                 type: object
                 properties:
@@ -44022,26 +44024,28 @@ paths:
                   address:
                     type: string
                   history:
-                    type: object
-                    properties:
-                      timestamp:
-                        type: string
-                      amount:
-                        type: object
-                        properties:
-                          denom:
-                            type: string
-                          amount:
-                            type: string
-                        description: >-
-                          Coin defines a token with a denomination and an
-                          amount.
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        timestamp:
+                          type: string
+                        amount:
+                          type: object
+                          properties:
+                            denom:
+                              type: string
+                            amount:
+                              type: string
+                          description: >-
+                            Coin defines a token with a denomination and an
+                            amount.
 
 
-                          NOTE: The amount field is an Int which implements the
-                          custom method
+                            NOTE: The amount field is an Int which implements
+                            the custom method
 
-                          signatures required by gogoproto.
+                            signatures required by gogoproto.
         default:
           description: An unexpected error response.
           schema:
@@ -71643,25 +71647,27 @@ definitions:
       address:
         type: string
       history:
-        type: object
-        properties:
-          timestamp:
-            type: string
-          amount:
-            type: object
-            properties:
-              denom:
-                type: string
-              amount:
-                type: string
-            description: >-
-              Coin defines a token with a denomination and an amount.
+        type: array
+        items:
+          type: object
+          properties:
+            timestamp:
+              type: string
+            amount:
+              type: object
+              properties:
+                denom:
+                  type: string
+                amount:
+                  type: string
+              description: >-
+                Coin defines a token with a denomination and an amount.
 
 
-              NOTE: The amount field is an Int which implements the custom
-              method
+                NOTE: The amount field is an Int which implements the custom
+                method
 
-              signatures required by gogoproto.
+                signatures required by gogoproto.
   temporal.yieldmos.DelegationTimestamp:
     type: object
     properties:
@@ -71693,25 +71699,27 @@ definitions:
             address:
               type: string
             history:
-              type: object
-              properties:
-                timestamp:
-                  type: string
-                amount:
-                  type: object
-                  properties:
-                    denom:
-                      type: string
-                    amount:
-                      type: string
-                  description: >-
-                    Coin defines a token with a denomination and an amount.
+              type: array
+              items:
+                type: object
+                properties:
+                  timestamp:
+                    type: string
+                  amount:
+                    type: object
+                    properties:
+                      denom:
+                        type: string
+                      amount:
+                        type: string
+                    description: >-
+                      Coin defines a token with a denomination and an amount.
 
 
-                    NOTE: The amount field is an Int which implements the custom
-                    method
+                      NOTE: The amount field is an Int which implements the
+                      custom method
 
-                    signatures required by gogoproto.
+                      signatures required by gogoproto.
       pagination:
         type: object
         properties:
@@ -71747,25 +71755,27 @@ definitions:
           address:
             type: string
           history:
-            type: object
-            properties:
-              timestamp:
-                type: string
-              amount:
-                type: object
-                properties:
-                  denom:
-                    type: string
-                  amount:
-                    type: string
-                description: >-
-                  Coin defines a token with a denomination and an amount.
+            type: array
+            items:
+              type: object
+              properties:
+                timestamp:
+                  type: string
+                amount:
+                  type: object
+                  properties:
+                    denom:
+                      type: string
+                    amount:
+                      type: string
+                  description: >-
+                    Coin defines a token with a denomination and an amount.
 
 
-                  NOTE: The amount field is an Int which implements the custom
-                  method
+                    NOTE: The amount field is an Int which implements the custom
+                    method
 
-                  signatures required by gogoproto.
+                    signatures required by gogoproto.
   temporal.yieldmos.QueryParamsResponse:
     type: object
     properties:

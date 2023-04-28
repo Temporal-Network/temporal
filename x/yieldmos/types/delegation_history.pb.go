@@ -23,8 +23,8 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type DelegationHistory struct {
-	Address string               `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
-	History *DelegationTimestamp `protobuf:"bytes,2,opt,name=history,proto3" json:"history,omitempty"`
+	Address string                 `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	History []*DelegationTimestamp `protobuf:"bytes,2,rep,name=history,proto3" json:"history,omitempty"`
 }
 
 func (m *DelegationHistory) Reset()         { *m = DelegationHistory{} }
@@ -67,7 +67,7 @@ func (m *DelegationHistory) GetAddress() string {
 	return ""
 }
 
-func (m *DelegationHistory) GetHistory() *DelegationTimestamp {
+func (m *DelegationHistory) GetHistory() []*DelegationTimestamp {
 	if m != nil {
 		return m.History
 	}
@@ -91,11 +91,11 @@ var fileDescriptor_b4af6d208c016d9e = []byte{
 	0xab, 0xbd, 0x24, 0x33, 0x37, 0xb5, 0xb8, 0x24, 0x31, 0xb7, 0x00, 0x62, 0x80, 0x52, 0x3e, 0x97,
 	0xa0, 0x0b, 0x5c, 0xd6, 0x03, 0x62, 0xb6, 0x90, 0x04, 0x17, 0x7b, 0x62, 0x4a, 0x4a, 0x51, 0x6a,
 	0x71, 0xb1, 0x04, 0xa3, 0x02, 0xa3, 0x06, 0x67, 0x10, 0x8c, 0x2b, 0xe4, 0xc0, 0xc5, 0x0e, 0x75,
-	0x80, 0x04, 0x93, 0x02, 0xa3, 0x06, 0xb7, 0x91, 0x9a, 0x1e, 0x86, 0x0b, 0xf4, 0x10, 0x06, 0x86,
+	0x80, 0x04, 0x93, 0x02, 0xb3, 0x06, 0xb7, 0x91, 0x9a, 0x1e, 0x86, 0x0b, 0xf4, 0x10, 0x06, 0x86,
 	0xc0, 0x6c, 0x0b, 0x82, 0x69, 0x73, 0x32, 0x3e, 0xf1, 0x48, 0x8e, 0xf1, 0xc2, 0x23, 0x39, 0xc6,
 	0x07, 0x8f, 0xe4, 0x18, 0x27, 0x3c, 0x96, 0x63, 0xb8, 0xf0, 0x58, 0x8e, 0xe1, 0xc6, 0x63, 0x39,
 	0x86, 0x28, 0x49, 0xb8, 0xc3, 0x2b, 0x10, 0x4e, 0x2f, 0xa9, 0x2c, 0x48, 0x2d, 0x4e, 0x62, 0x03,
-	0x3b, 0xd6, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x27, 0xfc, 0x32, 0xe5, 0x1b, 0x01, 0x00, 0x00,
+	0x3b, 0xd6, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x7c, 0x50, 0xec, 0x52, 0x1b, 0x01, 0x00, 0x00,
 }
 
 func (m *DelegationHistory) Marshal() (dAtA []byte, err error) {
@@ -118,17 +118,19 @@ func (m *DelegationHistory) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.History != nil {
-		{
-			size, err := m.History.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
+	if len(m.History) > 0 {
+		for iNdEx := len(m.History) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.History[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintDelegationHistory(dAtA, i, uint64(size))
 			}
-			i -= size
-			i = encodeVarintDelegationHistory(dAtA, i, uint64(size))
+			i--
+			dAtA[i] = 0x12
 		}
-		i--
-		dAtA[i] = 0x12
 	}
 	if len(m.Address) > 0 {
 		i -= len(m.Address)
@@ -161,9 +163,11 @@ func (m *DelegationHistory) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovDelegationHistory(uint64(l))
 	}
-	if m.History != nil {
-		l = m.History.Size()
-		n += 1 + l + sovDelegationHistory(uint64(l))
+	if len(m.History) > 0 {
+		for _, e := range m.History {
+			l = e.Size()
+			n += 1 + l + sovDelegationHistory(uint64(l))
+		}
 	}
 	return n
 }
@@ -264,10 +268,8 @@ func (m *DelegationHistory) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if m.History == nil {
-				m.History = &DelegationTimestamp{}
-			}
-			if err := m.History.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			m.History = append(m.History, &DelegationTimestamp{})
+			if err := m.History[len(m.History)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
