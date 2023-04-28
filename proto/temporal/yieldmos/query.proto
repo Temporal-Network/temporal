@@ -1,26 +1,59 @@
 syntax = "proto3";
+
 package temporal.yieldmos;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "temporal/yieldmos/params.proto";
+import "temporal/yieldmos/delegation_history.proto";
+import "temporal/yieldmos/delegation_timestamp.proto";
 
 option go_package = "temporal/x/yieldmos/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/temporal/yieldmos/params";
+  
+  }
+  
+  // Queries a list of DelegationHistory items.
+  rpc DelegationHistory    (QueryGetDelegationHistoryRequest) returns (QueryGetDelegationHistoryResponse) {
+    option (google.api.http).get = "/temporal/yieldmos/delegation_history/{address}";
+  
+  }
+  rpc DelegationHistoryAll (QueryAllDelegationHistoryRequest) returns (QueryAllDelegationHistoryResponse) {
+    option (google.api.http).get = "/temporal/yieldmos/delegation_history";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
 }
+
+message QueryGetDelegationHistoryRequest {
+  string address = 1;
+}
+
+message QueryGetDelegationHistoryResponse {
+  DelegationHistory delegationHistory = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllDelegationHistoryRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllDelegationHistoryResponse {
+  repeated DelegationHistory                      delegationHistory = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination        = 2;
+}
+
