@@ -1,0 +1,12 @@
+syntax = "proto3";
+package temporal.yieldmos;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "temporal/x/yieldmos/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+}

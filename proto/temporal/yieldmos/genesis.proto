@@ -1,0 +1,12 @@
+syntax = "proto3";
+package temporal.yieldmos;
+
+import "gogoproto/gogo.proto";
+import "temporal/yieldmos/params.proto";
+
+option go_package = "temporal/x/yieldmos/types";
+
+// GenesisState defines the yieldmos module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}
