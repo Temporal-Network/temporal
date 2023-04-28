@@ -3,10 +3,15 @@ package temporal.yieldmos;
 
 option go_package = "temporal/x/yieldmos/types";
 import "gogoproto/gogo.proto"; 
-import "cosmos/base/v1beta1/coin.proto"; 
+import "cosmos/base/v1beta1/coin.proto";
+import "google/protobuf/timestamp.proto";
 
 message DelegationTimestamp {
-  
-  string timestamp = 1; 
-  cosmos.base.v1beta1.Coin amount = 2 [(gogoproto.nullable) = false]; 
+  google.protobuf.Timestamp timestamp = 1 [
+    (gogoproto.stdtime) = true,
+    (gogoproto.nullable) = false
+  ];
+  cosmos.base.v1beta1.Coin balance = 2 [
+    (gogoproto.nullable) = false
+  ];
 }
