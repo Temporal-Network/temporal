@@ -5,7 +5,7 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 )
 
-// Hooks wrapper struct for stakestore keeper
+// Hooks wrapper struct for yieldmos keeper
 type Hooks struct {
 	k Keeper
 }
