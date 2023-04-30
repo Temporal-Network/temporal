@@ -528,6 +528,7 @@ func New(
 			// insert staking hooks receivers here
 			app.DistrKeeper.Hooks(),
 			app.SlashingKeeper.Hooks(),
+			app.YieldmosKeeper.Hooks(),
 		),
 	)
 
