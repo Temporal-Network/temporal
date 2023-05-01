@@ -103,6 +103,9 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
+	compoundermodule "temporal/x/compounder"
+	compoundermodulekeeper "temporal/x/compounder/keeper"
+	compoundermoduletypes "temporal/x/compounder/types"
 	yieldmosmodule "temporal/x/yieldmos"
 	yieldmosmodulekeeper "temporal/x/yieldmos/keeper"
 	yieldmosmoduletypes "temporal/x/yieldmos/types"
@@ -165,19 +168,21 @@ var (
 		ica.AppModuleBasic{},
 		vesting.AppModuleBasic{},
 		yieldmosmodule.AppModuleBasic{},
+		compoundermodule.AppModuleBasic{},
 		// this line is used by starport scaffolding # stargate/app/moduleBasic
 	)
 
 	// module account permissions
 	maccPerms = map[string][]string{
-		authtypes.FeeCollectorName:     nil,
-		distrtypes.ModuleName:          nil,
-		icatypes.ModuleName:            nil,
-		minttypes.ModuleName:           {authtypes.Minter},
-		stakingtypes.BondedPoolName:    {authtypes.Burner, authtypes.Staking},
-		stakingtypes.NotBondedPoolName: {authtypes.Burner, authtypes.Staking},
-		govtypes.ModuleName:            {authtypes.Burner},
-		ibctransfertypes.ModuleName:    {authtypes.Minter, authtypes.Burner},
+		authtypes.FeeCollectorName:       nil,
+		distrtypes.ModuleName:            nil,
+		icatypes.ModuleName:              nil,
+		minttypes.ModuleName:             {authtypes.Minter},
+		stakingtypes.BondedPoolName:      {authtypes.Burner, authtypes.Staking},
+		stakingtypes.NotBondedPoolName:   {authtypes.Burner, authtypes.Staking},
+		govtypes.ModuleName:              {authtypes.Burner},
+		ibctransfertypes.ModuleName:      {authtypes.Minter, authtypes.Burner},
+		compoundermoduletypes.ModuleName: {authtypes.Minter, authtypes.Burner, authtypes.Staking},
 		// this line is used by starport scaffolding # stargate/app/maccPerms
 	}
 )
@@ -239,6 +244,8 @@ type App struct {
 	ScopedICAHostKeeper  capabilitykeeper.ScopedKeeper
 
 	YieldmosKeeper yieldmosmodulekeeper.Keeper
+
+	CompounderKeeper compoundermodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// mm is the module manager
@@ -284,6 +291,7 @@ func New(
 		ibctransfertypes.StoreKey, icahosttypes.StoreKey, capabilitytypes.StoreKey, group.StoreKey,
 		icacontrollertypes.StoreKey,
 		yieldmosmoduletypes.StoreKey,
+		compoundermoduletypes.StoreKey,
 		// this line is used by starport scaffolding # stargate/app/storeKey
 	)
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
@@ -506,6 +514,19 @@ func New(
 
 	yieldmosModule := yieldmosmodule.NewAppModule(appCodec, app.YieldmosKeeper, app.AccountKeeper, app.BankKeeper)
 
+	app.CompounderKeeper = *compoundermodulekeeper.NewKeeper(
+		appCodec,
+		keys[compoundermoduletypes.StoreKey],
+		keys[compoundermoduletypes.MemStoreKey],
+		app.GetSubspace(compoundermoduletypes.ModuleName),
+
+		app.AccountKeeper,
+		app.BankKeeper,
+		app.DistrKeeper,
+		app.StakingKeeper,
+	)
+	compounderModule := compoundermodule.NewAppModule(appCodec, app.CompounderKeeper, app.AccountKeeper, app.BankKeeper)
+
 	// this line is used by starport scaffolding # stargate/app/keeperDefinition
 
 	/**** IBC Routing ****/
@@ -573,6 +594,7 @@ func New(
 		transferModule,
 		icaModule,
 		yieldmosModule,
+		compounderModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 
@@ -603,6 +625,7 @@ func New(
 		paramstypes.ModuleName,
 		vestingtypes.ModuleName,
 		yieldmosmoduletypes.ModuleName,
+		compoundermoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	)
 
@@ -628,6 +651,7 @@ func New(
 		upgradetypes.ModuleName,
 		vestingtypes.ModuleName,
 		yieldmosmoduletypes.ModuleName,
+		compoundermoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	)
 
@@ -658,6 +682,7 @@ func New(
 		upgradetypes.ModuleName,
 		vestingtypes.ModuleName,
 		yieldmosmoduletypes.ModuleName,
+		compoundermoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	)
 
@@ -688,6 +713,7 @@ func New(
 		ibc.NewAppModule(app.IBCKeeper),
 		transferModule,
 		yieldmosModule,
+		compounderModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 	app.sm.RegisterStoreDecoders()
@@ -893,6 +919,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 	paramsKeeper.Subspace(icacontrollertypes.SubModuleName)
 	paramsKeeper.Subspace(icahosttypes.SubModuleName)
 	paramsKeeper.Subspace(yieldmosmoduletypes.ModuleName)
+	paramsKeeper.Subspace(compoundermoduletypes.ModuleName)
 	// this line is used by starport scaffolding # stargate/app/paramSubspace
 
 	return paramsKeeper

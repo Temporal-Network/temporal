@@ -1,0 +1,7 @@
+syntax = "proto3";
+package temporal.compounder;
+
+option go_package = "temporal/x/compounder/types";
+
+// Msg defines the Msg service.
+service Msg {}
