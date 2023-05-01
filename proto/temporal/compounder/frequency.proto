@@ -1,0 +1,10 @@
+syntax = "proto3";
+package temporal.compounder;
+
+option go_package = "temporal/x/compounder/types";
+
+message Frequency {
+  
+  int32 onceEvery = 1; 
+  string secondsOrBlocks = 2; 
+}
