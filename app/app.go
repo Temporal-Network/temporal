@@ -503,6 +503,7 @@ func New(
 
 		app.StakingKeeper,
 	)
+
 	yieldmosModule := yieldmosmodule.NewAppModule(appCodec, app.YieldmosKeeper, app.AccountKeeper, app.BankKeeper)
 
 	// this line is used by starport scaffolding # stargate/app/keeperDefinition

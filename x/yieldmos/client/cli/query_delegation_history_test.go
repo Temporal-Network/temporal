@@ -27,7 +27,7 @@ func networkWithDelegationHistoryObjects(t *testing.T, n int) (*network.Network,
 	state := types.GenesisState{}
 	require.NoError(t, cfg.Codec.UnmarshalJSON(cfg.GenesisState[types.ModuleName], &state))
 
-	for i := 0; i < n; i++ {
+	for i := 0; i < n-1; i++ {
 		delegationHistory := types.DelegationHistory{
 			Address: strconv.Itoa(i),
 		}
@@ -37,7 +37,16 @@ func networkWithDelegationHistoryObjects(t *testing.T, n int) (*network.Network,
 	buf, err := cfg.Codec.MarshalJSON(&state)
 	require.NoError(t, err)
 	cfg.GenesisState[types.ModuleName] = buf
-	return network.New(t, cfg), state.DelegationHistoryList
+
+	net := network.New(t, cfg)
+
+	// Need to adjust for the genesis validator being in the DelegationHistoryList
+	delegationHistory := types.DelegationHistory{
+		Address: net.Validators[0].Address.String(),
+	}
+
+	state.DelegationHistoryList = append(state.DelegationHistoryList, delegationHistory)
+	return net, state.DelegationHistoryList
 }
 
 func TestShowDelegationHistory(t *testing.T) {
