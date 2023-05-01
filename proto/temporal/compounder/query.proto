@@ -1,26 +1,61 @@
 syntax = "proto3";
+
 package temporal.compounder;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "temporal/compounder/params.proto";
+import "temporal/compounder/compound_settings.proto";
+import "temporal/compounder/frequency.proto";
+import "temporal/compounder/validator_setting.proto";
+import "cosmos/base/v1beta1/coin.proto";
 
 option go_package = "temporal/x/compounder/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/temporal/compounder/params";
+  
+  }
+  
+  // Queries a list of CompoundSettings items.
+  rpc CompoundSettings    (QueryGetCompoundSettingsRequest) returns (QueryGetCompoundSettingsResponse) {
+    option (google.api.http).get = "/temporal/compounder/compound_settings/{index123}";
+  
+  }
+  rpc CompoundSettingsAll (QueryAllCompoundSettingsRequest) returns (QueryAllCompoundSettingsResponse) {
+    option (google.api.http).get = "/temporal/compounder/compound_settings";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
 }
+
+message QueryGetCompoundSettingsRequest {
+  string index123 = 1;
+}
+
+message QueryGetCompoundSettingsResponse {
+  CompoundSettings compoundSettings = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllCompoundSettingsRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllCompoundSettingsResponse {
+  repeated CompoundSettings                       compoundSettings = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination       = 2;
+}
+

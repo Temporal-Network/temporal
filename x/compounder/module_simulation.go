@@ -24,7 +24,19 @@ var (
 )
 
 const (
-// this line is used by starport scaffolding # simapp/module/const
+	opWeightMsgCreateCompoundSettings = "op_weight_msg_compound_settings"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateCompoundSettings int = 100
+
+	opWeightMsgUpdateCompoundSettings = "op_weight_msg_compound_settings"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateCompoundSettings int = 100
+
+	opWeightMsgDeleteCompoundSettings = "op_weight_msg_compound_settings"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteCompoundSettings int = 100
+
+	// this line is used by starport scaffolding # simapp/module/const
 )
 
 // GenerateGenesisState creates a randomized GenState of the module
@@ -35,6 +47,16 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 	}
 	compounderGenesis := types.GenesisState{
 		Params: types.DefaultParams(),
+		CompoundSettingsList: []types.CompoundSettings{
+			{
+				Delegator: sample.AccAddress(),
+				Index123:  "0",
+			},
+			{
+				Delegator: sample.AccAddress(),
+				Index123:  "1",
+			},
+		},
 		// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&compounderGenesis)
@@ -57,6 +79,39 @@ func (am AppModule) RegisterStoreDecoder(_ sdk.StoreDecoderRegistry) {}
 // WeightedOperations returns the all the gov module operations with their respective weights.
 func (am AppModule) WeightedOperations(simState module.SimulationState) []simtypes.WeightedOperation {
 	operations := make([]simtypes.WeightedOperation, 0)
+
+	var weightMsgCreateCompoundSettings int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateCompoundSettings, &weightMsgCreateCompoundSettings, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateCompoundSettings = defaultWeightMsgCreateCompoundSettings
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateCompoundSettings,
+		compoundersimulation.SimulateMsgCreateCompoundSettings(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateCompoundSettings int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateCompoundSettings, &weightMsgUpdateCompoundSettings, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateCompoundSettings = defaultWeightMsgUpdateCompoundSettings
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateCompoundSettings,
+		compoundersimulation.SimulateMsgUpdateCompoundSettings(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteCompoundSettings int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteCompoundSettings, &weightMsgDeleteCompoundSettings, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteCompoundSettings = defaultWeightMsgDeleteCompoundSettings
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteCompoundSettings,
+		compoundersimulation.SimulateMsgDeleteCompoundSettings(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
 
 	// this line is used by starport scaffolding # simapp/module/operation
 

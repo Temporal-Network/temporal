@@ -1,7 +1,45 @@
 syntax = "proto3";
+
 package temporal.compounder;
+
+import "temporal/compounder/compound_settings.proto";
+import "temporal/compounder/frequency.proto";
+import "temporal/compounder/validator_setting.proto";
+import "cosmos/base/v1beta1/coin.proto";
+import "gogoproto/gogo.proto";
 
 option go_package = "temporal/x/compounder/types";
 
 // Msg defines the Msg service.
-service Msg {}
+service Msg {
+  rpc CreateCompoundSettings (MsgCreateCompoundSettings) returns (MsgCreateCompoundSettingsResponse);
+  rpc UpdateCompoundSettings (MsgUpdateCompoundSettings) returns (MsgUpdateCompoundSettingsResponse);
+  rpc DeleteCompoundSettings (MsgDeleteCompoundSettings) returns (MsgDeleteCompoundSettingsResponse);
+}
+message MsgCreateCompoundSettings {
+  string                   delegator         = 1;
+  string                   index123          = 2;
+  ValidatorSetting         validatorSettings = 3;
+  cosmos.base.v1beta1.Coin amountToRemain    = 4 [(gogoproto.nullable) = false];
+  Frequency                frequency         = 5;
+}
+
+message MsgCreateCompoundSettingsResponse {}
+
+message MsgUpdateCompoundSettings {
+  string                   delegator         = 1;
+  string                   index123          = 2;
+  ValidatorSetting         validatorSettings = 3;
+  cosmos.base.v1beta1.Coin amountToRemain    = 4 [(gogoproto.nullable) = false];
+  Frequency                frequency         = 5;
+}
+
+message MsgUpdateCompoundSettingsResponse {}
+
+message MsgDeleteCompoundSettings {
+  string delegator = 1;
+  string index123  = 2;
+}
+
+message MsgDeleteCompoundSettingsResponse {}
+

@@ -1,0 +1,138 @@
+package cli
+
+import (
+	"encoding/json"
+	"github.com/cosmos/cosmos-sdk/client"
+	"github.com/cosmos/cosmos-sdk/client/flags"
+	"github.com/cosmos/cosmos-sdk/client/tx"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/spf13/cobra"
+	"temporal/x/compounder/types"
+)
+
+func CmdCreateCompoundSettings() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "create-compound-settings [index-123] [validator-settings] [amount-to-remain] [frequency]",
+		Short: "Create a new CompoundSettings",
+		Args:  cobra.ExactArgs(4),
+		RunE: func(cmd *cobra.Command, args []string) (err error) {
+			// Get indexes
+			indexIndex123 := args[0]
+
+			// Get value arguments
+			argValidatorSettings := new(types.ValidatorSetting)
+			err = json.Unmarshal([]byte(args[1]), argValidatorSettings)
+			if err != nil {
+				return err
+			}
+			argAmountToRemain, err := sdk.ParseCoinNormalized(args[2])
+			if err != nil {
+				return err
+			}
+			argFrequency := new(types.Frequency)
+			err = json.Unmarshal([]byte(args[3]), argFrequency)
+			if err != nil {
+				return err
+			}
+
+			clientCtx, err := client.GetClientTxContext(cmd)
+			if err != nil {
+				return err
+			}
+
+			msg := types.NewMsgCreateCompoundSettings(
+				clientCtx.GetFromAddress().String(),
+				indexIndex123,
+				argValidatorSettings,
+				argAmountToRemain,
+				argFrequency,
+			)
+			if err := msg.ValidateBasic(); err != nil {
+				return err
+			}
+			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), msg)
+		},
+	}
+
+	flags.AddTxFlagsToCmd(cmd)
+
+	return cmd
+}
+
+func CmdUpdateCompoundSettings() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "update-compound-settings [index-123] [validator-settings] [amount-to-remain] [frequency]",
+		Short: "Update a CompoundSettings",
+		Args:  cobra.ExactArgs(4),
+		RunE: func(cmd *cobra.Command, args []string) (err error) {
+			// Get indexes
+			indexIndex123 := args[0]
+
+			// Get value arguments
+			argValidatorSettings := new(types.ValidatorSetting)
+			err = json.Unmarshal([]byte(args[1]), argValidatorSettings)
+			if err != nil {
+				return err
+			}
+			argAmountToRemain, err := sdk.ParseCoinNormalized(args[2])
+			if err != nil {
+				return err
+			}
+			argFrequency := new(types.Frequency)
+			err = json.Unmarshal([]byte(args[3]), argFrequency)
+			if err != nil {
+				return err
+			}
+
+			clientCtx, err := client.GetClientTxContext(cmd)
+			if err != nil {
+				return err
+			}
+
+			msg := types.NewMsgUpdateCompoundSettings(
+				clientCtx.GetFromAddress().String(),
+				indexIndex123,
+				argValidatorSettings,
+				argAmountToRemain,
+				argFrequency,
+			)
+			if err := msg.ValidateBasic(); err != nil {
+				return err
+			}
+			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), msg)
+		},
+	}
+
+	flags.AddTxFlagsToCmd(cmd)
+
+	return cmd
+}
+
+func CmdDeleteCompoundSettings() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "delete-compound-settings [index-123]",
+		Short: "Delete a CompoundSettings",
+		Args:  cobra.ExactArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) (err error) {
+			indexIndex123 := args[0]
+
+			clientCtx, err := client.GetClientTxContext(cmd)
+			if err != nil {
+				return err
+			}
+
+			msg := types.NewMsgDeleteCompoundSettings(
+				clientCtx.GetFromAddress().String(),
+				indexIndex123,
+			)
+			if err := msg.ValidateBasic(); err != nil {
+				return err
+			}
+			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), msg)
+		},
+	}
+
+	flags.AddTxFlagsToCmd(cmd)
+
+	return cmd
+}
