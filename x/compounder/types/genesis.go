@@ -10,7 +10,8 @@ const DefaultIndex uint64 = 1
 // DefaultGenesis returns the default genesis state
 func DefaultGenesis() *GenesisState {
 	return &GenesisState{
-		CompoundSettingsList: []CompoundSettings{},
+		CompoundSettingsList:    []CompoundSettings{},
+		PreviousCompoundingList: []PreviousCompounding{},
 		// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
@@ -28,6 +29,16 @@ func (gs GenesisState) Validate() error {
 			return fmt.Errorf("duplicated index for compoundSettings")
 		}
 		compoundSettingsIndexMap[index] = struct{}{}
+	}
+	// Check for duplicated index in previousCompounding
+	previousCompoundingIndexMap := make(map[string]struct{})
+
+	for _, elem := range gs.PreviousCompoundingList {
+		index := string(PreviousCompoundingKey(elem.Delegator))
+		if _, ok := previousCompoundingIndexMap[index]; ok {
+			return fmt.Errorf("duplicated index for previousCompounding")
+		}
+		previousCompoundingIndexMap[index] = struct{}{}
 	}
 	// this line is used by starport scaffolding # genesis/types/validate
 

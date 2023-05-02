@@ -30,6 +30,14 @@ func TestGenesisState_Validate(t *testing.T) {
 						Delegator: "1",
 					},
 				},
+				PreviousCompoundingList: []types.PreviousCompounding{
+					{
+						Delegator: "0",
+					},
+					{
+						Delegator: "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -38,6 +46,20 @@ func TestGenesisState_Validate(t *testing.T) {
 			desc: "duplicated compoundSettings",
 			genState: &types.GenesisState{
 				CompoundSettingsList: []types.CompoundSettings{
+					{
+						Delegator: "0",
+					},
+					{
+						Delegator: "0",
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated previousCompounding",
+			genState: &types.GenesisState{
+				PreviousCompoundingList: []types.PreviousCompounding{
 					{
 						Delegator: "0",
 					},

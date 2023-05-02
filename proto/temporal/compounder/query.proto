@@ -10,6 +10,7 @@ import "temporal/compounder/compound_settings.proto";
 import "temporal/compounder/frequency.proto";
 import "temporal/compounder/validator_setting.proto";
 import "cosmos/base/v1beta1/coin.proto";
+import "temporal/compounder/previous_compounding.proto";
 
 option go_package = "temporal/x/compounder/types";
 
@@ -29,6 +30,16 @@ service Query {
   }
   rpc CompoundSettingsAll (QueryAllCompoundSettingsRequest) returns (QueryAllCompoundSettingsResponse) {
     option (google.api.http).get = "/temporal/compounder/compound_settings";
+  
+  }
+  
+  // Queries a list of PreviousCompounding items.
+  rpc PreviousCompounding    (QueryGetPreviousCompoundingRequest) returns (QueryGetPreviousCompoundingResponse) {
+    option (google.api.http).get = "/temporal/compounder/previous_compounding/{delegator}";
+  
+  }
+  rpc PreviousCompoundingAll (QueryAllPreviousCompoundingRequest) returns (QueryAllPreviousCompoundingResponse) {
+    option (google.api.http).get = "/temporal/compounder/previous_compounding";
   
   }
 }
@@ -57,5 +68,22 @@ message QueryAllCompoundSettingsRequest {
 message QueryAllCompoundSettingsResponse {
   repeated CompoundSettings                       compoundSettings = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination       = 2;
+}
+
+message QueryGetPreviousCompoundingRequest {
+  string delegator = 1;
+}
+
+message QueryGetPreviousCompoundingResponse {
+  PreviousCompounding previousCompounding = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllPreviousCompoundingRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllPreviousCompoundingResponse {
+  repeated PreviousCompounding                    previousCompounding = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination          = 2;
 }
 

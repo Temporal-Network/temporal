@@ -5,12 +5,14 @@ package temporal.compounder;
 import "gogoproto/gogo.proto";
 import "temporal/compounder/params.proto";
 import "temporal/compounder/compound_settings.proto";
+import "temporal/compounder/previous_compounding.proto";
 
 option go_package = "temporal/x/compounder/types";
 
 // GenesisState defines the compounder module's genesis state.
 message GenesisState {
-           Params           params               = 1 [(gogoproto.nullable) = false];
-  repeated CompoundSettings compoundSettingsList = 2 [(gogoproto.nullable) = false];
+           Params              params                  = 1 [(gogoproto.nullable) = false];
+  repeated CompoundSettings    compoundSettingsList    = 2 [(gogoproto.nullable) = false];
+  repeated PreviousCompounding previousCompoundingList = 3 [(gogoproto.nullable) = false];
 }
 

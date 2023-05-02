@@ -298,6 +298,190 @@ func (m *QueryAllCompoundSettingsResponse) GetPagination() *query.PageResponse {
 	return nil
 }
 
+type QueryGetPreviousCompoundingRequest struct {
+	Delegator string `protobuf:"bytes,1,opt,name=delegator,proto3" json:"delegator,omitempty"`
+}
+
+func (m *QueryGetPreviousCompoundingRequest) Reset()         { *m = QueryGetPreviousCompoundingRequest{} }
+func (m *QueryGetPreviousCompoundingRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetPreviousCompoundingRequest) ProtoMessage()    {}
+func (*QueryGetPreviousCompoundingRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_528d2acfcf7783e7, []int{6}
+}
+func (m *QueryGetPreviousCompoundingRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetPreviousCompoundingRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetPreviousCompoundingRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetPreviousCompoundingRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetPreviousCompoundingRequest.Merge(m, src)
+}
+func (m *QueryGetPreviousCompoundingRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetPreviousCompoundingRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetPreviousCompoundingRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetPreviousCompoundingRequest proto.InternalMessageInfo
+
+func (m *QueryGetPreviousCompoundingRequest) GetDelegator() string {
+	if m != nil {
+		return m.Delegator
+	}
+	return ""
+}
+
+type QueryGetPreviousCompoundingResponse struct {
+	PreviousCompounding PreviousCompounding `protobuf:"bytes,1,opt,name=previousCompounding,proto3" json:"previousCompounding"`
+}
+
+func (m *QueryGetPreviousCompoundingResponse) Reset()         { *m = QueryGetPreviousCompoundingResponse{} }
+func (m *QueryGetPreviousCompoundingResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetPreviousCompoundingResponse) ProtoMessage()    {}
+func (*QueryGetPreviousCompoundingResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_528d2acfcf7783e7, []int{7}
+}
+func (m *QueryGetPreviousCompoundingResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetPreviousCompoundingResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetPreviousCompoundingResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetPreviousCompoundingResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetPreviousCompoundingResponse.Merge(m, src)
+}
+func (m *QueryGetPreviousCompoundingResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetPreviousCompoundingResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetPreviousCompoundingResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetPreviousCompoundingResponse proto.InternalMessageInfo
+
+func (m *QueryGetPreviousCompoundingResponse) GetPreviousCompounding() PreviousCompounding {
+	if m != nil {
+		return m.PreviousCompounding
+	}
+	return PreviousCompounding{}
+}
+
+type QueryAllPreviousCompoundingRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllPreviousCompoundingRequest) Reset()         { *m = QueryAllPreviousCompoundingRequest{} }
+func (m *QueryAllPreviousCompoundingRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllPreviousCompoundingRequest) ProtoMessage()    {}
+func (*QueryAllPreviousCompoundingRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_528d2acfcf7783e7, []int{8}
+}
+func (m *QueryAllPreviousCompoundingRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllPreviousCompoundingRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllPreviousCompoundingRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllPreviousCompoundingRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllPreviousCompoundingRequest.Merge(m, src)
+}
+func (m *QueryAllPreviousCompoundingRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllPreviousCompoundingRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllPreviousCompoundingRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllPreviousCompoundingRequest proto.InternalMessageInfo
+
+func (m *QueryAllPreviousCompoundingRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllPreviousCompoundingResponse struct {
+	PreviousCompounding []PreviousCompounding `protobuf:"bytes,1,rep,name=previousCompounding,proto3" json:"previousCompounding"`
+	Pagination          *query.PageResponse   `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllPreviousCompoundingResponse) Reset()         { *m = QueryAllPreviousCompoundingResponse{} }
+func (m *QueryAllPreviousCompoundingResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllPreviousCompoundingResponse) ProtoMessage()    {}
+func (*QueryAllPreviousCompoundingResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_528d2acfcf7783e7, []int{9}
+}
+func (m *QueryAllPreviousCompoundingResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllPreviousCompoundingResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllPreviousCompoundingResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllPreviousCompoundingResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllPreviousCompoundingResponse.Merge(m, src)
+}
+func (m *QueryAllPreviousCompoundingResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllPreviousCompoundingResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllPreviousCompoundingResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllPreviousCompoundingResponse proto.InternalMessageInfo
+
+func (m *QueryAllPreviousCompoundingResponse) GetPreviousCompounding() []PreviousCompounding {
+	if m != nil {
+		return m.PreviousCompounding
+	}
+	return nil
+}
+
+func (m *QueryAllPreviousCompoundingResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "temporal.compounder.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "temporal.compounder.QueryParamsResponse")
@@ -305,46 +489,58 @@ func init() {
 	proto.RegisterType((*QueryGetCompoundSettingsResponse)(nil), "temporal.compounder.QueryGetCompoundSettingsResponse")
 	proto.RegisterType((*QueryAllCompoundSettingsRequest)(nil), "temporal.compounder.QueryAllCompoundSettingsRequest")
 	proto.RegisterType((*QueryAllCompoundSettingsResponse)(nil), "temporal.compounder.QueryAllCompoundSettingsResponse")
+	proto.RegisterType((*QueryGetPreviousCompoundingRequest)(nil), "temporal.compounder.QueryGetPreviousCompoundingRequest")
+	proto.RegisterType((*QueryGetPreviousCompoundingResponse)(nil), "temporal.compounder.QueryGetPreviousCompoundingResponse")
+	proto.RegisterType((*QueryAllPreviousCompoundingRequest)(nil), "temporal.compounder.QueryAllPreviousCompoundingRequest")
+	proto.RegisterType((*QueryAllPreviousCompoundingResponse)(nil), "temporal.compounder.QueryAllPreviousCompoundingResponse")
 }
 
 func init() { proto.RegisterFile("temporal/compounder/query.proto", fileDescriptor_528d2acfcf7783e7) }
 
 var fileDescriptor_528d2acfcf7783e7 = []byte{
-	// 531 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x94, 0x41, 0x6b, 0x13, 0x41,
-	0x1c, 0xc5, 0x33, 0xad, 0x06, 0x3a, 0x5e, 0xca, 0xa4, 0x07, 0x49, 0xea, 0x26, 0x6c, 0xb1, 0x0d,
-	0x0a, 0x33, 0x34, 0xb6, 0x07, 0xbd, 0x48, 0x2b, 0xd8, 0x6b, 0x8c, 0x07, 0xc1, 0x8b, 0x4c, 0x36,
-	0xe3, 0xb2, 0xb0, 0xd9, 0xd9, 0xee, 0x4c, 0x8a, 0xa1, 0x08, 0xe2, 0x27, 0x10, 0xfc, 0x26, 0x5e,
-	0xbd, 0x7a, 0xe8, 0xb1, 0xe0, 0xc5, 0x93, 0x48, 0xe2, 0xd7, 0x10, 0x64, 0x67, 0xfe, 0xdb, 0xa4,
-	0xdb, 0xdd, 0x6d, 0xc5, 0xdb, 0xb2, 0xf3, 0xfe, 0xef, 0xff, 0x7e, 0x93, 0x97, 0xc5, 0x6d, 0x2d,
-	0xc6, 0xb1, 0x4c, 0x78, 0xc8, 0x3c, 0x39, 0x8e, 0xe5, 0x24, 0x1a, 0x89, 0x84, 0x1d, 0x4f, 0x44,
-	0x32, 0xa5, 0x71, 0x22, 0xb5, 0x24, 0x8d, 0x4c, 0x40, 0x17, 0x82, 0xe6, 0x86, 0x2f, 0x7d, 0x69,
-	0xce, 0x59, 0xfa, 0x64, 0xa5, 0xcd, 0x4d, 0x5f, 0x4a, 0x3f, 0x14, 0x8c, 0xc7, 0x01, 0xe3, 0x51,
-	0x24, 0x35, 0xd7, 0x81, 0x8c, 0x14, 0x9c, 0x3e, 0xf0, 0xa4, 0x1a, 0x4b, 0xc5, 0x86, 0x5c, 0x09,
-	0xbb, 0x81, 0x9d, 0xec, 0x0e, 0x85, 0xe6, 0xbb, 0x2c, 0xe6, 0x7e, 0x10, 0x19, 0x31, 0x68, 0x3b,
-	0x45, 0xa9, 0x62, 0x9e, 0xf0, 0x71, 0xe6, 0xf6, 0xb0, 0x48, 0x91, 0x3d, 0xbe, 0x51, 0x42, 0xeb,
-	0x20, 0xf2, 0x33, 0xf1, 0x56, 0x91, 0xf8, 0x6d, 0x22, 0x8e, 0x27, 0x22, 0xf2, 0xa6, 0x55, 0x8e,
-	0x27, 0x3c, 0x0c, 0x46, 0x5c, 0xcb, 0x24, 0xb3, 0x04, 0xb1, 0xb3, 0x0c, 0x93, 0x61, 0x78, 0x32,
-	0x00, 0x00, 0x77, 0x03, 0x93, 0x17, 0x29, 0x62, 0xdf, 0x64, 0x1e, 0xa4, 0x9b, 0x94, 0x76, 0xfb,
-	0xb8, 0x71, 0xe9, 0xad, 0x8a, 0x65, 0xa4, 0x04, 0x79, 0x8c, 0xeb, 0x96, 0xed, 0x2e, 0xea, 0xa0,
-	0xee, 0x9d, 0x5e, 0x8b, 0x16, 0xdc, 0x39, 0xb5, 0x43, 0x87, 0xb7, 0xce, 0x7e, 0xb6, 0x6b, 0x03,
-	0x18, 0x70, 0x9f, 0xe2, 0xb6, 0x71, 0x3c, 0x12, 0xfa, 0x19, 0x48, 0x5f, 0x02, 0x3b, 0x2c, 0x25,
-	0x9b, 0x78, 0x6d, 0x24, 0x42, 0xe1, 0xa7, 0x14, 0x66, 0xc1, 0xda, 0x60, 0xf1, 0xc2, 0x3d, 0xc5,
-	0x9d, 0x72, 0x03, 0xc8, 0xf7, 0x0a, 0xaf, 0x7b, 0xb9, 0x33, 0x48, 0x7a, 0xbf, 0x30, 0x69, 0xde,
-	0x08, 0x32, 0x5f, 0x31, 0x71, 0x03, 0x48, 0x7f, 0x10, 0x86, 0x65, 0xe9, 0x9f, 0x63, 0xbc, 0x68,
-	0x07, 0x6c, 0xdd, 0xa6, 0xf6, 0xf6, 0x69, 0x7a, 0xfb, 0xd4, 0x96, 0x15, 0x7e, 0x03, 0xda, 0xe7,
-	0xbe, 0x80, 0xd9, 0xc1, 0xd2, 0xa4, 0xfb, 0x0d, 0x01, 0x68, 0xe1, 0xae, 0x4a, 0xd0, 0xd5, 0xff,
-	0x06, 0x25, 0x47, 0x97, 0x28, 0x56, 0x0c, 0xc5, 0xce, 0xb5, 0x14, 0x36, 0xd5, 0x32, 0x46, 0xef,
-	0xcf, 0x2a, 0xbe, 0x6d, 0x30, 0xc8, 0x07, 0x84, 0xeb, 0xb6, 0x12, 0x64, 0xa7, 0x30, 0xdc, 0xd5,
-	0xfe, 0x35, 0xbb, 0xd7, 0x0b, 0xed, 0x4e, 0x77, 0xeb, 0xe3, 0xf7, 0xdf, 0x9f, 0x57, 0xee, 0x91,
-	0x16, 0x2b, 0xff, 0x27, 0x92, 0xaf, 0x08, 0xaf, 0xe7, 0xaf, 0x80, 0xec, 0x95, 0xef, 0x28, 0x2f,
-	0x69, 0x73, 0xff, 0x1f, 0xa7, 0x20, 0xe6, 0x13, 0x13, 0x73, 0x8f, 0xf4, 0xd8, 0x8d, 0x3e, 0x07,
-	0xec, 0xf4, 0xa2, 0xf8, 0xef, 0xc9, 0x17, 0x84, 0x1b, 0x79, 0xe3, 0x83, 0x30, 0xac, 0x02, 0x28,
-	0xef, 0x69, 0x15, 0x40, 0x45, 0xe3, 0x5c, 0x6a, 0x00, 0xba, 0x64, 0xfb, 0x66, 0x00, 0x87, 0xfb,
-	0x67, 0x33, 0x07, 0x9d, 0xcf, 0x1c, 0xf4, 0x6b, 0xe6, 0xa0, 0x4f, 0x73, 0xa7, 0x76, 0x3e, 0x77,
-	0x6a, 0x3f, 0xe6, 0x4e, 0xed, 0x75, 0xeb, 0xc2, 0xe0, 0xdd, 0xb2, 0x85, 0x9e, 0xc6, 0x42, 0x0d,
-	0xeb, 0xe6, 0xab, 0xf4, 0xe8, 0x6f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x2b, 0xa3, 0xa0, 0x1a, 0xee,
-	0x05, 0x00, 0x00,
+	// 668 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x96, 0xcf, 0x6b, 0x13, 0x41,
+	0x14, 0xc7, 0x33, 0xad, 0x56, 0x3a, 0x5e, 0xca, 0xa4, 0x88, 0xa4, 0x75, 0x1b, 0x36, 0xd8, 0x46,
+	0x0b, 0x3b, 0x24, 0x36, 0x44, 0x05, 0x91, 0xa4, 0x60, 0xaf, 0x31, 0x1e, 0x04, 0x2f, 0x75, 0x92,
+	0x8c, 0xcb, 0xc2, 0x66, 0x67, 0xbb, 0x3b, 0x09, 0x86, 0x22, 0x88, 0x17, 0x3d, 0x0a, 0xfe, 0x27,
+	0x5e, 0x05, 0x4f, 0x82, 0x3d, 0x06, 0xbc, 0x78, 0x12, 0x49, 0xfc, 0x43, 0x64, 0x67, 0x67, 0xf3,
+	0x73, 0x76, 0x93, 0x6a, 0x6e, 0x61, 0xe7, 0xcd, 0xf7, 0x7d, 0x3f, 0xef, 0xbd, 0x7d, 0x1b, 0xb8,
+	0xc7, 0x69, 0xdb, 0x65, 0x1e, 0xb1, 0x71, 0x93, 0xb5, 0x5d, 0xd6, 0x71, 0x5a, 0xd4, 0xc3, 0x67,
+	0x1d, 0xea, 0xf5, 0x0c, 0xd7, 0x63, 0x9c, 0xa1, 0x74, 0x14, 0x60, 0x8c, 0x03, 0x32, 0xdb, 0x26,
+	0x33, 0x99, 0x38, 0xc7, 0xc1, 0xaf, 0x30, 0x34, 0xb3, 0x6b, 0x32, 0x66, 0xda, 0x14, 0x13, 0xd7,
+	0xc2, 0xc4, 0x71, 0x18, 0x27, 0xdc, 0x62, 0x8e, 0x2f, 0x4f, 0xef, 0x36, 0x99, 0xdf, 0x66, 0x3e,
+	0x6e, 0x10, 0x9f, 0x86, 0x19, 0x70, 0xb7, 0xd0, 0xa0, 0x9c, 0x14, 0xb0, 0x4b, 0x4c, 0xcb, 0x11,
+	0xc1, 0x32, 0x36, 0xab, 0x72, 0xe5, 0x12, 0x8f, 0xb4, 0x23, 0xb5, 0x43, 0x55, 0x44, 0xf4, 0xf3,
+	0xd4, 0xa7, 0x9c, 0x5b, 0x8e, 0x19, 0x05, 0xe7, 0x54, 0xc1, 0xaf, 0x3c, 0x7a, 0xd6, 0xa1, 0x4e,
+	0xb3, 0x97, 0xa4, 0xd8, 0x25, 0xb6, 0xd5, 0x22, 0x9c, 0x79, 0x91, 0xa4, 0x0c, 0xd6, 0x26, 0x61,
+	0x22, 0x8c, 0x26, 0xb3, 0x22, 0x00, 0x43, 0x09, 0xe0, 0xd1, 0xae, 0xc5, 0x3a, 0xfe, 0x69, 0xf4,
+	0x6c, 0xa4, 0xa7, 0x6f, 0x43, 0xf4, 0x34, 0x28, 0x49, 0x4d, 0x30, 0xd6, 0x03, 0x67, 0x3e, 0xd7,
+	0x6b, 0x30, 0x3d, 0xf5, 0xd4, 0x77, 0x99, 0xe3, 0x53, 0xf4, 0x00, 0x6e, 0x84, 0xb5, 0xb8, 0x09,
+	0xb2, 0x20, 0x7f, 0xbd, 0xb8, 0x63, 0x28, 0x7a, 0x64, 0x84, 0x97, 0xaa, 0x57, 0x2e, 0x7e, 0xed,
+	0xa5, 0xea, 0xf2, 0x82, 0xfe, 0x18, 0xee, 0x09, 0xc5, 0x13, 0xca, 0x8f, 0x65, 0xe8, 0x33, 0x59,
+	0x2b, 0x99, 0x14, 0xed, 0xc2, 0xcd, 0x16, 0xb5, 0xa9, 0x19, 0x50, 0x8b, 0x04, 0x9b, 0xf5, 0xf1,
+	0x03, 0xfd, 0x1c, 0x66, 0xe3, 0x05, 0xa4, 0xbf, 0xe7, 0x70, 0xab, 0x39, 0x73, 0x26, 0x9d, 0xde,
+	0x56, 0x3a, 0x9d, 0x15, 0x92, 0x9e, 0xe7, 0x44, 0x74, 0x4b, 0xba, 0xaf, 0xd8, 0x76, 0x9c, 0xfb,
+	0x27, 0x10, 0x8e, 0xa7, 0x49, 0x66, 0xdd, 0x37, 0xc2, 0x6e, 0x19, 0x41, 0xb7, 0x8c, 0x70, 0xb8,
+	0x65, 0xcf, 0x8c, 0x1a, 0x31, 0xa9, 0xbc, 0x5b, 0x9f, 0xb8, 0xa9, 0x7f, 0x03, 0x12, 0x54, 0x99,
+	0x2b, 0x11, 0x74, 0xfd, 0xbf, 0x41, 0xd1, 0xc9, 0x14, 0xc5, 0x9a, 0xa0, 0x38, 0x58, 0x48, 0x11,
+	0xba, 0x9a, 0xc2, 0xa8, 0x42, 0x3d, 0x6a, 0x57, 0x4d, 0x4e, 0xdf, 0xf1, 0x78, 0xf8, 0x96, 0x6b,
+	0xf9, 0x7b, 0x00, 0x73, 0x89, 0x22, 0xb2, 0x1a, 0x2f, 0x61, 0xda, 0x9d, 0x3f, 0x96, 0x3d, 0xc8,
+	0xab, 0x67, 0x74, 0x3e, 0x5e, 0xd6, 0x44, 0x25, 0xa5, 0xdb, 0x92, 0xa6, 0x62, 0xdb, 0x09, 0x34,
+	0xab, 0x1a, 0x81, 0x7e, 0xc4, 0x1d, 0x97, 0x6e, 0x11, 0xf7, 0xfa, 0x8a, 0xb8, 0x57, 0x36, 0x0e,
+	0xc5, 0x0f, 0xd7, 0xe0, 0x55, 0x81, 0x84, 0xde, 0x02, 0xb8, 0x11, 0x6e, 0x08, 0x74, 0xa0, 0xb4,
+	0x38, 0xbf, 0x8e, 0x32, 0xf9, 0xc5, 0x81, 0x61, 0x4e, 0x3d, 0xf7, 0xee, 0xc7, 0x9f, 0x4f, 0x6b,
+	0xb7, 0xd0, 0x0e, 0x8e, 0x5f, 0xe4, 0xe8, 0x0b, 0x80, 0x5b, 0xb3, 0x6f, 0x04, 0x3a, 0x8a, 0xcf,
+	0x11, 0xbf, 0xb3, 0x32, 0xa5, 0x4b, 0xde, 0x92, 0x36, 0x1f, 0x0a, 0x9b, 0x47, 0xa8, 0x88, 0x97,
+	0xfa, 0x9a, 0xe0, 0xf3, 0xd1, 0x4b, 0xf1, 0x06, 0x7d, 0x06, 0x30, 0x3d, 0x2b, 0x5c, 0xb1, 0xed,
+	0x24, 0x80, 0xf8, 0xb5, 0x95, 0x04, 0x90, 0xb0, 0x80, 0x74, 0x43, 0x00, 0xe4, 0xd1, 0xfe, 0x72,
+	0x00, 0xe8, 0x3b, 0x80, 0x69, 0xc5, 0xec, 0xa1, 0x72, 0x62, 0xfd, 0xe2, 0xdf, 0xb5, 0xcc, 0xfd,
+	0xcb, 0x5f, 0x94, 0xd6, 0x1f, 0x09, 0xeb, 0x65, 0x54, 0xc2, 0xcb, 0x7e, 0x2a, 0xa7, 0xca, 0xff,
+	0x15, 0xc0, 0x1b, 0x0a, 0xf9, 0xa0, 0x03, 0xe5, 0xc4, 0x5a, 0xfe, 0x1b, 0x4c, 0xf2, 0x0a, 0xd0,
+	0x0b, 0x02, 0xe6, 0x10, 0xdd, 0x59, 0x1a, 0xa6, 0x5a, 0xba, 0x18, 0x68, 0xa0, 0x3f, 0xd0, 0xc0,
+	0xef, 0x81, 0x06, 0x3e, 0x0e, 0xb5, 0x54, 0x7f, 0xa8, 0xa5, 0x7e, 0x0e, 0xb5, 0xd4, 0x8b, 0x9d,
+	0x91, 0xc6, 0xeb, 0x49, 0x15, 0xde, 0x73, 0xa9, 0xdf, 0xd8, 0x10, 0xff, 0x17, 0xee, 0xfd, 0x0d,
+	0x00, 0x00, 0xff, 0xff, 0x62, 0x4c, 0x76, 0x2a, 0xb8, 0x09, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -364,6 +560,9 @@ type QueryClient interface {
 	// Queries a list of CompoundSettings items.
 	CompoundSettings(ctx context.Context, in *QueryGetCompoundSettingsRequest, opts ...grpc.CallOption) (*QueryGetCompoundSettingsResponse, error)
 	CompoundSettingsAll(ctx context.Context, in *QueryAllCompoundSettingsRequest, opts ...grpc.CallOption) (*QueryAllCompoundSettingsResponse, error)
+	// Queries a list of PreviousCompounding items.
+	PreviousCompounding(ctx context.Context, in *QueryGetPreviousCompoundingRequest, opts ...grpc.CallOption) (*QueryGetPreviousCompoundingResponse, error)
+	PreviousCompoundingAll(ctx context.Context, in *QueryAllPreviousCompoundingRequest, opts ...grpc.CallOption) (*QueryAllPreviousCompoundingResponse, error)
 }
 
 type queryClient struct {
@@ -401,6 +600,24 @@ func (c *queryClient) CompoundSettingsAll(ctx context.Context, in *QueryAllCompo
 	return out, nil
 }
 
+func (c *queryClient) PreviousCompounding(ctx context.Context, in *QueryGetPreviousCompoundingRequest, opts ...grpc.CallOption) (*QueryGetPreviousCompoundingResponse, error) {
+	out := new(QueryGetPreviousCompoundingResponse)
+	err := c.cc.Invoke(ctx, "/temporal.compounder.Query/PreviousCompounding", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) PreviousCompoundingAll(ctx context.Context, in *QueryAllPreviousCompoundingRequest, opts ...grpc.CallOption) (*QueryAllPreviousCompoundingResponse, error) {
+	out := new(QueryAllPreviousCompoundingResponse)
+	err := c.cc.Invoke(ctx, "/temporal.compounder.Query/PreviousCompoundingAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
@@ -408,6 +625,9 @@ type QueryServer interface {
 	// Queries a list of CompoundSettings items.
 	CompoundSettings(context.Context, *QueryGetCompoundSettingsRequest) (*QueryGetCompoundSettingsResponse, error)
 	CompoundSettingsAll(context.Context, *QueryAllCompoundSettingsRequest) (*QueryAllCompoundSettingsResponse, error)
+	// Queries a list of PreviousCompounding items.
+	PreviousCompounding(context.Context, *QueryGetPreviousCompoundingRequest) (*QueryGetPreviousCompoundingResponse, error)
+	PreviousCompoundingAll(context.Context, *QueryAllPreviousCompoundingRequest) (*QueryAllPreviousCompoundingResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -422,6 +642,12 @@ func (*UnimplementedQueryServer) CompoundSettings(ctx context.Context, req *Quer
 }
 func (*UnimplementedQueryServer) CompoundSettingsAll(ctx context.Context, req *QueryAllCompoundSettingsRequest) (*QueryAllCompoundSettingsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CompoundSettingsAll not implemented")
+}
+func (*UnimplementedQueryServer) PreviousCompounding(ctx context.Context, req *QueryGetPreviousCompoundingRequest) (*QueryGetPreviousCompoundingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PreviousCompounding not implemented")
+}
+func (*UnimplementedQueryServer) PreviousCompoundingAll(ctx context.Context, req *QueryAllPreviousCompoundingRequest) (*QueryAllPreviousCompoundingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PreviousCompoundingAll not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -482,6 +708,42 @@ func _Query_CompoundSettingsAll_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_PreviousCompounding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetPreviousCompoundingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).PreviousCompounding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.compounder.Query/PreviousCompounding",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).PreviousCompounding(ctx, req.(*QueryGetPreviousCompoundingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_PreviousCompoundingAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllPreviousCompoundingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).PreviousCompoundingAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.compounder.Query/PreviousCompoundingAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).PreviousCompoundingAll(ctx, req.(*QueryAllPreviousCompoundingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "temporal.compounder.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -497,6 +759,14 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CompoundSettingsAll",
 			Handler:    _Query_CompoundSettingsAll_Handler,
+		},
+		{
+			MethodName: "PreviousCompounding",
+			Handler:    _Query_PreviousCompounding_Handler,
+		},
+		{
+			MethodName: "PreviousCompoundingAll",
+			Handler:    _Query_PreviousCompoundingAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -706,6 +976,153 @@ func (m *QueryAllCompoundSettingsResponse) MarshalToSizedBuffer(dAtA []byte) (in
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetPreviousCompoundingRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetPreviousCompoundingRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetPreviousCompoundingRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Delegator) > 0 {
+		i -= len(m.Delegator)
+		copy(dAtA[i:], m.Delegator)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Delegator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetPreviousCompoundingResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetPreviousCompoundingResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetPreviousCompoundingResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.PreviousCompounding.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllPreviousCompoundingRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllPreviousCompoundingRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllPreviousCompoundingRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllPreviousCompoundingResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllPreviousCompoundingResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllPreviousCompoundingResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.PreviousCompounding) > 0 {
+		for iNdEx := len(m.PreviousCompounding) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.PreviousCompounding[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -782,6 +1199,62 @@ func (m *QueryAllCompoundSettingsResponse) Size() (n int) {
 	_ = l
 	if len(m.CompoundSettings) > 0 {
 		for _, e := range m.CompoundSettings {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetPreviousCompoundingRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Delegator)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetPreviousCompoundingResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.PreviousCompounding.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllPreviousCompoundingRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllPreviousCompoundingResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.PreviousCompounding) > 0 {
+		for _, e := range m.PreviousCompounding {
 			l = e.Size()
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -1243,6 +1716,377 @@ func (m *QueryAllCompoundSettingsResponse) Unmarshal(dAtA []byte) error {
 			}
 			m.CompoundSettings = append(m.CompoundSettings, CompoundSettings{})
 			if err := m.CompoundSettings[len(m.CompoundSettings)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetPreviousCompoundingRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetPreviousCompoundingRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetPreviousCompoundingRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Delegator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Delegator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetPreviousCompoundingResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetPreviousCompoundingResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetPreviousCompoundingResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PreviousCompounding", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.PreviousCompounding.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllPreviousCompoundingRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllPreviousCompoundingRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllPreviousCompoundingRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllPreviousCompoundingResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllPreviousCompoundingResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllPreviousCompoundingResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PreviousCompounding", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.PreviousCompounding = append(m.PreviousCompounding, PreviousCompounding{})
+			if err := m.PreviousCompounding[len(m.PreviousCompounding)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

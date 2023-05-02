@@ -22,6 +22,14 @@ func TestGenesis(t *testing.T) {
 				Delegator: "1",
 			},
 		},
+		PreviousCompoundingList: []types.PreviousCompounding{
+			{
+				Delegator: "0",
+			},
+			{
+				Delegator: "1",
+			},
+		},
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -34,5 +42,6 @@ func TestGenesis(t *testing.T) {
 	nullify.Fill(got)
 
 	require.ElementsMatch(t, genesisState.CompoundSettingsList, got.CompoundSettingsList)
+	require.ElementsMatch(t, genesisState.PreviousCompoundingList, got.PreviousCompoundingList)
 	// this line is used by starport scaffolding # genesis/test/assert
 }
