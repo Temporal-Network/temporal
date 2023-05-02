@@ -1,0 +1,13 @@
+syntax = "proto3";
+package temporal.compounder;
+
+option go_package = "temporal/x/compounder/types";
+import "gogoproto/gogo.proto"; 
+import "cosmos/base/v1beta1/coin.proto"; 
+
+message StakingCompoundAction {
+  
+  string delegator = 1; 
+  string validatorAddress = 2; 
+  cosmos.base.v1beta1.Coin balance = 3 [(gogoproto.nullable) = false]; 
+}
