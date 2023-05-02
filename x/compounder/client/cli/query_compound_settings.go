@@ -44,7 +44,7 @@ func CmdListCompoundSettings() *cobra.Command {
 
 func CmdShowCompoundSettings() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "show-compound-settings [index-123]",
+		Use:   "show-compound-settings [delegator]",
 		Short: "shows a CompoundSettings",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
@@ -52,10 +52,10 @@ func CmdShowCompoundSettings() *cobra.Command {
 
 			queryClient := types.NewQueryClient(clientCtx)
 
-			argIndex123 := args[0]
+			argDelegator := args[0]
 
 			params := &types.QueryGetCompoundSettingsRequest{
-				Index123: argIndex123,
+				Delegator: argDelegator,
 			}
 
 			res, err := queryClient.CompoundSettings(context.Background(), params)

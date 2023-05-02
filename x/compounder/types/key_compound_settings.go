@@ -11,12 +11,12 @@ const (
 
 // CompoundSettingsKey returns the store key to retrieve a CompoundSettings from the index fields
 func CompoundSettingsKey(
-	index123 string,
+	delegator string,
 ) []byte {
 	var key []byte
 
-	index123Bytes := []byte(index123)
-	key = append(key, index123Bytes...)
+	delegatorBytes := []byte(delegator)
+	key = append(key, delegatorBytes...)
 	key = append(key, []byte("/")...)
 
 	return key

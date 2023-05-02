@@ -12,13 +12,10 @@ import (
 
 func CmdCreateCompoundSettings() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-compound-settings [index-123] [validator-settings] [amount-to-remain] [frequency]",
+		Use:   "create-compound-settings [delegator] [validator-settings] [amount-to-remain] [frequency]",
 		Short: "Create a new CompoundSettings",
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			// Get indexes
-			indexIndex123 := args[0]
-
 			// Get value arguments
 			argValidatorSettings := new(types.ValidatorSetting)
 			err = json.Unmarshal([]byte(args[1]), argValidatorSettings)
@@ -42,7 +39,6 @@ func CmdCreateCompoundSettings() *cobra.Command {
 
 			msg := types.NewMsgCreateCompoundSettings(
 				clientCtx.GetFromAddress().String(),
-				indexIndex123,
 				argValidatorSettings,
 				argAmountToRemain,
 				argFrequency,
@@ -61,13 +57,10 @@ func CmdCreateCompoundSettings() *cobra.Command {
 
 func CmdUpdateCompoundSettings() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-compound-settings [index-123] [validator-settings] [amount-to-remain] [frequency]",
+		Use:   "update-compound-settings [delegator] [validator-settings] [amount-to-remain] [frequency]",
 		Short: "Update a CompoundSettings",
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			// Get indexes
-			indexIndex123 := args[0]
-
 			// Get value arguments
 			argValidatorSettings := new(types.ValidatorSetting)
 			err = json.Unmarshal([]byte(args[1]), argValidatorSettings)
@@ -91,7 +84,6 @@ func CmdUpdateCompoundSettings() *cobra.Command {
 
 			msg := types.NewMsgUpdateCompoundSettings(
 				clientCtx.GetFromAddress().String(),
-				indexIndex123,
 				argValidatorSettings,
 				argAmountToRemain,
 				argFrequency,
@@ -114,8 +106,6 @@ func CmdDeleteCompoundSettings() *cobra.Command {
 		Short: "Delete a CompoundSettings",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			indexIndex123 := args[0]
-
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
@@ -123,7 +113,6 @@ func CmdDeleteCompoundSettings() *cobra.Command {
 
 			msg := types.NewMsgDeleteCompoundSettings(
 				clientCtx.GetFromAddress().String(),
-				indexIndex123,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err

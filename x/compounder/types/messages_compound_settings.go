@@ -15,7 +15,6 @@ var _ sdk.Msg = &MsgCreateCompoundSettings{}
 
 func NewMsgCreateCompoundSettings(
 	delegator string,
-	index123 string,
 	validatorSettings *ValidatorSetting,
 	amountToRemain sdk.Coin,
 	frequency *Frequency,
@@ -23,7 +22,6 @@ func NewMsgCreateCompoundSettings(
 ) *MsgCreateCompoundSettings {
 	return &MsgCreateCompoundSettings{
 		Delegator:         delegator,
-		Index123:          index123,
 		ValidatorSettings: validatorSettings,
 		AmountToRemain:    amountToRemain,
 		Frequency:         frequency,
@@ -63,7 +61,6 @@ var _ sdk.Msg = &MsgUpdateCompoundSettings{}
 
 func NewMsgUpdateCompoundSettings(
 	delegator string,
-	index123 string,
 	validatorSettings *ValidatorSetting,
 	amountToRemain sdk.Coin,
 	frequency *Frequency,
@@ -71,7 +68,6 @@ func NewMsgUpdateCompoundSettings(
 ) *MsgUpdateCompoundSettings {
 	return &MsgUpdateCompoundSettings{
 		Delegator:         delegator,
-		Index123:          index123,
 		ValidatorSettings: validatorSettings,
 		AmountToRemain:    amountToRemain,
 		Frequency:         frequency,
@@ -111,12 +107,10 @@ var _ sdk.Msg = &MsgDeleteCompoundSettings{}
 
 func NewMsgDeleteCompoundSettings(
 	delegator string,
-	index123 string,
 
 ) *MsgDeleteCompoundSettings {
 	return &MsgDeleteCompoundSettings{
 		Delegator: delegator,
-		Index123:  index123,
 	}
 }
 func (msg *MsgDeleteCompoundSettings) Route() string {

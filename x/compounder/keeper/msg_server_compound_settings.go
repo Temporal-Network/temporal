@@ -14,15 +14,14 @@ func (k msgServer) CreateCompoundSettings(goCtx context.Context, msg *types.MsgC
 	// Check if the value already exists
 	_, isFound := k.GetCompoundSettings(
 		ctx,
-		msg.Index123,
+		msg.Delegator,
 	)
 	if isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "delegator already has a CompoundSettings defined, use MsgUpdateCompoundSettings instead")
 	}
 
 	var compoundSettings = types.CompoundSettings{
 		Delegator:         msg.Delegator,
-		Index123:          msg.Index123,
 		ValidatorSettings: msg.ValidatorSettings,
 		AmountToRemain:    msg.AmountToRemain,
 		Frequency:         msg.Frequency,
@@ -41,10 +40,10 @@ func (k msgServer) UpdateCompoundSettings(goCtx context.Context, msg *types.MsgU
 	// Check if the value exists
 	valFound, isFound := k.GetCompoundSettings(
 		ctx,
-		msg.Index123,
+		msg.Delegator,
 	)
 	if !isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
+		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "can't find CompoundSettings for Delegator")
 	}
 
 	// Checks if the the msg delegator is the same as the current owner
@@ -54,7 +53,6 @@ func (k msgServer) UpdateCompoundSettings(goCtx context.Context, msg *types.MsgU
 
 	var compoundSettings = types.CompoundSettings{
 		Delegator:         msg.Delegator,
-		Index123:          msg.Index123,
 		ValidatorSettings: msg.ValidatorSettings,
 		AmountToRemain:    msg.AmountToRemain,
 		Frequency:         msg.Frequency,
@@ -71,7 +69,7 @@ func (k msgServer) DeleteCompoundSettings(goCtx context.Context, msg *types.MsgD
 	// Check if the value exists
 	valFound, isFound := k.GetCompoundSettings(
 		ctx,
-		msg.Index123,
+		msg.Delegator,
 	)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
@@ -84,7 +82,7 @@ func (k msgServer) DeleteCompoundSettings(goCtx context.Context, msg *types.MsgD
 
 	k.RemoveCompoundSettings(
 		ctx,
-		msg.Index123,
+		msg.Delegator,
 	)
 
 	return &types.MsgDeleteCompoundSettingsResponse{}, nil

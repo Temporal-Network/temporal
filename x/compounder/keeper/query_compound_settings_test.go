@@ -31,21 +31,21 @@ func TestCompoundSettingsQuerySingle(t *testing.T) {
 		{
 			desc: "First",
 			request: &types.QueryGetCompoundSettingsRequest{
-				Index123: msgs[0].Index123,
+				Delegator: msgs[0].Delegator,
 			},
 			response: &types.QueryGetCompoundSettingsResponse{CompoundSettings: msgs[0]},
 		},
 		{
 			desc: "Second",
 			request: &types.QueryGetCompoundSettingsRequest{
-				Index123: msgs[1].Index123,
+				Delegator: msgs[1].Delegator,
 			},
 			response: &types.QueryGetCompoundSettingsResponse{CompoundSettings: msgs[1]},
 		},
 		{
 			desc: "KeyNotFound",
 			request: &types.QueryGetCompoundSettingsRequest{
-				Index123: strconv.Itoa(100000),
+				Delegator: strconv.Itoa(100000),
 			},
 			err: status.Error(codes.NotFound, "not found"),
 		},

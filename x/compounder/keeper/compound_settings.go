@@ -11,20 +11,20 @@ func (k Keeper) SetCompoundSettings(ctx sdk.Context, compoundSettings types.Comp
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.CompoundSettingsKeyPrefix))
 	b := k.cdc.MustMarshal(&compoundSettings)
 	store.Set(types.CompoundSettingsKey(
-		compoundSettings.Index123,
+		compoundSettings.Delegator,
 	), b)
 }
 
 // GetCompoundSettings returns a compoundSettings from its index
 func (k Keeper) GetCompoundSettings(
 	ctx sdk.Context,
-	index123 string,
+	delegator string,
 
 ) (val types.CompoundSettings, found bool) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.CompoundSettingsKeyPrefix))
 
 	b := store.Get(types.CompoundSettingsKey(
-		index123,
+		delegator,
 	))
 	if b == nil {
 		return val, false
@@ -37,12 +37,12 @@ func (k Keeper) GetCompoundSettings(
 // RemoveCompoundSettings removes a compoundSettings from the store
 func (k Keeper) RemoveCompoundSettings(
 	ctx sdk.Context,
-	index123 string,
+	delegator string,
 
 ) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.CompoundSettingsKeyPrefix))
 	store.Delete(types.CompoundSettingsKey(
-		index123,
+		delegator,
 	))
 }
 

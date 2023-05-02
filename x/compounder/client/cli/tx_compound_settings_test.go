@@ -26,15 +26,15 @@ func TestCreateCompoundSettings(t *testing.T) {
 
 	fields := []string{"null", "10token", "null"}
 	for _, tc := range []struct {
-		desc       string
-		idIndex123 string
+		desc      string
+		delegator string
 
 		args []string
 		err  error
 		code uint32
 	}{
 		{
-			idIndex123: strconv.Itoa(0),
+			delegator: strconv.Itoa(0),
 
 			desc: "valid",
 			args: []string{
@@ -47,7 +47,7 @@ func TestCreateCompoundSettings(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex123,
+				tc.delegator,
 			}
 			args = append(args, fields...)
 			args = append(args, tc.args...)
@@ -76,31 +76,68 @@ func TestUpdateCompoundSettings(t *testing.T) {
 		fmt.Sprintf("--%s=%s", flags.FlagBroadcastMode, flags.BroadcastBlock),
 		fmt.Sprintf("--%s=%s", flags.FlagFees, sdk.NewCoins(sdk.NewCoin(net.Config.BondDenom, sdkmath.NewInt(10))).String()),
 	}
-	args := []string{
-		"0",
-	}
-	args = append(args, fields...)
-	args = append(args, common...)
-	_, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdCreateCompoundSettings(), args)
-	require.NoError(t, err)
 
 	for _, tc := range []struct {
-		desc       string
-		idIndex123 string
+		desc      string
+		delegator string
 
 		args []string
 		code uint32
 		err  error
 	}{
 		{
-			desc:       "valid",
-			idIndex123: strconv.Itoa(0),
+			desc:      "valid",
+			delegator: strconv.Itoa(0),
 
 			args: common,
 		},
+	} {
+		t.Run(tc.desc, func(t *testing.T) {
+			args := []string{
+				tc.delegator,
+			}
+			args = append(args, fields...)
+			args = append(args, common...)
+			_, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdCreateCompoundSettings(), args)
+			require.NoError(t, err)
+
+			out, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdUpdateCompoundSettings(), args)
+			if tc.err != nil {
+				require.ErrorIs(t, err, tc.err)
+			} else {
+				require.NoError(t, err)
+				var resp sdk.TxResponse
+				require.NoError(t, ctx.Codec.UnmarshalJSON(out.Bytes(), &resp))
+				require.Equal(t, tc.code, resp.Code)
+			}
+		})
+	}
+}
+
+func TestUpdateCompoundSettingsNoCreate(t *testing.T) {
+	net := network.New(t)
+	val := net.Validators[0]
+	ctx := val.ClientCtx
+
+	fields := []string{"null", "10token", "null"}
+	common := []string{
+		fmt.Sprintf("--%s=%s", flags.FlagFrom, val.Address.String()),
+		fmt.Sprintf("--%s=true", flags.FlagSkipConfirmation),
+		fmt.Sprintf("--%s=%s", flags.FlagBroadcastMode, flags.BroadcastBlock),
+		fmt.Sprintf("--%s=%s", flags.FlagFees, sdk.NewCoins(sdk.NewCoin(net.Config.BondDenom, sdkmath.NewInt(10))).String()),
+	}
+
+	for _, tc := range []struct {
+		desc      string
+		delegator string
+
+		args []string
+		code uint32
+		err  error
+	}{
 		{
-			desc:       "key not found",
-			idIndex123: strconv.Itoa(100000),
+			desc:      "key not found",
+			delegator: strconv.Itoa(100000),
 
 			args: common,
 			code: sdkerrors.ErrKeyNotFound.ABCICode(),
@@ -108,7 +145,7 @@ func TestUpdateCompoundSettings(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex123,
+				tc.delegator,
 			}
 			args = append(args, fields...)
 			args = append(args, tc.args...)
@@ -147,22 +184,22 @@ func TestDeleteCompoundSettings(t *testing.T) {
 	require.NoError(t, err)
 
 	for _, tc := range []struct {
-		desc       string
-		idIndex123 string
+		desc      string
+		delegator string
 
 		args []string
 		code uint32
 		err  error
 	}{
 		{
-			desc:       "valid",
-			idIndex123: strconv.Itoa(0),
+			desc:      "valid",
+			delegator: strconv.Itoa(0),
 
 			args: common,
 		},
 		{
-			desc:       "key not found",
-			idIndex123: strconv.Itoa(100000),
+			desc:      "key not found",
+			delegator: strconv.Itoa(100000),
 
 			args: common,
 			code: sdkerrors.ErrKeyNotFound.ABCICode(),
@@ -170,7 +207,7 @@ func TestDeleteCompoundSettings(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex123,
+				tc.delegator,
 			}
 			args = append(args, tc.args...)
 			out, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdDeleteCompoundSettings(), args)

@@ -43878,7 +43878,7 @@ paths:
                 items:
                   type: object
                   properties:
-                    index123:
+                    delegator:
                       type: string
                     validatorSettings:
                       type: object
@@ -43911,8 +43911,6 @@ paths:
                           format: int32
                         secondsOrBlocks:
                           type: string
-                    delegator:
-                      type: string
               pagination:
                 type: object
                 properties:
@@ -44018,7 +44016,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /temporal/compounder/compound_settings/{index123}:
+  /temporal/compounder/compound_settings/{delegator}:
     get:
       summary: Queries a list of CompoundSettings items.
       operationId: TemporalCompounderCompoundSettings
@@ -44031,7 +44029,7 @@ paths:
               compoundSettings:
                 type: object
                 properties:
-                  index123:
+                  delegator:
                     type: string
                   validatorSettings:
                     type: object
@@ -44064,8 +44062,6 @@ paths:
                         format: int32
                       secondsOrBlocks:
                         type: string
-                  delegator:
-                    type: string
         default:
           description: An unexpected error response.
           schema:
@@ -44085,7 +44081,7 @@ paths:
                       type: string
                   additionalProperties: {}
       parameters:
-        - name: index123
+        - name: delegator
           in: path
           required: true
           type: string
@@ -71909,7 +71905,7 @@ definitions:
   temporal.compounder.CompoundSettings:
     type: object
     properties:
-      index123:
+      delegator:
         type: string
       validatorSettings:
         type: object
@@ -71939,8 +71935,6 @@ definitions:
             format: int32
           secondsOrBlocks:
             type: string
-      delegator:
-        type: string
   temporal.compounder.Frequency:
     type: object
     properties:
@@ -71966,7 +71960,7 @@ definitions:
         items:
           type: object
           properties:
-            index123:
+            delegator:
               type: string
             validatorSettings:
               type: object
@@ -71999,8 +71993,6 @@ definitions:
                   format: int32
                 secondsOrBlocks:
                   type: string
-            delegator:
-              type: string
       pagination:
         type: object
         properties:
@@ -72033,7 +72025,7 @@ definitions:
       compoundSettings:
         type: object
         properties:
-          index123:
+          delegator:
             type: string
           validatorSettings:
             type: object
@@ -72066,8 +72058,6 @@ definitions:
                 format: int32
               secondsOrBlocks:
                 type: string
-          delegator:
-            type: string
   temporal.compounder.QueryParamsResponse:
     type: object
     properties:

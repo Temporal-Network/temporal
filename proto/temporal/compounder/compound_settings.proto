@@ -8,10 +8,9 @@ import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto"; 
 
 message CompoundSettings {
-  string index123 = 1; 
+  string delegator = 1;
   ValidatorSetting validatorSettings = 2; 
   cosmos.base.v1beta1.Coin amountToRemain = 3 [(gogoproto.nullable) = false]; 
-  Frequency frequency = 4; 
-  string delegator = 5;
+  Frequency frequency = 4;
 }
 
