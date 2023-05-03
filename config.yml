@@ -1,21 +1,27 @@
 version: 1
+genesis:
+  app_state:
+    staking:
+      params:
+        bond_denom: "utprl"
+    mint:
+      params:
+        mint_denom: "utprl"
+
 accounts:
 - name: alice
   coins:
-  - 20000token
-  - 200000000stake
+  - 200000000utprl
 - name: bob
   coins:
-  - 10000token
-  - 100000000stake
+  - 100000000utprl
 client:
   openapi:
     path: docs/static/openapi.yml
 faucet:
   name: bob
   coins:
-  - 5token
-  - 100000stake
+  - 100000utprl
 validators:
 - name: alice
-  bonded: 100000000stake
+  bonded: 100000000utprl
