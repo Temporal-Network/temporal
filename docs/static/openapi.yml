@@ -43881,13 +43881,14 @@ paths:
                     delegator:
                       type: string
                     validatorSettings:
-                      type: object
-                      properties:
-                        validatorAddress:
-                          type: string
-                        percentToCompound:
-                          type: integer
-                          format: int32
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          validatorAddress:
+                            type: string
+                          percentToCompound:
+                            type: string
                     amountToRemain:
                       type: object
                       properties:
@@ -43907,8 +43908,7 @@ paths:
                       type: object
                       properties:
                         onceEvery:
-                          type: integer
-                          format: int32
+                          type: string
                         secondsOrBlocks:
                           type: string
               pagination:
@@ -44032,13 +44032,14 @@ paths:
                   delegator:
                     type: string
                   validatorSettings:
-                    type: object
-                    properties:
-                      validatorAddress:
-                        type: string
-                      percentToCompound:
-                        type: integer
-                        format: int32
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        validatorAddress:
+                          type: string
+                        percentToCompound:
+                          type: string
                   amountToRemain:
                     type: object
                     properties:
@@ -44058,8 +44059,7 @@ paths:
                     type: object
                     properties:
                       onceEvery:
-                        type: integer
-                        format: int32
+                        type: string
                       secondsOrBlocks:
                         type: string
         default:
@@ -44141,9 +44141,9 @@ paths:
                       type: string
                     timestamp:
                       type: string
+                      format: date-time
                     blockHeight:
-                      type: integer
-                      format: int32
+                      type: string
               pagination:
                 type: object
                 properties:
@@ -44266,9 +44266,9 @@ paths:
                     type: string
                   timestamp:
                     type: string
+                    format: date-time
                   blockHeight:
-                    type: integer
-                    format: int32
+                    type: string
         default:
           description: An unexpected error response.
           schema:
@@ -72079,13 +72079,14 @@ definitions:
       delegator:
         type: string
       validatorSettings:
-        type: object
-        properties:
-          validatorAddress:
-            type: string
-          percentToCompound:
-            type: integer
-            format: int32
+        type: array
+        items:
+          type: object
+          properties:
+            validatorAddress:
+              type: string
+            percentToCompound:
+              type: string
       amountToRemain:
         type: object
         properties:
@@ -72102,16 +72103,14 @@ definitions:
         type: object
         properties:
           onceEvery:
-            type: integer
-            format: int32
+            type: string
           secondsOrBlocks:
             type: string
   temporal.compounder.Frequency:
     type: object
     properties:
       onceEvery:
-        type: integer
-        format: int32
+        type: string
       secondsOrBlocks:
         type: string
   temporal.compounder.MsgCreateCompoundSettingsResponse:
@@ -72130,9 +72129,9 @@ definitions:
         type: string
       timestamp:
         type: string
+        format: date-time
       blockHeight:
-        type: integer
-        format: int32
+        type: string
   temporal.compounder.QueryAllCompoundSettingsResponse:
     type: object
     properties:
@@ -72144,13 +72143,14 @@ definitions:
             delegator:
               type: string
             validatorSettings:
-              type: object
-              properties:
-                validatorAddress:
-                  type: string
-                percentToCompound:
-                  type: integer
-                  format: int32
+              type: array
+              items:
+                type: object
+                properties:
+                  validatorAddress:
+                    type: string
+                  percentToCompound:
+                    type: string
             amountToRemain:
               type: object
               properties:
@@ -72170,8 +72170,7 @@ definitions:
               type: object
               properties:
                 onceEvery:
-                  type: integer
-                  format: int32
+                  type: string
                 secondsOrBlocks:
                   type: string
       pagination:
@@ -72212,9 +72211,9 @@ definitions:
               type: string
             timestamp:
               type: string
+              format: date-time
             blockHeight:
-              type: integer
-              format: int32
+              type: string
       pagination:
         type: object
         properties:
@@ -72250,13 +72249,14 @@ definitions:
           delegator:
             type: string
           validatorSettings:
-            type: object
-            properties:
-              validatorAddress:
-                type: string
-              percentToCompound:
-                type: integer
-                format: int32
+            type: array
+            items:
+              type: object
+              properties:
+                validatorAddress:
+                  type: string
+                percentToCompound:
+                  type: string
           amountToRemain:
             type: object
             properties:
@@ -72276,8 +72276,7 @@ definitions:
             type: object
             properties:
               onceEvery:
-                type: integer
-                format: int32
+                type: string
               secondsOrBlocks:
                 type: string
   temporal.compounder.QueryGetPreviousCompoundingResponse:
@@ -72290,9 +72289,9 @@ definitions:
             type: string
           timestamp:
             type: string
+            format: date-time
           blockHeight:
-            type: integer
-            format: int32
+            type: string
   temporal.compounder.QueryParamsResponse:
     type: object
     properties:
@@ -72306,8 +72305,7 @@ definitions:
       validatorAddress:
         type: string
       percentToCompound:
-        type: integer
-        format: int32
+        type: string
   temporal.yieldmos.DelegationHistory:
     type: object
     properties:

@@ -16,11 +16,7 @@ func (k Keeper) SetPreviousCompounding(ctx sdk.Context, previousCompounding type
 }
 
 // GetPreviousCompounding returns a previousCompounding from its index
-func (k Keeper) GetPreviousCompounding(
-	ctx sdk.Context,
-	delegator string,
-
-) (val types.PreviousCompounding, found bool) {
+func (k Keeper) GetPreviousCompounding(ctx sdk.Context, delegator string) (val types.PreviousCompounding, found bool) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.PreviousCompoundingKeyPrefix))
 
 	b := store.Get(types.PreviousCompoundingKey(
@@ -35,11 +31,7 @@ func (k Keeper) GetPreviousCompounding(
 }
 
 // RemovePreviousCompounding removes a previousCompounding from the store
-func (k Keeper) RemovePreviousCompounding(
-	ctx sdk.Context,
-	delegator string,
-
-) {
+func (k Keeper) RemovePreviousCompounding(ctx sdk.Context, delegator string) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.PreviousCompoundingKeyPrefix))
 	store.Delete(types.PreviousCompoundingKey(
 		delegator,

@@ -19,6 +19,7 @@ func createNPreviousCompounding(keeper *keeper.Keeper, ctx sdk.Context, n int) [
 	items := make([]types.PreviousCompounding, n)
 	for i := range items {
 		items[i].Delegator = strconv.Itoa(i)
+		items[i].BlockHeight = sdk.NewInt(int64(i))
 
 		keeper.SetPreviousCompounding(ctx, items[i])
 	}

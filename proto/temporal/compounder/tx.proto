@@ -18,7 +18,7 @@ service Msg {
 }
 message MsgCreateCompoundSettings {
   string                   delegator         = 1;
-  ValidatorSetting         validatorSettings = 2;
+  repeated ValidatorSetting         validatorSettings = 2;
   cosmos.base.v1beta1.Coin amountToRemain    = 3 [(gogoproto.nullable) = false];
   Frequency                frequency         = 4;
 }
@@ -27,7 +27,7 @@ message MsgCreateCompoundSettingsResponse {}
 
 message MsgUpdateCompoundSettings {
   string                   delegator         = 1;
-  ValidatorSetting         validatorSettings = 2;
+  repeated ValidatorSetting         validatorSettings = 2;
   cosmos.base.v1beta1.Coin amountToRemain    = 3 [(gogoproto.nullable) = false];
   Frequency                frequency         = 4;
 }

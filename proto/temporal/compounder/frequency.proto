@@ -1,10 +1,15 @@
 syntax = "proto3";
 package temporal.compounder;
 
+import "gogoproto/gogo.proto";
+
 option go_package = "temporal/x/compounder/types";
 
 message Frequency {
   
-  int32 onceEvery = 1; 
+  string onceEvery = 1 [
+    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+    (gogoproto.nullable) = false
+  ];
   string secondsOrBlocks = 2; 
 }

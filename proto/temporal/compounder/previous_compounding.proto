@@ -1,12 +1,19 @@
 syntax = "proto3";
 package temporal.compounder;
 
+import "gogoproto/gogo.proto";
+import "google/protobuf/timestamp.proto";
+
 option go_package = "temporal/x/compounder/types";
 
 message PreviousCompounding {
-  string delegator = 1; 
-  string timestamp = 2; 
-  int32 blockHeight = 3; 
-  
+  string delegator = 1;
+  google.protobuf.Timestamp timestamp = 2 [
+    (gogoproto.stdtime) = true,
+    (gogoproto.nullable) = false
+  ];
+  string blockHeight = 3 [
+    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+    (gogoproto.nullable) = false
+  ];   
 }
-

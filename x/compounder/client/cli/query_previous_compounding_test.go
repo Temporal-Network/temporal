@@ -2,6 +2,7 @@ package cli_test
 
 import (
 	"fmt"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	"strconv"
 	"testing"
 
@@ -29,7 +30,8 @@ func networkWithPreviousCompoundingObjects(t *testing.T, n int) (*network.Networ
 
 	for i := 0; i < n; i++ {
 		previousCompounding := types.PreviousCompounding{
-			Delegator: strconv.Itoa(i),
+			Delegator:   strconv.Itoa(i),
+			BlockHeight: sdk.NewInt(int64(i)),
 		}
 		nullify.Fill(&previousCompounding)
 		state.PreviousCompoundingList = append(state.PreviousCompoundingList, previousCompounding)

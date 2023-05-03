@@ -15,7 +15,7 @@ var _ sdk.Msg = &MsgCreateCompoundSettings{}
 
 func NewMsgCreateCompoundSettings(
 	delegator string,
-	validatorSettings *ValidatorSetting,
+	validatorSettings []*ValidatorSetting,
 	amountToRemain sdk.Coin,
 	frequency *Frequency,
 
@@ -61,7 +61,7 @@ var _ sdk.Msg = &MsgUpdateCompoundSettings{}
 
 func NewMsgUpdateCompoundSettings(
 	delegator string,
-	validatorSettings *ValidatorSetting,
+	validatorSettings []*ValidatorSetting,
 	amountToRemain sdk.Coin,
 	frequency *Frequency,
 

@@ -17,11 +17,17 @@ func CmdCreateCompoundSettings() *cobra.Command {
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get value arguments
-			argValidatorSettings := new(types.ValidatorSetting)
-			err = json.Unmarshal([]byte(args[1]), argValidatorSettings)
+			argValidatorSettingsRaw := new([]types.ValidatorSetting)
+			err = json.Unmarshal([]byte(args[1]), argValidatorSettingsRaw)
 			if err != nil {
 				return err
 			}
+
+			argValidatorSettings := make([]*types.ValidatorSetting, 0, 100)
+			for _, vs := range *argValidatorSettingsRaw {
+				argValidatorSettings = append(argValidatorSettings, &vs)
+			}
+
 			argAmountToRemain, err := sdk.ParseCoinNormalized(args[2])
 			if err != nil {
 				return err
@@ -62,11 +68,17 @@ func CmdUpdateCompoundSettings() *cobra.Command {
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get value arguments
-			argValidatorSettings := new(types.ValidatorSetting)
-			err = json.Unmarshal([]byte(args[1]), argValidatorSettings)
+			argValidatorSettingsRaw := new([]types.ValidatorSetting)
+			err = json.Unmarshal([]byte(args[1]), argValidatorSettingsRaw)
 			if err != nil {
 				return err
 			}
+
+			argValidatorSettings := make([]*types.ValidatorSetting, 0, 100)
+			for _, vs := range *argValidatorSettingsRaw {
+				argValidatorSettings = append(argValidatorSettings, &vs)
+			}
+
 			argAmountToRemain, err := sdk.ParseCoinNormalized(args[2])
 			if err != nil {
 				return err
