@@ -45,10 +45,7 @@ func (k Keeper) CompoundSettings(goCtx context.Context, req *types.QueryGetCompo
 	}
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	val, found := k.GetCompoundSettings(
-		ctx,
-		req.Delegator,
-	)
+	val, found := k.GetCompoundSettings(ctx, req.Delegator)
 	if !found {
 		return nil, status.Error(codes.NotFound, "not found")
 	}
