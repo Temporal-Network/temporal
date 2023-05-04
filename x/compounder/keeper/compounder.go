@@ -97,7 +97,7 @@ func (k Keeper) Compound(ctx sdk.Context, cs compTypes.CompoundSettings) error {
 
 // ShouldCompoundingHappen compares the last time a compounding happened
 func (k Keeper) ShouldCompoundingHappen(ctx sdk.Context, cs compTypes.CompoundSettings, blockHeight int64, blockTime time.Time) (bool, error) {
-	if cs.Frequency.IsNil() {
+	if cs.Frequency == nil || cs.Frequency.IsNil() {
 		return true, nil
 	}
 
