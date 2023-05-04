@@ -1,6 +1,7 @@
 package apptesting
 
 import (
+	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	tmtypes "github.com/tendermint/tendermint/proto/tendermint/types"
 	"temporal/app"
@@ -23,4 +24,10 @@ func SetupSuitelessTestHelper() SuitelessAppTestHelper {
 	s.App = app.InitTestApp(true)
 	s.Ctx = s.App.BaseApp.NewContext(false, tmtypes.Header{Height: 1, ChainID: ChainID})
 	return s
+}
+
+func GetRandomAddress() sdk.AccAddress {
+	pk := ed25519.GenPrivKey().PubKey()
+
+	return sdk.AccAddress(pk.Address())
 }

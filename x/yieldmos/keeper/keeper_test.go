@@ -1,7 +1,6 @@
 package keeper_test
 
 import (
-	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	"github.com/cosmos/cosmos-sdk/simapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
@@ -57,7 +56,7 @@ func setupAccounts(app *app.App, ctx sdk.Context, addressAmount int) []sdk.AccAd
 	var addresses []sdk.AccAddress
 
 	for i := 0; i < addressAmount; i++ {
-		addresses = append(addresses, getRandomAddress())
+		addresses = append(addresses, apptesting.GetRandomAddress())
 	}
 
 	addressAmountInt := sdk.NewInt(int64(addressAmount))
@@ -78,12 +77,6 @@ func setupAccounts(app *app.App, ctx sdk.Context, addressAmount int) []sdk.AccAd
 	}
 
 	return addresses
-}
-
-func getRandomAddress() sdk.AccAddress {
-	pk := ed25519.GenPrivKey().PubKey()
-
-	return sdk.AccAddress(pk.Address())
 }
 
 func TestNewDelegationTimestamp(t *testing.T) {
@@ -108,7 +101,7 @@ func TestNewDelegationHistory(t *testing.T) {
 	s := apptesting.SetupSuitelessTestHelper()
 
 	for i := 0; i <= 1000; i++ {
-		delegatorAddress := getRandomAddress()
+		delegatorAddress := apptesting.GetRandomAddress()
 		delegatedAmount := sdk.NewInt(rand.Int63n(math.MaxInt))
 		delegationTimestamp := s.App.YieldmosKeeper.NewDelegationTimestamp(s.Ctx, delegatedAmount)
 		testDelegationHistory := s.App.YieldmosKeeper.NewDelegationHistory(s.Ctx, delegatorAddress, delegatedAmount)
@@ -126,7 +119,7 @@ func TestAddDelegationTimestamp(t *testing.T) {
 	s := apptesting.SetupSuitelessTestHelper()
 
 	for i := 0; i <= 1000; i++ {
-		delegatorAddress := getRandomAddress()
+		delegatorAddress := apptesting.GetRandomAddress()
 		delegatedAmount := sdk.NewInt(rand.Int63n(math.MaxInt))
 		testDelegationHistory := types.DelegationHistory{
 			Address: delegatorAddress.String(),
@@ -149,7 +142,7 @@ func TestPruneDelegationHistory(t *testing.T) {
 	s := apptesting.SetupSuitelessTestHelper()
 
 	for i := 0; i <= 1000; i++ {
-		delegatorAddress := getRandomAddress()
+		delegatorAddress := apptesting.GetRandomAddress()
 
 		testDelegationHistory := types.DelegationHistory{
 			Address: delegatorAddress.String(),
@@ -175,7 +168,7 @@ func TestAdjustDelegationTimestamps(t *testing.T) {
 	var err error
 
 	for i := 0; i <= 1000; i++ {
-		delegatorAddress := getRandomAddress()
+		delegatorAddress := apptesting.GetRandomAddress()
 
 		testDelegationHistory := types.DelegationHistory{
 			Address: delegatorAddress.String(),
@@ -203,7 +196,7 @@ func TestCalcDelegationHistoryDifference(t *testing.T) {
 	s := apptesting.SetupSuitelessTestHelper()
 
 	for i := 0; i <= 1000; i++ {
-		delegatorAddress := getRandomAddress()
+		delegatorAddress := apptesting.GetRandomAddress()
 		totalDelegatedAmount := sdk.NewInt(0)
 
 		testDelegationHistory := types.DelegationHistory{
