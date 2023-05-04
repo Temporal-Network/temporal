@@ -20,6 +20,10 @@ func (k msgServer) CreateCompoundSettings(goCtx context.Context, msg *types.MsgC
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "delegator already has a CompoundSettings defined, use MsgUpdateCompoundSettings instead")
 	}
 
+	if msg.Frequency != nil {
+		msg.Frequency.OnceEvery = CheckFrequency(msg.Frequency.OnceEvery)
+	}
+
 	var compoundSettings = types.CompoundSettings{
 		Delegator:         msg.Delegator,
 		ValidatorSettings: msg.ValidatorSettings,
@@ -46,6 +50,9 @@ func (k msgServer) UpdateCompoundSettings(goCtx context.Context, msg *types.MsgU
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "can't find CompoundSettings for Delegator")
 	}
 
+	if msg.Frequency != nil {
+		msg.Frequency.OnceEvery = CheckFrequency(msg.Frequency.OnceEvery)
+	}
 	// Checks if the the msg delegator is the same as the current owner
 	if msg.Delegator != valFound.Delegator {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
@@ -86,4 +93,16 @@ func (k msgServer) DeleteCompoundSettings(goCtx context.Context, msg *types.MsgD
 	)
 
 	return &types.MsgDeleteCompoundSettingsResponse{}, nil
+}
+
+// TODO: CheckFrequency needs test coverage
+// CheckFrequency checks to make sure frequency should be no less than X seconds or blocks.
+func CheckFrequency(onceEvery sdk.Int) sdk.Int {
+	// TODO: Change minimumCompoundingFrequency to be a module param
+	minimumCompoundingFrequency := sdk.NewInt(100)
+	if onceEvery.LT(minimumCompoundingFrequency) {
+		return minimumCompoundingFrequency
+	}
+
+	return onceEvery
 }
