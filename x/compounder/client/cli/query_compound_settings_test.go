@@ -2,7 +2,9 @@ package cli_test
 
 import (
 	"fmt"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	"strconv"
+	"temporal/app/apptesting"
 	"testing"
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
@@ -29,7 +31,11 @@ func networkWithCompoundSettingsObjects(t *testing.T, n int) (*network.Network, 
 
 	for i := 0; i < n; i++ {
 		compoundSettings := types.CompoundSettings{
-			Delegator: strconv.Itoa(i),
+			Delegator: apptesting.GetRandomAddress().String(),
+			Frequency: &types.Frequency{
+				OnceEvery:       sdk.NewInt(100),
+				SecondsOrBlocks: "block",
+			},
 		}
 		nullify.Fill(&compoundSettings)
 		state.CompoundSettingsList = append(state.CompoundSettingsList, compoundSettings)
