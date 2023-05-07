@@ -3,9 +3,9 @@
 
 ## Custom Modules
 
-`compounder` module is used to compound `utprl` staked positions. More information can be found [here.](https://github.com/Temporal-Network/temporal/blob/main/x/compounder/README.md)
+[`compounder`](https://github.com/Temporal-Network/temporal/blob/main/x/compounder/README.md) module is used to compound `utprl` staked positions.
 
-`yieldmos` module is used for saving staking history and registering ICA accounts (in progress) and broadcasting ICA messages (in progress). More information can be found [here.](https://github.com/Temporal-Network/temporal/blob/main/x/yieldmos/README.md)
+[`yieldmos`](https://github.com/Temporal-Network/temporal/blob/main/x/yieldmos/README.md) module is used for saving staking history, registering ICA accounts (in progress) and broadcasting ICA messages (in progress).
 
 
 ## How to locally run the chain
