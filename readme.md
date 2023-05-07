@@ -5,8 +5,12 @@
 
 [`compounder`](https://github.com/Temporal-Network/temporal/blob/main/x/compounder/README.md) module is used to compound `utprl` staked positions.
 
-[`yieldmos`](https://github.com/Temporal-Network/temporal/blob/main/x/yieldmos/README.md) module is used for saving staking history, registering ICA accounts (in progress) and broadcasting ICA messages (in progress).
+[`yieldmos`](https://github.com/Temporal-Network/temporal/blob/main/x/yieldmos/README.md) module is used for saving staking history, registering ICA accounts (in 
+progress) and broadcasting ICA messages (in progress).
 
+## Custom Contracts
+
+Osmosis/Mars: https://github.com/kakucodes/delphilabs_hackathon_outpost
 
 ## How to locally run the chain
 
