@@ -20,4 +20,11 @@ ignite chain serve
 
 Various parameters can be configured with `config.yml`. To learn more, see the [Ignite Config docs](https://docs.ignite.com/references/config).
 
+## Attribution
 
+Thank you to the following projects for inspiration and helping us get started:
+
+Osmosis
+Stride
+Mars Hub
+Interchain accounts demo
