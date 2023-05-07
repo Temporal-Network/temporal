@@ -25,6 +25,9 @@ Various parameters can be configured with `config.yml`. To learn more, see the [
 Thank you to the following projects for inspiration and helping us get started:
 
 Osmosis
+
 Stride
+
 Mars Hub
+
 Interchain accounts demo
