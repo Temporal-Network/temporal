@@ -14,7 +14,7 @@ Attempt to register an interchain account on a remote network
 
 Attempt to broadcast an ICA message to a remote network
 
-## New Querries
+## Queries
 
 `DelegationHistoryAll` - Gets all accounts `DelegationHistory`
 
