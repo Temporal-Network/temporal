@@ -15,6 +15,7 @@ type StakingKeeper interface {
 
 // AccountKeeper defines the expected account keeper used for simulations (noalias)
 type AccountKeeper interface {
+	GetModuleAddress(moduleName string) sdk.AccAddress
 	GetAccount(ctx sdk.Context, addr sdk.AccAddress) authTypes.AccountI
 }
 
