@@ -104,19 +104,19 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	compoundermodule "temporal/x/compounder"
-	compoundermodulekeeper "temporal/x/compounder/keeper"
-	compoundermoduletypes "temporal/x/compounder/types"
-	icayieldmosmodule "temporal/x/icayieldmos"
-	icayieldmosmodulekeeper "temporal/x/icayieldmos/keeper"
-	icayieldmosmoduletypes "temporal/x/icayieldmos/types"
-	yieldmosmodule "temporal/x/yieldmos"
-	yieldmosmodulekeeper "temporal/x/yieldmos/keeper"
-	yieldmosmoduletypes "temporal/x/yieldmos/types"
+	compoundermodule "github.com/Temporal-Network/temporal/x/compounder"
+	compoundermodulekeeper "github.com/Temporal-Network/temporal/x/compounder/keeper"
+	compoundermoduletypes "github.com/Temporal-Network/temporal/x/compounder/types"
+	icayieldmosmodule "github.com/Temporal-Network/temporal/x/icayieldmos"
+	icayieldmosmodulekeeper "github.com/Temporal-Network/temporal/x/icayieldmos/keeper"
+	icayieldmosmoduletypes "github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	yieldmosmodule "github.com/Temporal-Network/temporal/x/yieldmos"
+	yieldmosmodulekeeper "github.com/Temporal-Network/temporal/x/yieldmos/keeper"
+	yieldmosmoduletypes "github.com/Temporal-Network/temporal/x/yieldmos/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
-	appparams "temporal/app/params"
-	"temporal/docs"
+	appparams "github.com/Temporal-Network/temporal/app/params"
+	"github.com/Temporal-Network/temporal/docs"
 )
 
 const (

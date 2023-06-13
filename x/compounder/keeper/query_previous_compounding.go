@@ -3,12 +3,12 @@ package keeper
 import (
 	"context"
 
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"temporal/x/compounder/types"
 )
 
 func (k Keeper) PreviousCompoundingAll(goCtx context.Context, req *types.QueryAllPreviousCompoundingRequest) (*types.QueryAllPreviousCompoundingResponse, error) {

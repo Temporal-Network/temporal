@@ -3,11 +3,11 @@ package compounder_test
 import (
 	"testing"
 
+	keepertest "github.com/Temporal-Network/temporal/testutil/keeper"
+	"github.com/Temporal-Network/temporal/testutil/nullify"
+	"github.com/Temporal-Network/temporal/x/compounder"
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 	"github.com/stretchr/testify/require"
-	keepertest "temporal/testutil/keeper"
-	"temporal/testutil/nullify"
-	"temporal/x/compounder"
-	"temporal/x/compounder/types"
 )
 
 func TestGenesis(t *testing.T) {

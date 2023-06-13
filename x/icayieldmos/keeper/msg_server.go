@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"temporal/x/icayieldmos/types"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 )
 
 type msgServer struct {

@@ -13,7 +13,7 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	"temporal/app"
+	"github.com/Temporal-Network/temporal/app"
 )
 
 func init() {

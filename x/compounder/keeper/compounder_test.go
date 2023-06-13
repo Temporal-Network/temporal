@@ -2,11 +2,11 @@ package keeper_test
 
 import (
 	"cosmossdk.io/math"
+	"github.com/Temporal-Network/temporal/app/apptesting"
+	compTypes "github.com/Temporal-Network/temporal/x/compounder/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	distrTypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	"github.com/stretchr/testify/require"
-	"temporal/app/apptesting"
-	compTypes "temporal/x/compounder/types"
 	"testing"
 	"time"
 )

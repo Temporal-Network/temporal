@@ -10,7 +10,7 @@ import (
 	// "github.com/cosmos/cosmos-sdk/client/flags"
 	// sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"temporal/x/compounder/types"
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

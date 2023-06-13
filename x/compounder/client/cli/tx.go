@@ -8,7 +8,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	// "github.com/cosmos/cosmos-sdk/client/flags"
-	"temporal/x/compounder/types"
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 )
 
 var (

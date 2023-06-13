@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/stretchr/testify/require"
-	"temporal/x/icayieldmos/types"
 )
 
 func TestGenesisState_Validate(t *testing.T) {

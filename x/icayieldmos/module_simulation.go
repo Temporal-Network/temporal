@@ -3,15 +3,15 @@ package icayieldmos
 import (
 	"math/rand"
 
+	"github.com/Temporal-Network/temporal/testutil/sample"
+	icayieldmossimulation "github.com/Temporal-Network/temporal/x/icayieldmos/simulation"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"temporal/testutil/sample"
-	icayieldmossimulation "temporal/x/icayieldmos/simulation"
-	"temporal/x/icayieldmos/types"
 )
 
 // avoid unused import issue

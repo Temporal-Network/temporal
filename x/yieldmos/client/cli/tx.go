@@ -8,7 +8,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	// "github.com/cosmos/cosmos-sdk/client/flags"
-	"temporal/x/yieldmos/types"
+	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 )
 
 var (

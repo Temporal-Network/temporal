@@ -3,15 +3,15 @@ package yieldmos
 import (
 	"math/rand"
 
+	"github.com/Temporal-Network/temporal/testutil/sample"
+	yieldmossimulation "github.com/Temporal-Network/temporal/x/yieldmos/simulation"
+	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"temporal/testutil/sample"
-	yieldmossimulation "temporal/x/yieldmos/simulation"
-	"temporal/x/yieldmos/types"
 )
 
 // avoid unused import issue

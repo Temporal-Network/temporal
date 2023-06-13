@@ -9,7 +9,7 @@ import (
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"temporal/x/compounder/types"
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 )
 
 type (

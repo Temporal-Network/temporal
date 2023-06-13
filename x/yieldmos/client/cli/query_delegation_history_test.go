@@ -12,10 +12,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"temporal/testutil/network"
-	"temporal/testutil/nullify"
-	"temporal/x/yieldmos/client/cli"
-	"temporal/x/yieldmos/types"
+	"github.com/Temporal-Network/temporal/testutil/network"
+	"github.com/Temporal-Network/temporal/testutil/nullify"
+	"github.com/Temporal-Network/temporal/x/yieldmos/client/cli"
+	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 )
 
 // Prevent strconv unused error

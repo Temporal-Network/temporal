@@ -1,10 +1,10 @@
 package apptesting
 
 import (
+	"github.com/Temporal-Network/temporal/app"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	tmtypes "github.com/tendermint/tendermint/proto/tendermint/types"
-	"temporal/app"
 )
 
 var (

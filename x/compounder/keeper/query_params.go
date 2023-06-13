@@ -3,10 +3,10 @@ package keeper
 import (
 	"context"
 
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"temporal/x/compounder/types"
 )
 
 func (k Keeper) Params(goCtx context.Context, req *types.QueryParamsRequest) (*types.QueryParamsResponse, error) {

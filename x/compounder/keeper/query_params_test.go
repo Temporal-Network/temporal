@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"testing"
 
+	testkeeper "github.com/Temporal-Network/temporal/testutil/keeper"
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
-	testkeeper "temporal/testutil/keeper"
-	"temporal/x/compounder/types"
 )
 
 func TestParamsQuery(t *testing.T) {

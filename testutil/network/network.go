@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"temporal/app"
+	"github.com/Temporal-Network/temporal/app"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/crypto/hd"

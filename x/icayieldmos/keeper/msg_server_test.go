@@ -4,10 +4,10 @@ import (
 	"context"
 	"testing"
 
+	keepertest "github.com/Temporal-Network/temporal/testutil/keeper"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/keeper"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	keepertest "temporal/testutil/keeper"
-	"temporal/x/icayieldmos/keeper"
-	"temporal/x/icayieldmos/types"
 )
 
 func setupMsgServer(t testing.TB) (types.MsgServer, context.Context) {

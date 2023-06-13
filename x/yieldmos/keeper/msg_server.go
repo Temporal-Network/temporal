@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"temporal/x/yieldmos/types"
+	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 )
 
 type msgServer struct {

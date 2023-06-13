@@ -3,6 +3,8 @@ package keeper
 import (
 	"testing"
 
+	"github.com/Temporal-Network/temporal/x/compounder/keeper"
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/store"
@@ -13,8 +15,6 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmdb "github.com/tendermint/tm-db"
-	"temporal/x/compounder/keeper"
-	"temporal/x/compounder/types"
 )
 
 func CompounderKeeper(t testing.TB) (*keeper.Keeper, sdk.Context) {

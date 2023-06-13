@@ -2,7 +2,7 @@ syntax = "proto3";
 package temporal.yieldmos;
 
 option go_package = "temporal/x/yieldmos/types";
-import "temporal/yieldmos/delegation_timestamp.proto"; 
+import "temporal/yieldmos/delegation_timestamp.proto";
 
 message DelegationHistory {
   string address = 1; 

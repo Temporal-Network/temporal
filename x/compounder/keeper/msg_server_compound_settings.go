@@ -3,9 +3,9 @@ package keeper
 import (
 	"context"
 
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"temporal/x/compounder/types"
 )
 
 func (k msgServer) CreateCompoundSettings(goCtx context.Context, msg *types.MsgCreateCompoundSettings) (*types.MsgCreateCompoundSettingsResponse, error) {

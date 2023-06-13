@@ -3,11 +3,11 @@ package yieldmos_test
 import (
 	"testing"
 
+	keepertest "github.com/Temporal-Network/temporal/testutil/keeper"
+	"github.com/Temporal-Network/temporal/testutil/nullify"
+	"github.com/Temporal-Network/temporal/x/yieldmos"
+	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	"github.com/stretchr/testify/require"
-	keepertest "temporal/testutil/keeper"
-	"temporal/testutil/nullify"
-	"temporal/x/yieldmos"
-	"temporal/x/yieldmos/types"
 )
 
 func TestGenesis(t *testing.T) {

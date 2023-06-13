@@ -11,14 +11,14 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
+	"github.com/Temporal-Network/temporal/x/yieldmos/client/cli"
+	"github.com/Temporal-Network/temporal/x/yieldmos/keeper"
+	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
-	"temporal/x/yieldmos/client/cli"
-	"temporal/x/yieldmos/keeper"
-	"temporal/x/yieldmos/types"
 )
 
 var (

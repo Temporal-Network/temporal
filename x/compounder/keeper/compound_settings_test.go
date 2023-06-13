@@ -4,12 +4,12 @@ import (
 	"strconv"
 	"testing"
 
+	keepertest "github.com/Temporal-Network/temporal/testutil/keeper"
+	"github.com/Temporal-Network/temporal/testutil/nullify"
+	"github.com/Temporal-Network/temporal/x/compounder/keeper"
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
-	keepertest "temporal/testutil/keeper"
-	"temporal/testutil/nullify"
-	"temporal/x/compounder/keeper"
-	"temporal/x/compounder/types"
 )
 
 // Prevent strconv unused error

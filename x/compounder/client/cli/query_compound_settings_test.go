@@ -2,9 +2,9 @@ package cli_test
 
 import (
 	"fmt"
+	"github.com/Temporal-Network/temporal/app/apptesting"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"strconv"
-	"temporal/app/apptesting"
 	"testing"
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
@@ -14,10 +14,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"temporal/testutil/network"
-	"temporal/testutil/nullify"
-	"temporal/x/compounder/client/cli"
-	"temporal/x/compounder/types"
+	"github.com/Temporal-Network/temporal/testutil/network"
+	"github.com/Temporal-Network/temporal/testutil/nullify"
+	"github.com/Temporal-Network/temporal/x/compounder/client/cli"
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 )
 
 // Prevent strconv unused error

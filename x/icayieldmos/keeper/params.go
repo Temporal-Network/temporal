@@ -1,8 +1,8 @@
 package keeper
 
 import (
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"temporal/x/icayieldmos/types"
 )
 
 // GetParams get all parameters as types.Params

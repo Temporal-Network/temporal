@@ -1,9 +1,9 @@
 package keeper
 
 import (
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"temporal/x/compounder/types"
 )
 
 // SetCompoundSettings set a specific compoundSettings in the store from its index

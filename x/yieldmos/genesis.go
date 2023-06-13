@@ -1,9 +1,9 @@
 package yieldmos
 
 import (
+	"github.com/Temporal-Network/temporal/x/yieldmos/keeper"
+	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"temporal/x/yieldmos/keeper"
-	"temporal/x/yieldmos/types"
 )
 
 // InitGenesis initializes the module's state from a provided genesis state.

@@ -1,9 +1,9 @@
 package compounder
 
 import (
+	"github.com/Temporal-Network/temporal/x/compounder/keeper"
+	"github.com/Temporal-Network/temporal/x/compounder/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"temporal/x/compounder/keeper"
-	"temporal/x/compounder/types"
 )
 
 // InitGenesis initializes the module's state from a provided genesis state.

@@ -3,9 +3,9 @@ package keeper_test
 import (
 	"testing"
 
+	testkeeper "github.com/Temporal-Network/temporal/testutil/keeper"
+	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	"github.com/stretchr/testify/require"
-	testkeeper "temporal/testutil/keeper"
-	"temporal/x/yieldmos/types"
 )
 
 func TestGetParams(t *testing.T) {

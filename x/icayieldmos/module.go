@@ -11,15 +11,15 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
+	"github.com/Temporal-Network/temporal/x/icayieldmos/client/cli"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/keeper"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	porttypes "github.com/cosmos/ibc-go/v6/modules/core/05-port/types"
-	"temporal/x/icayieldmos/client/cli"
-	"temporal/x/icayieldmos/keeper"
-	"temporal/x/icayieldmos/types"
 )
 
 var (

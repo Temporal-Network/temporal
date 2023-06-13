@@ -3,7 +3,7 @@ package cmd
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"temporal/app"
+	"github.com/Temporal-Network/temporal/app"
 )
 
 const (

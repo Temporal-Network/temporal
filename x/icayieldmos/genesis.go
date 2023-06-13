@@ -1,9 +1,9 @@
 package icayieldmos
 
 import (
+	"github.com/Temporal-Network/temporal/x/icayieldmos/keeper"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"temporal/x/icayieldmos/keeper"
-	"temporal/x/icayieldmos/types"
 )
 
 // InitGenesis initializes the module's state from a provided genesis state.

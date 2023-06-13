@@ -20,7 +20,7 @@ import (
 	"github.com/gogo/protobuf/proto"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"temporal/x/icayieldmos/types"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 
 	controllertypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/controller/types"
 )
