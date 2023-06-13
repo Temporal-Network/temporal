@@ -3,7 +3,7 @@ package temporal.icayieldmos;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "temporal/x/icayieldmos/types";
+option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
 
 // Params defines the parameters for the module.
 message Params {

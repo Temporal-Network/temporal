@@ -7,7 +7,7 @@ import "temporal/compounder/params.proto";
 import "temporal/compounder/compound_settings.proto";
 import "temporal/compounder/previous_compounding.proto";
 
-option go_package = "temporal/x/compounder/types";
+option go_package = "github.com/Temporal-Network/temporal/x/compounder/types";
 
 // GenesisState defines the compounder module's genesis state.
 message GenesisState {

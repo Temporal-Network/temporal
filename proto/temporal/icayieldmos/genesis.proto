@@ -5,7 +5,7 @@ package temporal.icayieldmos;
 import "gogoproto/gogo.proto";
 import "temporal/icayieldmos/params.proto";
 
-option go_package = "temporal/x/icayieldmos/types";
+option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
 
 // GenesisState defines the icayieldmos module's genesis state.
 message GenesisState {
