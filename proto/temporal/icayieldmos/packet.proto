@@ -1,0 +1,13 @@
+syntax = "proto3";
+package temporal.icayieldmos;
+
+option go_package = "temporal/x/icayieldmos/types";
+
+message IcayieldmosPacketData {
+    oneof packet {
+        NoData noData = 1;
+    }
+}
+
+message NoData {
+}
