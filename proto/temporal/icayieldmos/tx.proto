@@ -1,7 +1,17 @@
 syntax = "proto3";
+
 package temporal.icayieldmos;
 
 option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
 
 // Msg defines the Msg service.
-service Msg {}
+service Msg {
+  rpc CreateConnection (MsgCreateConnection) returns (MsgCreateConnectionResponse);
+}
+message MsgCreateConnection {
+  string creator      = 1;
+  string connectionId = 2;
+}
+
+message MsgCreateConnectionResponse {}
+
