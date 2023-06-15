@@ -14,7 +14,16 @@ func TestGenesis(t *testing.T) {
 	genesisState := types.GenesisState{
 		Params: types.DefaultParams(),
 		PortId: types.PortID,
-		// this line is used by starport scaffolding # genesis/test/state
+		ContractRemoteZoneList: []types.ContractRemoteZone{
+		{
+			Id: 0,
+		},
+		{
+			Id: 1,
+		},
+	},
+	ContractRemoteZoneCount: 2,
+	// this line is used by starport scaffolding # genesis/test/state
 	}
 
 	k, ctx := keepertest.IcayieldmosKeeper(t)
@@ -27,5 +36,7 @@ func TestGenesis(t *testing.T) {
 
 	require.Equal(t, genesisState.PortId, got.PortId)
 
-	// this line is used by starport scaffolding # genesis/test/assert
+	require.ElementsMatch(t, genesisState.ContractRemoteZoneList, got.ContractRemoteZoneList)
+require.Equal(t, genesisState.ContractRemoteZoneCount, got.ContractRemoteZoneCount)
+// this line is used by starport scaffolding # genesis/test/assert
 }

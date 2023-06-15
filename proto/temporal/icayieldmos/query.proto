@@ -1,25 +1,58 @@
 syntax = "proto3";
+
 package temporal.icayieldmos;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "temporal/icayieldmos/params.proto";
+import "temporal/icayieldmos/contract_remote_zone.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
 
 option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/temporal/icayieldmos/params";
+  
+  }
+  
+  // Queries a list of ContractRemoteZone items.
+  rpc ContractRemoteZone    (QueryGetContractRemoteZoneRequest) returns (QueryGetContractRemoteZoneResponse) {
+    option (google.api.http).get = "/temporal/icayieldmos/contract_remote_zone/{id}";
+  
+  }
+  rpc ContractRemoteZoneAll (QueryAllContractRemoteZoneRequest) returns (QueryAllContractRemoteZoneResponse) {
+    option (google.api.http).get = "/temporal/icayieldmos/contract_remote_zone";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
 }
+
+message QueryGetContractRemoteZoneRequest {
+  uint64 id = 1;
+}
+
+message QueryGetContractRemoteZoneResponse {
+  ContractRemoteZone ContractRemoteZone = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllContractRemoteZoneRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllContractRemoteZoneResponse {
+  repeated ContractRemoteZone                     ContractRemoteZone = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination         = 2;
+}
+

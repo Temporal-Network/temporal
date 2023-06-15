@@ -9,14 +9,22 @@ import (
 
 func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreateConnection{}, "icayieldmos/CreateConnection", nil)
-	// this line is used by starport scaffolding # 2
+	cdc.RegisterConcrete(&MsgCreateContractRemoteZone{}, "icayieldmos/CreateContractRemoteZone", nil)
+cdc.RegisterConcrete(&MsgUpdateContractRemoteZone{}, "icayieldmos/UpdateContractRemoteZone", nil)
+cdc.RegisterConcrete(&MsgDeleteContractRemoteZone{}, "icayieldmos/DeleteContractRemoteZone", nil)
+// this line is used by starport scaffolding # 2
 }
 
 func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 	registry.RegisterImplementations((*sdk.Msg)(nil),
 		&MsgCreateConnection{},
 	)
-	// this line is used by starport scaffolding # 3
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+	&MsgCreateContractRemoteZone{},
+	&MsgUpdateContractRemoteZone{},
+	&MsgDeleteContractRemoteZone{},
+)
+// this line is used by starport scaffolding # 3
 
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
 }

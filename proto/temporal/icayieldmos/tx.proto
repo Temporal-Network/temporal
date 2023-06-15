@@ -2,11 +2,16 @@ syntax = "proto3";
 
 package temporal.icayieldmos;
 
+import "temporal/icayieldmos/contract_remote_zone.proto";
+
 option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
 
 // Msg defines the Msg service.
 service Msg {
-  rpc CreateConnection (MsgCreateConnection) returns (MsgCreateConnectionResponse);
+  rpc CreateConnection         (MsgCreateConnection        ) returns (MsgCreateConnectionResponse        );
+  rpc CreateContractRemoteZone (MsgCreateContractRemoteZone) returns (MsgCreateContractRemoteZoneResponse);
+  rpc UpdateContractRemoteZone (MsgUpdateContractRemoteZone) returns (MsgUpdateContractRemoteZoneResponse);
+  rpc DeleteContractRemoteZone (MsgDeleteContractRemoteZone) returns (MsgDeleteContractRemoteZoneResponse);
 }
 message MsgCreateConnection {
   string creator      = 1;
@@ -14,4 +19,32 @@ message MsgCreateConnection {
 }
 
 message MsgCreateConnectionResponse {}
+
+message MsgCreateContractRemoteZone {
+  string creator       = 1;
+  string connectionId  = 2;
+  string remoteChainId = 3;
+  bool   active        = 4;
+}
+
+message MsgCreateContractRemoteZoneResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateContractRemoteZone {
+  string creator       = 1;
+  uint64 id            = 2;
+  string connectionId  = 3;
+  string remoteChainId = 4;
+  bool   active        = 5;
+}
+
+message MsgUpdateContractRemoteZoneResponse {}
+
+message MsgDeleteContractRemoteZone {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgDeleteContractRemoteZoneResponse {}
 

@@ -2,7 +2,7 @@ package types
 
 import (
 	host "github.com/cosmos/ibc-go/v6/modules/core/24-host"
-	// this line is used by starport scaffolding # genesis/types/import
+	"fmt"
 )
 
 // DefaultIndex is the default global index
@@ -12,7 +12,8 @@ const DefaultIndex uint64 = 1
 func DefaultGenesis() *GenesisState {
 	return &GenesisState{
 		PortId: PortID,
-		// this line is used by starport scaffolding # genesis/types/default
+		ContractRemoteZoneList: []ContractRemoteZone{},
+// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
 }
@@ -23,7 +24,19 @@ func (gs GenesisState) Validate() error {
 	if err := host.PortIdentifierValidator(gs.PortId); err != nil {
 		return err
 	}
-	// this line is used by starport scaffolding # genesis/types/validate
+	// Check for duplicated ID in contractRemoteZone
+contractRemoteZoneIdMap := make(map[uint64]bool)
+contractRemoteZoneCount := gs.GetContractRemoteZoneCount()
+for _, elem := range gs.ContractRemoteZoneList {
+	if _, ok := contractRemoteZoneIdMap[elem.Id]; ok {
+		return fmt.Errorf("duplicated id for contractRemoteZone")
+	}
+	if elem.Id >= contractRemoteZoneCount {
+		return fmt.Errorf("contractRemoteZone id should be lower or equal than the last id")
+	}
+	contractRemoteZoneIdMap[elem.Id] = true
+}
+// this line is used by starport scaffolding # genesis/types/validate
 
 	return gs.Params.Validate()
 }

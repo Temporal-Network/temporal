@@ -22,11 +22,46 @@ func TestGenesisState_Validate(t *testing.T) {
 			desc: "valid genesis state",
 			genState: &types.GenesisState{
 				PortId: types.PortID,
-				// this line is used by starport scaffolding # types/genesis/validField
+				ContractRemoteZoneList: []types.ContractRemoteZone{
+	{
+		Id: 0,
+	},
+	{
+		Id: 1,
+	},
+},
+ContractRemoteZoneCount: 2,
+// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
 		},
-		// this line is used by starport scaffolding # types/genesis/testcase
+		{
+	desc:     "duplicated contractRemoteZone",
+	genState: &types.GenesisState{
+		ContractRemoteZoneList: []types.ContractRemoteZone{
+			{
+				Id: 0,
+			},
+			{
+				Id: 0,
+			},
+		},
+	},
+	valid:    false,
+},
+{
+	desc:     "invalid contractRemoteZone count",
+	genState: &types.GenesisState{
+		ContractRemoteZoneList: []types.ContractRemoteZone{
+			{
+				Id: 1,
+			},
+		},
+		ContractRemoteZoneCount: 0,
+	},
+	valid:    false,
+},
+// this line is used by starport scaffolding # types/genesis/testcase
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			err := tc.genState.Validate()

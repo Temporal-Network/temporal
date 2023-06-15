@@ -28,3 +28,8 @@ var (
 func KeyPrefix(p string) []byte {
 	return []byte(p)
 }
+
+const (
+	ContractRemoteZoneKey= "ContractRemoteZone/value/"
+	ContractRemoteZoneCountKey= "ContractRemoteZone/count/"
+)
