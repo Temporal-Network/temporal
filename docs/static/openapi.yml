@@ -72546,6 +72546,8 @@ definitions:
         format: uint64
   temporal.icayieldmos.MsgDeleteContractRemoteZoneResponse:
     type: object
+  temporal.icayieldmos.MsgSendTestContractMessagesResponse:
+    type: object
   temporal.icayieldmos.MsgUpdateContractRemoteZoneResponse:
     type: object
   temporal.icayieldmos.Params:

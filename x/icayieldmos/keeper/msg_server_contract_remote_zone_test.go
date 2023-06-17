@@ -6,7 +6,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
 
-    "github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 )
 
 func TestContractRemoteZoneMsgServerCreate(t *testing.T) {

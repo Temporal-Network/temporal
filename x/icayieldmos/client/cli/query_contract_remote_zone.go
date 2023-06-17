@@ -1,13 +1,13 @@
 package cli
 
 import (
-    "context"
-    "strconv"
+	"context"
+	"strconv"
 
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
-    "github.com/Temporal-Network/temporal/x/icayieldmos/types"
 )
 
 func CmdListContractRemoteZone() *cobra.Command {
@@ -15,32 +15,32 @@ func CmdListContractRemoteZone() *cobra.Command {
 		Use:   "list-contract-remote-zone",
 		Short: "list all ContractRemoteZone",
 		RunE: func(cmd *cobra.Command, args []string) error {
-            clientCtx := client.GetClientContextFromCmd(cmd)
+			clientCtx := client.GetClientContextFromCmd(cmd)
 
-            pageReq, err := client.ReadPageRequest(cmd.Flags())
-            if err != nil {
-                return err
-            }
+			pageReq, err := client.ReadPageRequest(cmd.Flags())
+			if err != nil {
+				return err
+			}
 
-            queryClient := types.NewQueryClient(clientCtx)
+			queryClient := types.NewQueryClient(clientCtx)
 
-            params := &types.QueryAllContractRemoteZoneRequest{
-                Pagination: pageReq,
-            }
+			params := &types.QueryAllContractRemoteZoneRequest{
+				Pagination: pageReq,
+			}
 
-            res, err := queryClient.ContractRemoteZoneAll(context.Background(), params)
-            if err != nil {
-                return err
-            }
+			res, err := queryClient.ContractRemoteZoneAll(context.Background(), params)
+			if err != nil {
+				return err
+			}
 
-            return clientCtx.PrintProto(res)
+			return clientCtx.PrintProto(res)
 		},
 	}
 
 	flags.AddPaginationFlagsToCmd(cmd, cmd.Use)
 	flags.AddQueryFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }
 
 func CmdShowContractRemoteZone() *cobra.Command {
@@ -49,29 +49,29 @@ func CmdShowContractRemoteZone() *cobra.Command {
 		Short: "shows a ContractRemoteZone",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-            clientCtx := client.GetClientContextFromCmd(cmd)
+			clientCtx := client.GetClientContextFromCmd(cmd)
 
-            queryClient := types.NewQueryClient(clientCtx)
+			queryClient := types.NewQueryClient(clientCtx)
 
-            id, err := strconv.ParseUint(args[0], 10, 64)
-            if err != nil {
-                return err
-            }
+			id, err := strconv.ParseUint(args[0], 10, 64)
+			if err != nil {
+				return err
+			}
 
-            params := &types.QueryGetContractRemoteZoneRequest{
-                Id: id,
-            }
+			params := &types.QueryGetContractRemoteZoneRequest{
+				Id: id,
+			}
 
-            res, err := queryClient.ContractRemoteZone(context.Background(), params)
-            if err != nil {
-                return err
-            }
+			res, err := queryClient.ContractRemoteZone(context.Background(), params)
+			if err != nil {
+				return err
+			}
 
-            return clientCtx.PrintProto(res)
+			return clientCtx.PrintProto(res)
 		},
 	}
 
 	flags.AddQueryFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }

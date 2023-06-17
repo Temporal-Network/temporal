@@ -3,7 +3,6 @@ package keeper
 import (
 	"context"
 	"fmt"
-
 	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
@@ -28,12 +27,8 @@ func (k msgServer) isContractRemoteZoneValid(ctx sdk.Context, connectionId strin
 	remoteZones := k.GetAllContractRemoteZone(ctx)
 
 	for _, remoteZone := range remoteZones {
-		if connectionId == remoteZone.ConnectionId {
-			return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, fmt.Sprintf("duplicate remote zone not allowed for connectionId: %s", connectionId))
-		}
-
-		if remoteChainId == remoteZone.RemoteChainId {
-			return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, fmt.Sprintf("duplicate remote zone not allowed for remoteChainId: %s", remoteChainId))
+		if connectionId == remoteZone.ConnectionId && remoteChainId == remoteZone.RemoteChainId {
+			return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, fmt.Sprintf("duplicate remote zone not allowed for connectionID: %s and remoteChainId: %s", connectionId, remoteChainId))
 		}
 	}
 
@@ -46,7 +41,7 @@ func (k msgServer) CreateContractRemoteZone(goCtx context.Context, msg *types.Ms
 
 	err := k.isContractRemoteZoneValid(ctx, msg.ConnectionId, msg.RemoteChainId)
 	if err != nil {
-		return &types.MsgCreateContractRemoteZoneResponse{}, err
+		return nil, err
 	}
 
 	var contractRemoteZone = types.ContractRemoteZone{
@@ -67,7 +62,7 @@ func (k msgServer) UpdateContractRemoteZone(goCtx context.Context, msg *types.Ms
 
 	err := k.isContractRemoteZoneValid(ctx, msg.ConnectionId, msg.RemoteChainId)
 	if err != nil {
-		return &types.MsgUpdateContractRemoteZoneResponse{}, err
+		return nil, err
 	}
 
 	var contractRemoteZone = types.ContractRemoteZone{

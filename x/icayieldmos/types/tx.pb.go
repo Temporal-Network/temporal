@@ -427,6 +427,94 @@ func (m *MsgDeleteContractRemoteZoneResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgDeleteContractRemoteZoneResponse proto.InternalMessageInfo
 
+type MsgSendTestContractMessages struct {
+	Creator      string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	ConnectionId string `protobuf:"bytes,2,opt,name=connectionId,proto3" json:"connectionId,omitempty"`
+}
+
+func (m *MsgSendTestContractMessages) Reset()         { *m = MsgSendTestContractMessages{} }
+func (m *MsgSendTestContractMessages) String() string { return proto.CompactTextString(m) }
+func (*MsgSendTestContractMessages) ProtoMessage()    {}
+func (*MsgSendTestContractMessages) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{8}
+}
+func (m *MsgSendTestContractMessages) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgSendTestContractMessages) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgSendTestContractMessages.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgSendTestContractMessages) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgSendTestContractMessages.Merge(m, src)
+}
+func (m *MsgSendTestContractMessages) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgSendTestContractMessages) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgSendTestContractMessages.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgSendTestContractMessages proto.InternalMessageInfo
+
+func (m *MsgSendTestContractMessages) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgSendTestContractMessages) GetConnectionId() string {
+	if m != nil {
+		return m.ConnectionId
+	}
+	return ""
+}
+
+type MsgSendTestContractMessagesResponse struct {
+}
+
+func (m *MsgSendTestContractMessagesResponse) Reset()         { *m = MsgSendTestContractMessagesResponse{} }
+func (m *MsgSendTestContractMessagesResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgSendTestContractMessagesResponse) ProtoMessage()    {}
+func (*MsgSendTestContractMessagesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{9}
+}
+func (m *MsgSendTestContractMessagesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgSendTestContractMessagesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgSendTestContractMessagesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgSendTestContractMessagesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgSendTestContractMessagesResponse.Merge(m, src)
+}
+func (m *MsgSendTestContractMessagesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgSendTestContractMessagesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgSendTestContractMessagesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgSendTestContractMessagesResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgCreateConnection)(nil), "temporal.icayieldmos.MsgCreateConnection")
 	proto.RegisterType((*MsgCreateConnectionResponse)(nil), "temporal.icayieldmos.MsgCreateConnectionResponse")
@@ -436,39 +524,44 @@ func init() {
 	proto.RegisterType((*MsgUpdateContractRemoteZoneResponse)(nil), "temporal.icayieldmos.MsgUpdateContractRemoteZoneResponse")
 	proto.RegisterType((*MsgDeleteContractRemoteZone)(nil), "temporal.icayieldmos.MsgDeleteContractRemoteZone")
 	proto.RegisterType((*MsgDeleteContractRemoteZoneResponse)(nil), "temporal.icayieldmos.MsgDeleteContractRemoteZoneResponse")
+	proto.RegisterType((*MsgSendTestContractMessages)(nil), "temporal.icayieldmos.MsgSendTestContractMessages")
+	proto.RegisterType((*MsgSendTestContractMessagesResponse)(nil), "temporal.icayieldmos.MsgSendTestContractMessagesResponse")
 }
 
 func init() { proto.RegisterFile("temporal/icayieldmos/tx.proto", fileDescriptor_4a399b148a66dc83) }
 
 var fileDescriptor_4a399b148a66dc83 = []byte{
-	// 429 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x2d, 0x49, 0xcd, 0x2d,
-	0xc8, 0x2f, 0x4a, 0xcc, 0xd1, 0xcf, 0x4c, 0x4e, 0xac, 0xcc, 0x4c, 0xcd, 0x49, 0xc9, 0xcd, 0x2f,
-	0xd6, 0x2f, 0xa9, 0xd0, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12, 0x81, 0x49, 0xeb, 0x21, 0x49,
-	0x4b, 0xe9, 0x63, 0xd5, 0x94, 0x9c, 0x9f, 0x57, 0x52, 0x94, 0x98, 0x5c, 0x12, 0x5f, 0x94, 0x9a,
-	0x9b, 0x5f, 0x92, 0x1a, 0x5f, 0x95, 0x9f, 0x97, 0x0a, 0x31, 0x46, 0x29, 0x98, 0x4b, 0xd8, 0xb7,
-	0x38, 0xdd, 0xb9, 0x28, 0x35, 0xb1, 0x24, 0xd5, 0x39, 0x3f, 0x2f, 0x2f, 0x35, 0xb9, 0x24, 0x33,
-	0x3f, 0x4f, 0x48, 0x82, 0x8b, 0x3d, 0x19, 0x24, 0x96, 0x5f, 0x24, 0xc1, 0xa8, 0xc0, 0xa8, 0xc1,
-	0x19, 0x04, 0xe3, 0x0a, 0x29, 0x71, 0xf1, 0x24, 0xc3, 0xd5, 0x79, 0xa6, 0x48, 0x30, 0x81, 0xa5,
-	0x51, 0xc4, 0x94, 0x64, 0xb9, 0xa4, 0xb1, 0x18, 0x1a, 0x94, 0x5a, 0x5c, 0x90, 0x9f, 0x57, 0x9c,
-	0xaa, 0x34, 0x93, 0x11, 0x55, 0x1e, 0xec, 0xb6, 0x20, 0xb0, 0xd3, 0xa2, 0xf2, 0xf3, 0x52, 0x29,
-	0xb3, 0x5c, 0x48, 0x85, 0x8b, 0x17, 0xe2, 0x4d, 0xe7, 0x8c, 0xc4, 0x4c, 0x90, 0x22, 0x66, 0xb0,
-	0x22, 0x54, 0x41, 0x21, 0x31, 0x2e, 0xb6, 0xc4, 0xe4, 0x92, 0xcc, 0xb2, 0x54, 0x09, 0x16, 0x05,
-	0x46, 0x0d, 0x8e, 0x20, 0x28, 0x4f, 0xc9, 0x94, 0x4b, 0x19, 0x8f, 0xd3, 0x60, 0x5e, 0x10, 0xe2,
-	0xe3, 0x62, 0xca, 0x4c, 0x01, 0xbb, 0x8e, 0x25, 0x88, 0x29, 0x33, 0x45, 0x69, 0x25, 0xc4, 0x4b,
-	0xa1, 0x05, 0x29, 0xa4, 0x7a, 0x09, 0x62, 0x12, 0x13, 0xcc, 0x24, 0x0c, 0x2f, 0x32, 0x13, 0xe3,
-	0x45, 0x16, 0xfc, 0x5e, 0x64, 0x45, 0xf1, 0xa2, 0x2a, 0xd8, 0x8b, 0xb8, 0x9c, 0x0a, 0x8f, 0x25,
-	0x77, 0xb0, 0x8f, 0x5c, 0x52, 0x73, 0x52, 0x29, 0xf3, 0x11, 0xd4, 0x3e, 0x5c, 0x06, 0xc1, 0xec,
-	0x33, 0x9a, 0xc1, 0xc2, 0xc5, 0xec, 0x5b, 0x9c, 0x2e, 0x54, 0xc0, 0x25, 0x80, 0x91, 0x1c, 0x35,
-	0xf5, 0xb0, 0xa5, 0x76, 0x3d, 0x2c, 0x89, 0x4c, 0xca, 0x90, 0x68, 0xa5, 0xf0, 0xc8, 0xec, 0x60,
-	0xe4, 0x92, 0xc0, 0x99, 0x18, 0x89, 0x30, 0x0f, 0x4d, 0x8b, 0x94, 0x25, 0xc9, 0x5a, 0x50, 0x9c,
-	0x82, 0x33, 0x11, 0xe1, 0x76, 0x0a, 0x2e, 0x2d, 0x78, 0x9c, 0x42, 0x28, 0xfe, 0xc1, 0x4e, 0xc1,
-	0x19, 0xfb, 0xb8, 0x9d, 0x82, 0x4b, 0x0b, 0x1e, 0xa7, 0x10, 0x4a, 0x1a, 0x4e, 0x41, 0x27, 0x1e,
-	0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0xe3, 0x84, 0xc7, 0x72, 0x0c, 0x17,
-	0x1e, 0xcb, 0x31, 0xdc, 0x78, 0x2c, 0xc7, 0x10, 0x65, 0x91, 0x9e, 0x59, 0x92, 0x51, 0x9a, 0xa4,
-	0x97, 0x9c, 0x9f, 0xab, 0x1f, 0x02, 0x35, 0x5e, 0xd7, 0x2f, 0xb5, 0xa4, 0x3c, 0xbf, 0x28, 0x1b,
-	0x51, 0x16, 0x56, 0xa0, 0x16, 0xa1, 0x95, 0x05, 0xa9, 0xc5, 0x49, 0x6c, 0xe0, 0xf2, 0xcf, 0x18,
-	0x10, 0x00, 0x00, 0xff, 0xff, 0x26, 0x01, 0x94, 0xca, 0x67, 0x05, 0x00, 0x00,
+	// 465 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x95, 0xc1, 0xae, 0xd2, 0x40,
+	0x14, 0x86, 0x99, 0xc2, 0xbd, 0xea, 0x44, 0x8d, 0xa9, 0xc6, 0x34, 0x98, 0xdb, 0x90, 0xaa, 0x09,
+	0x2e, 0x6c, 0xa3, 0xc6, 0x44, 0xb7, 0x62, 0x62, 0x5c, 0xe0, 0xa2, 0xe0, 0x06, 0x17, 0xa4, 0x4c,
+	0x4f, 0xca, 0x44, 0x3a, 0xd3, 0x74, 0x46, 0x05, 0x9f, 0xc0, 0xa5, 0x5b, 0xd7, 0xae, 0x7c, 0x13,
+	0x97, 0x2c, 0x5d, 0x1a, 0x78, 0x11, 0xc3, 0x94, 0x56, 0x2b, 0x9d, 0x02, 0x61, 0xd9, 0x39, 0xe7,
+	0xfc, 0xe7, 0xfb, 0xd3, 0x7f, 0x32, 0xf8, 0x42, 0x42, 0x9c, 0xf0, 0x34, 0x98, 0x79, 0x94, 0x04,
+	0x0b, 0x0a, 0xb3, 0x30, 0xe6, 0xc2, 0x93, 0x73, 0x37, 0x49, 0xb9, 0xe4, 0xe6, 0xad, 0xbc, 0xec,
+	0xfe, 0x53, 0x6e, 0x7b, 0x95, 0x43, 0x84, 0x33, 0x99, 0x06, 0x44, 0x8e, 0x53, 0x88, 0xb9, 0x84,
+	0xf1, 0x67, 0xce, 0x20, 0x93, 0x71, 0x06, 0xf8, 0x66, 0x5f, 0x44, 0xbd, 0x14, 0x02, 0x09, 0x3d,
+	0xce, 0x18, 0x10, 0x49, 0x39, 0x33, 0x2d, 0x7c, 0x89, 0x6c, 0xce, 0x78, 0x6a, 0xa1, 0x0e, 0xea,
+	0x5e, 0xf1, 0xf3, 0x4f, 0xd3, 0xc1, 0x57, 0x49, 0xd1, 0xf7, 0x3a, 0xb4, 0x0c, 0x55, 0x2e, 0x9d,
+	0x39, 0x17, 0xf8, 0x4e, 0x85, 0xa8, 0x0f, 0x22, 0xe1, 0x4c, 0x80, 0xf3, 0x0d, 0x95, 0xeb, 0x8a,
+	0xcd, 0x57, 0x68, 0x23, 0xce, 0xe0, 0xb4, 0xe5, 0xe6, 0x3d, 0x7c, 0x2d, 0xb3, 0xd9, 0x9b, 0x06,
+	0x74, 0xd3, 0xd4, 0x54, 0x4d, 0xe5, 0x43, 0xf3, 0x36, 0x3e, 0x0f, 0x88, 0xa4, 0x1f, 0xc1, 0x6a,
+	0x75, 0x50, 0xf7, 0xb2, 0xbf, 0xfd, 0x72, 0x9e, 0xe2, 0xbb, 0x35, 0x68, 0xb9, 0x05, 0xf3, 0x3a,
+	0x36, 0x68, 0xa8, 0xe8, 0x5a, 0xbe, 0x41, 0x43, 0xe7, 0x47, 0x66, 0xe9, 0x6d, 0x12, 0x1e, 0x6b,
+	0x29, 0x53, 0x32, 0x72, 0xa5, 0x1d, 0x8b, 0xcd, 0x43, 0x2c, 0xb6, 0xea, 0x2d, 0x9e, 0x95, 0x2c,
+	0xde, 0x57, 0x16, 0x75, 0xa8, 0xc5, 0x5f, 0x7a, 0xa5, 0x1c, 0xbd, 0x84, 0x19, 0x9c, 0xe6, 0x68,
+	0xbb, 0x4f, 0x27, 0x54, 0xec, 0x7b, 0xa7, 0xf6, 0x0d, 0x80, 0x85, 0x43, 0x10, 0x32, 0x6f, 0xec,
+	0x83, 0x10, 0x41, 0x04, 0xe2, 0xc4, 0x44, 0x66, 0x0c, 0x3a, 0xf1, 0x9c, 0xe1, 0xf1, 0xf7, 0x33,
+	0xdc, 0xec, 0x8b, 0xc8, 0x4c, 0xf0, 0x8d, 0x9d, 0x2b, 0xf1, 0xc0, 0xad, 0xba, 0x71, 0x6e, 0x45,
+	0xd0, 0xdb, 0x8f, 0x0e, 0x6e, 0x2d, 0x02, 0xf5, 0x05, 0x61, 0x4b, 0x7b, 0x21, 0x0e, 0xd0, 0xfb,
+	0x6f, 0xa4, 0xfd, 0xfc, 0xe8, 0x91, 0x12, 0x8a, 0x36, 0xc8, 0x7a, 0x14, 0xdd, 0x48, 0x0d, 0xca,
+	0xbe, 0x0c, 0x2a, 0x14, 0x6d, 0x02, 0xf5, 0x28, 0xba, 0x91, 0x1a, 0x94, 0x7d, 0xf1, 0x54, 0x28,
+	0xda, 0x70, 0xea, 0x51, 0x74, 0x23, 0x35, 0x28, 0xfb, 0x52, 0xfa, 0xc2, 0xff, 0xb9, 0xb2, 0xd1,
+	0x72, 0x65, 0xa3, 0xdf, 0x2b, 0x1b, 0x7d, 0x5d, 0xdb, 0x8d, 0xe5, 0xda, 0x6e, 0xfc, 0x5a, 0xdb,
+	0x8d, 0xd1, 0xb3, 0x88, 0xca, 0xe9, 0x87, 0x89, 0x4b, 0x78, 0xec, 0x0d, 0xb7, 0xf2, 0x0f, 0xdf,
+	0x80, 0xfc, 0xc4, 0xd3, 0xf7, 0x7f, 0x9f, 0x86, 0x79, 0xf9, 0x45, 0x59, 0x24, 0x20, 0x26, 0xe7,
+	0xea, 0x39, 0x78, 0xf2, 0x27, 0x00, 0x00, 0xff, 0xff, 0xff, 0xc1, 0xba, 0x55, 0x76, 0x06, 0x00,
+	0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -487,6 +580,7 @@ type MsgClient interface {
 	CreateContractRemoteZone(ctx context.Context, in *MsgCreateContractRemoteZone, opts ...grpc.CallOption) (*MsgCreateContractRemoteZoneResponse, error)
 	UpdateContractRemoteZone(ctx context.Context, in *MsgUpdateContractRemoteZone, opts ...grpc.CallOption) (*MsgUpdateContractRemoteZoneResponse, error)
 	DeleteContractRemoteZone(ctx context.Context, in *MsgDeleteContractRemoteZone, opts ...grpc.CallOption) (*MsgDeleteContractRemoteZoneResponse, error)
+	SendTestContractMessages(ctx context.Context, in *MsgSendTestContractMessages, opts ...grpc.CallOption) (*MsgSendTestContractMessagesResponse, error)
 }
 
 type msgClient struct {
@@ -533,12 +627,22 @@ func (c *msgClient) DeleteContractRemoteZone(ctx context.Context, in *MsgDeleteC
 	return out, nil
 }
 
+func (c *msgClient) SendTestContractMessages(ctx context.Context, in *MsgSendTestContractMessages, opts ...grpc.CallOption) (*MsgSendTestContractMessagesResponse, error) {
+	out := new(MsgSendTestContractMessagesResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Msg/SendTestContractMessages", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	CreateConnection(context.Context, *MsgCreateConnection) (*MsgCreateConnectionResponse, error)
 	CreateContractRemoteZone(context.Context, *MsgCreateContractRemoteZone) (*MsgCreateContractRemoteZoneResponse, error)
 	UpdateContractRemoteZone(context.Context, *MsgUpdateContractRemoteZone) (*MsgUpdateContractRemoteZoneResponse, error)
 	DeleteContractRemoteZone(context.Context, *MsgDeleteContractRemoteZone) (*MsgDeleteContractRemoteZoneResponse, error)
+	SendTestContractMessages(context.Context, *MsgSendTestContractMessages) (*MsgSendTestContractMessagesResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -556,6 +660,9 @@ func (*UnimplementedMsgServer) UpdateContractRemoteZone(ctx context.Context, req
 }
 func (*UnimplementedMsgServer) DeleteContractRemoteZone(ctx context.Context, req *MsgDeleteContractRemoteZone) (*MsgDeleteContractRemoteZoneResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteContractRemoteZone not implemented")
+}
+func (*UnimplementedMsgServer) SendTestContractMessages(ctx context.Context, req *MsgSendTestContractMessages) (*MsgSendTestContractMessagesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendTestContractMessages not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -634,6 +741,24 @@ func _Msg_DeleteContractRemoteZone_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_SendTestContractMessages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgSendTestContractMessages)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).SendTestContractMessages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Msg/SendTestContractMessages",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).SendTestContractMessages(ctx, req.(*MsgSendTestContractMessages))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "temporal.icayieldmos.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -653,6 +778,10 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteContractRemoteZone",
 			Handler:    _Msg_DeleteContractRemoteZone_Handler,
+		},
+		{
+			MethodName: "SendTestContractMessages",
+			Handler:    _Msg_SendTestContractMessages_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -941,6 +1070,66 @@ func (m *MsgDeleteContractRemoteZoneResponse) MarshalToSizedBuffer(dAtA []byte) 
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgSendTestContractMessages) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgSendTestContractMessages) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgSendTestContractMessages) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.ConnectionId) > 0 {
+		i -= len(m.ConnectionId)
+		copy(dAtA[i:], m.ConnectionId)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ConnectionId)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgSendTestContractMessagesResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgSendTestContractMessagesResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgSendTestContractMessagesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -1067,6 +1256,32 @@ func (m *MsgDeleteContractRemoteZone) Size() (n int) {
 }
 
 func (m *MsgDeleteContractRemoteZoneResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgSendTestContractMessages) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.ConnectionId)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgSendTestContractMessagesResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1843,6 +2058,170 @@ func (m *MsgDeleteContractRemoteZoneResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgDeleteContractRemoteZoneResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgSendTestContractMessages) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgSendTestContractMessages: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgSendTestContractMessages: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ConnectionId", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ConnectionId = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgSendTestContractMessagesResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgSendTestContractMessagesResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgSendTestContractMessagesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

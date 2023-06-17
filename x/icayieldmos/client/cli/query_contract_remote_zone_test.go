@@ -14,25 +14,25 @@ import (
 	"github.com/Temporal-Network/temporal/testutil/network"
 	"github.com/Temporal-Network/temporal/testutil/nullify"
 	"github.com/Temporal-Network/temporal/x/icayieldmos/client/cli"
-    "github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 )
 
 func networkWithContractRemoteZoneObjects(t *testing.T, n int) (*network.Network, []types.ContractRemoteZone) {
 	t.Helper()
 	cfg := network.DefaultConfig()
 	state := types.GenesisState{}
-    require.NoError(t, cfg.Codec.UnmarshalJSON(cfg.GenesisState[types.ModuleName], &state))
+	require.NoError(t, cfg.Codec.UnmarshalJSON(cfg.GenesisState[types.ModuleName], &state))
 
 	for i := 0; i < n; i++ {
 		contractRemoteZone := types.ContractRemoteZone{
-    		Id: uint64(i),
-    	}
+			Id: uint64(i),
+		}
 		nullify.Fill(&contractRemoteZone)
 		state.ContractRemoteZoneList = append(state.ContractRemoteZoneList, contractRemoteZone)
 	}
 	buf, err := cfg.Codec.MarshalJSON(&state)
 	require.NoError(t, err)
-    cfg.GenesisState[types.ModuleName] = buf
+	cfg.GenesisState[types.ModuleName] = buf
 	return network.New(t, cfg), state.ContractRemoteZoneList
 }
 
@@ -78,9 +78,9 @@ func TestShowContractRemoteZone(t *testing.T) {
 				require.NoError(t, net.Config.Codec.UnmarshalJSON(out.Bytes(), &resp))
 				require.NotNil(t, resp.ContractRemoteZone)
 				require.Equal(t,
-                	nullify.Fill(&tc.obj),
-                	nullify.Fill(&resp.ContractRemoteZone),
-                )
+					nullify.Fill(&tc.obj),
+					nullify.Fill(&resp.ContractRemoteZone),
+				)
 			}
 		})
 	}
@@ -115,9 +115,9 @@ func TestListContractRemoteZone(t *testing.T) {
 			require.NoError(t, net.Config.Codec.UnmarshalJSON(out.Bytes(), &resp))
 			require.LessOrEqual(t, len(resp.ContractRemoteZone), step)
 			require.Subset(t,
-            	nullify.Fill(objs),
-            	nullify.Fill(resp.ContractRemoteZone),
-            )
+				nullify.Fill(objs),
+				nullify.Fill(resp.ContractRemoteZone),
+			)
 		}
 	})
 	t.Run("ByKey", func(t *testing.T) {
@@ -132,8 +132,8 @@ func TestListContractRemoteZone(t *testing.T) {
 			require.LessOrEqual(t, len(resp.ContractRemoteZone), step)
 			require.Subset(t,
 				nullify.Fill(objs),
-            	nullify.Fill(resp.ContractRemoteZone),
-            )
+				nullify.Fill(resp.ContractRemoteZone),
+			)
 			next = resp.Pagination.NextKey
 		}
 	})

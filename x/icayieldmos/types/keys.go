@@ -30,6 +30,6 @@ func KeyPrefix(p string) []byte {
 }
 
 const (
-	ContractRemoteZoneKey= "ContractRemoteZone/value/"
-	ContractRemoteZoneCountKey= "ContractRemoteZone/count/"
+	ContractRemoteZoneKey      = "ContractRemoteZone/value/"
+	ContractRemoteZoneCountKey = "ContractRemoteZone/count/"
 )

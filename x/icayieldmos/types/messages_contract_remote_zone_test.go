@@ -3,9 +3,9 @@ package types
 import (
 	"testing"
 
+	"github.com/Temporal-Network/temporal/testutil/sample"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
-	"github.com/Temporal-Network/temporal/testutil/sample"
 )
 
 func TestMsgCreateContractRemoteZone_ValidateBasic(t *testing.T) {

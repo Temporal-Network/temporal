@@ -12,6 +12,7 @@ service Msg {
   rpc CreateContractRemoteZone (MsgCreateContractRemoteZone) returns (MsgCreateContractRemoteZoneResponse);
   rpc UpdateContractRemoteZone (MsgUpdateContractRemoteZone) returns (MsgUpdateContractRemoteZoneResponse);
   rpc DeleteContractRemoteZone (MsgDeleteContractRemoteZone) returns (MsgDeleteContractRemoteZoneResponse);
+  rpc SendTestContractMessages (MsgSendTestContractMessages) returns (MsgSendTestContractMessagesResponse);
 }
 message MsgCreateConnection {
   string creator      = 1;
@@ -47,4 +48,11 @@ message MsgDeleteContractRemoteZone {
 }
 
 message MsgDeleteContractRemoteZoneResponse {}
+
+message MsgSendTestContractMessages {
+  string creator      = 1;
+  string connectionId = 2;
+}
+
+message MsgSendTestContractMessagesResponse {}
 

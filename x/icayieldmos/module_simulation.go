@@ -40,6 +40,10 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeleteContractRemoteZone int = 100
 
+	opWeightMsgSendTestContractMessages = "op_weight_msg_send_test_contract_messages"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgSendTestContractMessages int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -52,20 +56,18 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 	icayieldmosGenesis := types.GenesisState{
 		Params: types.DefaultParams(),
 		PortId: types.PortID,
-			ContractRemoteZoneList: []types.ContractRemoteZone{
-		{
-			Id: 0,
-			Creator: sample.AccAddress(),
-
+		ContractRemoteZoneList: []types.ContractRemoteZone{
+			{
+				Id:      0,
+				Creator: sample.AccAddress(),
+			},
+			{
+				Id:      1,
+				Creator: sample.AccAddress(),
+			},
 		},
-		{
-			Id: 1,
-			Creator: sample.AccAddress(),
-
-		},
-	},
-	ContractRemoteZoneCount: 2,
-	// this line is used by starport scaffolding # simapp/module/genesisState
+		ContractRemoteZoneCount: 2,
+		// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&icayieldmosGenesis)
 }
@@ -130,6 +132,17 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgDeleteContractRemoteZone,
 		icayieldmossimulation.SimulateMsgDeleteContractRemoteZone(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgSendTestContractMessages int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgSendTestContractMessages, &weightMsgSendTestContractMessages, nil,
+		func(_ *rand.Rand) {
+			weightMsgSendTestContractMessages = defaultWeightMsgSendTestContractMessages
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgSendTestContractMessages,
+		icayieldmossimulation.SimulateMsgSendTestContractMessages(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

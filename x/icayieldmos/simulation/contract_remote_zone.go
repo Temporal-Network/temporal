@@ -51,11 +51,11 @@ func SimulateMsgUpdateContractRemoteZone(
 	return func(r *rand.Rand, app *baseapp.BaseApp, ctx sdk.Context, accs []simtypes.Account, chainID string,
 	) (simtypes.OperationMsg, []simtypes.FutureOperation, error) {
 		var (
-			simAccount = simtypes.Account{}
-			contractRemoteZone = types.ContractRemoteZone{}
-			msg = &types.MsgUpdateContractRemoteZone{}
+			simAccount            = simtypes.Account{}
+			contractRemoteZone    = types.ContractRemoteZone{}
+			msg                   = &types.MsgUpdateContractRemoteZone{}
 			allContractRemoteZone = k.GetAllContractRemoteZone(ctx)
-			found = false
+			found                 = false
 		)
 		for _, obj := range allContractRemoteZone {
 			simAccount, found = FindAccount(accs, obj.Creator)
@@ -96,11 +96,11 @@ func SimulateMsgDeleteContractRemoteZone(
 	return func(r *rand.Rand, app *baseapp.BaseApp, ctx sdk.Context, accs []simtypes.Account, chainID string,
 	) (simtypes.OperationMsg, []simtypes.FutureOperation, error) {
 		var (
-			simAccount = simtypes.Account{}
-			contractRemoteZone = types.ContractRemoteZone{}
-			msg = &types.MsgUpdateContractRemoteZone{}
+			simAccount            = simtypes.Account{}
+			contractRemoteZone    = types.ContractRemoteZone{}
+			msg                   = &types.MsgUpdateContractRemoteZone{}
 			allContractRemoteZone = k.GetAllContractRemoteZone(ctx)
-			found = false
+			found                 = false
 		)
 		for _, obj := range allContractRemoteZone {
 			simAccount, found = FindAccount(accs, obj.Creator)

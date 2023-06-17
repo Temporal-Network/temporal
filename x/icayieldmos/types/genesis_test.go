@@ -23,45 +23,45 @@ func TestGenesisState_Validate(t *testing.T) {
 			genState: &types.GenesisState{
 				PortId: types.PortID,
 				ContractRemoteZoneList: []types.ContractRemoteZone{
-	{
-		Id: 0,
-	},
-	{
-		Id: 1,
-	},
-},
-ContractRemoteZoneCount: 2,
-// this line is used by starport scaffolding # types/genesis/validField
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				ContractRemoteZoneCount: 2,
+				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
 		},
 		{
-	desc:     "duplicated contractRemoteZone",
-	genState: &types.GenesisState{
-		ContractRemoteZoneList: []types.ContractRemoteZone{
-			{
-				Id: 0,
+			desc: "duplicated contractRemoteZone",
+			genState: &types.GenesisState{
+				ContractRemoteZoneList: []types.ContractRemoteZone{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
 			},
-			{
-				Id: 0,
-			},
+			valid: false,
 		},
-	},
-	valid:    false,
-},
-{
-	desc:     "invalid contractRemoteZone count",
-	genState: &types.GenesisState{
-		ContractRemoteZoneList: []types.ContractRemoteZone{
-			{
-				Id: 1,
+		{
+			desc: "invalid contractRemoteZone count",
+			genState: &types.GenesisState{
+				ContractRemoteZoneList: []types.ContractRemoteZone{
+					{
+						Id: 1,
+					},
+				},
+				ContractRemoteZoneCount: 0,
 			},
+			valid: false,
 		},
-		ContractRemoteZoneCount: 0,
-	},
-	valid:    false,
-},
-// this line is used by starport scaffolding # types/genesis/testcase
+		// this line is used by starport scaffolding # types/genesis/testcase
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			err := tc.genState.Validate()

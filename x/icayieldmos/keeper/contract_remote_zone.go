@@ -3,14 +3,14 @@ package keeper
 import (
 	"encoding/binary"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
 // GetContractRemoteZoneCount get the total number of contractRemoteZone
 func (k Keeper) GetContractRemoteZoneCount(ctx sdk.Context) uint64 {
-	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
 	byteKey := types.KeyPrefix(types.ContractRemoteZoneCountKey)
 	bz := store.Get(byteKey)
 
@@ -24,8 +24,8 @@ func (k Keeper) GetContractRemoteZoneCount(ctx sdk.Context) uint64 {
 }
 
 // SetContractRemoteZoneCount set the total number of contractRemoteZone
-func (k Keeper) SetContractRemoteZoneCount(ctx sdk.Context, count uint64)  {
-	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
+func (k Keeper) SetContractRemoteZoneCount(ctx sdk.Context, count uint64) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
 	byteKey := types.KeyPrefix(types.ContractRemoteZoneCountKey)
 	bz := make([]byte, 8)
 	binary.BigEndian.PutUint64(bz, count)
@@ -34,28 +34,28 @@ func (k Keeper) SetContractRemoteZoneCount(ctx sdk.Context, count uint64)  {
 
 // AppendContractRemoteZone appends a contractRemoteZone in the store with a new id and update the count
 func (k Keeper) AppendContractRemoteZone(
-    ctx sdk.Context,
-    contractRemoteZone types.ContractRemoteZone,
+	ctx sdk.Context,
+	contractRemoteZone types.ContractRemoteZone,
 ) uint64 {
 	// Create the contractRemoteZone
-    count := k.GetContractRemoteZoneCount(ctx)
+	count := k.GetContractRemoteZoneCount(ctx)
 
-    // Set the ID of the appended value
-    contractRemoteZone.Id = count
+	// Set the ID of the appended value
+	contractRemoteZone.Id = count
 
-    store :=  prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.ContractRemoteZoneKey))
-    appendedValue := k.cdc.MustMarshal(&contractRemoteZone)
-    store.Set(GetContractRemoteZoneIDBytes(contractRemoteZone.Id), appendedValue)
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.ContractRemoteZoneKey))
+	appendedValue := k.cdc.MustMarshal(&contractRemoteZone)
+	store.Set(GetContractRemoteZoneIDBytes(contractRemoteZone.Id), appendedValue)
 
-    // Update contractRemoteZone count
-    k.SetContractRemoteZoneCount(ctx, count+1)
+	// Update contractRemoteZone count
+	k.SetContractRemoteZoneCount(ctx, count+1)
 
-    return count
+	return count
 }
 
 // SetContractRemoteZone set a specific contractRemoteZone in the store
 func (k Keeper) SetContractRemoteZone(ctx sdk.Context, contractRemoteZone types.ContractRemoteZone) {
-	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.ContractRemoteZoneKey))
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.ContractRemoteZoneKey))
 	b := k.cdc.MustMarshal(&contractRemoteZone)
 	store.Set(GetContractRemoteZoneIDBytes(contractRemoteZone.Id), b)
 }
@@ -79,7 +79,7 @@ func (k Keeper) RemoveContractRemoteZone(ctx sdk.Context, id uint64) {
 
 // GetAllContractRemoteZone returns all contractRemoteZone
 func (k Keeper) GetAllContractRemoteZone(ctx sdk.Context) (list []types.ContractRemoteZone) {
-    store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.ContractRemoteZoneKey))
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.ContractRemoteZoneKey))
 	iterator := sdk.KVStorePrefixIterator(store, []byte{})
 
 	defer iterator.Close()
@@ -87,10 +87,10 @@ func (k Keeper) GetAllContractRemoteZone(ctx sdk.Context) (list []types.Contract
 	for ; iterator.Valid(); iterator.Next() {
 		var val types.ContractRemoteZone
 		k.cdc.MustUnmarshal(iterator.Value(), &val)
-        list = append(list, val)
+		list = append(list, val)
 	}
 
-    return
+	return
 }
 
 // GetContractRemoteZoneIDBytes returns the byte representation of the ID

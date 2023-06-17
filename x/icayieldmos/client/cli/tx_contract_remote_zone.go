@@ -1,14 +1,14 @@
 package cli
 
 import (
-    "strconv"
-	
-	 "github.com/spf13/cast"
-	"github.com/spf13/cobra"
-    "github.com/cosmos/cosmos-sdk/client"
+	"strconv"
+
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	"github.com/spf13/cast"
+	"github.com/spf13/cobra"
 )
 
 func CmdCreateContractRemoteZone() *cobra.Command {
@@ -17,13 +17,13 @@ func CmdCreateContractRemoteZone() *cobra.Command {
 		Short: "Create a new ContractRemoteZone",
 		Args:  cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-	  	 argConnectionId := args[0]
-		 argRemoteChainId := args[1]
-		 argActive, err := cast.ToBoolE(args[2])
-            		if err != nil {
-                		return err
-            		}
-		
+			argConnectionId := args[0]
+			argRemoteChainId := args[1]
+			argActive, err := cast.ToBoolE(args[2])
+			if err != nil {
+				return err
+			}
+
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
@@ -39,7 +39,7 @@ func CmdCreateContractRemoteZone() *cobra.Command {
 
 	flags.AddTxFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }
 
 func CmdUpdateContractRemoteZone() *cobra.Command {
@@ -48,21 +48,20 @@ func CmdUpdateContractRemoteZone() *cobra.Command {
 		Short: "Update a ContractRemoteZone",
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-            id, err := strconv.ParseUint(args[0], 10, 64)
-            if err != nil {
-                return err
-            }
+			id, err := strconv.ParseUint(args[0], 10, 64)
+			if err != nil {
+				return err
+			}
 
-	    
-	  		argConnectionId := args[1]
-        
-	  		argRemoteChainId := args[2]
-        
-	  		argActive, err := cast.ToBoolE(args[3])
-            		if err != nil {
-                		return err
-            		}
-        
+			argConnectionId := args[1]
+
+			argRemoteChainId := args[2]
+
+			argActive, err := cast.ToBoolE(args[3])
+			if err != nil {
+				return err
+			}
+
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
@@ -78,7 +77,7 @@ func CmdUpdateContractRemoteZone() *cobra.Command {
 
 	flags.AddTxFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }
 
 func CmdDeleteContractRemoteZone() *cobra.Command {
@@ -87,10 +86,10 @@ func CmdDeleteContractRemoteZone() *cobra.Command {
 		Short: "Delete a ContractRemoteZone by id",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-            id, err := strconv.ParseUint(args[0], 10, 64)
-            if err != nil {
-                return err
-            }
+			id, err := strconv.ParseUint(args[0], 10, 64)
+			if err != nil {
+				return err
+			}
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -107,5 +106,5 @@ func CmdDeleteContractRemoteZone() *cobra.Command {
 
 	flags.AddTxFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }
