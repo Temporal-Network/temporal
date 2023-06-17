@@ -6,4 +6,4 @@ VAL_1_ADDRESS="temporal1nhvm23r9pu593sgdu660whdz66pg382czn5quy"
 CMD="temporald"
 DENOM="utprl"
 
-$CMD start
+$CMD start --grpc.address 0.0.0.0:9090 --pruning nothing
