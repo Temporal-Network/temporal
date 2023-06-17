@@ -11,8 +11,6 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 
 	"github.com/Temporal-Network/temporal/x/yieldmos/types"
-
-	controllertypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/controller/types"
 )
 
 type (
@@ -57,22 +55,4 @@ func NewKeeper(
 
 func (k Keeper) Logger(ctx sdk.Context) log.Logger {
 	return ctx.Logger().With("module", fmt.Sprintf("x/%s", types.ModuleName))
-}
-
-func (k Keeper) RegisterInterchainAccount(ctx sdk.Context) error {
-	owner := k.accountKeeper.GetModuleAddress(types.ModuleName)
-	msg := controllertypes.NewMsgRegisterInterchainAccount(
-		"connection-0",
-		owner.String(),
-		"",
-	)
-	handler := k.msgServiceRouter.Handler(msg)
-	res, err := handler(ctx, msg)
-	if err != nil {
-		return err
-	}
-
-	fmt.Println(res)
-
-	return nil
 }
