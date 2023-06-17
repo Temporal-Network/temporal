@@ -7,10 +7,8 @@ import (
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	icacontrollerkeeper "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/controller/keeper"
 	icacontrollertypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/controller/types"
 	icatypes "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/types"
@@ -43,6 +41,8 @@ type (
 		iCAControllerKeeper icacontrollerkeeper.Keeper
 	}
 )
+
+const ICA_TIMEOUT = 3_600_000_000_000
 
 func NewKeeper(
 	cdc codec.BinaryCodec,
@@ -137,12 +137,11 @@ func (k Keeper) Logger(ctx sdk.Context) log.Logger {
 
 // TODO Create unit test
 // RegisterInterchainAccounts attempts to register an ICA account on a host chain.
-func (k Keeper) RegisterInterchainAccount(ctx sdk.Context) error {
-	owner := k.accountKeeper.GetModuleAddress(types.ModuleName)
-	connectionId := "connection-0"
+func (k Keeper) RegisterInterchainAccount(ctx sdk.Context, connectionId string) error {
+	owner := k.GetModuleAddress()
 
 	if k.DoesInterchainAccountExist(ctx, connectionId, owner.String()) && k.IsChannelOpen(ctx, connectionId, owner.String()) {
-		return nil
+		return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, fmt.Sprintf("ica account and channel already exist for connectionId: %s and owner: %s", connectionId, owner.String()))
 	}
 
 	msg := controllertypes.NewMsgRegisterInterchainAccount(
@@ -195,42 +194,25 @@ func (k Keeper) IsChannelOpen(ctx sdk.Context, connectionId string, owner string
 	return found
 }
 
+// TODO Create Unit test
+func (k Keeper) GetModuleAddress() sdk.AccAddress {
+	return k.accountKeeper.GetModuleAddress(types.ModuleName)
+}
+
 // TODO Create unit test
-func (k Keeper) SendMsgSend(ctx sdk.Context) error {
-	amount := sdk.NewCoin("ujunox", sdk.NewInt(10000))
+func (k Keeper) GetRemoteModuleAddress(ctx sdk.Context, connectionId string, owner string) (string, bool) {
+	portId := k.GetPortId(owner)
+	remoteAddress, found := k.iCAControllerKeeper.GetInterchainAccountAddress(ctx, connectionId, portId)
 
-	var msgs []proto.Message
-	msgs = append(msgs, &banktypes.MsgSend{
-		FromAddress: "juno1rlyxhrlyj7g0hwcxgkf4eqtq26l7ypdgn4lxp8whralfzp0wc9ts609at8",
-		ToAddress:   "juno1qk56sklsv5xx4eh29su5fdw08gcyl9h4kl9sepl9nm0slm2lffhq6vj3pd",
-		Amount:      sdk.NewCoins(amount),
-	})
-
-	msgs = append(msgs, &stakingtypes.MsgDelegate{
-		DelegatorAddress: "juno1rlyxhrlyj7g0hwcxgkf4eqtq26l7ypdgn4lxp8whralfzp0wc9ts609at8",
-		ValidatorAddress: "junovaloper14qekdkj2nmmwea4ufg9n002a3pud23y8vd4ld4",
-		Amount:           amount,
-	})
-
-	err := k.SubmitTxs(ctx, msgs)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return remoteAddress, found
 }
 
 // TODO Create unit test
 // SubmitTxs submits an ICA transaction containing multiple messages
-func (k Keeper) SubmitTxs(ctx sdk.Context, msgs []proto.Message) error {
-	owner := k.accountKeeper.GetModuleAddress(types.ModuleName).String()
+func (k Keeper) SubmitTxs(ctx sdk.Context, msgs []proto.Message, connectionId string) error {
+	owner := k.GetModuleAddress()
 
-	var protoMsgs []proto.Message
-	for _, msg := range msgs {
-		protoMsgs = append(protoMsgs, msg)
-	}
-
-	data, err := icatypes.SerializeCosmosTx(k.cdc, protoMsgs)
+	data, err := icatypes.SerializeCosmosTx(k.cdc, msgs)
 	if err != nil {
 		return err
 	}
@@ -240,7 +222,8 @@ func (k Keeper) SubmitTxs(ctx sdk.Context, msgs []proto.Message) error {
 		Data: data,
 	}
 
-	msg := icacontrollertypes.NewMsgSendTx(owner, "connection-0", 3_600_000_000_000, packetData)
+	// Hour long time out.
+	msg := icacontrollertypes.NewMsgSendTx(owner.String(), connectionId, ICA_TIMEOUT, packetData)
 
 	handler := k.msgServiceRouter.Handler(msg)
 	res, err := handler(ctx, msg)
