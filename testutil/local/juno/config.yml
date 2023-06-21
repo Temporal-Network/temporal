@@ -1,0 +1,35 @@
+version: 1
+genesis:
+  app_state:
+    staking:
+      params:
+        bond_denom: "ujunox"
+    mint:
+      params:
+        mint_denom: "ujunox"
+
+accounts:
+  - name: aliceJ
+    coins:
+      - 200000000ujunox
+  - name: bobJ
+    coins:
+      - 100000000ujunox
+  - name: relayerJ
+    coins:
+      - 100000000ujunox
+    address: juno17dtl0mjt3t77kpuhg2edqzjpszulwhgz2qxy4v
+client:
+  openapi:
+    path: docs/static/openapi.yml
+faucet:
+  name: bobJ
+  coins:
+    - 1000000ujunox
+validators:
+  - name: aliceJ
+    bonded: 100000000ujunox
+    app:
+      pruning: "nothing"
+build:
+  main: cmd/junod

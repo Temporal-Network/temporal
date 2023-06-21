@@ -9,19 +9,24 @@ genesis:
         mint_denom: "utprl"
 
 accounts:
-- name: alice
+- name: aliceT
   coins:
   - 200000000utprl
-- name: bob
+- name: bobT
   coins:
   - 100000000utprl
+- name: relayerT
+  coins:
+  - 100000000utprl
+  address: temporal1nhvm23r9pu593sgdu660whdz66pg382czn5quy
 client:
   openapi:
     path: docs/static/openapi.yml
 faucet:
-  name: bob
+  name: bobT
   coins:
-  - 100000utprl
+  - 10000000utprl
 validators:
-- name: alice
+- name: aliceT
   bonded: 100000000utprl
+  pruning: "nothing"
