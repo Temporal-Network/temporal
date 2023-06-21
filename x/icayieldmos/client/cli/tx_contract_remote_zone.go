@@ -13,9 +13,9 @@ import (
 
 func CmdCreateContractRemoteZone() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-contract-remote-zone [connection-id] [remote-chain-id] [active]",
+		Use:   "create-contract-remote-zone [connection-id] [remote-chain-id] [active] [bech32Prefix]",
 		Short: "Create a new ContractRemoteZone",
-		Args:  cobra.ExactArgs(3),
+		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			argConnectionId := args[0]
 			argRemoteChainId := args[1]
@@ -23,13 +23,14 @@ func CmdCreateContractRemoteZone() *cobra.Command {
 			if err != nil {
 				return err
 			}
+			argBech32Prefix := args[3]
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgCreateContractRemoteZone(clientCtx.GetFromAddress().String(), argConnectionId, argRemoteChainId, argActive)
+			msg := types.NewMsgCreateContractRemoteZone(clientCtx.GetFromAddress().String(), argConnectionId, argRemoteChainId, argActive, argBech32Prefix)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -46,7 +47,7 @@ func CmdUpdateContractRemoteZone() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "update-contract-remote-zone [id] [connection-id] [remote-chain-id] [active]",
 		Short: "Update a ContractRemoteZone",
-		Args:  cobra.ExactArgs(4),
+		Args:  cobra.ExactArgs(5),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			id, err := strconv.ParseUint(args[0], 10, 64)
 			if err != nil {
@@ -62,12 +63,14 @@ func CmdUpdateContractRemoteZone() *cobra.Command {
 				return err
 			}
 
+			argBech32Prefix := args[4]
+
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgUpdateContractRemoteZone(clientCtx.GetFromAddress().String(), id, argConnectionId, argRemoteChainId, argActive)
+			msg := types.NewMsgUpdateContractRemoteZone(clientCtx.GetFromAddress().String(), id, argConnectionId, argRemoteChainId, argActive, argBech32Prefix)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}

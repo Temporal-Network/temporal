@@ -26,6 +26,7 @@ message MsgCreateContractRemoteZone {
   string connectionId  = 2;
   string remoteChainId = 3;
   bool   active        = 4;
+  string bech32Prefix  = 5;
 }
 
 message MsgCreateContractRemoteZoneResponse {
@@ -38,6 +39,7 @@ message MsgUpdateContractRemoteZone {
   string connectionId  = 3;
   string remoteChainId = 4;
   bool   active        = 5;
+  string bech32Prefix  = 6;
 }
 
 message MsgUpdateContractRemoteZoneResponse {}

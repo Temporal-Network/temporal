@@ -13,12 +13,13 @@ const (
 
 var _ sdk.Msg = &MsgCreateContractRemoteZone{}
 
-func NewMsgCreateContractRemoteZone(creator string, connectionId string, remoteChainId string, active bool) *MsgCreateContractRemoteZone {
+func NewMsgCreateContractRemoteZone(creator string, connectionId string, remoteChainId string, active bool, bech32Prefix string) *MsgCreateContractRemoteZone {
 	return &MsgCreateContractRemoteZone{
 		Creator:       creator,
 		ConnectionId:  connectionId,
 		RemoteChainId: remoteChainId,
 		Active:        active,
+		Bech32Prefix:  bech32Prefix,
 	}
 }
 
@@ -53,13 +54,14 @@ func (msg *MsgCreateContractRemoteZone) ValidateBasic() error {
 
 var _ sdk.Msg = &MsgUpdateContractRemoteZone{}
 
-func NewMsgUpdateContractRemoteZone(creator string, id uint64, connectionId string, remoteChainId string, active bool) *MsgUpdateContractRemoteZone {
+func NewMsgUpdateContractRemoteZone(creator string, id uint64, connectionId string, remoteChainId string, active bool, bech32Prefix string) *MsgUpdateContractRemoteZone {
 	return &MsgUpdateContractRemoteZone{
 		Id:            id,
 		Creator:       creator,
 		ConnectionId:  connectionId,
 		RemoteChainId: remoteChainId,
 		Active:        active,
+		Bech32Prefix:  bech32Prefix,
 	}
 }
 

@@ -9,4 +9,5 @@ message ContractRemoteZone {
   string remoteChainId = 3; 
   bool active = 4; 
   string creator = 5;
+  string bech32Prefix = 6;
 }
