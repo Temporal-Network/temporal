@@ -3,16 +3,20 @@ syntax = "proto3";
 package temporal.icayieldmos;
 
 import "temporal/icayieldmos/contract_remote_zone.proto";
+import "temporal/icayieldmos/remote_contract_compound_settings.proto";
 
 option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
 
 // Msg defines the Msg service.
 service Msg {
-  rpc CreateConnection         (MsgCreateConnection        ) returns (MsgCreateConnectionResponse        );
-  rpc CreateContractRemoteZone (MsgCreateContractRemoteZone) returns (MsgCreateContractRemoteZoneResponse);
-  rpc UpdateContractRemoteZone (MsgUpdateContractRemoteZone) returns (MsgUpdateContractRemoteZoneResponse);
-  rpc DeleteContractRemoteZone (MsgDeleteContractRemoteZone) returns (MsgDeleteContractRemoteZoneResponse);
-  rpc SendTestContractMessages (MsgSendTestContractMessages) returns (MsgSendTestContractMessagesResponse);
+  rpc CreateConnection                     (MsgCreateConnection                    ) returns (MsgCreateConnectionResponse                    );
+  rpc CreateContractRemoteZone             (MsgCreateContractRemoteZone            ) returns (MsgCreateContractRemoteZoneResponse            );
+  rpc UpdateContractRemoteZone             (MsgUpdateContractRemoteZone            ) returns (MsgUpdateContractRemoteZoneResponse            );
+  rpc DeleteContractRemoteZone             (MsgDeleteContractRemoteZone            ) returns (MsgDeleteContractRemoteZoneResponse            );
+  rpc SendTestContractMessages             (MsgSendTestContractMessages            ) returns (MsgSendTestContractMessagesResponse            );
+  rpc CreateRemoteContractCompoundSettings (MsgCreateRemoteContractCompoundSettings) returns (MsgCreateRemoteContractCompoundSettingsResponse);
+  rpc UpdateRemoteContractCompoundSettings (MsgUpdateRemoteContractCompoundSettings) returns (MsgUpdateRemoteContractCompoundSettingsResponse);
+  rpc DeleteRemoteContractCompoundSettings (MsgDeleteRemoteContractCompoundSettings) returns (MsgDeleteRemoteContractCompoundSettingsResponse);
 }
 message MsgCreateConnection {
   string creator      = 1;
@@ -57,4 +61,36 @@ message MsgSendTestContractMessages {
 }
 
 message MsgSendTestContractMessagesResponse {}
+
+message MsgCreateRemoteContractCompoundSettings {
+  string creator                = 1;
+  int32  contractRemoteZone     = 2;
+  string remoteDelegatorAddress = 3;
+  string compoundSettings       = 4;
+  int32  frequencyInSeconds     = 5;
+  string remoteContractAddress  = 6;
+}
+
+message MsgCreateRemoteContractCompoundSettingsResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateRemoteContractCompoundSettings {
+  string creator                = 1;
+  uint64 id                     = 2;
+  int32  contractRemoteZone     = 3;
+  string remoteDelegatorAddress = 4;
+  string compoundSettings       = 5;
+  int32  frequencyInSeconds     = 6;
+  string remoteContractAddress  = 7;
+}
+
+message MsgUpdateRemoteContractCompoundSettingsResponse {}
+
+message MsgDeleteRemoteContractCompoundSettings {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgDeleteRemoteContractCompoundSettingsResponse {}
 

@@ -13,7 +13,8 @@ func DefaultGenesis() *GenesisState {
 	return &GenesisState{
 		PortId:                 PortID,
 		ContractRemoteZoneList: []ContractRemoteZone{},
-		// this line is used by starport scaffolding # genesis/types/default
+		RemoteContractCompoundSettingsList: []RemoteContractCompoundSettings{},
+// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
 }
@@ -36,7 +37,19 @@ func (gs GenesisState) Validate() error {
 		}
 		contractRemoteZoneIdMap[elem.Id] = true
 	}
-	// this line is used by starport scaffolding # genesis/types/validate
+	// Check for duplicated ID in remoteContractCompoundSettings
+remoteContractCompoundSettingsIdMap := make(map[uint64]bool)
+remoteContractCompoundSettingsCount := gs.GetRemoteContractCompoundSettingsCount()
+for _, elem := range gs.RemoteContractCompoundSettingsList {
+	if _, ok := remoteContractCompoundSettingsIdMap[elem.Id]; ok {
+		return fmt.Errorf("duplicated id for remoteContractCompoundSettings")
+	}
+	if elem.Id >= remoteContractCompoundSettingsCount {
+		return fmt.Errorf("remoteContractCompoundSettings id should be lower or equal than the last id")
+	}
+	remoteContractCompoundSettingsIdMap[elem.Id] = true
+}
+// this line is used by starport scaffolding # genesis/types/validate
 
 	return gs.Params.Validate()
 }

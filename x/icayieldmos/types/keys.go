@@ -33,3 +33,8 @@ const (
 	ContractRemoteZoneKey      = "ContractRemoteZone/value/"
 	ContractRemoteZoneCountKey = "ContractRemoteZone/count/"
 )
+
+const (
+	RemoteContractCompoundSettingsKey= "RemoteContractCompoundSettings/value/"
+	RemoteContractCompoundSettingsCountKey= "RemoteContractCompoundSettings/count/"
+)

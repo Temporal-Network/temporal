@@ -1,0 +1,14 @@
+syntax = "proto3";
+package temporal.icayieldmos;
+
+option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
+
+message RemoteContractCompoundSettings {
+  uint64 id = 1;
+  int32 contractRemoteZone = 2; 
+  string remoteDelegatorAddress = 3; 
+  string compoundSettings = 4; 
+  int32 frequencyInSeconds = 5; 
+  string remoteContractAddress = 6; 
+  string creator = 7;
+}

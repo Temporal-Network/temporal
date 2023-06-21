@@ -44,6 +44,18 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgSendTestContractMessages int = 100
 
+	opWeightMsgCreateRemoteContractCompoundSettings = "op_weight_msg_remote_contract_compound_settings"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateRemoteContractCompoundSettings int = 100
+
+	opWeightMsgUpdateRemoteContractCompoundSettings = "op_weight_msg_remote_contract_compound_settings"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateRemoteContractCompoundSettings int = 100
+
+	opWeightMsgDeleteRemoteContractCompoundSettings = "op_weight_msg_remote_contract_compound_settings"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteRemoteContractCompoundSettings int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -67,7 +79,20 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 			},
 		},
 		ContractRemoteZoneCount: 2,
-		// this line is used by starport scaffolding # simapp/module/genesisState
+			RemoteContractCompoundSettingsList: []types.RemoteContractCompoundSettings{
+		{
+			Id: 0,
+			Creator: sample.AccAddress(),
+
+		},
+		{
+			Id: 1,
+			Creator: sample.AccAddress(),
+
+		},
+	},
+	RemoteContractCompoundSettingsCount: 2,
+	// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&icayieldmosGenesis)
 }
@@ -143,6 +168,39 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgSendTestContractMessages,
 		icayieldmossimulation.SimulateMsgSendTestContractMessages(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateRemoteContractCompoundSettings int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateRemoteContractCompoundSettings, &weightMsgCreateRemoteContractCompoundSettings, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateRemoteContractCompoundSettings = defaultWeightMsgCreateRemoteContractCompoundSettings
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateRemoteContractCompoundSettings,
+		icayieldmossimulation.SimulateMsgCreateRemoteContractCompoundSettings(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateRemoteContractCompoundSettings int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateRemoteContractCompoundSettings, &weightMsgUpdateRemoteContractCompoundSettings, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateRemoteContractCompoundSettings = defaultWeightMsgUpdateRemoteContractCompoundSettings
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateRemoteContractCompoundSettings,
+		icayieldmossimulation.SimulateMsgUpdateRemoteContractCompoundSettings(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteRemoteContractCompoundSettings int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteRemoteContractCompoundSettings, &weightMsgDeleteRemoteContractCompoundSettings, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteRemoteContractCompoundSettings = defaultWeightMsgDeleteRemoteContractCompoundSettings
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteRemoteContractCompoundSettings,
+		icayieldmossimulation.SimulateMsgDeleteRemoteContractCompoundSettings(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

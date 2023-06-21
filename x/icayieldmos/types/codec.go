@@ -13,7 +13,10 @@ func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgUpdateContractRemoteZone{}, "icayieldmos/UpdateContractRemoteZone", nil)
 	cdc.RegisterConcrete(&MsgDeleteContractRemoteZone{}, "icayieldmos/DeleteContractRemoteZone", nil)
 	cdc.RegisterConcrete(&MsgSendTestContractMessages{}, "icayieldmos/SendTestContractMessages", nil)
-	// this line is used by starport scaffolding # 2
+	cdc.RegisterConcrete(&MsgCreateRemoteContractCompoundSettings{}, "icayieldmos/CreateRemoteContractCompoundSettings", nil)
+cdc.RegisterConcrete(&MsgUpdateRemoteContractCompoundSettings{}, "icayieldmos/UpdateRemoteContractCompoundSettings", nil)
+cdc.RegisterConcrete(&MsgDeleteRemoteContractCompoundSettings{}, "icayieldmos/DeleteRemoteContractCompoundSettings", nil)
+// this line is used by starport scaffolding # 2
 }
 
 func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
@@ -28,7 +31,12 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 	registry.RegisterImplementations((*sdk.Msg)(nil),
 		&MsgSendTestContractMessages{},
 	)
-	// this line is used by starport scaffolding # 3
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+	&MsgCreateRemoteContractCompoundSettings{},
+	&MsgUpdateRemoteContractCompoundSettings{},
+	&MsgDeleteRemoteContractCompoundSettings{},
+)
+// this line is used by starport scaffolding # 3
 
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
 }

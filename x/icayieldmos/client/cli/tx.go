@@ -35,7 +35,10 @@ func GetTxCmd() *cobra.Command {
 	cmd.AddCommand(CmdUpdateContractRemoteZone())
 	cmd.AddCommand(CmdDeleteContractRemoteZone())
 	cmd.AddCommand(CmdSendTestContractMessages())
-	// this line is used by starport scaffolding # 1
+	cmd.AddCommand(CmdCreateRemoteContractCompoundSettings())
+	cmd.AddCommand(CmdUpdateRemoteContractCompoundSettings())
+	cmd.AddCommand(CmdDeleteRemoteContractCompoundSettings())
+// this line is used by starport scaffolding # 1
 
 	return cmd
 }

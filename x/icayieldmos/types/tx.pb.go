@@ -531,6 +531,368 @@ func (m *MsgSendTestContractMessagesResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgSendTestContractMessagesResponse proto.InternalMessageInfo
 
+type MsgCreateRemoteContractCompoundSettings struct {
+	Creator                string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	ContractRemoteZone     int32  `protobuf:"varint,2,opt,name=contractRemoteZone,proto3" json:"contractRemoteZone,omitempty"`
+	RemoteDelegatorAddress string `protobuf:"bytes,3,opt,name=remoteDelegatorAddress,proto3" json:"remoteDelegatorAddress,omitempty"`
+	CompoundSettings       string `protobuf:"bytes,4,opt,name=compoundSettings,proto3" json:"compoundSettings,omitempty"`
+	FrequencyInSeconds     int32  `protobuf:"varint,5,opt,name=frequencyInSeconds,proto3" json:"frequencyInSeconds,omitempty"`
+	RemoteContractAddress  string `protobuf:"bytes,6,opt,name=remoteContractAddress,proto3" json:"remoteContractAddress,omitempty"`
+}
+
+func (m *MsgCreateRemoteContractCompoundSettings) Reset() {
+	*m = MsgCreateRemoteContractCompoundSettings{}
+}
+func (m *MsgCreateRemoteContractCompoundSettings) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateRemoteContractCompoundSettings) ProtoMessage()    {}
+func (*MsgCreateRemoteContractCompoundSettings) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{10}
+}
+func (m *MsgCreateRemoteContractCompoundSettings) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateRemoteContractCompoundSettings) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateRemoteContractCompoundSettings.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateRemoteContractCompoundSettings) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateRemoteContractCompoundSettings.Merge(m, src)
+}
+func (m *MsgCreateRemoteContractCompoundSettings) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateRemoteContractCompoundSettings) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateRemoteContractCompoundSettings.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateRemoteContractCompoundSettings proto.InternalMessageInfo
+
+func (m *MsgCreateRemoteContractCompoundSettings) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgCreateRemoteContractCompoundSettings) GetContractRemoteZone() int32 {
+	if m != nil {
+		return m.ContractRemoteZone
+	}
+	return 0
+}
+
+func (m *MsgCreateRemoteContractCompoundSettings) GetRemoteDelegatorAddress() string {
+	if m != nil {
+		return m.RemoteDelegatorAddress
+	}
+	return ""
+}
+
+func (m *MsgCreateRemoteContractCompoundSettings) GetCompoundSettings() string {
+	if m != nil {
+		return m.CompoundSettings
+	}
+	return ""
+}
+
+func (m *MsgCreateRemoteContractCompoundSettings) GetFrequencyInSeconds() int32 {
+	if m != nil {
+		return m.FrequencyInSeconds
+	}
+	return 0
+}
+
+func (m *MsgCreateRemoteContractCompoundSettings) GetRemoteContractAddress() string {
+	if m != nil {
+		return m.RemoteContractAddress
+	}
+	return ""
+}
+
+type MsgCreateRemoteContractCompoundSettingsResponse struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) Reset() {
+	*m = MsgCreateRemoteContractCompoundSettingsResponse{}
+}
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) String() string {
+	return proto.CompactTextString(m)
+}
+func (*MsgCreateRemoteContractCompoundSettingsResponse) ProtoMessage() {}
+func (*MsgCreateRemoteContractCompoundSettingsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{11}
+}
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateRemoteContractCompoundSettingsResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateRemoteContractCompoundSettingsResponse.Merge(m, src)
+}
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateRemoteContractCompoundSettingsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateRemoteContractCompoundSettingsResponse proto.InternalMessageInfo
+
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgUpdateRemoteContractCompoundSettings struct {
+	Creator                string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id                     uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	ContractRemoteZone     int32  `protobuf:"varint,3,opt,name=contractRemoteZone,proto3" json:"contractRemoteZone,omitempty"`
+	RemoteDelegatorAddress string `protobuf:"bytes,4,opt,name=remoteDelegatorAddress,proto3" json:"remoteDelegatorAddress,omitempty"`
+	CompoundSettings       string `protobuf:"bytes,5,opt,name=compoundSettings,proto3" json:"compoundSettings,omitempty"`
+	FrequencyInSeconds     int32  `protobuf:"varint,6,opt,name=frequencyInSeconds,proto3" json:"frequencyInSeconds,omitempty"`
+	RemoteContractAddress  string `protobuf:"bytes,7,opt,name=remoteContractAddress,proto3" json:"remoteContractAddress,omitempty"`
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) Reset() {
+	*m = MsgUpdateRemoteContractCompoundSettings{}
+}
+func (m *MsgUpdateRemoteContractCompoundSettings) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateRemoteContractCompoundSettings) ProtoMessage()    {}
+func (*MsgUpdateRemoteContractCompoundSettings) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{12}
+}
+func (m *MsgUpdateRemoteContractCompoundSettings) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateRemoteContractCompoundSettings) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateRemoteContractCompoundSettings.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateRemoteContractCompoundSettings) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateRemoteContractCompoundSettings.Merge(m, src)
+}
+func (m *MsgUpdateRemoteContractCompoundSettings) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateRemoteContractCompoundSettings) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateRemoteContractCompoundSettings.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateRemoteContractCompoundSettings proto.InternalMessageInfo
+
+func (m *MsgUpdateRemoteContractCompoundSettings) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) GetContractRemoteZone() int32 {
+	if m != nil {
+		return m.ContractRemoteZone
+	}
+	return 0
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) GetRemoteDelegatorAddress() string {
+	if m != nil {
+		return m.RemoteDelegatorAddress
+	}
+	return ""
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) GetCompoundSettings() string {
+	if m != nil {
+		return m.CompoundSettings
+	}
+	return ""
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) GetFrequencyInSeconds() int32 {
+	if m != nil {
+		return m.FrequencyInSeconds
+	}
+	return 0
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) GetRemoteContractAddress() string {
+	if m != nil {
+		return m.RemoteContractAddress
+	}
+	return ""
+}
+
+type MsgUpdateRemoteContractCompoundSettingsResponse struct {
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) Reset() {
+	*m = MsgUpdateRemoteContractCompoundSettingsResponse{}
+}
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) String() string {
+	return proto.CompactTextString(m)
+}
+func (*MsgUpdateRemoteContractCompoundSettingsResponse) ProtoMessage() {}
+func (*MsgUpdateRemoteContractCompoundSettingsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{13}
+}
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateRemoteContractCompoundSettingsResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateRemoteContractCompoundSettingsResponse.Merge(m, src)
+}
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateRemoteContractCompoundSettingsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateRemoteContractCompoundSettingsResponse proto.InternalMessageInfo
+
+type MsgDeleteRemoteContractCompoundSettings struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettings) Reset() {
+	*m = MsgDeleteRemoteContractCompoundSettings{}
+}
+func (m *MsgDeleteRemoteContractCompoundSettings) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteRemoteContractCompoundSettings) ProtoMessage()    {}
+func (*MsgDeleteRemoteContractCompoundSettings) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{14}
+}
+func (m *MsgDeleteRemoteContractCompoundSettings) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteRemoteContractCompoundSettings) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteRemoteContractCompoundSettings.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteRemoteContractCompoundSettings) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteRemoteContractCompoundSettings.Merge(m, src)
+}
+func (m *MsgDeleteRemoteContractCompoundSettings) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteRemoteContractCompoundSettings) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteRemoteContractCompoundSettings.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteRemoteContractCompoundSettings proto.InternalMessageInfo
+
+func (m *MsgDeleteRemoteContractCompoundSettings) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettings) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgDeleteRemoteContractCompoundSettingsResponse struct {
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) Reset() {
+	*m = MsgDeleteRemoteContractCompoundSettingsResponse{}
+}
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) String() string {
+	return proto.CompactTextString(m)
+}
+func (*MsgDeleteRemoteContractCompoundSettingsResponse) ProtoMessage() {}
+func (*MsgDeleteRemoteContractCompoundSettingsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{15}
+}
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteRemoteContractCompoundSettingsResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteRemoteContractCompoundSettingsResponse.Merge(m, src)
+}
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteRemoteContractCompoundSettingsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteRemoteContractCompoundSettingsResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgCreateConnection)(nil), "temporal.icayieldmos.MsgCreateConnection")
 	proto.RegisterType((*MsgCreateConnectionResponse)(nil), "temporal.icayieldmos.MsgCreateConnectionResponse")
@@ -542,43 +904,63 @@ func init() {
 	proto.RegisterType((*MsgDeleteContractRemoteZoneResponse)(nil), "temporal.icayieldmos.MsgDeleteContractRemoteZoneResponse")
 	proto.RegisterType((*MsgSendTestContractMessages)(nil), "temporal.icayieldmos.MsgSendTestContractMessages")
 	proto.RegisterType((*MsgSendTestContractMessagesResponse)(nil), "temporal.icayieldmos.MsgSendTestContractMessagesResponse")
+	proto.RegisterType((*MsgCreateRemoteContractCompoundSettings)(nil), "temporal.icayieldmos.MsgCreateRemoteContractCompoundSettings")
+	proto.RegisterType((*MsgCreateRemoteContractCompoundSettingsResponse)(nil), "temporal.icayieldmos.MsgCreateRemoteContractCompoundSettingsResponse")
+	proto.RegisterType((*MsgUpdateRemoteContractCompoundSettings)(nil), "temporal.icayieldmos.MsgUpdateRemoteContractCompoundSettings")
+	proto.RegisterType((*MsgUpdateRemoteContractCompoundSettingsResponse)(nil), "temporal.icayieldmos.MsgUpdateRemoteContractCompoundSettingsResponse")
+	proto.RegisterType((*MsgDeleteRemoteContractCompoundSettings)(nil), "temporal.icayieldmos.MsgDeleteRemoteContractCompoundSettings")
+	proto.RegisterType((*MsgDeleteRemoteContractCompoundSettingsResponse)(nil), "temporal.icayieldmos.MsgDeleteRemoteContractCompoundSettingsResponse")
 }
 
 func init() { proto.RegisterFile("temporal/icayieldmos/tx.proto", fileDescriptor_4a399b148a66dc83) }
 
 var fileDescriptor_4a399b148a66dc83 = []byte{
-	// 491 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x55, 0x4d, 0x8b, 0xd3, 0x40,
-	0x18, 0xee, 0xa4, 0x1f, 0xea, 0xa0, 0x22, 0x51, 0x24, 0x54, 0x36, 0x2c, 0x51, 0x61, 0x3d, 0x98,
-	0xe0, 0x2e, 0x82, 0x5e, 0xad, 0x20, 0x1e, 0x2a, 0x92, 0x5d, 0x2f, 0xeb, 0x61, 0x49, 0x27, 0xaf,
-	0xe9, 0x60, 0x33, 0x13, 0x66, 0x46, 0xed, 0xfa, 0x0b, 0x3c, 0xfa, 0x1f, 0xfc, 0x1d, 0xde, 0xbd,
-	0x08, 0x7b, 0xf4, 0x28, 0xed, 0x1f, 0x91, 0x4e, 0x9a, 0xb8, 0xd9, 0xcd, 0xa4, 0x2d, 0x3d, 0xe6,
-	0xfd, 0x78, 0xde, 0xe7, 0x79, 0xf3, 0xbc, 0x0c, 0xde, 0x51, 0x90, 0x66, 0x5c, 0x44, 0x93, 0x80,
-	0x92, 0xe8, 0x94, 0xc2, 0x24, 0x4e, 0xb9, 0x0c, 0xd4, 0xd4, 0xcf, 0x04, 0x57, 0xdc, 0xbe, 0x53,
-	0xa4, 0xfd, 0x73, 0xe9, 0x7e, 0x50, 0xdb, 0x44, 0x38, 0x53, 0x22, 0x22, 0xea, 0x44, 0x40, 0xca,
-	0x15, 0x9c, 0x7c, 0xe5, 0x0c, 0x72, 0x18, 0xef, 0x10, 0xdf, 0x1e, 0xca, 0x64, 0x20, 0x20, 0x52,
-	0x30, 0xe0, 0x8c, 0x01, 0x51, 0x94, 0x33, 0xdb, 0xc1, 0x57, 0xc8, 0x22, 0xc6, 0x85, 0x83, 0x76,
-	0xd1, 0xde, 0xb5, 0xb0, 0xf8, 0xb4, 0x3d, 0x7c, 0x9d, 0x94, 0x75, 0xaf, 0x63, 0xc7, 0xd2, 0xe9,
-	0x4a, 0xcc, 0xdb, 0xc1, 0xf7, 0x6a, 0x40, 0x43, 0x90, 0x19, 0x67, 0x12, 0xbc, 0x9f, 0xa8, 0x9a,
-	0xd7, 0xdc, 0x42, 0x4d, 0xed, 0x98, 0x33, 0xd8, 0x6e, 0xb8, 0xfd, 0x00, 0xdf, 0xc8, 0x65, 0x0e,
-	0xc6, 0x11, 0x5d, 0x14, 0xb5, 0x75, 0x51, 0x35, 0x68, 0xdf, 0xc5, 0xbd, 0x88, 0x28, 0xfa, 0x19,
-	0x9c, 0xce, 0x2e, 0xda, 0xbb, 0x1a, 0x2e, 0xbf, 0x16, 0x13, 0x46, 0x40, 0xc6, 0x07, 0xfb, 0x6f,
-	0x05, 0x7c, 0xa0, 0x53, 0xa7, 0x9b, 0x4f, 0x38, 0x1f, 0xf3, 0x9e, 0xe2, 0xfb, 0x0d, 0xf4, 0x0b,
-	0x99, 0xf6, 0x4d, 0x6c, 0xd1, 0x58, 0x2b, 0xe8, 0x84, 0x16, 0x8d, 0xbd, 0xdf, 0xb9, 0xec, 0x77,
-	0x59, 0xbc, 0xa9, 0xec, 0x1c, 0xc9, 0x2a, 0x90, 0x2e, 0xad, 0xa1, 0xbd, 0xce, 0x1a, 0x3a, 0xcd,
-	0x6b, 0xe8, 0x36, 0xae, 0xa1, 0x57, 0xb3, 0x86, 0x87, 0x7a, 0x0d, 0x26, 0x39, 0xe5, 0xdf, 0x7e,
-	0xa5, 0x55, 0xbf, 0x84, 0x09, 0x6c, 0xa7, 0x7a, 0x39, 0xcf, 0x04, 0x54, 0xce, 0x7b, 0xaf, 0xe7,
-	0x1d, 0x02, 0x8b, 0x8f, 0x40, 0xaa, 0xa2, 0x70, 0x08, 0x52, 0x46, 0x09, 0xc8, 0x2d, 0x9d, 0x9d,
-	0x73, 0x30, 0x81, 0x17, 0x1c, 0xf6, 0x7f, 0x74, 0x71, 0x7b, 0x28, 0x13, 0x3b, 0xc3, 0xb7, 0x2e,
-	0x9d, 0xd6, 0x23, 0xbf, 0xee, 0x72, 0xfd, 0x9a, 0x83, 0xe9, 0x3f, 0x59, 0xbb, 0xb4, 0x34, 0xdd,
-	0x37, 0x84, 0x1d, 0xe3, 0x61, 0xad, 0x81, 0x77, 0xa1, 0xa5, 0xff, 0x7c, 0xe3, 0x96, 0x0a, 0x15,
-	0xa3, 0xd9, 0xcd, 0x54, 0x4c, 0x2d, 0x0d, 0x54, 0x56, 0x79, 0x50, 0x53, 0x31, 0x3a, 0xd0, 0x4c,
-	0xc5, 0xd4, 0xd2, 0x40, 0x65, 0x95, 0x3d, 0x35, 0x15, 0xa3, 0x39, 0xcd, 0x54, 0x4c, 0x2d, 0x0d,
-	0x54, 0x56, 0xb9, 0xf4, 0x45, 0xf8, 0x6b, 0xe6, 0xa2, 0xb3, 0x99, 0x8b, 0xfe, 0xce, 0x5c, 0xf4,
-	0x7d, 0xee, 0xb6, 0xce, 0xe6, 0x6e, 0xeb, 0xcf, 0xdc, 0x6d, 0x1d, 0x3f, 0x4b, 0xa8, 0x1a, 0x7f,
-	0x1a, 0xf9, 0x84, 0xa7, 0xc1, 0xd1, 0x12, 0xfe, 0xf1, 0x1b, 0x50, 0x5f, 0xb8, 0xf8, 0xf8, 0xff,
-	0x89, 0x99, 0x56, 0x5f, 0xa6, 0xd3, 0x0c, 0xe4, 0xa8, 0xa7, 0x9f, 0x95, 0x83, 0x7f, 0x01, 0x00,
-	0x00, 0xff, 0xff, 0x26, 0xd5, 0xe2, 0x67, 0xbe, 0x06, 0x00, 0x00,
+	// 716 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x97, 0x4d, 0x4f, 0xd4, 0x40,
+	0x18, 0x80, 0xe9, 0x7e, 0x21, 0x13, 0x35, 0x64, 0x54, 0xb2, 0x59, 0xc3, 0x86, 0x54, 0x8c, 0x68,
+	0xe2, 0x6e, 0x00, 0x35, 0x9a, 0xc8, 0x01, 0x57, 0x63, 0x38, 0x60, 0x4c, 0x17, 0x2f, 0x78, 0x20,
+	0x65, 0xfa, 0xb2, 0x34, 0xb2, 0x33, 0xb5, 0x33, 0x28, 0xf8, 0x0b, 0x3c, 0xfa, 0x43, 0x3c, 0xf8,
+	0x07, 0xbc, 0x7b, 0x31, 0xe1, 0xe8, 0xd1, 0xc0, 0x1f, 0x31, 0x9d, 0x69, 0x0b, 0x65, 0x3b, 0xfd,
+	0xd8, 0xf5, 0xb8, 0xf3, 0x7e, 0x3d, 0xef, 0xc7, 0xcc, 0xbb, 0x45, 0xf3, 0x02, 0x86, 0x1e, 0xf3,
+	0xed, 0x83, 0xae, 0x4b, 0xec, 0x63, 0x17, 0x0e, 0x9c, 0x21, 0xe3, 0x5d, 0x71, 0xd4, 0xf1, 0x7c,
+	0x26, 0x18, 0xbe, 0x19, 0x89, 0x3b, 0x17, 0xc4, 0xad, 0x6e, 0xaa, 0x11, 0x61, 0x54, 0xf8, 0x36,
+	0x11, 0x3b, 0x3e, 0x0c, 0x99, 0x80, 0x9d, 0x2f, 0x8c, 0x82, 0x72, 0xd3, 0x7a, 0x9e, 0x6a, 0x10,
+	0xea, 0xc5, 0x76, 0x84, 0x0d, 0x3d, 0x76, 0x48, 0x9d, 0x1d, 0x0e, 0x42, 0xb8, 0x74, 0xc0, 0x95,
+	0xb5, 0xd9, 0x47, 0x37, 0x36, 0xf9, 0xa0, 0xe7, 0x83, 0x2d, 0xa0, 0xc7, 0x28, 0x05, 0x22, 0x5c,
+	0x46, 0x71, 0x13, 0x4d, 0x93, 0xe0, 0x8c, 0xf9, 0x4d, 0x63, 0xc1, 0x58, 0x9a, 0xb1, 0xa2, 0x9f,
+	0xd8, 0x44, 0x57, 0x49, 0xac, 0xb7, 0xe1, 0x34, 0x2b, 0x52, 0x9c, 0x38, 0x33, 0xe7, 0xd1, 0xed,
+	0x14, 0xa7, 0x16, 0x70, 0x8f, 0x51, 0x0e, 0xe6, 0x4f, 0x23, 0x29, 0x97, 0x84, 0x96, 0x04, 0xde,
+	0x66, 0x14, 0x26, 0x0b, 0x8e, 0x17, 0xd1, 0x35, 0x95, 0x7c, 0x6f, 0xdf, 0x76, 0x03, 0xa5, 0xaa,
+	0x54, 0x4a, 0x1e, 0xe2, 0x39, 0xd4, 0xb0, 0x89, 0x70, 0x3f, 0x41, 0xb3, 0xb6, 0x60, 0x2c, 0x5d,
+	0xb1, 0xc2, 0x5f, 0x41, 0x84, 0x5d, 0x20, 0xfb, 0xab, 0x2b, 0x6f, 0x7d, 0xd8, 0x73, 0x8f, 0x9a,
+	0x75, 0x15, 0xe1, 0xe2, 0x99, 0xf9, 0x18, 0xdd, 0xc9, 0xc0, 0x8f, 0xd2, 0xc4, 0xd7, 0x51, 0xc5,
+	0x75, 0x64, 0x06, 0x35, 0xab, 0xe2, 0x3a, 0xe6, 0x6f, 0x95, 0xf6, 0x3b, 0xcf, 0x29, 0x9b, 0xb6,
+	0xf2, 0x54, 0x89, 0x3c, 0x8d, 0x94, 0xa1, 0x5a, 0xa4, 0x0c, 0xb5, 0xec, 0x32, 0xd4, 0x33, 0xcb,
+	0xd0, 0x48, 0x29, 0xc3, 0x5d, 0x59, 0x06, 0x5d, 0x3a, 0x71, 0xb7, 0x5f, 0xcb, 0xac, 0x5f, 0xc2,
+	0x01, 0x4c, 0x96, 0x75, 0x18, 0x4f, 0xe7, 0x28, 0x8e, 0xf7, 0x5e, 0xc6, 0xeb, 0x03, 0x75, 0xb6,
+	0x80, 0x8b, 0x48, 0x71, 0x13, 0x38, 0xb7, 0x07, 0xc0, 0x27, 0x9c, 0x6c, 0xc5, 0xa0, 0x73, 0x7e,
+	0x3e, 0xe1, 0x15, 0x74, 0x2f, 0x1e, 0x11, 0xc5, 0x18, 0xe9, 0xf6, 0xc2, 0x8b, 0xd8, 0x0f, 0xef,
+	0x61, 0x06, 0x50, 0x07, 0x61, 0x32, 0x92, 0xa7, 0xc4, 0xaa, 0x5b, 0x29, 0x12, 0xfc, 0x04, 0xcd,
+	0xa9, 0xee, 0x06, 0x35, 0x1a, 0x04, 0x2e, 0xd6, 0x1d, 0xc7, 0x07, 0xce, 0xc3, 0x01, 0xd1, 0x48,
+	0xf1, 0x03, 0x34, 0x4b, 0x2e, 0x51, 0x85, 0xd3, 0x32, 0x72, 0x1e, 0x30, 0xed, 0xf9, 0xf0, 0xf1,
+	0x10, 0x28, 0x39, 0xde, 0xa0, 0x7d, 0x20, 0x8c, 0x3a, 0x5c, 0x0e, 0x4f, 0xdd, 0x4a, 0x91, 0xe0,
+	0x47, 0xe8, 0x96, 0x9f, 0xc8, 0x3f, 0x42, 0x52, 0x13, 0x95, 0x2e, 0x34, 0xd7, 0x51, 0xb7, 0x60,
+	0xf9, 0xf4, 0xb7, 0x4d, 0xb5, 0x40, 0x8d, 0xe7, 0xd8, 0x2d, 0xb8, 0x7c, 0xf3, 0xd2, 0x5b, 0x52,
+	0x1d, 0xa3, 0x25, 0xb5, 0xd2, 0x2d, 0xa9, 0x97, 0x6a, 0x49, 0xa3, 0x7c, 0x4b, 0xa6, 0xb3, 0x5a,
+	0xb2, 0x2c, 0x5b, 0x52, 0xa4, 0x9c, 0xf1, 0x2d, 0xe8, 0xcb, 0x0e, 0xa8, 0x0b, 0xfb, 0xbf, 0x3a,
+	0x10, 0x72, 0x14, 0x71, 0x1a, 0x71, 0xac, 0xfc, 0x98, 0x41, 0xd5, 0x4d, 0x3e, 0xc0, 0x1e, 0x9a,
+	0x1d, 0x59, 0x74, 0xf7, 0x3b, 0x69, 0x5b, 0xb8, 0x93, 0xb2, 0xbe, 0x5a, 0xcb, 0x85, 0x55, 0xe3,
+	0xa1, 0xfc, 0x6a, 0xa0, 0xa6, 0x76, 0xcd, 0x15, 0xf0, 0x77, 0xc9, 0xa4, 0xf5, 0xac, 0xb4, 0x49,
+	0x02, 0x45, 0xbb, 0x7a, 0xf4, 0x28, 0x3a, 0x93, 0x0c, 0x94, 0xbc, 0x8d, 0x20, 0x51, 0xb4, 0xfb,
+	0x40, 0x8f, 0xa2, 0x33, 0xc9, 0x40, 0xc9, 0x5b, 0x16, 0x12, 0x45, 0xbb, 0x2a, 0xf4, 0x28, 0x3a,
+	0x93, 0x0c, 0x94, 0xbc, 0x9d, 0x81, 0xbf, 0x1b, 0x68, 0xb1, 0xd0, 0xc2, 0x58, 0xcb, 0x19, 0x82,
+	0x6c, 0xf3, 0xd6, 0xab, 0x89, 0xcc, 0x13, 0xb8, 0x85, 0x1e, 0xd7, 0xb5, 0x9c, 0x41, 0x19, 0x1b,
+	0xb7, 0xcc, 0x5b, 0x24, 0x71, 0x0b, 0xbd, 0x44, 0x6b, 0x39, 0xc3, 0x34, 0x36, 0x6e, 0x99, 0x27,
+	0xeb, 0x85, 0xf5, 0xeb, 0xb4, 0x6d, 0x9c, 0x9c, 0xb6, 0x8d, 0xbf, 0xa7, 0x6d, 0xe3, 0xdb, 0x59,
+	0x7b, 0xea, 0xe4, 0xac, 0x3d, 0xf5, 0xe7, 0xac, 0x3d, 0xb5, 0xfd, 0x74, 0xe0, 0x8a, 0xfd, 0xc3,
+	0xdd, 0x0e, 0x61, 0xc3, 0xee, 0x56, 0x18, 0xea, 0xe1, 0x1b, 0x10, 0x9f, 0x99, 0xff, 0xe1, 0xfc,
+	0xdb, 0xe1, 0x28, 0xf9, 0xc9, 0x71, 0xec, 0x01, 0xdf, 0x6d, 0xc8, 0x7f, 0xfc, 0xab, 0xff, 0x02,
+	0x00, 0x00, 0xff, 0xff, 0xf9, 0x1a, 0x78, 0xaa, 0x97, 0x0c, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -598,6 +980,9 @@ type MsgClient interface {
 	UpdateContractRemoteZone(ctx context.Context, in *MsgUpdateContractRemoteZone, opts ...grpc.CallOption) (*MsgUpdateContractRemoteZoneResponse, error)
 	DeleteContractRemoteZone(ctx context.Context, in *MsgDeleteContractRemoteZone, opts ...grpc.CallOption) (*MsgDeleteContractRemoteZoneResponse, error)
 	SendTestContractMessages(ctx context.Context, in *MsgSendTestContractMessages, opts ...grpc.CallOption) (*MsgSendTestContractMessagesResponse, error)
+	CreateRemoteContractCompoundSettings(ctx context.Context, in *MsgCreateRemoteContractCompoundSettings, opts ...grpc.CallOption) (*MsgCreateRemoteContractCompoundSettingsResponse, error)
+	UpdateRemoteContractCompoundSettings(ctx context.Context, in *MsgUpdateRemoteContractCompoundSettings, opts ...grpc.CallOption) (*MsgUpdateRemoteContractCompoundSettingsResponse, error)
+	DeleteRemoteContractCompoundSettings(ctx context.Context, in *MsgDeleteRemoteContractCompoundSettings, opts ...grpc.CallOption) (*MsgDeleteRemoteContractCompoundSettingsResponse, error)
 }
 
 type msgClient struct {
@@ -653,6 +1038,33 @@ func (c *msgClient) SendTestContractMessages(ctx context.Context, in *MsgSendTes
 	return out, nil
 }
 
+func (c *msgClient) CreateRemoteContractCompoundSettings(ctx context.Context, in *MsgCreateRemoteContractCompoundSettings, opts ...grpc.CallOption) (*MsgCreateRemoteContractCompoundSettingsResponse, error) {
+	out := new(MsgCreateRemoteContractCompoundSettingsResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Msg/CreateRemoteContractCompoundSettings", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateRemoteContractCompoundSettings(ctx context.Context, in *MsgUpdateRemoteContractCompoundSettings, opts ...grpc.CallOption) (*MsgUpdateRemoteContractCompoundSettingsResponse, error) {
+	out := new(MsgUpdateRemoteContractCompoundSettingsResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Msg/UpdateRemoteContractCompoundSettings", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DeleteRemoteContractCompoundSettings(ctx context.Context, in *MsgDeleteRemoteContractCompoundSettings, opts ...grpc.CallOption) (*MsgDeleteRemoteContractCompoundSettingsResponse, error) {
+	out := new(MsgDeleteRemoteContractCompoundSettingsResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Msg/DeleteRemoteContractCompoundSettings", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	CreateConnection(context.Context, *MsgCreateConnection) (*MsgCreateConnectionResponse, error)
@@ -660,6 +1072,9 @@ type MsgServer interface {
 	UpdateContractRemoteZone(context.Context, *MsgUpdateContractRemoteZone) (*MsgUpdateContractRemoteZoneResponse, error)
 	DeleteContractRemoteZone(context.Context, *MsgDeleteContractRemoteZone) (*MsgDeleteContractRemoteZoneResponse, error)
 	SendTestContractMessages(context.Context, *MsgSendTestContractMessages) (*MsgSendTestContractMessagesResponse, error)
+	CreateRemoteContractCompoundSettings(context.Context, *MsgCreateRemoteContractCompoundSettings) (*MsgCreateRemoteContractCompoundSettingsResponse, error)
+	UpdateRemoteContractCompoundSettings(context.Context, *MsgUpdateRemoteContractCompoundSettings) (*MsgUpdateRemoteContractCompoundSettingsResponse, error)
+	DeleteRemoteContractCompoundSettings(context.Context, *MsgDeleteRemoteContractCompoundSettings) (*MsgDeleteRemoteContractCompoundSettingsResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -680,6 +1095,15 @@ func (*UnimplementedMsgServer) DeleteContractRemoteZone(ctx context.Context, req
 }
 func (*UnimplementedMsgServer) SendTestContractMessages(ctx context.Context, req *MsgSendTestContractMessages) (*MsgSendTestContractMessagesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendTestContractMessages not implemented")
+}
+func (*UnimplementedMsgServer) CreateRemoteContractCompoundSettings(ctx context.Context, req *MsgCreateRemoteContractCompoundSettings) (*MsgCreateRemoteContractCompoundSettingsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRemoteContractCompoundSettings not implemented")
+}
+func (*UnimplementedMsgServer) UpdateRemoteContractCompoundSettings(ctx context.Context, req *MsgUpdateRemoteContractCompoundSettings) (*MsgUpdateRemoteContractCompoundSettingsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRemoteContractCompoundSettings not implemented")
+}
+func (*UnimplementedMsgServer) DeleteRemoteContractCompoundSettings(ctx context.Context, req *MsgDeleteRemoteContractCompoundSettings) (*MsgDeleteRemoteContractCompoundSettingsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteRemoteContractCompoundSettings not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -776,6 +1200,60 @@ func _Msg_SendTestContractMessages_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CreateRemoteContractCompoundSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateRemoteContractCompoundSettings)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreateRemoteContractCompoundSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Msg/CreateRemoteContractCompoundSettings",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreateRemoteContractCompoundSettings(ctx, req.(*MsgCreateRemoteContractCompoundSettings))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateRemoteContractCompoundSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateRemoteContractCompoundSettings)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateRemoteContractCompoundSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Msg/UpdateRemoteContractCompoundSettings",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateRemoteContractCompoundSettings(ctx, req.(*MsgUpdateRemoteContractCompoundSettings))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DeleteRemoteContractCompoundSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeleteRemoteContractCompoundSettings)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeleteRemoteContractCompoundSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Msg/DeleteRemoteContractCompoundSettings",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeleteRemoteContractCompoundSettings(ctx, req.(*MsgDeleteRemoteContractCompoundSettings))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "temporal.icayieldmos.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -799,6 +1277,18 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SendTestContractMessages",
 			Handler:    _Msg_SendTestContractMessages_Handler,
+		},
+		{
+			MethodName: "CreateRemoteContractCompoundSettings",
+			Handler:    _Msg_CreateRemoteContractCompoundSettings_Handler,
+		},
+		{
+			MethodName: "UpdateRemoteContractCompoundSettings",
+			Handler:    _Msg_UpdateRemoteContractCompoundSettings_Handler,
+		},
+		{
+			MethodName: "DeleteRemoteContractCompoundSettings",
+			Handler:    _Msg_DeleteRemoteContractCompoundSettings_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1161,6 +1651,242 @@ func (m *MsgSendTestContractMessagesResponse) MarshalToSizedBuffer(dAtA []byte) 
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgCreateRemoteContractCompoundSettings) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateRemoteContractCompoundSettings) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateRemoteContractCompoundSettings) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.RemoteContractAddress) > 0 {
+		i -= len(m.RemoteContractAddress)
+		copy(dAtA[i:], m.RemoteContractAddress)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RemoteContractAddress)))
+		i--
+		dAtA[i] = 0x32
+	}
+	if m.FrequencyInSeconds != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.FrequencyInSeconds))
+		i--
+		dAtA[i] = 0x28
+	}
+	if len(m.CompoundSettings) > 0 {
+		i -= len(m.CompoundSettings)
+		copy(dAtA[i:], m.CompoundSettings)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.CompoundSettings)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.RemoteDelegatorAddress) > 0 {
+		i -= len(m.RemoteDelegatorAddress)
+		copy(dAtA[i:], m.RemoteDelegatorAddress)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RemoteDelegatorAddress)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if m.ContractRemoteZone != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.ContractRemoteZone))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.RemoteContractAddress) > 0 {
+		i -= len(m.RemoteContractAddress)
+		copy(dAtA[i:], m.RemoteContractAddress)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RemoteContractAddress)))
+		i--
+		dAtA[i] = 0x3a
+	}
+	if m.FrequencyInSeconds != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.FrequencyInSeconds))
+		i--
+		dAtA[i] = 0x30
+	}
+	if len(m.CompoundSettings) > 0 {
+		i -= len(m.CompoundSettings)
+		copy(dAtA[i:], m.CompoundSettings)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.CompoundSettings)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	if len(m.RemoteDelegatorAddress) > 0 {
+		i -= len(m.RemoteDelegatorAddress)
+		copy(dAtA[i:], m.RemoteDelegatorAddress)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RemoteDelegatorAddress)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if m.ContractRemoteZone != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.ContractRemoteZone))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettings) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettings) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettings) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -1321,6 +2047,117 @@ func (m *MsgSendTestContractMessages) Size() (n int) {
 }
 
 func (m *MsgSendTestContractMessagesResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgCreateRemoteContractCompoundSettings) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.ContractRemoteZone != 0 {
+		n += 1 + sovTx(uint64(m.ContractRemoteZone))
+	}
+	l = len(m.RemoteDelegatorAddress)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.CompoundSettings)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.FrequencyInSeconds != 0 {
+		n += 1 + sovTx(uint64(m.FrequencyInSeconds))
+	}
+	l = len(m.RemoteContractAddress)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettings) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	if m.ContractRemoteZone != 0 {
+		n += 1 + sovTx(uint64(m.ContractRemoteZone))
+	}
+	l = len(m.RemoteDelegatorAddress)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.CompoundSettings)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.FrequencyInSeconds != 0 {
+		n += 1 + sovTx(uint64(m.FrequencyInSeconds))
+	}
+	l = len(m.RemoteContractAddress)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettings) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -2325,6 +3162,727 @@ func (m *MsgSendTestContractMessagesResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgSendTestContractMessagesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateRemoteContractCompoundSettings) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateRemoteContractCompoundSettings: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateRemoteContractCompoundSettings: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ContractRemoteZone", wireType)
+			}
+			m.ContractRemoteZone = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ContractRemoteZone |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RemoteDelegatorAddress", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RemoteDelegatorAddress = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field CompoundSettings", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.CompoundSettings = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field FrequencyInSeconds", wireType)
+			}
+			m.FrequencyInSeconds = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.FrequencyInSeconds |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RemoteContractAddress", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RemoteContractAddress = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateRemoteContractCompoundSettingsResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateRemoteContractCompoundSettingsResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateRemoteContractCompoundSettingsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateRemoteContractCompoundSettings) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateRemoteContractCompoundSettings: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateRemoteContractCompoundSettings: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ContractRemoteZone", wireType)
+			}
+			m.ContractRemoteZone = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ContractRemoteZone |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RemoteDelegatorAddress", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RemoteDelegatorAddress = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field CompoundSettings", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.CompoundSettings = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 6:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field FrequencyInSeconds", wireType)
+			}
+			m.FrequencyInSeconds = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.FrequencyInSeconds |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 7:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RemoteContractAddress", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RemoteContractAddress = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateRemoteContractCompoundSettingsResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateRemoteContractCompoundSettingsResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateRemoteContractCompoundSettingsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteRemoteContractCompoundSettings) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteRemoteContractCompoundSettings: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteRemoteContractCompoundSettings: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteRemoteContractCompoundSettingsResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteRemoteContractCompoundSettingsResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteRemoteContractCompoundSettingsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:
