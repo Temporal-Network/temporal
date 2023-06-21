@@ -8,7 +8,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
-func (k msgServer) isContractRemoteZoneValid(ctx sdk.Context, connectionId string, remoteChainId string) error {
+func (k msgServer) isContractRemoteZoneValid(ctx sdk.Context, connectionId string, remoteChainId string, bech32Prefix string) error {
 	owner := k.accountKeeper.GetModuleAddress(types.ModuleName)
 
 	if !k.DoesInterchainAccountExist(ctx, connectionId, owner.String()) {
@@ -22,6 +22,10 @@ func (k msgServer) isContractRemoteZoneValid(ctx sdk.Context, connectionId strin
 	_, found := k.GetRemoteModuleAddress(ctx, connectionId, owner.String())
 	if !found {
 		return sdkerrors.Wrap(sdkerrors.ErrNotFound, fmt.Sprintf("remote address not found for connectionId: %s and owner: %s", connectionId, owner.String()))
+	}
+
+	if len(bech32Prefix) == 0 || bech32Prefix == "" {
+		return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, fmt.Sprintf("bech32Prefix can't be empty"))
 	}
 
 	remoteZones := k.GetAllContractRemoteZone(ctx)
@@ -39,7 +43,7 @@ func (k msgServer) isContractRemoteZoneValid(ctx sdk.Context, connectionId strin
 func (k msgServer) CreateContractRemoteZone(goCtx context.Context, msg *types.MsgCreateContractRemoteZone) (*types.MsgCreateContractRemoteZoneResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	err := k.isContractRemoteZoneValid(ctx, msg.ConnectionId, msg.RemoteChainId)
+	err := k.isContractRemoteZoneValid(ctx, msg.ConnectionId, msg.RemoteChainId, msg.Bech32Prefix)
 	if err != nil {
 		return nil, err
 	}
@@ -49,6 +53,7 @@ func (k msgServer) CreateContractRemoteZone(goCtx context.Context, msg *types.Ms
 		ConnectionId:  msg.ConnectionId,
 		RemoteChainId: msg.RemoteChainId,
 		Active:        msg.Active,
+		Bech32Prefix:  msg.Bech32Prefix,
 	}
 
 	id := k.AppendContractRemoteZone(ctx, contractRemoteZone)
@@ -60,7 +65,7 @@ func (k msgServer) CreateContractRemoteZone(goCtx context.Context, msg *types.Ms
 func (k msgServer) UpdateContractRemoteZone(goCtx context.Context, msg *types.MsgUpdateContractRemoteZone) (*types.MsgUpdateContractRemoteZoneResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	err := k.isContractRemoteZoneValid(ctx, msg.ConnectionId, msg.RemoteChainId)
+	err := k.isContractRemoteZoneValid(ctx, msg.ConnectionId, msg.RemoteChainId, msg.Bech32Prefix)
 	if err != nil {
 		return nil, err
 	}
@@ -71,6 +76,7 @@ func (k msgServer) UpdateContractRemoteZone(goCtx context.Context, msg *types.Ms
 		ConnectionId:  msg.ConnectionId,
 		RemoteChainId: msg.RemoteChainId,
 		Active:        msg.Active,
+		Bech32Prefix:  msg.Bech32Prefix,
 	}
 
 	// Checks that the element exists
