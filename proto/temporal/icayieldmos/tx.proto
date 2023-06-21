@@ -64,10 +64,10 @@ message MsgSendTestContractMessagesResponse {}
 
 message MsgCreateRemoteContractCompoundSettings {
   string creator                = 1;
-  int32  contractRemoteZone     = 2;
+  uint64  contractRemoteZone     = 2;
   string remoteDelegatorAddress = 3;
   string compoundSettings       = 4;
-  int32  frequencyInSeconds     = 5;
+  uint64  frequencyInSeconds     = 5;
   string remoteContractAddress  = 6;
 }
 
@@ -78,10 +78,10 @@ message MsgCreateRemoteContractCompoundSettingsResponse {
 message MsgUpdateRemoteContractCompoundSettings {
   string creator                = 1;
   uint64 id                     = 2;
-  int32  contractRemoteZone     = 3;
+  uint64  contractRemoteZone     = 3;
   string remoteDelegatorAddress = 4;
   string compoundSettings       = 5;
-  int32  frequencyInSeconds     = 6;
+  uint64  frequencyInSeconds     = 6;
   string remoteContractAddress  = 7;
 }
 

@@ -1,14 +1,13 @@
 package cli
 
 import (
-    "strconv"
-	
-	 "github.com/spf13/cast"
-	"github.com/spf13/cobra"
-    "github.com/cosmos/cosmos-sdk/client"
+	"strconv"
+
+	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	"github.com/spf13/cobra"
 )
 
 func CmdCreateRemoteContractCompoundSettings() *cobra.Command {
@@ -17,18 +16,18 @@ func CmdCreateRemoteContractCompoundSettings() *cobra.Command {
 		Short: "Create a new RemoteContractCompoundSettings",
 		Args:  cobra.ExactArgs(5),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-	  	 argContractRemoteZone, err := cast.ToInt32E(args[0])
-            		if err != nil {
-                		return err
-            		}
-		 argRemoteDelegatorAddress := args[1]
-		 argCompoundSettings := args[2]
-		 argFrequencyInSeconds, err := cast.ToInt32E(args[3])
-            		if err != nil {
-                		return err
-            		}
-		 argRemoteContractAddress := args[4]
-		
+			argContractRemoteZone, err := strconv.ParseUint(args[0], 10, 64)
+			if err != nil {
+				return err
+			}
+			argRemoteDelegatorAddress := args[1]
+			argCompoundSettings := args[2]
+			argFrequencyInSeconds, err := strconv.ParseUint(args[3], 10, 64)
+			if err != nil {
+				return err
+			}
+			argRemoteContractAddress := args[4]
+
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
@@ -44,7 +43,7 @@ func CmdCreateRemoteContractCompoundSettings() *cobra.Command {
 
 	flags.AddTxFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }
 
 func CmdUpdateRemoteContractCompoundSettings() *cobra.Command {
@@ -53,28 +52,27 @@ func CmdUpdateRemoteContractCompoundSettings() *cobra.Command {
 		Short: "Update a RemoteContractCompoundSettings",
 		Args:  cobra.ExactArgs(6),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-            id, err := strconv.ParseUint(args[0], 10, 64)
-            if err != nil {
-                return err
-            }
+			id, err := strconv.ParseUint(args[0], 10, 64)
+			if err != nil {
+				return err
+			}
 
-	    
-	  		argContractRemoteZone, err := cast.ToInt32E(args[1])
-            		if err != nil {
-                		return err
-            		}
-        
-	  		argRemoteDelegatorAddress := args[2]
-        
-	  		argCompoundSettings := args[3]
-        
-	  		argFrequencyInSeconds, err := cast.ToInt32E(args[4])
-            		if err != nil {
-                		return err
-            		}
-        
-	  		argRemoteContractAddress := args[5]
-        
+			argContractRemoteZone, err := strconv.ParseUint(args[1], 10, 64)
+			if err != nil {
+				return err
+			}
+
+			argRemoteDelegatorAddress := args[2]
+
+			argCompoundSettings := args[3]
+
+			argFrequencyInSeconds, err := strconv.ParseUint(args[4], 10, 64)
+			if err != nil {
+				return err
+			}
+
+			argRemoteContractAddress := args[5]
+
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
@@ -90,7 +88,7 @@ func CmdUpdateRemoteContractCompoundSettings() *cobra.Command {
 
 	flags.AddTxFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }
 
 func CmdDeleteRemoteContractCompoundSettings() *cobra.Command {
@@ -99,10 +97,10 @@ func CmdDeleteRemoteContractCompoundSettings() *cobra.Command {
 		Short: "Delete a RemoteContractCompoundSettings by id",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-            id, err := strconv.ParseUint(args[0], 10, 64)
-            if err != nil {
-                return err
-            }
+			id, err := strconv.ParseUint(args[0], 10, 64)
+			if err != nil {
+				return err
+			}
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -119,5 +117,5 @@ func CmdDeleteRemoteContractCompoundSettings() *cobra.Command {
 
 	flags.AddTxFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }
