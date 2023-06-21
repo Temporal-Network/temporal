@@ -3,23 +3,35 @@ package keeper
 import (
 	"context"
 	"fmt"
+	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/gogo/protobuf/proto"
 
 	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
+//func BuildRemoteContractJson(delegatorAddress string, contractCompoundingPrefs)
+
 func (k msgServer) SendTestContractMessages(goCtx context.Context, msg *types.MsgSendTestContractMessages) (*types.MsgSendTestContractMessagesResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	json := `{"msg":{"compound":{"comp_prefs":{"relative":[{"destination":{"juno_staking":{"validator_address":"junovaloper1m55p4c956dawa95uhzz027p4pwm3fedfkdtnyj"}},"amount":"1000000000000000000"}]},"delegator_address":"juno1f49xq0rmah39sk58aaxq6gnqcvupee7jgl90tn"}},"funds":[]}"`
-	contractMsg := []byte(json)
+	json := `{"compound":{"comp_prefs":{"relative":[{"destination":{"juno_staking":{"validator_address":"junovaloper1cvk3scc8akj4psfzre7xxyt9453ug6x7ul5gw3"}},"amount":"1000000000000000000"}]},"delegator_address":"juno17dtl0mjt3t77kpuhg2edqzjpszulwhgz2qxy4v"}}`
+	contractMsg := types.RawContractMessage(json)
+
+	owner := k.GetModuleAddress()
+
+	remoteAddress, found := k.GetRemoteModuleAddress(ctx, msg.ConnectionId, owner.String())
+	if !found {
+		return nil, sdkerrors.Wrapf(sdkerrors.ErrInvalidRequest, "remote ICA address not found for connectionId: %s and owner: %s", msg.ConnectionId, owner)
+	}
+
+	coins := sdk.NewCoins()
 
 	msgExecuteContract := types.MsgExecuteContract{
-		Sender:   k.accountKeeper.GetModuleAddress(types.ModuleName).String(),
-		Contract: "juno1hy58yc42xhwq28qhct4xv0yr9gmndcwzdkfh035pkqng0rxw80qqlpxelj",
+		Sender:   remoteAddress,
+		Contract: "juno1unyuj8qnmygvzuex3dwmg9yzt9alhvyeat0uu0jedg2wj33efl5qewxkxd",
 		Msg:      contractMsg,
-		Funds:    nil,
+		Funds:    coins,
 	}
 
 	msgs := []proto.Message{&msgExecuteContract}

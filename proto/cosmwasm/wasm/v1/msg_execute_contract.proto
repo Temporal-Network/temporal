@@ -1,18 +1,16 @@
 syntax = "proto3";
 
-package temporal.icayieldmos;
+package cosmwasm.wasm.v1;
 
 import "cosmos/base/v1beta1/coin.proto";
 import "cosmos/msg/v1/msg.proto";
 import "gogoproto/gogo.proto";
 import "cosmos_proto/cosmos.proto";
 
-option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
+option go_package = "github.com/CosmWasm/wasmd/x/wasm/types";
 
 // MsgExecuteContract submits the given message data to a smart contract
 message MsgExecuteContract {
-  option (cosmos.msg.v1.signer) = "sender";
-
   // Sender is the that actor that signed the messages
   string sender = 1;
   // Contract is the address of the smart contract

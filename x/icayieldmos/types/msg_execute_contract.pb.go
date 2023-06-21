@@ -101,7 +101,7 @@ func (m *MsgExecuteContract) GetFunds() github_com_cosmos_cosmos_sdk_types.Coins
 }
 
 func init() {
-	proto.RegisterType((*MsgExecuteContract)(nil), "temporal.icayieldmos.MsgExecuteContract")
+	proto.RegisterType((*MsgExecuteContract)(nil), "cosmwasm.wasm.v1.MsgExecuteContract")
 }
 
 func init() {
