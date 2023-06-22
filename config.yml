@@ -19,6 +19,10 @@ accounts:
   coins:
   - 100000000utprl
   address: temporal1nhvm23r9pu593sgdu660whdz66pg382czn5quy
+- name: relayerj
+  coins:
+    - 100000000utprl
+  address: temporal17dtl0mjt3t77kpuhg2edqzjpszulwhgzvjat7w
 client:
   openapi:
     path: docs/static/openapi.yml
