@@ -497,6 +497,202 @@ func (m *QueryAllRemoteContractCompoundSettingsResponse) GetPagination() *query.
 	return nil
 }
 
+type QueryGetPreviousRemoteCompoundingRequest struct {
+	RemoteContractCompoundSetting uint64 `protobuf:"varint,1,opt,name=remoteContractCompoundSetting,proto3" json:"remoteContractCompoundSetting,omitempty"`
+}
+
+func (m *QueryGetPreviousRemoteCompoundingRequest) Reset() {
+	*m = QueryGetPreviousRemoteCompoundingRequest{}
+}
+func (m *QueryGetPreviousRemoteCompoundingRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetPreviousRemoteCompoundingRequest) ProtoMessage()    {}
+func (*QueryGetPreviousRemoteCompoundingRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a64e9c6b8c80d019, []int{10}
+}
+func (m *QueryGetPreviousRemoteCompoundingRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetPreviousRemoteCompoundingRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetPreviousRemoteCompoundingRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetPreviousRemoteCompoundingRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetPreviousRemoteCompoundingRequest.Merge(m, src)
+}
+func (m *QueryGetPreviousRemoteCompoundingRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetPreviousRemoteCompoundingRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetPreviousRemoteCompoundingRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetPreviousRemoteCompoundingRequest proto.InternalMessageInfo
+
+func (m *QueryGetPreviousRemoteCompoundingRequest) GetRemoteContractCompoundSetting() uint64 {
+	if m != nil {
+		return m.RemoteContractCompoundSetting
+	}
+	return 0
+}
+
+type QueryGetPreviousRemoteCompoundingResponse struct {
+	PreviousRemoteCompounding PreviousRemoteCompounding `protobuf:"bytes,1,opt,name=previousRemoteCompounding,proto3" json:"previousRemoteCompounding"`
+}
+
+func (m *QueryGetPreviousRemoteCompoundingResponse) Reset() {
+	*m = QueryGetPreviousRemoteCompoundingResponse{}
+}
+func (m *QueryGetPreviousRemoteCompoundingResponse) String() string {
+	return proto.CompactTextString(m)
+}
+func (*QueryGetPreviousRemoteCompoundingResponse) ProtoMessage() {}
+func (*QueryGetPreviousRemoteCompoundingResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a64e9c6b8c80d019, []int{11}
+}
+func (m *QueryGetPreviousRemoteCompoundingResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetPreviousRemoteCompoundingResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetPreviousRemoteCompoundingResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetPreviousRemoteCompoundingResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetPreviousRemoteCompoundingResponse.Merge(m, src)
+}
+func (m *QueryGetPreviousRemoteCompoundingResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetPreviousRemoteCompoundingResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetPreviousRemoteCompoundingResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetPreviousRemoteCompoundingResponse proto.InternalMessageInfo
+
+func (m *QueryGetPreviousRemoteCompoundingResponse) GetPreviousRemoteCompounding() PreviousRemoteCompounding {
+	if m != nil {
+		return m.PreviousRemoteCompounding
+	}
+	return PreviousRemoteCompounding{}
+}
+
+type QueryAllPreviousRemoteCompoundingRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllPreviousRemoteCompoundingRequest) Reset() {
+	*m = QueryAllPreviousRemoteCompoundingRequest{}
+}
+func (m *QueryAllPreviousRemoteCompoundingRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllPreviousRemoteCompoundingRequest) ProtoMessage()    {}
+func (*QueryAllPreviousRemoteCompoundingRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a64e9c6b8c80d019, []int{12}
+}
+func (m *QueryAllPreviousRemoteCompoundingRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllPreviousRemoteCompoundingRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllPreviousRemoteCompoundingRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllPreviousRemoteCompoundingRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllPreviousRemoteCompoundingRequest.Merge(m, src)
+}
+func (m *QueryAllPreviousRemoteCompoundingRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllPreviousRemoteCompoundingRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllPreviousRemoteCompoundingRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllPreviousRemoteCompoundingRequest proto.InternalMessageInfo
+
+func (m *QueryAllPreviousRemoteCompoundingRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllPreviousRemoteCompoundingResponse struct {
+	PreviousRemoteCompounding []PreviousRemoteCompounding `protobuf:"bytes,1,rep,name=previousRemoteCompounding,proto3" json:"previousRemoteCompounding"`
+	Pagination                *query.PageResponse         `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllPreviousRemoteCompoundingResponse) Reset() {
+	*m = QueryAllPreviousRemoteCompoundingResponse{}
+}
+func (m *QueryAllPreviousRemoteCompoundingResponse) String() string {
+	return proto.CompactTextString(m)
+}
+func (*QueryAllPreviousRemoteCompoundingResponse) ProtoMessage() {}
+func (*QueryAllPreviousRemoteCompoundingResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a64e9c6b8c80d019, []int{13}
+}
+func (m *QueryAllPreviousRemoteCompoundingResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllPreviousRemoteCompoundingResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllPreviousRemoteCompoundingResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllPreviousRemoteCompoundingResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllPreviousRemoteCompoundingResponse.Merge(m, src)
+}
+func (m *QueryAllPreviousRemoteCompoundingResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllPreviousRemoteCompoundingResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllPreviousRemoteCompoundingResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllPreviousRemoteCompoundingResponse proto.InternalMessageInfo
+
+func (m *QueryAllPreviousRemoteCompoundingResponse) GetPreviousRemoteCompounding() []PreviousRemoteCompounding {
+	if m != nil {
+		return m.PreviousRemoteCompounding
+	}
+	return nil
+}
+
+func (m *QueryAllPreviousRemoteCompoundingResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "temporal.icayieldmos.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "temporal.icayieldmos.QueryParamsResponse")
@@ -508,54 +704,68 @@ func init() {
 	proto.RegisterType((*QueryGetRemoteContractCompoundSettingsResponse)(nil), "temporal.icayieldmos.QueryGetRemoteContractCompoundSettingsResponse")
 	proto.RegisterType((*QueryAllRemoteContractCompoundSettingsRequest)(nil), "temporal.icayieldmos.QueryAllRemoteContractCompoundSettingsRequest")
 	proto.RegisterType((*QueryAllRemoteContractCompoundSettingsResponse)(nil), "temporal.icayieldmos.QueryAllRemoteContractCompoundSettingsResponse")
+	proto.RegisterType((*QueryGetPreviousRemoteCompoundingRequest)(nil), "temporal.icayieldmos.QueryGetPreviousRemoteCompoundingRequest")
+	proto.RegisterType((*QueryGetPreviousRemoteCompoundingResponse)(nil), "temporal.icayieldmos.QueryGetPreviousRemoteCompoundingResponse")
+	proto.RegisterType((*QueryAllPreviousRemoteCompoundingRequest)(nil), "temporal.icayieldmos.QueryAllPreviousRemoteCompoundingRequest")
+	proto.RegisterType((*QueryAllPreviousRemoteCompoundingResponse)(nil), "temporal.icayieldmos.QueryAllPreviousRemoteCompoundingResponse")
 }
 
 func init() { proto.RegisterFile("temporal/icayieldmos/query.proto", fileDescriptor_a64e9c6b8c80d019) }
 
 var fileDescriptor_a64e9c6b8c80d019 = []byte{
-	// 670 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x56, 0x4f, 0x6b, 0x13, 0x41,
-	0x14, 0xcf, 0xa4, 0xb5, 0xc2, 0x08, 0x1e, 0xc6, 0x08, 0x12, 0xc2, 0xda, 0x2c, 0xa2, 0xb5, 0xd8,
-	0x1d, 0x92, 0x0a, 0xa9, 0x52, 0x2c, 0x69, 0x8a, 0xbd, 0x49, 0xbb, 0x7a, 0xea, 0xc1, 0x30, 0xd9,
-	0x0c, 0xeb, 0xd2, 0xdd, 0x9d, 0xed, 0xee, 0xc4, 0x1a, 0xc5, 0x4b, 0xf5, 0x03, 0x08, 0x7e, 0x16,
-	0xaf, 0xe2, 0xb1, 0x17, 0xa1, 0xe0, 0xc5, 0x93, 0x48, 0xe2, 0x5d, 0x3c, 0x79, 0x13, 0xc9, 0xec,
-	0xac, 0x6d, 0xc8, 0x66, 0xb2, 0x6d, 0xe3, 0xad, 0x74, 0x7f, 0xef, 0xf7, 0xe7, 0xbd, 0xb7, 0x6f,
-	0x03, 0xe7, 0x39, 0xf5, 0x02, 0x16, 0x12, 0x17, 0x3b, 0x16, 0xe9, 0x3a, 0xd4, 0x6d, 0x7b, 0x2c,
-	0xc2, 0x7b, 0x1d, 0x1a, 0x76, 0x8d, 0x20, 0x64, 0x9c, 0xa1, 0x42, 0x82, 0x30, 0x4e, 0x20, 0x8a,
-	0x05, 0x9b, 0xd9, 0x4c, 0x00, 0xf0, 0xe0, 0xaf, 0x18, 0x5b, 0x2c, 0xd9, 0x8c, 0xd9, 0x2e, 0xc5,
-	0x24, 0x70, 0x30, 0xf1, 0x7d, 0xc6, 0x09, 0x77, 0x98, 0x1f, 0xc9, 0xa7, 0xe5, 0x54, 0xad, 0x80,
-	0x84, 0xc4, 0x4b, 0x20, 0x38, 0x15, 0x62, 0x31, 0x9f, 0x87, 0xc4, 0xe2, 0xcd, 0x90, 0x7a, 0x8c,
-	0xd3, 0xe6, 0x4b, 0xe6, 0x53, 0x59, 0xb0, 0x68, 0xb1, 0x68, 0x00, 0x69, 0x91, 0x88, 0xc6, 0xb6,
-	0xf1, 0xf3, 0x4a, 0x8b, 0x72, 0x52, 0xc1, 0x01, 0xb1, 0x1d, 0x5f, 0x18, 0x90, 0xd8, 0xd5, 0x54,
-	0x72, 0xc9, 0xf9, 0x4f, 0xc3, 0x62, 0x5e, 0xc0, 0x3a, 0x7e, 0xbb, 0x19, 0x51, 0xce, 0x1d, 0xdf,
-	0x96, 0xd6, 0xf4, 0x02, 0x44, 0xdb, 0x03, 0xfe, 0x2d, 0xe1, 0xd7, 0xa4, 0x7b, 0x1d, 0x1a, 0x71,
-	0x7d, 0x1b, 0x5e, 0x19, 0xfa, 0x6f, 0x14, 0x30, 0x3f, 0xa2, 0xe8, 0x3e, 0x9c, 0x8b, 0x73, 0x5d,
-	0x03, 0xf3, 0x60, 0xe1, 0x52, 0xb5, 0x64, 0xa4, 0x75, 0xd1, 0x88, 0xab, 0xd6, 0x67, 0x0f, 0xbf,
-	0x5d, 0xcf, 0x99, 0xb2, 0x42, 0x5f, 0x86, 0x65, 0x41, 0xb9, 0x49, 0x79, 0x43, 0x9a, 0x32, 0x85,
-	0xc7, 0x1d, 0xe6, 0x53, 0xa9, 0x8b, 0x2e, 0xc3, 0xbc, 0xd3, 0x16, 0xe4, 0xb3, 0x66, 0xde, 0x69,
-	0xeb, 0x6f, 0x01, 0xd4, 0x55, 0x55, 0xd2, 0xd7, 0x53, 0x88, 0x46, 0x9f, 0x4a, 0x8f, 0x0b, 0xe9,
-	0x1e, 0x47, 0xf1, 0xd2, 0x6f, 0x0a, 0x93, 0xbe, 0x2b, 0xbd, 0xd7, 0x5d, 0x77, 0xbc, 0xf7, 0x87,
-	0x10, 0x1e, 0xcf, 0x46, 0x8a, 0xdf, 0x34, 0xe2, 0x41, 0x1a, 0x83, 0x41, 0x1a, 0xf1, 0xfe, 0xc9,
-	0x41, 0x1a, 0x5b, 0xc4, 0x4e, 0x6a, 0xcd, 0x13, 0x95, 0xfa, 0xe7, 0x24, 0xf3, 0x18, 0xb5, 0x09,
-	0x99, 0x67, 0xa6, 0x93, 0x19, 0x6d, 0x0e, 0xc5, 0xc9, 0x8b, 0x38, 0xb7, 0x26, 0xc6, 0x89, 0xcd,
-	0x0d, 0xe5, 0x59, 0x83, 0x4b, 0xc9, 0x08, 0x63, 0xfa, 0x44, 0xac, 0x21, 0x57, 0xf2, 0xb1, 0xdc,
-	0xc8, 0x71, 0x4b, 0xf0, 0x01, 0x40, 0x23, 0x2b, 0x83, 0x6c, 0xce, 0x01, 0x80, 0x9a, 0x1a, 0x2a,
-	0x07, 0x74, 0x37, 0xbd, 0x53, 0xea, 0x5a, 0xd9, 0xb5, 0x09, 0x0a, 0xfa, 0xbe, 0x0c, 0x5e, 0x77,
-	0xdd, 0x6c, 0xc1, 0xa7, 0xb5, 0x41, 0x7f, 0x92, 0x86, 0x65, 0x50, 0x3e, 0x4d, 0xc3, 0x66, 0xfe,
-	0x6f, 0xc3, 0xa6, 0xb6, 0x72, 0xd5, 0xdf, 0x17, 0xe1, 0x05, 0xd1, 0x00, 0xf4, 0x06, 0xc0, 0xb9,
-	0xf8, 0x1c, 0xa1, 0x31, 0x2f, 0xc5, 0xe8, 0xf5, 0x2b, 0xde, 0xce, 0x80, 0x8c, 0x55, 0xf5, 0x1b,
-	0x07, 0x5f, 0x7e, 0xbc, 0xcf, 0x6b, 0xa8, 0x84, 0x15, 0x5f, 0x01, 0xf4, 0x09, 0xa4, 0xbd, 0xac,
-	0xa8, 0xa6, 0xd0, 0x51, 0x9d, 0xc9, 0xe2, 0xca, 0xe9, 0x0b, 0xa5, 0xdf, 0x9a, 0xf0, 0x5b, 0x41,
-	0x38, 0xfb, 0x27, 0x09, 0xbf, 0x72, 0xda, 0xaf, 0xd1, 0x47, 0x00, 0xaf, 0x8e, 0xf2, 0xd6, 0x5d,
-	0x57, 0x99, 0x42, 0x75, 0x30, 0x95, 0x29, 0x94, 0xb7, 0x4f, 0xaf, 0x8a, 0x14, 0x77, 0xd0, 0x62,
-	0xf6, 0x14, 0xe8, 0xd7, 0xc4, 0x0d, 0x47, 0x0d, 0x75, 0x5b, 0x33, 0xbd, 0xc4, 0xc5, 0x8d, 0xf3,
-	0x91, 0xc8, 0x84, 0x1b, 0x22, 0xe1, 0x03, 0xb4, 0x8a, 0xcf, 0xf6, 0x75, 0x8f, 0x87, 0xf6, 0x13,
-	0xc0, 0xb2, 0x5a, 0x70, 0x30, 0xc0, 0x86, 0x7a, 0x0e, 0xe7, 0x8f, 0x9d, 0xf9, 0x0c, 0xe9, 0x6b,
-	0x22, 0xf6, 0x3d, 0x54, 0x3b, 0x63, 0xec, 0x75, 0xf3, 0xb0, 0xa7, 0x81, 0xa3, 0x9e, 0x06, 0xbe,
-	0xf7, 0x34, 0xf0, 0xae, 0xaf, 0xe5, 0x8e, 0xfa, 0x5a, 0xee, 0x6b, 0x5f, 0xcb, 0xed, 0xac, 0xd8,
-	0x0e, 0x7f, 0xd6, 0x69, 0x19, 0x16, 0xf3, 0xf0, 0x13, 0x49, 0xbe, 0xf4, 0x88, 0xf2, 0x7d, 0x16,
-	0xee, 0x1e, 0xab, 0xbd, 0x18, 0xd2, 0xe3, 0xdd, 0x80, 0x46, 0xad, 0x39, 0xf1, 0x4b, 0x69, 0xf9,
-	0x6f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x58, 0xa9, 0x9a, 0x95, 0x55, 0x0a, 0x00, 0x00,
+	// 832 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x57, 0x4f, 0x4f, 0xdb, 0x48,
+	0x14, 0xcf, 0x04, 0x96, 0xc3, 0x20, 0xed, 0x61, 0x96, 0x95, 0x96, 0x28, 0xeb, 0x05, 0x6b, 0xb5,
+	0x0b, 0x68, 0xf1, 0x28, 0xb0, 0x2a, 0x50, 0x21, 0x50, 0x08, 0x2a, 0xb7, 0x0a, 0x42, 0x2f, 0xe5,
+	0xd0, 0xc8, 0x49, 0x46, 0xae, 0x85, 0xe3, 0x31, 0xf6, 0x04, 0x4a, 0x11, 0x17, 0xda, 0x0f, 0x50,
+	0xa9, 0x5f, 0xa0, 0x5f, 0xa2, 0xd7, 0xaa, 0x47, 0x2e, 0xad, 0x90, 0x7a, 0xa9, 0x7a, 0xa8, 0x2a,
+	0xe8, 0xa5, 0xa7, 0xaa, 0xa7, 0xde, 0xaa, 0x2a, 0xe3, 0x67, 0x20, 0x8a, 0x3d, 0x71, 0x20, 0xdc,
+	0xa2, 0xf8, 0xbd, 0xf7, 0xfb, 0xf3, 0x9e, 0xde, 0xb3, 0xf1, 0x98, 0x60, 0x0d, 0x8f, 0xfb, 0xa6,
+	0x43, 0xed, 0x9a, 0xb9, 0x6f, 0x33, 0xa7, 0xde, 0xe0, 0x01, 0xdd, 0x69, 0x32, 0x7f, 0xdf, 0xf0,
+	0x7c, 0x2e, 0x38, 0x19, 0x89, 0x22, 0x8c, 0x4b, 0x11, 0xb9, 0x11, 0x8b, 0x5b, 0x5c, 0x06, 0xd0,
+	0xd6, 0xaf, 0x30, 0x36, 0x97, 0xb7, 0x38, 0xb7, 0x1c, 0x46, 0x4d, 0xcf, 0xa6, 0xa6, 0xeb, 0x72,
+	0x61, 0x0a, 0x9b, 0xbb, 0x01, 0x3c, 0x1d, 0x8f, 0xc5, 0xf2, 0x4c, 0xdf, 0x6c, 0x44, 0x21, 0x34,
+	0x36, 0xa4, 0xc6, 0x5d, 0xe1, 0x9b, 0x35, 0x51, 0xf1, 0x59, 0x83, 0x0b, 0x56, 0x79, 0xcc, 0x5d,
+	0x06, 0x09, 0x53, 0x35, 0x1e, 0xb4, 0x42, 0xaa, 0x66, 0xc0, 0x42, 0xda, 0x74, 0xb7, 0x50, 0x65,
+	0xc2, 0x2c, 0x50, 0xcf, 0xb4, 0x6c, 0x57, 0x12, 0x80, 0xd8, 0xc5, 0xd8, 0xe2, 0x50, 0xf3, 0x1c,
+	0xa3, 0xc6, 0x1b, 0x1e, 0x6f, 0xba, 0xf5, 0x4a, 0xc0, 0x84, 0xb0, 0x5d, 0x2b, 0xa2, 0x76, 0x2b,
+	0x9e, 0xbd, 0xcf, 0x76, 0x6d, 0xde, 0x0c, 0x2a, 0xe7, 0x65, 0xc2, 0x6c, 0xdb, 0xb5, 0xc2, 0x3c,
+	0x7d, 0x04, 0x93, 0x8d, 0x16, 0xaf, 0x75, 0xa9, 0xb3, 0xcc, 0x76, 0x9a, 0x2c, 0x10, 0xfa, 0x06,
+	0xfe, 0xad, 0xed, 0xdf, 0xc0, 0xe3, 0x6e, 0xc0, 0xc8, 0x6d, 0x3c, 0x14, 0xfa, 0xf1, 0x07, 0x1a,
+	0x43, 0x13, 0xc3, 0x33, 0x79, 0x23, 0xce, 0x7d, 0x23, 0xcc, 0x5a, 0x19, 0x3c, 0xfe, 0xf8, 0x57,
+	0xa6, 0x0c, 0x19, 0xfa, 0x2c, 0x1e, 0x97, 0x25, 0xd7, 0x98, 0x28, 0x81, 0x98, 0xb2, 0x24, 0xb5,
+	0xc5, 0x5d, 0x06, 0xb8, 0xe4, 0x57, 0x9c, 0xb5, 0xeb, 0xb2, 0xf8, 0x60, 0x39, 0x6b, 0xd7, 0xf5,
+	0xa7, 0x08, 0xeb, 0xaa, 0x2c, 0xe0, 0xf5, 0x00, 0x93, 0xce, 0xa7, 0xc0, 0x71, 0x22, 0x9e, 0x63,
+	0x67, 0x3c, 0xf0, 0x8d, 0xa9, 0xa4, 0x6f, 0x03, 0xf7, 0xa2, 0xe3, 0x24, 0x73, 0xbf, 0x83, 0xf1,
+	0x45, 0x4f, 0x01, 0xfc, 0x1f, 0x23, 0x1c, 0x00, 0xa3, 0x35, 0x00, 0x46, 0x38, 0xb7, 0x30, 0x00,
+	0xc6, 0xba, 0x69, 0x45, 0xb9, 0xe5, 0x4b, 0x99, 0xfa, 0x9b, 0x48, 0x73, 0x02, 0x5a, 0x17, 0xcd,
+	0x03, 0xfd, 0xd1, 0x4c, 0xd6, 0xda, 0xe4, 0x64, 0xa5, 0x9c, 0x7f, 0xbb, 0xca, 0x09, 0xc9, 0xb5,
+	0xe9, 0x59, 0xc6, 0xd3, 0x51, 0x0b, 0xc3, 0xf2, 0x11, 0x58, 0x09, 0x86, 0x71, 0x13, 0x26, 0x39,
+	0x69, 0x08, 0x5e, 0x22, 0x6c, 0xa4, 0xad, 0x00, 0xe6, 0x1c, 0x21, 0xac, 0xa9, 0x43, 0xa1, 0x41,
+	0xff, 0xc7, 0x3b, 0xa5, 0xce, 0x05, 0xd7, 0xba, 0x20, 0xe8, 0x7b, 0x20, 0xbc, 0xe8, 0x38, 0xe9,
+	0x84, 0xf7, 0x6b, 0x82, 0x7e, 0x44, 0x86, 0xa5, 0x40, 0xee, 0xc5, 0xb0, 0x81, 0x9b, 0x35, 0xac,
+	0x7f, 0x23, 0xe7, 0xe1, 0x89, 0x68, 0x60, 0xd6, 0x61, 0x03, 0x46, 0xd0, 0xe7, 0xfb, 0x2f, 0x32,
+	0x7d, 0x15, 0xff, 0xe9, 0xab, 0x68, 0xc1, 0x20, 0xaa, 0x83, 0xf4, 0x17, 0x08, 0x4f, 0xa6, 0x80,
+	0x04, 0xb7, 0x03, 0x3c, 0xea, 0x25, 0x05, 0x41, 0xdf, 0x69, 0xc2, 0x6a, 0x4d, 0x4a, 0x03, 0x8b,
+	0x93, 0xeb, 0xea, 0x3e, 0x98, 0x52, 0x74, 0x9c, 0xae, 0xa6, 0xf4, 0x6b, 0x12, 0xbf, 0x44, 0xb6,
+	0xa8, 0x41, 0xd3, 0xd9, 0x32, 0x70, 0x13, 0xb6, 0xf4, 0x6d, 0xe8, 0x66, 0xde, 0x0e, 0xe3, 0x5f,
+	0xa4, 0x56, 0xf2, 0x04, 0xe1, 0xa1, 0xf0, 0x06, 0x92, 0x84, 0x4d, 0xdc, 0x79, 0x72, 0x73, 0x93,
+	0x29, 0x22, 0x43, 0x54, 0xfd, 0xef, 0xa3, 0x77, 0x9f, 0x9f, 0x67, 0x35, 0x92, 0xa7, 0x8a, 0x57,
+	0x16, 0xf2, 0x1a, 0xc5, 0x5d, 0x08, 0x32, 0xa7, 0xc0, 0x51, 0xdd, 0xe6, 0xdc, 0x7c, 0xef, 0x89,
+	0xc0, 0x77, 0x4e, 0xf2, 0x2d, 0x10, 0x9a, 0xfe, 0xfd, 0x89, 0x1e, 0xd8, 0xf5, 0x43, 0xf2, 0x0a,
+	0xe1, 0xdf, 0x3b, 0xeb, 0x16, 0x1d, 0x47, 0xa9, 0x42, 0x75, 0xa5, 0x95, 0x2a, 0x94, 0x07, 0x57,
+	0x9f, 0x91, 0x2a, 0xfe, 0x23, 0x53, 0xe9, 0x55, 0x90, 0x6f, 0x5d, 0xd7, 0x2a, 0x29, 0xa9, 0x6d,
+	0x4d, 0x75, 0x39, 0x72, 0xab, 0xd7, 0x2b, 0x02, 0x0a, 0x57, 0xa5, 0xc2, 0x25, 0xb2, 0x48, 0xaf,
+	0xf6, 0x2a, 0x1a, 0x36, 0xed, 0x2b, 0xc2, 0xe3, 0x6a, 0xc0, 0x56, 0x03, 0x4b, 0xea, 0x3e, 0x5c,
+	0x5f, 0x76, 0xea, 0xdb, 0xa7, 0x2f, 0x4b, 0xd9, 0x0b, 0x64, 0xee, 0x8a, 0xb2, 0xc9, 0x77, 0x84,
+	0x47, 0x13, 0x37, 0x10, 0x59, 0x52, 0xf7, 0xa6, 0xdb, 0x2e, 0xce, 0x2d, 0x5f, 0x39, 0x1f, 0xf4,
+	0xdd, 0x97, 0xfa, 0x36, 0xc9, 0x06, 0xed, 0xf5, 0x1b, 0x81, 0x1e, 0x28, 0xaf, 0xde, 0x21, 0xf9,
+	0x80, 0x70, 0x3e, 0x91, 0x40, 0xab, 0xcd, 0x4b, 0xea, 0x0e, 0x5d, 0x4b, 0x7c, 0x9a, 0x9b, 0xa2,
+	0x2f, 0x48, 0xf1, 0xb3, 0xa4, 0xd0, 0xb3, 0xf8, 0x95, 0xf2, 0xf1, 0xa9, 0x86, 0x4e, 0x4e, 0x35,
+	0xf4, 0xe9, 0x54, 0x43, 0xcf, 0xce, 0xb4, 0xcc, 0xc9, 0x99, 0x96, 0x79, 0x7f, 0xa6, 0x65, 0xb6,
+	0xe6, 0x2d, 0x5b, 0x3c, 0x6c, 0x56, 0x8d, 0x1a, 0x6f, 0xd0, 0x7b, 0x50, 0x76, 0xfa, 0x2e, 0x13,
+	0x7b, 0xdc, 0xdf, 0xbe, 0xc0, 0x79, 0xd4, 0x86, 0x24, 0xf6, 0x3d, 0x16, 0x54, 0x87, 0xe4, 0x57,
+	0xd7, 0xec, 0xcf, 0x00, 0x00, 0x00, 0xff, 0xff, 0x96, 0x69, 0x15, 0x2b, 0xd9, 0x0e, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -578,6 +788,9 @@ type QueryClient interface {
 	// Queries a list of RemoteContractCompoundSettings items.
 	RemoteContractCompoundSettings(ctx context.Context, in *QueryGetRemoteContractCompoundSettingsRequest, opts ...grpc.CallOption) (*QueryGetRemoteContractCompoundSettingsResponse, error)
 	RemoteContractCompoundSettingsAll(ctx context.Context, in *QueryAllRemoteContractCompoundSettingsRequest, opts ...grpc.CallOption) (*QueryAllRemoteContractCompoundSettingsResponse, error)
+	// Queries a list of PreviousRemoteCompounding items.
+	PreviousRemoteCompounding(ctx context.Context, in *QueryGetPreviousRemoteCompoundingRequest, opts ...grpc.CallOption) (*QueryGetPreviousRemoteCompoundingResponse, error)
+	PreviousRemoteCompoundingAll(ctx context.Context, in *QueryAllPreviousRemoteCompoundingRequest, opts ...grpc.CallOption) (*QueryAllPreviousRemoteCompoundingResponse, error)
 }
 
 type queryClient struct {
@@ -633,6 +846,24 @@ func (c *queryClient) RemoteContractCompoundSettingsAll(ctx context.Context, in 
 	return out, nil
 }
 
+func (c *queryClient) PreviousRemoteCompounding(ctx context.Context, in *QueryGetPreviousRemoteCompoundingRequest, opts ...grpc.CallOption) (*QueryGetPreviousRemoteCompoundingResponse, error) {
+	out := new(QueryGetPreviousRemoteCompoundingResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Query/PreviousRemoteCompounding", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) PreviousRemoteCompoundingAll(ctx context.Context, in *QueryAllPreviousRemoteCompoundingRequest, opts ...grpc.CallOption) (*QueryAllPreviousRemoteCompoundingResponse, error) {
+	out := new(QueryAllPreviousRemoteCompoundingResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Query/PreviousRemoteCompoundingAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
@@ -643,6 +874,9 @@ type QueryServer interface {
 	// Queries a list of RemoteContractCompoundSettings items.
 	RemoteContractCompoundSettings(context.Context, *QueryGetRemoteContractCompoundSettingsRequest) (*QueryGetRemoteContractCompoundSettingsResponse, error)
 	RemoteContractCompoundSettingsAll(context.Context, *QueryAllRemoteContractCompoundSettingsRequest) (*QueryAllRemoteContractCompoundSettingsResponse, error)
+	// Queries a list of PreviousRemoteCompounding items.
+	PreviousRemoteCompounding(context.Context, *QueryGetPreviousRemoteCompoundingRequest) (*QueryGetPreviousRemoteCompoundingResponse, error)
+	PreviousRemoteCompoundingAll(context.Context, *QueryAllPreviousRemoteCompoundingRequest) (*QueryAllPreviousRemoteCompoundingResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -663,6 +897,12 @@ func (*UnimplementedQueryServer) RemoteContractCompoundSettings(ctx context.Cont
 }
 func (*UnimplementedQueryServer) RemoteContractCompoundSettingsAll(ctx context.Context, req *QueryAllRemoteContractCompoundSettingsRequest) (*QueryAllRemoteContractCompoundSettingsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoteContractCompoundSettingsAll not implemented")
+}
+func (*UnimplementedQueryServer) PreviousRemoteCompounding(ctx context.Context, req *QueryGetPreviousRemoteCompoundingRequest) (*QueryGetPreviousRemoteCompoundingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PreviousRemoteCompounding not implemented")
+}
+func (*UnimplementedQueryServer) PreviousRemoteCompoundingAll(ctx context.Context, req *QueryAllPreviousRemoteCompoundingRequest) (*QueryAllPreviousRemoteCompoundingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PreviousRemoteCompoundingAll not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -759,6 +999,42 @@ func _Query_RemoteContractCompoundSettingsAll_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_PreviousRemoteCompounding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetPreviousRemoteCompoundingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).PreviousRemoteCompounding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Query/PreviousRemoteCompounding",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).PreviousRemoteCompounding(ctx, req.(*QueryGetPreviousRemoteCompoundingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_PreviousRemoteCompoundingAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllPreviousRemoteCompoundingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).PreviousRemoteCompoundingAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Query/PreviousRemoteCompoundingAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).PreviousRemoteCompoundingAll(ctx, req.(*QueryAllPreviousRemoteCompoundingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "temporal.icayieldmos.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -782,6 +1058,14 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RemoteContractCompoundSettingsAll",
 			Handler:    _Query_RemoteContractCompoundSettingsAll_Handler,
+		},
+		{
+			MethodName: "PreviousRemoteCompounding",
+			Handler:    _Query_PreviousRemoteCompounding_Handler,
+		},
+		{
+			MethodName: "PreviousRemoteCompoundingAll",
+			Handler:    _Query_PreviousRemoteCompoundingAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1134,6 +1418,151 @@ func (m *QueryAllRemoteContractCompoundSettingsResponse) MarshalToSizedBuffer(dA
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetPreviousRemoteCompoundingRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetPreviousRemoteCompoundingRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetPreviousRemoteCompoundingRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.RemoteContractCompoundSetting != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.RemoteContractCompoundSetting))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetPreviousRemoteCompoundingResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetPreviousRemoteCompoundingResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetPreviousRemoteCompoundingResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.PreviousRemoteCompounding.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllPreviousRemoteCompoundingRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllPreviousRemoteCompoundingRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllPreviousRemoteCompoundingRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllPreviousRemoteCompoundingResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllPreviousRemoteCompoundingResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllPreviousRemoteCompoundingResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.PreviousRemoteCompounding) > 0 {
+		for iNdEx := len(m.PreviousRemoteCompounding) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.PreviousRemoteCompounding[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -1264,6 +1693,61 @@ func (m *QueryAllRemoteContractCompoundSettingsResponse) Size() (n int) {
 	_ = l
 	if len(m.RemoteContractCompoundSettings) > 0 {
 		for _, e := range m.RemoteContractCompoundSettings {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetPreviousRemoteCompoundingRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.RemoteContractCompoundSetting != 0 {
+		n += 1 + sovQuery(uint64(m.RemoteContractCompoundSetting))
+	}
+	return n
+}
+
+func (m *QueryGetPreviousRemoteCompoundingResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.PreviousRemoteCompounding.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllPreviousRemoteCompoundingRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllPreviousRemoteCompoundingResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.PreviousRemoteCompounding) > 0 {
+		for _, e := range m.PreviousRemoteCompounding {
 			l = e.Size()
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -2070,6 +2554,364 @@ func (m *QueryAllRemoteContractCompoundSettingsResponse) Unmarshal(dAtA []byte) 
 			}
 			m.RemoteContractCompoundSettings = append(m.RemoteContractCompoundSettings, RemoteContractCompoundSettings{})
 			if err := m.RemoteContractCompoundSettings[len(m.RemoteContractCompoundSettings)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetPreviousRemoteCompoundingRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetPreviousRemoteCompoundingRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetPreviousRemoteCompoundingRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RemoteContractCompoundSetting", wireType)
+			}
+			m.RemoteContractCompoundSetting = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.RemoteContractCompoundSetting |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetPreviousRemoteCompoundingResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetPreviousRemoteCompoundingResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetPreviousRemoteCompoundingResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PreviousRemoteCompounding", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.PreviousRemoteCompounding.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllPreviousRemoteCompoundingRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllPreviousRemoteCompoundingRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllPreviousRemoteCompoundingRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllPreviousRemoteCompoundingResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllPreviousRemoteCompoundingResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllPreviousRemoteCompoundingResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PreviousRemoteCompounding", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.PreviousRemoteCompounding = append(m.PreviousRemoteCompounding, PreviousRemoteCompounding{})
+			if err := m.PreviousRemoteCompounding[len(m.PreviousRemoteCompounding)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

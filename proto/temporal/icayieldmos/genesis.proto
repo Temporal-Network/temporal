@@ -6,6 +6,7 @@ import "gogoproto/gogo.proto";
 import "temporal/icayieldmos/params.proto";
 import "temporal/icayieldmos/contract_remote_zone.proto";
 import "temporal/icayieldmos/remote_contract_compound_settings.proto";
+import "temporal/icayieldmos/previous_remote_compounding.proto";
 
 option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
 
@@ -17,5 +18,6 @@ message GenesisState {
            uint64                         contractRemoteZoneCount             = 4;
   repeated RemoteContractCompoundSettings remoteContractCompoundSettingsList  = 5 [(gogoproto.nullable) = false];
            uint64                         remoteContractCompoundSettingsCount = 6;
+  repeated PreviousRemoteCompounding      previousRemoteCompoundingList       = 7 [(gogoproto.nullable) = false];
 }
 

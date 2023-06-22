@@ -32,6 +32,14 @@ func TestGenesis(t *testing.T) {
 		},
 	},
 	RemoteContractCompoundSettingsCount: 2,
+	PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
+		{
+			RemoteContractCompoundSetting: 0,
+},
+		{
+			RemoteContractCompoundSetting: 1,
+},
+	},
 	// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -49,5 +57,6 @@ func TestGenesis(t *testing.T) {
 	require.Equal(t, genesisState.ContractRemoteZoneCount, got.ContractRemoteZoneCount)
 	require.ElementsMatch(t, genesisState.RemoteContractCompoundSettingsList, got.RemoteContractCompoundSettingsList)
 require.Equal(t, genesisState.RemoteContractCompoundSettingsCount, got.RemoteContractCompoundSettingsCount)
+require.ElementsMatch(t, genesisState.PreviousRemoteCompoundingList, got.PreviousRemoteCompoundingList)
 // this line is used by starport scaffolding # genesis/test/assert
 }

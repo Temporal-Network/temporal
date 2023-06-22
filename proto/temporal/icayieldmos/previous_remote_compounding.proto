@@ -1,0 +1,17 @@
+syntax = "proto3";
+package temporal.icayieldmos;
+
+import "gogoproto/gogo.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
+
+message PreviousRemoteCompounding {
+  uint64 remoteContractCompoundSetting = 1;
+  google.protobuf.Timestamp timestamp = 2 [
+    (gogoproto.stdtime) = true,
+    (gogoproto.nullable) = false
+  ];
+  
+}
+

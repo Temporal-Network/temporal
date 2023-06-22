@@ -40,6 +40,14 @@ func TestGenesisState_Validate(t *testing.T) {
 	},
 },
 RemoteContractCompoundSettingsCount: 2,
+PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
+	{
+		RemoteContractCompoundSetting: 0,
+},
+	{
+		RemoteContractCompoundSetting: 1,
+},
+},
 // this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -93,6 +101,20 @@ RemoteContractCompoundSettingsCount: 2,
 			},
 		},
 		RemoteContractCompoundSettingsCount: 0,
+	},
+	valid:    false,
+},
+{
+	desc:     "duplicated previousRemoteCompounding",
+	genState: &types.GenesisState{
+		PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
+			{
+				RemoteContractCompoundSetting: 0,
+},
+			{
+				RemoteContractCompoundSetting: 0,
+},
+		},
 	},
 	valid:    false,
 },

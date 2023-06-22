@@ -8,6 +8,7 @@ import "temporal/icayieldmos/params.proto";
 import "temporal/icayieldmos/contract_remote_zone.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "temporal/icayieldmos/remote_contract_compound_settings.proto";
+import "temporal/icayieldmos/previous_remote_compounding.proto";
 
 option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
 
@@ -37,6 +38,16 @@ service Query {
   }
   rpc RemoteContractCompoundSettingsAll (QueryAllRemoteContractCompoundSettingsRequest) returns (QueryAllRemoteContractCompoundSettingsResponse) {
     option (google.api.http).get = "/temporal/icayieldmos/remote_contract_compound_settings";
+  
+  }
+  
+  // Queries a list of PreviousRemoteCompounding items.
+  rpc PreviousRemoteCompounding    (QueryGetPreviousRemoteCompoundingRequest) returns (QueryGetPreviousRemoteCompoundingResponse) {
+    option (google.api.http).get = "/temporal/icayieldmos/previous_remote_compounding/{remoteContractCompoundSetting}";
+  
+  }
+  rpc PreviousRemoteCompoundingAll (QueryAllPreviousRemoteCompoundingRequest) returns (QueryAllPreviousRemoteCompoundingResponse) {
+    option (google.api.http).get = "/temporal/icayieldmos/previous_remote_compounding";
   
   }
 }
@@ -82,5 +93,22 @@ message QueryAllRemoteContractCompoundSettingsRequest {
 message QueryAllRemoteContractCompoundSettingsResponse {
   repeated RemoteContractCompoundSettings         RemoteContractCompoundSettings = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination                     = 2;
+}
+
+message QueryGetPreviousRemoteCompoundingRequest {
+  uint64 remoteContractCompoundSetting = 1;
+}
+
+message QueryGetPreviousRemoteCompoundingResponse {
+  PreviousRemoteCompounding previousRemoteCompounding = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllPreviousRemoteCompoundingRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllPreviousRemoteCompoundingResponse {
+  repeated PreviousRemoteCompounding              previousRemoteCompounding = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination                = 2;
 }
 
