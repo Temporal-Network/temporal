@@ -1,5 +1,5 @@
-# Temporal Network
-**Temporal Network** is a blockchain built using Cosmos SDK and Tendermint and created with [Ignite CLI](https://ignite.com/cli).
+# Temporal Zone
+**Temporal Zone** is a blockchain built using Cosmos SDK and Tendermint and created with [Ignite CLI](https://ignite.com/cli).
 
 ## Custom Modules
 
@@ -10,14 +10,14 @@ progress) and broadcasting ICA messages (in progress).
 
 ## Custom Contracts
 
-Osmosis/Mars: https://github.com/kakucodes/delphilabs_hackathon_outpost
+Osmosis/Mars: https://github.com/yieldmos/ac-outpost
 
 ## How to locally run the chain
 
 Install [Ignite](https://docs.ignite.com/welcome/install)
 
 ```
-ignite chain serve
+ignite chain serve -v
 ```
 
 `serve` command installs dependencies, builds, initializes, and starts your blockchain in development.
@@ -26,12 +26,14 @@ Various parameters can be configured with `config.yml`. To learn more, see the [
 
 ## Attribution
 
-Thank you to the following projects for inspiration and helping us get started:
+Thank you to the following projects for inspiration, code and helping us get started:
 
 Osmosis
 
 Stride
 
 Mars Hub
+
+Interchain Queries by Ingenuity Build
 
 Interchain accounts demo
