@@ -14,8 +14,37 @@ Osmosis/Mars: https://github.com/yieldmos/ac-outpost
 
 ## How to locally run the chain
 
+Install gcc
+
+Install make
+
+Install [go](https://go.dev/doc/install)
+
+Optional Install: docker if you plan on adding or updating protos.
+
+On first run you might need to add a go path:
+```
+export PATH=$PATH:~/go/bin/
+```
+
+
+## Using Make
+
+Build the binary:
+```
+make install
+```
+
+Start the chain:
+```
+temporald start
+```
+
+## Using Ignite
+
 Install [Ignite](https://docs.ignite.com/welcome/install)
 
+From the root of the temporal directory run:
 ```
 ignite chain serve -v
 ```
@@ -36,4 +65,4 @@ Mars Hub
 
 Interchain Queries by Ingenuity Build
 
-Interchain accounts demo
+Interchain Accounts Demo
