@@ -3,11 +3,11 @@ package icayieldmos_test
 import (
 	"testing"
 
-	keepertest "github.com/Temporal-Network/temporal/testutil/keeper"
-	"github.com/Temporal-Network/temporal/testutil/nullify"
-	"github.com/Temporal-Network/temporal/x/icayieldmos"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/stretchr/testify/require"
+	keepertest "github.com/temporal-zone/temporal/testutil/keeper"
+	"github.com/temporal-zone/temporal/testutil/nullify"
+	"github.com/temporal-zone/temporal/x/icayieldmos"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 func TestGenesis(t *testing.T) {
@@ -24,23 +24,23 @@ func TestGenesis(t *testing.T) {
 		},
 		ContractRemoteZoneCount: 2,
 		RemoteContractCompoundSettingsList: []types.RemoteContractCompoundSettings{
-		{
-			Id: 0,
+			{
+				Id: 0,
+			},
+			{
+				Id: 1,
+			},
 		},
-		{
-			Id: 1,
+		RemoteContractCompoundSettingsCount: 2,
+		PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
+			{
+				RemoteContractCompoundSetting: 0,
+			},
+			{
+				RemoteContractCompoundSetting: 1,
+			},
 		},
-	},
-	RemoteContractCompoundSettingsCount: 2,
-	PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
-		{
-			RemoteContractCompoundSetting: 0,
-},
-		{
-			RemoteContractCompoundSetting: 1,
-},
-	},
-	// this line is used by starport scaffolding # genesis/test/state
+		// this line is used by starport scaffolding # genesis/test/state
 	}
 
 	k, ctx := keepertest.IcayieldmosKeeper(t)
@@ -56,7 +56,7 @@ func TestGenesis(t *testing.T) {
 	require.ElementsMatch(t, genesisState.ContractRemoteZoneList, got.ContractRemoteZoneList)
 	require.Equal(t, genesisState.ContractRemoteZoneCount, got.ContractRemoteZoneCount)
 	require.ElementsMatch(t, genesisState.RemoteContractCompoundSettingsList, got.RemoteContractCompoundSettingsList)
-require.Equal(t, genesisState.RemoteContractCompoundSettingsCount, got.RemoteContractCompoundSettingsCount)
-require.ElementsMatch(t, genesisState.PreviousRemoteCompoundingList, got.PreviousRemoteCompoundingList)
-// this line is used by starport scaffolding # genesis/test/assert
+	require.Equal(t, genesisState.RemoteContractCompoundSettingsCount, got.RemoteContractCompoundSettingsCount)
+	require.ElementsMatch(t, genesisState.PreviousRemoteCompoundingList, got.PreviousRemoteCompoundingList)
+	// this line is used by starport scaffolding # genesis/test/assert
 }

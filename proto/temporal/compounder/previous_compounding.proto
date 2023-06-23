@@ -4,7 +4,7 @@ package temporal.compounder;
 import "gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/Temporal-Network/temporal/x/compounder/types";
+option go_package = "github.com/temporal-zone/temporal/x/compounder/types";
 
 message PreviousCompounding {
   string delegator = 1;

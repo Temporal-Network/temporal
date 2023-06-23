@@ -11,14 +11,14 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/Temporal-Network/temporal/x/compounder/client/cli"
-	"github.com/Temporal-Network/temporal/x/compounder/keeper"
-	"github.com/Temporal-Network/temporal/x/compounder/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/temporal-zone/temporal/x/compounder/client/cli"
+	"github.com/temporal-zone/temporal/x/compounder/keeper"
+	"github.com/temporal-zone/temporal/x/compounder/types"
 )
 
 var (

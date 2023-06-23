@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/stretchr/testify/require"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 func TestGenesisState_Validate(t *testing.T) {
@@ -32,23 +32,23 @@ func TestGenesisState_Validate(t *testing.T) {
 				},
 				ContractRemoteZoneCount: 2,
 				RemoteContractCompoundSettingsList: []types.RemoteContractCompoundSettings{
-	{
-		Id: 0,
-	},
-	{
-		Id: 1,
-	},
-},
-RemoteContractCompoundSettingsCount: 2,
-PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
-	{
-		RemoteContractCompoundSetting: 0,
-},
-	{
-		RemoteContractCompoundSetting: 1,
-},
-},
-// this line is used by starport scaffolding # types/genesis/validField
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				RemoteContractCompoundSettingsCount: 2,
+				PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
+					{
+						RemoteContractCompoundSetting: 0,
+					},
+					{
+						RemoteContractCompoundSetting: 1,
+					},
+				},
+				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
 		},
@@ -79,46 +79,46 @@ PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
 			valid: false,
 		},
 		{
-	desc:     "duplicated remoteContractCompoundSettings",
-	genState: &types.GenesisState{
-		RemoteContractCompoundSettingsList: []types.RemoteContractCompoundSettings{
-			{
-				Id: 0,
+			desc: "duplicated remoteContractCompoundSettings",
+			genState: &types.GenesisState{
+				RemoteContractCompoundSettingsList: []types.RemoteContractCompoundSettings{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
 			},
-			{
-				Id: 0,
+			valid: false,
+		},
+		{
+			desc: "invalid remoteContractCompoundSettings count",
+			genState: &types.GenesisState{
+				RemoteContractCompoundSettingsList: []types.RemoteContractCompoundSettings{
+					{
+						Id: 1,
+					},
+				},
+				RemoteContractCompoundSettingsCount: 0,
 			},
+			valid: false,
 		},
-	},
-	valid:    false,
-},
-{
-	desc:     "invalid remoteContractCompoundSettings count",
-	genState: &types.GenesisState{
-		RemoteContractCompoundSettingsList: []types.RemoteContractCompoundSettings{
-			{
-				Id: 1,
+		{
+			desc: "duplicated previousRemoteCompounding",
+			genState: &types.GenesisState{
+				PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
+					{
+						RemoteContractCompoundSetting: 0,
+					},
+					{
+						RemoteContractCompoundSetting: 0,
+					},
+				},
 			},
+			valid: false,
 		},
-		RemoteContractCompoundSettingsCount: 0,
-	},
-	valid:    false,
-},
-{
-	desc:     "duplicated previousRemoteCompounding",
-	genState: &types.GenesisState{
-		PreviousRemoteCompoundingList: []types.PreviousRemoteCompounding{
-			{
-				RemoteContractCompoundSetting: 0,
-},
-			{
-				RemoteContractCompoundSetting: 0,
-},
-		},
-	},
-	valid:    false,
-},
-// this line is used by starport scaffolding # types/genesis/testcase
+		// this line is used by starport scaffolding # types/genesis/testcase
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			err := tc.genState.Validate()

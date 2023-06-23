@@ -3,15 +3,15 @@ package icayieldmos
 import (
 	"math/rand"
 
-	"github.com/Temporal-Network/temporal/testutil/sample"
-	icayieldmossimulation "github.com/Temporal-Network/temporal/x/icayieldmos/simulation"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
+	"github.com/temporal-zone/temporal/testutil/sample"
+	icayieldmossimulation "github.com/temporal-zone/temporal/x/icayieldmos/simulation"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 // avoid unused import issue
@@ -79,20 +79,18 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 			},
 		},
 		ContractRemoteZoneCount: 2,
-			RemoteContractCompoundSettingsList: []types.RemoteContractCompoundSettings{
-		{
-			Id: 0,
-			Creator: sample.AccAddress(),
-
+		RemoteContractCompoundSettingsList: []types.RemoteContractCompoundSettings{
+			{
+				Id:      0,
+				Creator: sample.AccAddress(),
+			},
+			{
+				Id:      1,
+				Creator: sample.AccAddress(),
+			},
 		},
-		{
-			Id: 1,
-			Creator: sample.AccAddress(),
-
-		},
-	},
-	RemoteContractCompoundSettingsCount: 2,
-	// this line is used by starport scaffolding # simapp/module/genesisState
+		RemoteContractCompoundSettingsCount: 2,
+		// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&icayieldmosGenesis)
 }

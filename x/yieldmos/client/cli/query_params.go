@@ -3,10 +3,10 @@ package cli
 import (
 	"context"
 
-	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
+	"github.com/temporal-zone/temporal/x/yieldmos/types"
 )
 
 func CmdQueryParams() *cobra.Command {

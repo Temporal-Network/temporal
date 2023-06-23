@@ -6,8 +6,8 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/gogo/protobuf/proto"
 
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 //func BuildRemoteContractJson(delegatorAddress string, contractCompoundingPrefs)

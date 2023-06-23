@@ -4,10 +4,10 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 func CmdListContractRemoteZone() *cobra.Command {

@@ -6,8 +6,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"github.com/Temporal-Network/temporal/app"
-	"github.com/Temporal-Network/temporal/cmd/temporald/cmd"
+	"github.com/temporal-zone/temporal/app"
+	"github.com/temporal-zone/temporal/cmd/temporald/cmd"
 )
 
 func main() {

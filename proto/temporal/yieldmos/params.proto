@@ -3,7 +3,7 @@ package temporal.yieldmos;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/Temporal-Network/temporal/x/yieldmos/types";
+option go_package = "github.com/temporal-zone/temporal/x/yieldmos/types";
 
 // Params defines the parameters for the module.
 message Params {

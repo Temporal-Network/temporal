@@ -1,9 +1,9 @@
 package icayieldmos
 
 import (
-	"github.com/Temporal-Network/temporal/x/icayieldmos/keeper"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/temporal-zone/temporal/x/icayieldmos/keeper"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 // InitGenesis initializes the module's state from a provided genesis state.
@@ -16,17 +16,17 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	// Set contractRemoteZone count
 	k.SetContractRemoteZoneCount(ctx, genState.ContractRemoteZoneCount)
 	// Set all the remoteContractCompoundSettings
-for _, elem := range genState.RemoteContractCompoundSettingsList {
-	k.SetRemoteContractCompoundSettings(ctx, elem)
-}
+	for _, elem := range genState.RemoteContractCompoundSettingsList {
+		k.SetRemoteContractCompoundSettings(ctx, elem)
+	}
 
-// Set remoteContractCompoundSettings count
-k.SetRemoteContractCompoundSettingsCount(ctx, genState.RemoteContractCompoundSettingsCount)
-// Set all the previousRemoteCompounding
-for _, elem := range genState.PreviousRemoteCompoundingList {
-	k.SetPreviousRemoteCompounding(ctx, elem)
-}
-// this line is used by starport scaffolding # genesis/module/init
+	// Set remoteContractCompoundSettings count
+	k.SetRemoteContractCompoundSettingsCount(ctx, genState.RemoteContractCompoundSettingsCount)
+	// Set all the previousRemoteCompounding
+	for _, elem := range genState.PreviousRemoteCompoundingList {
+		k.SetPreviousRemoteCompounding(ctx, elem)
+	}
+	// this line is used by starport scaffolding # genesis/module/init
 	k.SetPort(ctx, genState.PortId)
 	// Only try to bind to port if it is not already bound, since we may already own
 	// port capability from capability InitGenesis
@@ -50,9 +50,9 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	genesis.ContractRemoteZoneList = k.GetAllContractRemoteZone(ctx)
 	genesis.ContractRemoteZoneCount = k.GetContractRemoteZoneCount(ctx)
 	genesis.RemoteContractCompoundSettingsList = k.GetAllRemoteContractCompoundSettings(ctx)
-genesis.RemoteContractCompoundSettingsCount = k.GetRemoteContractCompoundSettingsCount(ctx)
-genesis.PreviousRemoteCompoundingList = k.GetAllPreviousRemoteCompounding(ctx)
-// this line is used by starport scaffolding # genesis/module/export
+	genesis.RemoteContractCompoundSettingsCount = k.GetRemoteContractCompoundSettingsCount(ctx)
+	genesis.PreviousRemoteCompoundingList = k.GetAllPreviousRemoteCompounding(ctx)
+	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis
 }

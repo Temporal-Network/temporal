@@ -3,8 +3,6 @@ package icayieldmos
 import (
 	"fmt"
 
-	"github.com/Temporal-Network/temporal/x/icayieldmos/keeper"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
@@ -12,6 +10,8 @@ import (
 	porttypes "github.com/cosmos/ibc-go/v6/modules/core/05-port/types"
 	host "github.com/cosmos/ibc-go/v6/modules/core/24-host"
 	ibcexported "github.com/cosmos/ibc-go/v6/modules/core/exported"
+	"github.com/temporal-zone/temporal/x/icayieldmos/keeper"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 type IBCModule struct {

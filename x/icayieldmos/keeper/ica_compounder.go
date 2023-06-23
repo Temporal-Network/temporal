@@ -2,10 +2,10 @@ package keeper
 
 import (
 	"fmt"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/gogo/protobuf/proto"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 // TODO: Change the amount of compoundings per block to be a module level param

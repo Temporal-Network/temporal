@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"testing"
 
-	testkeeper "github.com/Temporal-Network/temporal/testutil/keeper"
-	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
+	testkeeper "github.com/temporal-zone/temporal/testutil/keeper"
+	"github.com/temporal-zone/temporal/x/yieldmos/types"
 )
 
 func TestParamsQuery(t *testing.T) {

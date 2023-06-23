@@ -10,7 +10,7 @@ import (
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/Temporal-Network/temporal/x/yieldmos/types"
+	"github.com/temporal-zone/temporal/x/yieldmos/types"
 )
 
 type (

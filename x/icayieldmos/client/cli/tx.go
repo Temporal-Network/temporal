@@ -8,7 +8,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	// "github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 var (
@@ -38,7 +38,7 @@ func GetTxCmd() *cobra.Command {
 	cmd.AddCommand(CmdCreateRemoteContractCompoundSettings())
 	cmd.AddCommand(CmdUpdateRemoteContractCompoundSettings())
 	cmd.AddCommand(CmdDeleteRemoteContractCompoundSettings())
-// this line is used by starport scaffolding # 1
+	// this line is used by starport scaffolding # 1
 
 	return cmd
 }

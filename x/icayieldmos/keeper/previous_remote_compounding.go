@@ -1,9 +1,9 @@
 package keeper
 
 import (
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 // SetPreviousRemoteCompounding set a specific previousRemoteCompounding in the store from its index

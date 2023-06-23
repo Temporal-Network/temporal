@@ -3,9 +3,9 @@ package keeper
 import (
 	"context"
 	"fmt"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 func (k msgServer) isContractRemoteZoneValid(ctx sdk.Context, connectionId string, remoteChainId string, bech32Prefix string) error {

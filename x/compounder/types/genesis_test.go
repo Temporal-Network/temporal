@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
-	"github.com/Temporal-Network/temporal/x/compounder/types"
 	"github.com/stretchr/testify/require"
+	"github.com/temporal-zone/temporal/x/compounder/types"
 )
 
 func TestGenesisState_Validate(t *testing.T) {

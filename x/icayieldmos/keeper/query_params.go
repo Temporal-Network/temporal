@@ -3,8 +3,8 @@ package keeper
 import (
 	"context"
 
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

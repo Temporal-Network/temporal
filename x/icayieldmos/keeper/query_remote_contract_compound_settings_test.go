@@ -10,9 +10,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
-	"github.com/Temporal-Network/temporal/testutil/nullify"
-	keepertest "github.com/Temporal-Network/temporal/testutil/keeper"
+	keepertest "github.com/temporal-zone/temporal/testutil/keeper"
+	"github.com/temporal-zone/temporal/testutil/nullify"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 func TestRemoteContractCompoundSettingsQuerySingle(t *testing.T) {
@@ -50,7 +50,7 @@ func TestRemoteContractCompoundSettingsQuerySingle(t *testing.T) {
 			if tc.err != nil {
 				require.ErrorIs(t, err, tc.err)
 			} else {
-			    require.NoError(t, err)
+				require.NoError(t, err)
 				require.Equal(t,
 					nullify.Fill(tc.response),
 					nullify.Fill(response),
@@ -83,8 +83,8 @@ func TestRemoteContractCompoundSettingsQueryPaginated(t *testing.T) {
 			require.LessOrEqual(t, len(resp.RemoteContractCompoundSettings), step)
 			require.Subset(t,
 				nullify.Fill(msgs),
-            	nullify.Fill(resp.RemoteContractCompoundSettings),
-            )
+				nullify.Fill(resp.RemoteContractCompoundSettings),
+			)
 		}
 	})
 	t.Run("ByKey", func(t *testing.T) {
@@ -96,8 +96,8 @@ func TestRemoteContractCompoundSettingsQueryPaginated(t *testing.T) {
 			require.LessOrEqual(t, len(resp.RemoteContractCompoundSettings), step)
 			require.Subset(t,
 				nullify.Fill(msgs),
-            	nullify.Fill(resp.RemoteContractCompoundSettings),
-            )
+				nullify.Fill(resp.RemoteContractCompoundSettings),
+			)
 			next = resp.Pagination.NextKey
 		}
 	})

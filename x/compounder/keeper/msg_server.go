@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/Temporal-Network/temporal/x/compounder/types"
+	"github.com/temporal-zone/temporal/x/compounder/types"
 )
 
 type msgServer struct {

@@ -3,11 +3,11 @@ package simulation
 import (
 	"math/rand"
 
-	"github.com/Temporal-Network/temporal/x/icayieldmos/keeper"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
+	"github.com/temporal-zone/temporal/x/icayieldmos/keeper"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 func SimulateMsgCreateConnection(

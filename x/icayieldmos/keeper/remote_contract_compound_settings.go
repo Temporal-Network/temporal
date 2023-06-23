@@ -3,14 +3,14 @@ package keeper
 import (
 	"encoding/binary"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 // GetRemoteContractCompoundSettingsCount get the total number of remoteContractCompoundSettings
 func (k Keeper) GetRemoteContractCompoundSettingsCount(ctx sdk.Context) uint64 {
-	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
 	byteKey := types.KeyPrefix(types.RemoteContractCompoundSettingsCountKey)
 	bz := store.Get(byteKey)
 
@@ -24,8 +24,8 @@ func (k Keeper) GetRemoteContractCompoundSettingsCount(ctx sdk.Context) uint64 {
 }
 
 // SetRemoteContractCompoundSettingsCount set the total number of remoteContractCompoundSettings
-func (k Keeper) SetRemoteContractCompoundSettingsCount(ctx sdk.Context, count uint64)  {
-	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
+func (k Keeper) SetRemoteContractCompoundSettingsCount(ctx sdk.Context, count uint64) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
 	byteKey := types.KeyPrefix(types.RemoteContractCompoundSettingsCountKey)
 	bz := make([]byte, 8)
 	binary.BigEndian.PutUint64(bz, count)
@@ -34,28 +34,28 @@ func (k Keeper) SetRemoteContractCompoundSettingsCount(ctx sdk.Context, count ui
 
 // AppendRemoteContractCompoundSettings appends a remoteContractCompoundSettings in the store with a new id and update the count
 func (k Keeper) AppendRemoteContractCompoundSettings(
-    ctx sdk.Context,
-    remoteContractCompoundSettings types.RemoteContractCompoundSettings,
+	ctx sdk.Context,
+	remoteContractCompoundSettings types.RemoteContractCompoundSettings,
 ) uint64 {
 	// Create the remoteContractCompoundSettings
-    count := k.GetRemoteContractCompoundSettingsCount(ctx)
+	count := k.GetRemoteContractCompoundSettingsCount(ctx)
 
-    // Set the ID of the appended value
-    remoteContractCompoundSettings.Id = count
+	// Set the ID of the appended value
+	remoteContractCompoundSettings.Id = count
 
-    store :=  prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.RemoteContractCompoundSettingsKey))
-    appendedValue := k.cdc.MustMarshal(&remoteContractCompoundSettings)
-    store.Set(GetRemoteContractCompoundSettingsIDBytes(remoteContractCompoundSettings.Id), appendedValue)
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.RemoteContractCompoundSettingsKey))
+	appendedValue := k.cdc.MustMarshal(&remoteContractCompoundSettings)
+	store.Set(GetRemoteContractCompoundSettingsIDBytes(remoteContractCompoundSettings.Id), appendedValue)
 
-    // Update remoteContractCompoundSettings count
-    k.SetRemoteContractCompoundSettingsCount(ctx, count+1)
+	// Update remoteContractCompoundSettings count
+	k.SetRemoteContractCompoundSettingsCount(ctx, count+1)
 
-    return count
+	return count
 }
 
 // SetRemoteContractCompoundSettings set a specific remoteContractCompoundSettings in the store
 func (k Keeper) SetRemoteContractCompoundSettings(ctx sdk.Context, remoteContractCompoundSettings types.RemoteContractCompoundSettings) {
-	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.RemoteContractCompoundSettingsKey))
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.RemoteContractCompoundSettingsKey))
 	b := k.cdc.MustMarshal(&remoteContractCompoundSettings)
 	store.Set(GetRemoteContractCompoundSettingsIDBytes(remoteContractCompoundSettings.Id), b)
 }
@@ -79,7 +79,7 @@ func (k Keeper) RemoveRemoteContractCompoundSettings(ctx sdk.Context, id uint64)
 
 // GetAllRemoteContractCompoundSettings returns all remoteContractCompoundSettings
 func (k Keeper) GetAllRemoteContractCompoundSettings(ctx sdk.Context) (list []types.RemoteContractCompoundSettings) {
-    store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.RemoteContractCompoundSettingsKey))
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.RemoteContractCompoundSettingsKey))
 	iterator := sdk.KVStorePrefixIterator(store, []byte{})
 
 	defer iterator.Close()
@@ -87,10 +87,10 @@ func (k Keeper) GetAllRemoteContractCompoundSettings(ctx sdk.Context) (list []ty
 	for ; iterator.Valid(); iterator.Next() {
 		var val types.RemoteContractCompoundSettings
 		k.cdc.MustUnmarshal(iterator.Value(), &val)
-        list = append(list, val)
+		list = append(list, val)
 	}
 
-    return
+	return
 }
 
 // GetRemoteContractCompoundSettingsIDBytes returns the byte representation of the ID

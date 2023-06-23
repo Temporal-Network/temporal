@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -46,11 +46,11 @@ func (k Keeper) PreviousRemoteCompounding(goCtx context.Context, req *types.Quer
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	val, found := k.GetPreviousRemoteCompounding(
-	    ctx,
-	    req.RemoteContractCompoundSetting,
-        )
+		ctx,
+		req.RemoteContractCompoundSetting,
+	)
 	if !found {
-	    return nil, status.Error(codes.NotFound, "not found")
+		return nil, status.Error(codes.NotFound, "not found")
 	}
 
 	return &types.QueryGetPreviousRemoteCompoundingResponse{PreviousRemoteCompounding: val}, nil

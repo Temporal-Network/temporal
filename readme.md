@@ -3,9 +3,9 @@
 
 ## Custom Modules
 
-[`compounder`](https://github.com/Temporal-Network/temporal/blob/main/x/compounder/README.md) module is used to compound `utprl` staked positions.
+[`compounder`](https://github.com/temporal-zone/temporal/blob/main/x/compounder/README.md) module is used to compound `utprl` staked positions.
 
-[`yieldmos`](https://github.com/Temporal-Network/temporal/blob/main/x/yieldmos/README.md) module is used for saving staking history, registering ICA accounts (in 
+[`yieldmos`](https://github.com/temporal-zone/temporal/blob/main/x/yieldmos/README.md) module is used for saving staking history, registering ICA accounts (in 
 progress) and broadcasting ICA messages (in progress).
 
 ## Custom Contracts

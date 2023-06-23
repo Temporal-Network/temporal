@@ -3,12 +3,12 @@ package keeper_test
 import (
 	"testing"
 
-	keepertest "github.com/Temporal-Network/temporal/testutil/keeper"
-	"github.com/Temporal-Network/temporal/testutil/nullify"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/keeper"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
+	keepertest "github.com/temporal-zone/temporal/testutil/keeper"
+	"github.com/temporal-zone/temporal/testutil/nullify"
+	"github.com/temporal-zone/temporal/x/icayieldmos/keeper"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 func createNContractRemoteZone(keeper *keeper.Keeper, ctx sdk.Context, n int) []types.ContractRemoteZone {

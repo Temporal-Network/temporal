@@ -8,7 +8,7 @@ import "temporal/compounder/validator_setting.proto";
 import "cosmos/base/v1beta1/coin.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/Temporal-Network/temporal/x/compounder/types";
+option go_package = "github.com/temporal-zone/temporal/x/compounder/types";
 
 // Msg defines the Msg service.
 service Msg {

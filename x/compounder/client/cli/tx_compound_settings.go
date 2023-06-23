@@ -2,12 +2,12 @@ package cli
 
 import (
 	"encoding/json"
-	"github.com/Temporal-Network/temporal/x/compounder/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/spf13/cobra"
+	"github.com/temporal-zone/temporal/x/compounder/types"
 )
 
 func CmdCreateCompoundSettings() *cobra.Command {

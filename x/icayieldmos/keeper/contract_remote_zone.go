@@ -3,9 +3,9 @@ package keeper
 import (
 	"encoding/binary"
 
-	"github.com/Temporal-Network/temporal/x/icayieldmos/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 // GetContractRemoteZoneCount get the total number of contractRemoteZone

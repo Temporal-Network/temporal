@@ -1,10 +1,6 @@
 package keeper_test
 
 import (
-	"github.com/Temporal-Network/temporal/app"
-	"github.com/Temporal-Network/temporal/app/apptesting"
-	"github.com/Temporal-Network/temporal/cmd/temporald/cmd"
-	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	"github.com/cosmos/cosmos-sdk/simapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
@@ -12,6 +8,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking/teststaking"
 	stakingTypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/stretchr/testify/require"
+	"github.com/temporal-zone/temporal/app"
+	"github.com/temporal-zone/temporal/app/apptesting"
+	"github.com/temporal-zone/temporal/cmd/temporald/cmd"
+	"github.com/temporal-zone/temporal/x/yieldmos/types"
 	"math"
 	"math/rand"
 	"testing"

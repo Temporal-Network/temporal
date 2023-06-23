@@ -1,4 +1,4 @@
-module github.com/Temporal-Network/temporal
+module github.com/temporal-zone/temporal
 
 go 1.19
 

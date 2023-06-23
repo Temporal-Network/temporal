@@ -4,7 +4,7 @@ package temporal.icayieldmos;
 import "gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
+option go_package = "github.com/temporal-zone/temporal/x/icayieldmos/types";
 
 message PreviousRemoteCompounding {
   uint64 remoteContractCompoundSetting = 1;

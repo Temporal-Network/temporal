@@ -4,12 +4,12 @@ import (
 	"strconv"
 	"testing"
 
-	keepertest "github.com/Temporal-Network/temporal/testutil/keeper"
-	"github.com/Temporal-Network/temporal/testutil/nullify"
-	"github.com/Temporal-Network/temporal/x/yieldmos/keeper"
-	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
+	keepertest "github.com/temporal-zone/temporal/testutil/keeper"
+	"github.com/temporal-zone/temporal/testutil/nullify"
+	"github.com/temporal-zone/temporal/x/yieldmos/keeper"
+	"github.com/temporal-zone/temporal/x/yieldmos/types"
 )
 
 // Prevent strconv unused error

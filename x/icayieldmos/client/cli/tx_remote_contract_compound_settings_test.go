@@ -11,8 +11,8 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Temporal-Network/temporal/testutil/network"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/client/cli"
+	"github.com/temporal-zone/temporal/testutil/network"
+	"github.com/temporal-zone/temporal/x/icayieldmos/client/cli"
 )
 
 func TestCreateRemoteContractCompoundSettings(t *testing.T) {

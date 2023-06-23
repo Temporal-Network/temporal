@@ -11,28 +11,28 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/Temporal-Network/temporal/testutil/network"
-	"github.com/Temporal-Network/temporal/testutil/nullify"
-	"github.com/Temporal-Network/temporal/x/icayieldmos/client/cli"
-    "github.com/Temporal-Network/temporal/x/icayieldmos/types"
+	"github.com/temporal-zone/temporal/testutil/network"
+	"github.com/temporal-zone/temporal/testutil/nullify"
+	"github.com/temporal-zone/temporal/x/icayieldmos/client/cli"
+	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
 func networkWithRemoteContractCompoundSettingsObjects(t *testing.T, n int) (*network.Network, []types.RemoteContractCompoundSettings) {
 	t.Helper()
 	cfg := network.DefaultConfig()
 	state := types.GenesisState{}
-    require.NoError(t, cfg.Codec.UnmarshalJSON(cfg.GenesisState[types.ModuleName], &state))
+	require.NoError(t, cfg.Codec.UnmarshalJSON(cfg.GenesisState[types.ModuleName], &state))
 
 	for i := 0; i < n; i++ {
 		remoteContractCompoundSettings := types.RemoteContractCompoundSettings{
-    		Id: uint64(i),
-    	}
+			Id: uint64(i),
+		}
 		nullify.Fill(&remoteContractCompoundSettings)
 		state.RemoteContractCompoundSettingsList = append(state.RemoteContractCompoundSettingsList, remoteContractCompoundSettings)
 	}
 	buf, err := cfg.Codec.MarshalJSON(&state)
 	require.NoError(t, err)
-    cfg.GenesisState[types.ModuleName] = buf
+	cfg.GenesisState[types.ModuleName] = buf
 	return network.New(t, cfg), state.RemoteContractCompoundSettingsList
 }
 
@@ -78,9 +78,9 @@ func TestShowRemoteContractCompoundSettings(t *testing.T) {
 				require.NoError(t, net.Config.Codec.UnmarshalJSON(out.Bytes(), &resp))
 				require.NotNil(t, resp.RemoteContractCompoundSettings)
 				require.Equal(t,
-                	nullify.Fill(&tc.obj),
-                	nullify.Fill(&resp.RemoteContractCompoundSettings),
-                )
+					nullify.Fill(&tc.obj),
+					nullify.Fill(&resp.RemoteContractCompoundSettings),
+				)
 			}
 		})
 	}
@@ -115,9 +115,9 @@ func TestListRemoteContractCompoundSettings(t *testing.T) {
 			require.NoError(t, net.Config.Codec.UnmarshalJSON(out.Bytes(), &resp))
 			require.LessOrEqual(t, len(resp.RemoteContractCompoundSettings), step)
 			require.Subset(t,
-            	nullify.Fill(objs),
-            	nullify.Fill(resp.RemoteContractCompoundSettings),
-            )
+				nullify.Fill(objs),
+				nullify.Fill(resp.RemoteContractCompoundSettings),
+			)
 		}
 	})
 	t.Run("ByKey", func(t *testing.T) {
@@ -132,8 +132,8 @@ func TestListRemoteContractCompoundSettings(t *testing.T) {
 			require.LessOrEqual(t, len(resp.RemoteContractCompoundSettings), step)
 			require.Subset(t,
 				nullify.Fill(objs),
-            	nullify.Fill(resp.RemoteContractCompoundSettings),
-            )
+				nullify.Fill(resp.RemoteContractCompoundSettings),
+			)
 			next = resp.Pagination.NextKey
 		}
 	})

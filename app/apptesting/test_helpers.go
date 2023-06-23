@@ -1,9 +1,9 @@
 package apptesting
 
 import (
-	"github.com/Temporal-Network/temporal/app"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/temporal-zone/temporal/app"
 	tmtypes "github.com/tendermint/tendermint/proto/tendermint/types"
 )
 

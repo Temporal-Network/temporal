@@ -6,7 +6,7 @@ import "gogoproto/gogo.proto";
 import "temporal/yieldmos/params.proto";
 import "temporal/yieldmos/delegation_history.proto";
 
-option go_package = "github.com/Temporal-Network/temporal/x/yieldmos/types";
+option go_package = "github.com/temporal-zone/temporal/x/yieldmos/types";
 
 // GenesisState defines the yieldmos module's genesis state.
 message GenesisState {

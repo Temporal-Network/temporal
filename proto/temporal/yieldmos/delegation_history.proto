@@ -1,7 +1,7 @@
 syntax = "proto3";
 package temporal.yieldmos;
 
-option go_package = "github.com/Temporal-Network/temporal/x/yieldmos/types";
+option go_package = "github.com/temporal-zone/temporal/x/yieldmos/types";
 import "temporal/yieldmos/delegation_timestamp.proto";
 
 message DelegationHistory {

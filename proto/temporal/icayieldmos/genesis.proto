@@ -8,7 +8,7 @@ import "temporal/icayieldmos/contract_remote_zone.proto";
 import "temporal/icayieldmos/remote_contract_compound_settings.proto";
 import "temporal/icayieldmos/previous_remote_compounding.proto";
 
-option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
+option go_package = "github.com/temporal-zone/temporal/x/icayieldmos/types";
 
 // GenesisState defines the icayieldmos module's genesis state.
 message GenesisState {

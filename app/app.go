@@ -104,19 +104,19 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	compoundermodule "github.com/Temporal-Network/temporal/x/compounder"
-	compoundermodulekeeper "github.com/Temporal-Network/temporal/x/compounder/keeper"
-	compoundermoduletypes "github.com/Temporal-Network/temporal/x/compounder/types"
-	icayieldmosmodule "github.com/Temporal-Network/temporal/x/icayieldmos"
-	icayieldmosmodulekeeper "github.com/Temporal-Network/temporal/x/icayieldmos/keeper"
-	icayieldmosmoduletypes "github.com/Temporal-Network/temporal/x/icayieldmos/types"
-	yieldmosmodule "github.com/Temporal-Network/temporal/x/yieldmos"
-	yieldmosmodulekeeper "github.com/Temporal-Network/temporal/x/yieldmos/keeper"
-	yieldmosmoduletypes "github.com/Temporal-Network/temporal/x/yieldmos/types"
+	compoundermodule "github.com/temporal-zone/temporal/x/compounder"
+	compoundermodulekeeper "github.com/temporal-zone/temporal/x/compounder/keeper"
+	compoundermoduletypes "github.com/temporal-zone/temporal/x/compounder/types"
+	icayieldmosmodule "github.com/temporal-zone/temporal/x/icayieldmos"
+	icayieldmosmodulekeeper "github.com/temporal-zone/temporal/x/icayieldmos/keeper"
+	icayieldmosmoduletypes "github.com/temporal-zone/temporal/x/icayieldmos/types"
+	yieldmosmodule "github.com/temporal-zone/temporal/x/yieldmos"
+	yieldmosmodulekeeper "github.com/temporal-zone/temporal/x/yieldmos/keeper"
+	yieldmosmoduletypes "github.com/temporal-zone/temporal/x/yieldmos/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
-	appparams "github.com/Temporal-Network/temporal/app/params"
-	"github.com/Temporal-Network/temporal/docs"
+	appparams "github.com/temporal-zone/temporal/app/params"
+	"github.com/temporal-zone/temporal/docs"
 )
 
 const (

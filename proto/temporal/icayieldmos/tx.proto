@@ -5,7 +5,7 @@ package temporal.icayieldmos;
 import "temporal/icayieldmos/contract_remote_zone.proto";
 import "temporal/icayieldmos/remote_contract_compound_settings.proto";
 
-option go_package = "github.com/Temporal-Network/temporal/x/icayieldmos/types";
+option go_package = "github.com/temporal-zone/temporal/x/icayieldmos/types";
 
 // Msg defines the Msg service.
 service Msg {

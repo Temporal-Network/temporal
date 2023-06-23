@@ -3,8 +3,6 @@ package keeper
 import (
 	"testing"
 
-	"github.com/Temporal-Network/temporal/x/compounder/keeper"
-	"github.com/Temporal-Network/temporal/x/compounder/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/store"
@@ -12,6 +10,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	typesparams "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/stretchr/testify/require"
+	"github.com/temporal-zone/temporal/x/compounder/keeper"
+	"github.com/temporal-zone/temporal/x/compounder/types"
 	"github.com/tendermint/tendermint/libs/log"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmdb "github.com/tendermint/tm-db"

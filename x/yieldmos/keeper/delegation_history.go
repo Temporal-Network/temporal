@@ -2,9 +2,9 @@ package keeper
 
 import (
 	"errors"
-	"github.com/Temporal-Network/temporal/x/yieldmos/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/temporal-zone/temporal/x/yieldmos/types"
 	"time"
 )
 
