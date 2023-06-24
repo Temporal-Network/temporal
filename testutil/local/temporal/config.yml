@@ -1,0 +1,36 @@
+version: 1
+genesis:
+  app_state:
+    staking:
+      params:
+        bond_denom: "utprl"
+    mint:
+      params:
+        mint_denom: "utprl"
+
+accounts:
+- name: aliceT
+  coins:
+  - 200000000utprl
+- name: bobT
+  coins:
+  - 100000000utprl
+- name: relayerT
+  coins:
+  - 100000000utprl
+  address: temporal1nhvm23r9pu593sgdu660whdz66pg382czn5quy
+- name: relayerj
+  coins:
+    - 100000000utprl
+  address: temporal17dtl0mjt3t77kpuhg2edqzjpszulwhgzvjat7w
+client:
+  openapi:
+    path: docs/static/openapi.yml
+faucet:
+  name: bobT
+  coins:
+  - 10000000utprl
+validators:
+- name: aliceT
+  bonded: 100000000utprl
+  pruning: "nothing"

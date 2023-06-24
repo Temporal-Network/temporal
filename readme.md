@@ -14,19 +14,20 @@ Osmosis/Mars: https://github.com/yieldmos/ac-outpost
 
 ## How to locally run the chain
 
-Install gcc
-
-Install make
+Install gcc & make
 
 Install [go](https://go.dev/doc/install)
 
-Optional Install: docker if you plan on adding or updating protos.
+Optional Installs:
 
-On first run you might need to add a go path:
-```
-export PATH=$PATH:~/go/bin/
-```
+docker - if you plan on adding or updating protos
 
+rustc & hermes - if you want to run two local networks
+
+On first run you might need to add the following go path to your $HOME/.profile:
+```
+export PATH=$PATH:/usr/local/go/bin:~/go/bin/
+```
 
 ## Using Make
 
