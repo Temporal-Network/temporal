@@ -40,7 +40,16 @@ func TestGenesis(t *testing.T) {
 				RemoteContractCompoundSetting: 1,
 			},
 		},
-		// this line is used by starport scaffolding # genesis/test/state
+		ICARemoteZoneList: []types.ICARemoteZone{
+		{
+			Id: 0,
+		},
+		{
+			Id: 1,
+		},
+	},
+	ICARemoteZoneCount: 2,
+	// this line is used by starport scaffolding # genesis/test/state
 	}
 
 	k, ctx := keepertest.IcayieldmosKeeper(t)
@@ -58,5 +67,7 @@ func TestGenesis(t *testing.T) {
 	require.ElementsMatch(t, genesisState.RemoteContractCompoundSettingsList, got.RemoteContractCompoundSettingsList)
 	require.Equal(t, genesisState.RemoteContractCompoundSettingsCount, got.RemoteContractCompoundSettingsCount)
 	require.ElementsMatch(t, genesisState.PreviousRemoteCompoundingList, got.PreviousRemoteCompoundingList)
-	// this line is used by starport scaffolding # genesis/test/assert
+	require.ElementsMatch(t, genesisState.ICARemoteZoneList, got.ICARemoteZoneList)
+require.Equal(t, genesisState.ICARemoteZoneCount, got.ICARemoteZoneCount)
+// this line is used by starport scaffolding # genesis/test/assert
 }

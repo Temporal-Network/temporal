@@ -56,6 +56,18 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeleteRemoteContractCompoundSettings int = 100
 
+	opWeightMsgCreateICARemoteZone = "op_weight_msg_ica_remote_zone"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateICARemoteZone int = 100
+
+	opWeightMsgUpdateICARemoteZone = "op_weight_msg_ica_remote_zone"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateICARemoteZone int = 100
+
+	opWeightMsgDeleteICARemoteZone = "op_weight_msg_ica_remote_zone"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteICARemoteZone int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -90,7 +102,20 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 			},
 		},
 		RemoteContractCompoundSettingsCount: 2,
-		// this line is used by starport scaffolding # simapp/module/genesisState
+			ICARemoteZoneList: []types.ICARemoteZone{
+		{
+			Id: 0,
+			Creator: sample.AccAddress(),
+
+		},
+		{
+			Id: 1,
+			Creator: sample.AccAddress(),
+
+		},
+	},
+	ICARemoteZoneCount: 2,
+	// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&icayieldmosGenesis)
 }
@@ -199,6 +224,39 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgDeleteRemoteContractCompoundSettings,
 		icayieldmossimulation.SimulateMsgDeleteRemoteContractCompoundSettings(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateICARemoteZone int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateICARemoteZone, &weightMsgCreateICARemoteZone, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateICARemoteZone = defaultWeightMsgCreateICARemoteZone
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateICARemoteZone,
+		icayieldmossimulation.SimulateMsgCreateICARemoteZone(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateICARemoteZone int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateICARemoteZone, &weightMsgUpdateICARemoteZone, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateICARemoteZone = defaultWeightMsgUpdateICARemoteZone
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateICARemoteZone,
+		icayieldmossimulation.SimulateMsgUpdateICARemoteZone(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteICARemoteZone int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteICARemoteZone, &weightMsgDeleteICARemoteZone, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteICARemoteZone = defaultWeightMsgDeleteICARemoteZone
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteICARemoteZone,
+		icayieldmossimulation.SimulateMsgDeleteICARemoteZone(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

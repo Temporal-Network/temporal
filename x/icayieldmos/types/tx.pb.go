@@ -893,6 +893,334 @@ func (m *MsgDeleteRemoteContractCompoundSettingsResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgDeleteRemoteContractCompoundSettingsResponse proto.InternalMessageInfo
 
+type MsgCreateICARemoteZone struct {
+	Creator       string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	ConnectionId  string `protobuf:"bytes,2,opt,name=connectionId,proto3" json:"connectionId,omitempty"`
+	RemoteChainId string `protobuf:"bytes,3,opt,name=remoteChainId,proto3" json:"remoteChainId,omitempty"`
+	Active        bool   `protobuf:"varint,4,opt,name=active,proto3" json:"active,omitempty"`
+	Bech32Prefix  string `protobuf:"bytes,5,opt,name=bech32Prefix,proto3" json:"bech32Prefix,omitempty"`
+}
+
+func (m *MsgCreateICARemoteZone) Reset()         { *m = MsgCreateICARemoteZone{} }
+func (m *MsgCreateICARemoteZone) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateICARemoteZone) ProtoMessage()    {}
+func (*MsgCreateICARemoteZone) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{16}
+}
+func (m *MsgCreateICARemoteZone) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateICARemoteZone) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateICARemoteZone.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateICARemoteZone) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateICARemoteZone.Merge(m, src)
+}
+func (m *MsgCreateICARemoteZone) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateICARemoteZone) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateICARemoteZone.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateICARemoteZone proto.InternalMessageInfo
+
+func (m *MsgCreateICARemoteZone) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgCreateICARemoteZone) GetConnectionId() string {
+	if m != nil {
+		return m.ConnectionId
+	}
+	return ""
+}
+
+func (m *MsgCreateICARemoteZone) GetRemoteChainId() string {
+	if m != nil {
+		return m.RemoteChainId
+	}
+	return ""
+}
+
+func (m *MsgCreateICARemoteZone) GetActive() bool {
+	if m != nil {
+		return m.Active
+	}
+	return false
+}
+
+func (m *MsgCreateICARemoteZone) GetBech32Prefix() string {
+	if m != nil {
+		return m.Bech32Prefix
+	}
+	return ""
+}
+
+type MsgCreateICARemoteZoneResponse struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgCreateICARemoteZoneResponse) Reset()         { *m = MsgCreateICARemoteZoneResponse{} }
+func (m *MsgCreateICARemoteZoneResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateICARemoteZoneResponse) ProtoMessage()    {}
+func (*MsgCreateICARemoteZoneResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{17}
+}
+func (m *MsgCreateICARemoteZoneResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateICARemoteZoneResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateICARemoteZoneResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateICARemoteZoneResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateICARemoteZoneResponse.Merge(m, src)
+}
+func (m *MsgCreateICARemoteZoneResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateICARemoteZoneResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateICARemoteZoneResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateICARemoteZoneResponse proto.InternalMessageInfo
+
+func (m *MsgCreateICARemoteZoneResponse) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgUpdateICARemoteZone struct {
+	Creator       string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id            uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	ConnectionId  string `protobuf:"bytes,3,opt,name=connectionId,proto3" json:"connectionId,omitempty"`
+	RemoteChainId string `protobuf:"bytes,4,opt,name=remoteChainId,proto3" json:"remoteChainId,omitempty"`
+	Active        bool   `protobuf:"varint,5,opt,name=active,proto3" json:"active,omitempty"`
+	Bech32Prefix  string `protobuf:"bytes,6,opt,name=bech32Prefix,proto3" json:"bech32Prefix,omitempty"`
+}
+
+func (m *MsgUpdateICARemoteZone) Reset()         { *m = MsgUpdateICARemoteZone{} }
+func (m *MsgUpdateICARemoteZone) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateICARemoteZone) ProtoMessage()    {}
+func (*MsgUpdateICARemoteZone) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{18}
+}
+func (m *MsgUpdateICARemoteZone) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateICARemoteZone) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateICARemoteZone.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateICARemoteZone) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateICARemoteZone.Merge(m, src)
+}
+func (m *MsgUpdateICARemoteZone) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateICARemoteZone) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateICARemoteZone.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateICARemoteZone proto.InternalMessageInfo
+
+func (m *MsgUpdateICARemoteZone) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgUpdateICARemoteZone) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *MsgUpdateICARemoteZone) GetConnectionId() string {
+	if m != nil {
+		return m.ConnectionId
+	}
+	return ""
+}
+
+func (m *MsgUpdateICARemoteZone) GetRemoteChainId() string {
+	if m != nil {
+		return m.RemoteChainId
+	}
+	return ""
+}
+
+func (m *MsgUpdateICARemoteZone) GetActive() bool {
+	if m != nil {
+		return m.Active
+	}
+	return false
+}
+
+func (m *MsgUpdateICARemoteZone) GetBech32Prefix() string {
+	if m != nil {
+		return m.Bech32Prefix
+	}
+	return ""
+}
+
+type MsgUpdateICARemoteZoneResponse struct {
+}
+
+func (m *MsgUpdateICARemoteZoneResponse) Reset()         { *m = MsgUpdateICARemoteZoneResponse{} }
+func (m *MsgUpdateICARemoteZoneResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateICARemoteZoneResponse) ProtoMessage()    {}
+func (*MsgUpdateICARemoteZoneResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{19}
+}
+func (m *MsgUpdateICARemoteZoneResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateICARemoteZoneResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateICARemoteZoneResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateICARemoteZoneResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateICARemoteZoneResponse.Merge(m, src)
+}
+func (m *MsgUpdateICARemoteZoneResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateICARemoteZoneResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateICARemoteZoneResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateICARemoteZoneResponse proto.InternalMessageInfo
+
+type MsgDeleteICARemoteZone struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgDeleteICARemoteZone) Reset()         { *m = MsgDeleteICARemoteZone{} }
+func (m *MsgDeleteICARemoteZone) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteICARemoteZone) ProtoMessage()    {}
+func (*MsgDeleteICARemoteZone) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{20}
+}
+func (m *MsgDeleteICARemoteZone) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteICARemoteZone) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteICARemoteZone.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteICARemoteZone) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteICARemoteZone.Merge(m, src)
+}
+func (m *MsgDeleteICARemoteZone) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteICARemoteZone) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteICARemoteZone.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteICARemoteZone proto.InternalMessageInfo
+
+func (m *MsgDeleteICARemoteZone) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgDeleteICARemoteZone) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgDeleteICARemoteZoneResponse struct {
+}
+
+func (m *MsgDeleteICARemoteZoneResponse) Reset()         { *m = MsgDeleteICARemoteZoneResponse{} }
+func (m *MsgDeleteICARemoteZoneResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteICARemoteZoneResponse) ProtoMessage()    {}
+func (*MsgDeleteICARemoteZoneResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a399b148a66dc83, []int{21}
+}
+func (m *MsgDeleteICARemoteZoneResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteICARemoteZoneResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteICARemoteZoneResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteICARemoteZoneResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteICARemoteZoneResponse.Merge(m, src)
+}
+func (m *MsgDeleteICARemoteZoneResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteICARemoteZoneResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteICARemoteZoneResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteICARemoteZoneResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgCreateConnection)(nil), "temporal.icayieldmos.MsgCreateConnection")
 	proto.RegisterType((*MsgCreateConnectionResponse)(nil), "temporal.icayieldmos.MsgCreateConnectionResponse")
@@ -910,57 +1238,69 @@ func init() {
 	proto.RegisterType((*MsgUpdateRemoteContractCompoundSettingsResponse)(nil), "temporal.icayieldmos.MsgUpdateRemoteContractCompoundSettingsResponse")
 	proto.RegisterType((*MsgDeleteRemoteContractCompoundSettings)(nil), "temporal.icayieldmos.MsgDeleteRemoteContractCompoundSettings")
 	proto.RegisterType((*MsgDeleteRemoteContractCompoundSettingsResponse)(nil), "temporal.icayieldmos.MsgDeleteRemoteContractCompoundSettingsResponse")
+	proto.RegisterType((*MsgCreateICARemoteZone)(nil), "temporal.icayieldmos.MsgCreateICARemoteZone")
+	proto.RegisterType((*MsgCreateICARemoteZoneResponse)(nil), "temporal.icayieldmos.MsgCreateICARemoteZoneResponse")
+	proto.RegisterType((*MsgUpdateICARemoteZone)(nil), "temporal.icayieldmos.MsgUpdateICARemoteZone")
+	proto.RegisterType((*MsgUpdateICARemoteZoneResponse)(nil), "temporal.icayieldmos.MsgUpdateICARemoteZoneResponse")
+	proto.RegisterType((*MsgDeleteICARemoteZone)(nil), "temporal.icayieldmos.MsgDeleteICARemoteZone")
+	proto.RegisterType((*MsgDeleteICARemoteZoneResponse)(nil), "temporal.icayieldmos.MsgDeleteICARemoteZoneResponse")
 }
 
 func init() { proto.RegisterFile("temporal/icayieldmos/tx.proto", fileDescriptor_4a399b148a66dc83) }
 
 var fileDescriptor_4a399b148a66dc83 = []byte{
-	// 714 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x57, 0x4f, 0x4f, 0xd4, 0x4e,
-	0x18, 0xa6, 0xbb, 0xcb, 0xf2, 0x63, 0xf2, 0xd3, 0x90, 0x51, 0xc9, 0x66, 0x0d, 0x1b, 0x52, 0x31,
-	0xa2, 0x89, 0xbb, 0x01, 0xc4, 0xc4, 0x44, 0x0e, 0xb8, 0x1a, 0xc3, 0x81, 0x68, 0xba, 0x7a, 0xc1,
-	0x03, 0x29, 0xd3, 0x97, 0xd2, 0x84, 0x9d, 0xa9, 0x9d, 0xc1, 0x80, 0x9f, 0xc0, 0xa3, 0x1f, 0xc4,
-	0x83, 0x5f, 0xc0, 0xbb, 0x17, 0x13, 0x8e, 0x1e, 0x0d, 0x7c, 0x11, 0xd3, 0x99, 0xb6, 0xd0, 0xdd,
-	0x4e, 0xff, 0xec, 0x7a, 0xec, 0xbc, 0x7f, 0xe6, 0x79, 0xdf, 0xe7, 0x99, 0x79, 0x3b, 0x68, 0x49,
-	0xc0, 0xd0, 0x67, 0x81, 0x7d, 0xdc, 0xf3, 0x88, 0x7d, 0xe6, 0xc1, 0xb1, 0x33, 0x64, 0xbc, 0x27,
-	0x4e, 0xbb, 0x7e, 0xc0, 0x04, 0xc3, 0xb7, 0x63, 0x73, 0xf7, 0x9a, 0xb9, 0xdd, 0xcb, 0x0c, 0x22,
-	0x8c, 0x8a, 0xc0, 0x26, 0x62, 0x3f, 0x80, 0x21, 0x13, 0xb0, 0xff, 0x99, 0x51, 0x50, 0x69, 0xda,
-	0xcf, 0x33, 0x03, 0x22, 0xbf, 0x24, 0x8e, 0xb0, 0xa1, 0xcf, 0x4e, 0xa8, 0xb3, 0xcf, 0x41, 0x08,
-	0x8f, 0xba, 0x5c, 0x45, 0x9b, 0x03, 0x74, 0x6b, 0x97, 0xbb, 0xfd, 0x00, 0x6c, 0x01, 0x7d, 0x46,
-	0x29, 0x10, 0xe1, 0x31, 0x8a, 0x5b, 0x68, 0x8e, 0x84, 0x6b, 0x2c, 0x68, 0x19, 0xcb, 0xc6, 0xea,
-	0xbc, 0x15, 0x7f, 0x62, 0x13, 0xfd, 0x4f, 0x12, 0xbf, 0x1d, 0xa7, 0x55, 0x93, 0xe6, 0xd4, 0x9a,
-	0xb9, 0x84, 0xee, 0x66, 0x24, 0xb5, 0x80, 0xfb, 0x8c, 0x72, 0x30, 0x7f, 0x18, 0x69, 0xbb, 0x44,
-	0x68, 0x49, 0xc0, 0x7b, 0x8c, 0xc2, 0x74, 0x9b, 0xe3, 0x15, 0x74, 0x43, 0x15, 0xdf, 0x3f, 0xb2,
-	0xbd, 0xd0, 0xa9, 0x2e, 0x9d, 0xd2, 0x8b, 0x78, 0x11, 0x35, 0x6d, 0x22, 0xbc, 0x4f, 0xd0, 0x6a,
-	0x2c, 0x1b, 0xab, 0xff, 0x59, 0xd1, 0x57, 0xb8, 0xc3, 0x01, 0x90, 0xa3, 0x8d, 0xf5, 0xb7, 0x01,
-	0x1c, 0x7a, 0xa7, 0xad, 0x59, 0xb5, 0xc3, 0xf5, 0x35, 0x73, 0x13, 0xdd, 0xcb, 0x81, 0x1f, 0x97,
-	0x89, 0x6f, 0xa2, 0x9a, 0xe7, 0xc8, 0x0a, 0x1a, 0x56, 0xcd, 0x73, 0xcc, 0x5f, 0xaa, 0xec, 0xf7,
-	0xbe, 0x53, 0xb5, 0x6c, 0x95, 0xa9, 0x16, 0x67, 0x1a, 0x6b, 0x43, 0xbd, 0x4c, 0x1b, 0x1a, 0xf9,
-	0x6d, 0x98, 0xcd, 0x6d, 0x43, 0x33, 0xa3, 0x0d, 0xf7, 0x65, 0x1b, 0x74, 0xe5, 0x24, 0x6c, 0xbf,
-	0x96, 0x55, 0xbf, 0x84, 0x63, 0x98, 0xae, 0xea, 0x68, 0x3f, 0x5d, 0xa2, 0x64, 0xbf, 0x0f, 0x72,
-	0xbf, 0x01, 0x50, 0xe7, 0x1d, 0x70, 0x11, 0x3b, 0xee, 0x02, 0xe7, 0xb6, 0x0b, 0x7c, 0x4a, 0x65,
-	0x2b, 0x0c, 0xba, 0xe4, 0x57, 0x0a, 0xaf, 0xa1, 0x07, 0x89, 0x44, 0x14, 0xc6, 0xd8, 0xb7, 0x1f,
-	0x1d, 0xc4, 0x41, 0x74, 0x0e, 0x73, 0x00, 0x75, 0x11, 0x26, 0x63, 0x75, 0x46, 0x0d, 0xc9, 0xb0,
-	0xe0, 0xa7, 0x68, 0x51, 0xb1, 0x1b, 0xf6, 0xc8, 0x0d, 0x53, 0x6c, 0x3b, 0x4e, 0x00, 0x9c, 0x47,
-	0x02, 0xd1, 0x58, 0xf1, 0x23, 0xb4, 0x40, 0x46, 0x50, 0x45, 0x6a, 0x19, 0x5b, 0x0f, 0x31, 0x1d,
-	0x06, 0xf0, 0xf1, 0x04, 0x28, 0x39, 0xdb, 0xa1, 0x03, 0x20, 0x8c, 0x3a, 0x5c, 0x8a, 0xa7, 0x61,
-	0x65, 0x58, 0xf0, 0x13, 0x74, 0x27, 0x48, 0xd5, 0x1f, 0x43, 0x52, 0x8a, 0xca, 0x36, 0x9a, 0xdb,
-	0xa8, 0x57, 0xb2, 0x7d, 0xfa, 0xd3, 0xa6, 0x28, 0x50, 0xf2, 0x9c, 0x98, 0x82, 0xd1, 0x93, 0x97,
-	0x4d, 0x49, 0x7d, 0x02, 0x4a, 0x1a, 0x95, 0x29, 0x99, 0xad, 0x44, 0x49, 0xb3, 0x3a, 0x25, 0x73,
-	0x79, 0x94, 0xac, 0x49, 0x4a, 0xca, 0xb4, 0x33, 0x39, 0x05, 0x03, 0xc9, 0x80, 0x3a, 0xb0, 0xff,
-	0x8a, 0x81, 0x08, 0x47, 0x99, 0xa4, 0x31, 0x8e, 0xf5, 0xef, 0xf3, 0xa8, 0xbe, 0xcb, 0x5d, 0xec,
-	0xa3, 0x85, 0xb1, 0x41, 0xf7, 0xb0, 0x9b, 0x35, 0x85, 0xbb, 0x19, 0xe3, 0xab, 0xbd, 0x56, 0xda,
-	0x35, 0x11, 0xe5, 0x17, 0x03, 0xb5, 0xb4, 0x63, 0xae, 0x44, 0xbe, 0x91, 0x90, 0xf6, 0xb3, 0xca,
-	0x21, 0x29, 0x28, 0xda, 0xd1, 0xa3, 0x87, 0xa2, 0x0b, 0xc9, 0x81, 0x52, 0x34, 0x11, 0x24, 0x14,
-	0xed, 0x3c, 0xd0, 0x43, 0xd1, 0x85, 0xe4, 0x40, 0x29, 0x1a, 0x16, 0x12, 0x8a, 0x76, 0x54, 0xe8,
-	0xa1, 0xe8, 0x42, 0x72, 0xa0, 0x14, 0xcd, 0x0c, 0xfc, 0xcd, 0x40, 0x2b, 0xa5, 0x06, 0xc6, 0x56,
-	0x81, 0x08, 0xf2, 0xc3, 0xdb, 0xaf, 0xa6, 0x0a, 0x4f, 0xc1, 0x2d, 0x75, 0xb9, 0x6e, 0x15, 0x08,
-	0x65, 0x62, 0xb8, 0x55, 0xee, 0x22, 0x09, 0xb7, 0xd4, 0x4d, 0xb4, 0x55, 0x20, 0xa6, 0x89, 0xe1,
-	0x56, 0xb9, 0xb2, 0x5e, 0xbc, 0xf9, 0x79, 0xd1, 0x31, 0xce, 0x2f, 0x3a, 0xc6, 0x9f, 0x8b, 0x8e,
-	0xf1, 0xf5, 0xb2, 0x33, 0x73, 0x7e, 0xd9, 0x99, 0xf9, 0x7d, 0xd9, 0x99, 0xd9, 0xdb, 0x74, 0x3d,
-	0x71, 0x74, 0x72, 0xd0, 0x25, 0x6c, 0x98, 0x3c, 0x15, 0x1e, 0x87, 0xcf, 0x81, 0xab, 0x87, 0xc3,
-	0x69, 0xfa, 0xbd, 0x71, 0xe6, 0x03, 0x3f, 0x68, 0xca, 0xdf, 0xfd, 0x8d, 0xbf, 0x01, 0x00, 0x00,
-	0xff, 0xff, 0xcc, 0x25, 0x71, 0x2e, 0x94, 0x0c, 0x00, 0x00,
+	// 816 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xd4, 0x58, 0x4f, 0x4f, 0x13, 0x41,
+	0x14, 0x67, 0xdb, 0x52, 0x74, 0x82, 0x86, 0x2c, 0x4a, 0x9a, 0x1a, 0x36, 0x64, 0xc5, 0x88, 0x04,
+	0x5b, 0xf9, 0x67, 0x62, 0x22, 0x07, 0xa8, 0xc6, 0x70, 0x20, 0x9a, 0x56, 0x2f, 0x78, 0x20, 0xcb,
+	0xec, 0xa3, 0x6c, 0x42, 0x77, 0xd6, 0x9d, 0xc1, 0x50, 0x3f, 0x81, 0x47, 0xbf, 0x82, 0x77, 0x3f,
+	0x80, 0x17, 0xef, 0x5c, 0x4c, 0x38, 0x7a, 0x34, 0xf0, 0x45, 0xcc, 0xce, 0xec, 0x2e, 0x2c, 0x9d,
+	0xd9, 0x3f, 0xad, 0x07, 0x3d, 0x76, 0xe6, 0xfd, 0xf9, 0xfd, 0xde, 0xef, 0x4d, 0xde, 0xeb, 0xa2,
+	0x59, 0x06, 0x3d, 0x8f, 0xf8, 0xd6, 0x51, 0xd3, 0xc1, 0x56, 0xdf, 0x81, 0x23, 0xbb, 0x47, 0x68,
+	0x93, 0x9d, 0x34, 0x3c, 0x9f, 0x30, 0xa2, 0xdf, 0x89, 0xae, 0x1b, 0x57, 0xae, 0xeb, 0x4d, 0xa9,
+	0x13, 0x26, 0x2e, 0xf3, 0x2d, 0xcc, 0xf6, 0x7c, 0xe8, 0x11, 0x06, 0x7b, 0x9f, 0x88, 0x0b, 0x22,
+	0x4c, 0xfd, 0xb9, 0xd4, 0x21, 0xb4, 0x8b, 0xfd, 0x30, 0xe9, 0x79, 0xe4, 0xd8, 0xb5, 0xf7, 0x28,
+	0x30, 0xe6, 0xb8, 0x5d, 0x1a, 0x7a, 0x2f, 0x4a, 0xbd, 0x1d, 0x6c, 0x0d, 0x66, 0x32, 0x3b, 0x68,
+	0x7a, 0x87, 0x76, 0x5b, 0x3e, 0x58, 0x0c, 0x5a, 0xc4, 0x75, 0x01, 0x33, 0x87, 0xb8, 0x7a, 0x0d,
+	0x4d, 0xe0, 0xe0, 0x8c, 0xf8, 0x35, 0x6d, 0x4e, 0x5b, 0xb8, 0xd9, 0x8e, 0x7e, 0xea, 0x26, 0x9a,
+	0xc4, 0xb1, 0xdd, 0xb6, 0x5d, 0x2b, 0xf1, 0xeb, 0xc4, 0x99, 0x39, 0x8b, 0xee, 0x49, 0x82, 0xb6,
+	0x81, 0x7a, 0xc4, 0xa5, 0x60, 0xfe, 0xd0, 0x92, 0xf7, 0x9c, 0x4d, 0x9b, 0x43, 0xdb, 0x25, 0x2e,
+	0x8c, 0x96, 0x5c, 0x9f, 0x47, 0xb7, 0x04, 0xcd, 0xd6, 0xa1, 0xe5, 0x04, 0x46, 0x65, 0x6e, 0x94,
+	0x3c, 0xd4, 0x67, 0x50, 0xd5, 0xc2, 0xcc, 0xf9, 0x08, 0xb5, 0xca, 0x9c, 0xb6, 0x70, 0xa3, 0x1d,
+	0xfe, 0x0a, 0x32, 0xec, 0x03, 0x3e, 0x5c, 0x5d, 0x79, 0xe3, 0xc3, 0x81, 0x73, 0x52, 0x1b, 0x17,
+	0x19, 0xae, 0x9e, 0x99, 0xeb, 0xe8, 0x7e, 0x0a, 0xfc, 0x88, 0xa6, 0x7e, 0x1b, 0x95, 0x1c, 0x9b,
+	0x33, 0xa8, 0xb4, 0x4b, 0x8e, 0x6d, 0xfe, 0x14, 0xb4, 0xdf, 0x79, 0x76, 0x51, 0xda, 0x22, 0x52,
+	0x29, 0x8a, 0x34, 0x50, 0x86, 0x72, 0x9e, 0x32, 0x54, 0xd2, 0xcb, 0x30, 0x9e, 0x5a, 0x86, 0xaa,
+	0xa4, 0x0c, 0x0f, 0x78, 0x19, 0x54, 0x74, 0x62, 0xb5, 0x5f, 0x71, 0xd6, 0x2f, 0xe0, 0x08, 0x46,
+	0x63, 0x1d, 0xe6, 0x53, 0x05, 0x8a, 0xf3, 0xbd, 0xe7, 0xf9, 0x3a, 0xe0, 0xda, 0x6f, 0x81, 0xb2,
+	0xc8, 0x70, 0x07, 0x28, 0xb5, 0xba, 0x40, 0x47, 0xec, 0x6c, 0x81, 0x41, 0x15, 0xfc, 0xb2, 0xc3,
+	0x4b, 0xe8, 0x61, 0xdc, 0x22, 0x02, 0x63, 0x64, 0xdb, 0x0a, 0x1f, 0x6d, 0x27, 0x7c, 0xb3, 0x29,
+	0x80, 0x1a, 0x48, 0xc7, 0x03, 0x3c, 0xc3, 0x82, 0x48, 0x6e, 0xf4, 0xa7, 0x68, 0x46, 0xa8, 0x1b,
+	0xd4, 0xa8, 0x1b, 0x84, 0xd8, 0xb4, 0x6d, 0x1f, 0x28, 0x0d, 0x1b, 0x44, 0x71, 0xab, 0x2f, 0xa2,
+	0x29, 0x7c, 0x0d, 0x55, 0xd8, 0x2d, 0x03, 0xe7, 0x01, 0xa6, 0x03, 0x1f, 0x3e, 0x1c, 0x83, 0x8b,
+	0xfb, 0xdb, 0x6e, 0x07, 0x30, 0x71, 0x6d, 0xca, 0x9b, 0xa7, 0xd2, 0x96, 0xdc, 0xe8, 0x6b, 0xe8,
+	0xae, 0x9f, 0xe0, 0x1f, 0x41, 0x12, 0x1d, 0x25, 0xbf, 0x34, 0x37, 0x51, 0x33, 0x67, 0xf9, 0xd4,
+	0xaf, 0x4d, 0x48, 0x20, 0xda, 0x73, 0x68, 0x09, 0xae, 0xbf, 0x3c, 0xb9, 0x24, 0xe5, 0x21, 0x24,
+	0xa9, 0x14, 0x96, 0x64, 0xbc, 0x90, 0x24, 0xd5, 0xe2, 0x92, 0x4c, 0xa4, 0x49, 0xb2, 0xcc, 0x25,
+	0xc9, 0x53, 0xce, 0xf8, 0x15, 0x74, 0xb8, 0x02, 0xe2, 0xc1, 0xfe, 0x2d, 0x05, 0x42, 0x1c, 0x79,
+	0x82, 0xc6, 0x38, 0xbe, 0x6b, 0x68, 0x26, 0x6e, 0xa7, 0xed, 0xd6, 0xe6, 0x7f, 0x34, 0x6a, 0x9e,
+	0x20, 0x43, 0x8e, 0x5c, 0xd9, 0xf7, 0xa7, 0x82, 0xac, 0x10, 0x2a, 0x2f, 0xd9, 0x7f, 0x73, 0xc0,
+	0xcc, 0x71, 0xf2, 0x12, 0x26, 0xb1, 0xb2, 0x5b, 0x9c, 0xab, 0x68, 0x86, 0x21, 0xb9, 0x86, 0x59,
+	0x24, 0x31, 0xa2, 0x2c, 0x2b, 0x5f, 0x27, 0x51, 0x79, 0x87, 0x76, 0x75, 0x0f, 0x4d, 0x0d, 0x2c,
+	0x4a, 0x8f, 0x1a, 0xb2, 0x8d, 0xaf, 0x21, 0x59, 0x7f, 0xea, 0xcb, 0xb9, 0x4d, 0x63, 0x71, 0x3f,
+	0x6b, 0xa8, 0xa6, 0x5c, 0x93, 0x72, 0xc4, 0xbb, 0xe6, 0x52, 0x7f, 0x56, 0xd8, 0x25, 0x01, 0x45,
+	0xb9, 0xba, 0xa8, 0xa1, 0xa8, 0x5c, 0x52, 0xa0, 0x64, 0x6d, 0x14, 0x1c, 0x8a, 0x72, 0x9f, 0x50,
+	0x43, 0x51, 0xb9, 0xa4, 0x40, 0xc9, 0x5a, 0x36, 0x38, 0x14, 0xe5, 0xaa, 0xa1, 0x86, 0xa2, 0x72,
+	0x49, 0x81, 0x92, 0xb5, 0x73, 0xe8, 0xdf, 0x34, 0x34, 0x9f, 0x6b, 0xe1, 0xd8, 0xc8, 0x68, 0x82,
+	0x74, 0xf7, 0xfa, 0xcb, 0x91, 0xdc, 0x13, 0x70, 0x73, 0x0d, 0xe7, 0x8d, 0x8c, 0x46, 0x19, 0x1a,
+	0x6e, 0x91, 0x59, 0xc6, 0xe1, 0xe6, 0x9a, 0x64, 0x1b, 0x19, 0xcd, 0x34, 0x34, 0xdc, 0x22, 0x23,
+	0x4f, 0xef, 0xa3, 0x69, 0xd9, 0xb8, 0x5b, 0xca, 0xd0, 0x2e, 0x61, 0x5d, 0x5f, 0x2b, 0x62, 0x7d,
+	0x35, 0xb5, 0x6c, 0xf8, 0x2c, 0x65, 0xe8, 0x90, 0x37, 0x75, 0xca, 0x38, 0x08, 0x52, 0xcb, 0x66,
+	0xc1, 0x52, 0x46, 0x4d, 0xf3, 0xa6, 0x4e, 0x99, 0x11, 0x5b, 0xaf, 0x4f, 0xcf, 0x0d, 0xed, 0xec,
+	0xdc, 0xd0, 0x7e, 0x9f, 0x1b, 0xda, 0x97, 0x0b, 0x63, 0xec, 0xec, 0xc2, 0x18, 0xfb, 0x75, 0x61,
+	0x8c, 0xed, 0xae, 0x77, 0x1d, 0x76, 0x78, 0xbc, 0xdf, 0xc0, 0xa4, 0x17, 0x7f, 0x07, 0x78, 0x1c,
+	0xfc, 0x03, 0xbf, 0xfc, 0x2a, 0x70, 0x92, 0xfc, 0x98, 0xd0, 0xf7, 0x80, 0xee, 0x57, 0xf9, 0xff,
+	0xf3, 0xd5, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x4d, 0x71, 0x49, 0x4b, 0x71, 0x10, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -983,6 +1323,9 @@ type MsgClient interface {
 	CreateRemoteContractCompoundSettings(ctx context.Context, in *MsgCreateRemoteContractCompoundSettings, opts ...grpc.CallOption) (*MsgCreateRemoteContractCompoundSettingsResponse, error)
 	UpdateRemoteContractCompoundSettings(ctx context.Context, in *MsgUpdateRemoteContractCompoundSettings, opts ...grpc.CallOption) (*MsgUpdateRemoteContractCompoundSettingsResponse, error)
 	DeleteRemoteContractCompoundSettings(ctx context.Context, in *MsgDeleteRemoteContractCompoundSettings, opts ...grpc.CallOption) (*MsgDeleteRemoteContractCompoundSettingsResponse, error)
+	CreateICARemoteZone(ctx context.Context, in *MsgCreateICARemoteZone, opts ...grpc.CallOption) (*MsgCreateICARemoteZoneResponse, error)
+	UpdateICARemoteZone(ctx context.Context, in *MsgUpdateICARemoteZone, opts ...grpc.CallOption) (*MsgUpdateICARemoteZoneResponse, error)
+	DeleteICARemoteZone(ctx context.Context, in *MsgDeleteICARemoteZone, opts ...grpc.CallOption) (*MsgDeleteICARemoteZoneResponse, error)
 }
 
 type msgClient struct {
@@ -1065,6 +1408,33 @@ func (c *msgClient) DeleteRemoteContractCompoundSettings(ctx context.Context, in
 	return out, nil
 }
 
+func (c *msgClient) CreateICARemoteZone(ctx context.Context, in *MsgCreateICARemoteZone, opts ...grpc.CallOption) (*MsgCreateICARemoteZoneResponse, error) {
+	out := new(MsgCreateICARemoteZoneResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Msg/CreateICARemoteZone", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateICARemoteZone(ctx context.Context, in *MsgUpdateICARemoteZone, opts ...grpc.CallOption) (*MsgUpdateICARemoteZoneResponse, error) {
+	out := new(MsgUpdateICARemoteZoneResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Msg/UpdateICARemoteZone", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DeleteICARemoteZone(ctx context.Context, in *MsgDeleteICARemoteZone, opts ...grpc.CallOption) (*MsgDeleteICARemoteZoneResponse, error) {
+	out := new(MsgDeleteICARemoteZoneResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Msg/DeleteICARemoteZone", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	CreateConnection(context.Context, *MsgCreateConnection) (*MsgCreateConnectionResponse, error)
@@ -1075,6 +1445,9 @@ type MsgServer interface {
 	CreateRemoteContractCompoundSettings(context.Context, *MsgCreateRemoteContractCompoundSettings) (*MsgCreateRemoteContractCompoundSettingsResponse, error)
 	UpdateRemoteContractCompoundSettings(context.Context, *MsgUpdateRemoteContractCompoundSettings) (*MsgUpdateRemoteContractCompoundSettingsResponse, error)
 	DeleteRemoteContractCompoundSettings(context.Context, *MsgDeleteRemoteContractCompoundSettings) (*MsgDeleteRemoteContractCompoundSettingsResponse, error)
+	CreateICARemoteZone(context.Context, *MsgCreateICARemoteZone) (*MsgCreateICARemoteZoneResponse, error)
+	UpdateICARemoteZone(context.Context, *MsgUpdateICARemoteZone) (*MsgUpdateICARemoteZoneResponse, error)
+	DeleteICARemoteZone(context.Context, *MsgDeleteICARemoteZone) (*MsgDeleteICARemoteZoneResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -1104,6 +1477,15 @@ func (*UnimplementedMsgServer) UpdateRemoteContractCompoundSettings(ctx context.
 }
 func (*UnimplementedMsgServer) DeleteRemoteContractCompoundSettings(ctx context.Context, req *MsgDeleteRemoteContractCompoundSettings) (*MsgDeleteRemoteContractCompoundSettingsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRemoteContractCompoundSettings not implemented")
+}
+func (*UnimplementedMsgServer) CreateICARemoteZone(ctx context.Context, req *MsgCreateICARemoteZone) (*MsgCreateICARemoteZoneResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateICARemoteZone not implemented")
+}
+func (*UnimplementedMsgServer) UpdateICARemoteZone(ctx context.Context, req *MsgUpdateICARemoteZone) (*MsgUpdateICARemoteZoneResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateICARemoteZone not implemented")
+}
+func (*UnimplementedMsgServer) DeleteICARemoteZone(ctx context.Context, req *MsgDeleteICARemoteZone) (*MsgDeleteICARemoteZoneResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteICARemoteZone not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -1254,6 +1636,60 @@ func _Msg_DeleteRemoteContractCompoundSettings_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CreateICARemoteZone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateICARemoteZone)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreateICARemoteZone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Msg/CreateICARemoteZone",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreateICARemoteZone(ctx, req.(*MsgCreateICARemoteZone))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateICARemoteZone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateICARemoteZone)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateICARemoteZone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Msg/UpdateICARemoteZone",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateICARemoteZone(ctx, req.(*MsgUpdateICARemoteZone))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DeleteICARemoteZone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeleteICARemoteZone)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeleteICARemoteZone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Msg/DeleteICARemoteZone",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeleteICARemoteZone(ctx, req.(*MsgDeleteICARemoteZone))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "temporal.icayieldmos.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -1289,6 +1725,18 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteRemoteContractCompoundSettings",
 			Handler:    _Msg_DeleteRemoteContractCompoundSettings_Handler,
+		},
+		{
+			MethodName: "CreateICARemoteZone",
+			Handler:    _Msg_CreateICARemoteZone_Handler,
+		},
+		{
+			MethodName: "UpdateICARemoteZone",
+			Handler:    _Msg_UpdateICARemoteZone_Handler,
+		},
+		{
+			MethodName: "DeleteICARemoteZone",
+			Handler:    _Msg_DeleteICARemoteZone_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1887,6 +2335,242 @@ func (m *MsgDeleteRemoteContractCompoundSettingsResponse) MarshalToSizedBuffer(d
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgCreateICARemoteZone) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateICARemoteZone) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateICARemoteZone) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Bech32Prefix) > 0 {
+		i -= len(m.Bech32Prefix)
+		copy(dAtA[i:], m.Bech32Prefix)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Bech32Prefix)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	if m.Active {
+		i--
+		if m.Active {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x20
+	}
+	if len(m.RemoteChainId) > 0 {
+		i -= len(m.RemoteChainId)
+		copy(dAtA[i:], m.RemoteChainId)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RemoteChainId)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.ConnectionId) > 0 {
+		i -= len(m.ConnectionId)
+		copy(dAtA[i:], m.ConnectionId)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ConnectionId)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateICARemoteZoneResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateICARemoteZoneResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateICARemoteZoneResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateICARemoteZone) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateICARemoteZone) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateICARemoteZone) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Bech32Prefix) > 0 {
+		i -= len(m.Bech32Prefix)
+		copy(dAtA[i:], m.Bech32Prefix)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Bech32Prefix)))
+		i--
+		dAtA[i] = 0x32
+	}
+	if m.Active {
+		i--
+		if m.Active {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x28
+	}
+	if len(m.RemoteChainId) > 0 {
+		i -= len(m.RemoteChainId)
+		copy(dAtA[i:], m.RemoteChainId)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RemoteChainId)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.ConnectionId) > 0 {
+		i -= len(m.ConnectionId)
+		copy(dAtA[i:], m.ConnectionId)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.ConnectionId)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateICARemoteZoneResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateICARemoteZoneResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateICARemoteZoneResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteICARemoteZone) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteICARemoteZone) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteICARemoteZone) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteICARemoteZoneResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteICARemoteZoneResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteICARemoteZoneResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -2158,6 +2842,111 @@ func (m *MsgDeleteRemoteContractCompoundSettings) Size() (n int) {
 }
 
 func (m *MsgDeleteRemoteContractCompoundSettingsResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgCreateICARemoteZone) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.ConnectionId)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.RemoteChainId)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Active {
+		n += 2
+	}
+	l = len(m.Bech32Prefix)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgCreateICARemoteZoneResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgUpdateICARemoteZone) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	l = len(m.ConnectionId)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.RemoteChainId)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Active {
+		n += 2
+	}
+	l = len(m.Bech32Prefix)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgUpdateICARemoteZoneResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeleteICARemoteZone) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgDeleteICARemoteZoneResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -3883,6 +4672,691 @@ func (m *MsgDeleteRemoteContractCompoundSettingsResponse) Unmarshal(dAtA []byte)
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgDeleteRemoteContractCompoundSettingsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateICARemoteZone) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateICARemoteZone: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateICARemoteZone: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ConnectionId", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ConnectionId = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RemoteChainId", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RemoteChainId = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Active", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.Active = bool(v != 0)
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Bech32Prefix", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Bech32Prefix = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateICARemoteZoneResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateICARemoteZoneResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateICARemoteZoneResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateICARemoteZone) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateICARemoteZone: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateICARemoteZone: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ConnectionId", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ConnectionId = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RemoteChainId", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RemoteChainId = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Active", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.Active = bool(v != 0)
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Bech32Prefix", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Bech32Prefix = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateICARemoteZoneResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateICARemoteZoneResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateICARemoteZoneResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteICARemoteZone) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteICARemoteZone: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteICARemoteZone: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteICARemoteZoneResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteICARemoteZoneResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteICARemoteZoneResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

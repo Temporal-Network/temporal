@@ -38,3 +38,8 @@ const (
 	RemoteContractCompoundSettingsKey= "RemoteContractCompoundSettings/value/"
 	RemoteContractCompoundSettingsCountKey= "RemoteContractCompoundSettings/count/"
 )
+
+const (
+	ICARemoteZoneKey= "ICARemoteZone/value/"
+	ICARemoteZoneCountKey= "ICARemoteZone/count/"
+)

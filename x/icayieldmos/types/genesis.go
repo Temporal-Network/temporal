@@ -15,6 +15,7 @@ func DefaultGenesis() *GenesisState {
 		ContractRemoteZoneList: []ContractRemoteZone{},
 		RemoteContractCompoundSettingsList: []RemoteContractCompoundSettings{},
 PreviousRemoteCompoundingList: []PreviousRemoteCompounding{},
+ICARemoteZoneList: []ICARemoteZone{},
 // this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
@@ -59,6 +60,18 @@ for _, elem := range gs.PreviousRemoteCompoundingList {
 		return fmt.Errorf("duplicated index for previousRemoteCompounding")
 	}
 	previousRemoteCompoundingIndexMap[index] = struct{}{}
+}
+// Check for duplicated ID in iCARemoteZone
+iCARemoteZoneIdMap := make(map[uint64]bool)
+iCARemoteZoneCount := gs.GetICARemoteZoneCount()
+for _, elem := range gs.ICARemoteZoneList {
+	if _, ok := iCARemoteZoneIdMap[elem.Id]; ok {
+		return fmt.Errorf("duplicated id for iCARemoteZone")
+	}
+	if elem.Id >= iCARemoteZoneCount {
+		return fmt.Errorf("iCARemoteZone id should be lower or equal than the last id")
+	}
+	iCARemoteZoneIdMap[elem.Id] = true
 }
 // this line is used by starport scaffolding # genesis/types/validate
 

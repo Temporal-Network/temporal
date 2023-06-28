@@ -693,6 +693,190 @@ func (m *QueryAllPreviousRemoteCompoundingResponse) GetPagination() *query.PageR
 	return nil
 }
 
+type QueryGetICARemoteZoneRequest struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *QueryGetICARemoteZoneRequest) Reset()         { *m = QueryGetICARemoteZoneRequest{} }
+func (m *QueryGetICARemoteZoneRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetICARemoteZoneRequest) ProtoMessage()    {}
+func (*QueryGetICARemoteZoneRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a64e9c6b8c80d019, []int{14}
+}
+func (m *QueryGetICARemoteZoneRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetICARemoteZoneRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetICARemoteZoneRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetICARemoteZoneRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetICARemoteZoneRequest.Merge(m, src)
+}
+func (m *QueryGetICARemoteZoneRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetICARemoteZoneRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetICARemoteZoneRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetICARemoteZoneRequest proto.InternalMessageInfo
+
+func (m *QueryGetICARemoteZoneRequest) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type QueryGetICARemoteZoneResponse struct {
+	ICARemoteZone ICARemoteZone `protobuf:"bytes,1,opt,name=ICARemoteZone,proto3" json:"ICARemoteZone"`
+}
+
+func (m *QueryGetICARemoteZoneResponse) Reset()         { *m = QueryGetICARemoteZoneResponse{} }
+func (m *QueryGetICARemoteZoneResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetICARemoteZoneResponse) ProtoMessage()    {}
+func (*QueryGetICARemoteZoneResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a64e9c6b8c80d019, []int{15}
+}
+func (m *QueryGetICARemoteZoneResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetICARemoteZoneResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetICARemoteZoneResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetICARemoteZoneResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetICARemoteZoneResponse.Merge(m, src)
+}
+func (m *QueryGetICARemoteZoneResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetICARemoteZoneResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetICARemoteZoneResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetICARemoteZoneResponse proto.InternalMessageInfo
+
+func (m *QueryGetICARemoteZoneResponse) GetICARemoteZone() ICARemoteZone {
+	if m != nil {
+		return m.ICARemoteZone
+	}
+	return ICARemoteZone{}
+}
+
+type QueryAllICARemoteZoneRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllICARemoteZoneRequest) Reset()         { *m = QueryAllICARemoteZoneRequest{} }
+func (m *QueryAllICARemoteZoneRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllICARemoteZoneRequest) ProtoMessage()    {}
+func (*QueryAllICARemoteZoneRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a64e9c6b8c80d019, []int{16}
+}
+func (m *QueryAllICARemoteZoneRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllICARemoteZoneRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllICARemoteZoneRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllICARemoteZoneRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllICARemoteZoneRequest.Merge(m, src)
+}
+func (m *QueryAllICARemoteZoneRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllICARemoteZoneRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllICARemoteZoneRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllICARemoteZoneRequest proto.InternalMessageInfo
+
+func (m *QueryAllICARemoteZoneRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllICARemoteZoneResponse struct {
+	ICARemoteZone []ICARemoteZone     `protobuf:"bytes,1,rep,name=ICARemoteZone,proto3" json:"ICARemoteZone"`
+	Pagination    *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllICARemoteZoneResponse) Reset()         { *m = QueryAllICARemoteZoneResponse{} }
+func (m *QueryAllICARemoteZoneResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllICARemoteZoneResponse) ProtoMessage()    {}
+func (*QueryAllICARemoteZoneResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a64e9c6b8c80d019, []int{17}
+}
+func (m *QueryAllICARemoteZoneResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllICARemoteZoneResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllICARemoteZoneResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllICARemoteZoneResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllICARemoteZoneResponse.Merge(m, src)
+}
+func (m *QueryAllICARemoteZoneResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllICARemoteZoneResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllICARemoteZoneResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllICARemoteZoneResponse proto.InternalMessageInfo
+
+func (m *QueryAllICARemoteZoneResponse) GetICARemoteZone() []ICARemoteZone {
+	if m != nil {
+		return m.ICARemoteZone
+	}
+	return nil
+}
+
+func (m *QueryAllICARemoteZoneResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "temporal.icayieldmos.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "temporal.icayieldmos.QueryParamsResponse")
@@ -708,64 +892,76 @@ func init() {
 	proto.RegisterType((*QueryGetPreviousRemoteCompoundingResponse)(nil), "temporal.icayieldmos.QueryGetPreviousRemoteCompoundingResponse")
 	proto.RegisterType((*QueryAllPreviousRemoteCompoundingRequest)(nil), "temporal.icayieldmos.QueryAllPreviousRemoteCompoundingRequest")
 	proto.RegisterType((*QueryAllPreviousRemoteCompoundingResponse)(nil), "temporal.icayieldmos.QueryAllPreviousRemoteCompoundingResponse")
+	proto.RegisterType((*QueryGetICARemoteZoneRequest)(nil), "temporal.icayieldmos.QueryGetICARemoteZoneRequest")
+	proto.RegisterType((*QueryGetICARemoteZoneResponse)(nil), "temporal.icayieldmos.QueryGetICARemoteZoneResponse")
+	proto.RegisterType((*QueryAllICARemoteZoneRequest)(nil), "temporal.icayieldmos.QueryAllICARemoteZoneRequest")
+	proto.RegisterType((*QueryAllICARemoteZoneResponse)(nil), "temporal.icayieldmos.QueryAllICARemoteZoneResponse")
 }
 
 func init() { proto.RegisterFile("temporal/icayieldmos/query.proto", fileDescriptor_a64e9c6b8c80d019) }
 
 var fileDescriptor_a64e9c6b8c80d019 = []byte{
-	// 826 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x57, 0x4f, 0x4f, 0x13, 0x5b,
-	0x14, 0xef, 0x2d, 0x3c, 0x16, 0x97, 0xe4, 0x2d, 0xee, 0xe3, 0x25, 0x8f, 0xa6, 0x6f, 0x1e, 0x4c,
-	0x5e, 0x14, 0x88, 0xcc, 0x4d, 0x41, 0x45, 0x0c, 0x81, 0x94, 0x12, 0x59, 0x0a, 0x65, 0x25, 0x0b,
-	0x9b, 0x69, 0x7b, 0x33, 0x4e, 0x9c, 0xce, 0x1d, 0x66, 0x6e, 0x51, 0x24, 0x6c, 0xd0, 0x0f, 0x60,
-	0xe2, 0x17, 0xf0, 0x4b, 0xb8, 0x35, 0x2e, 0xd9, 0x68, 0x48, 0xdc, 0x18, 0x17, 0xc6, 0x80, 0x1b,
-	0x57, 0xc6, 0x95, 0x3b, 0x63, 0x7a, 0xe7, 0x4c, 0xa5, 0xe9, 0xcc, 0xed, 0x14, 0xca, 0xae, 0xe9,
-	0x9c, 0x73, 0x7e, 0x7f, 0xce, 0xc9, 0x39, 0x33, 0x78, 0x42, 0xb0, 0x86, 0xc7, 0x7d, 0xd3, 0xa1,
-	0x76, 0xcd, 0xdc, 0xb3, 0x99, 0x53, 0x6f, 0xf0, 0x80, 0xee, 0x34, 0x99, 0xbf, 0x67, 0x78, 0x3e,
-	0x17, 0x9c, 0x8c, 0x45, 0x11, 0xc6, 0x99, 0x88, 0xdc, 0x98, 0xc5, 0x2d, 0x2e, 0x03, 0x68, 0xeb,
-	0x57, 0x18, 0x9b, 0xcb, 0x5b, 0x9c, 0x5b, 0x0e, 0xa3, 0xa6, 0x67, 0x53, 0xd3, 0x75, 0xb9, 0x30,
-	0x85, 0xcd, 0xdd, 0x00, 0x9e, 0x4e, 0xc6, 0x62, 0x79, 0xa6, 0x6f, 0x36, 0xa2, 0x10, 0x1a, 0x1b,
-	0x52, 0xe3, 0xae, 0xf0, 0xcd, 0x9a, 0xa8, 0xf8, 0xac, 0xc1, 0x05, 0xab, 0x3c, 0xe1, 0x2e, 0x83,
-	0x84, 0x99, 0x1a, 0x0f, 0x5a, 0x21, 0x55, 0x33, 0x60, 0x21, 0x6d, 0xba, 0x5b, 0xa8, 0x32, 0x61,
-	0x16, 0xa8, 0x67, 0x5a, 0xb6, 0x2b, 0x09, 0x40, 0xec, 0x52, 0x6c, 0x71, 0xa8, 0xd9, 0xc6, 0xa8,
-	0xf1, 0x86, 0xc7, 0x9b, 0x6e, 0xbd, 0x12, 0x30, 0x21, 0x6c, 0xd7, 0x8a, 0xa8, 0xdd, 0x8c, 0x67,
-	0xef, 0xb3, 0x5d, 0x9b, 0x37, 0x83, 0x4a, 0xbb, 0x4c, 0x98, 0x6d, 0xbb, 0x56, 0x98, 0xa7, 0x8f,
-	0x61, 0xb2, 0xd9, 0xe2, 0xb5, 0x21, 0x75, 0x96, 0xd9, 0x4e, 0x93, 0x05, 0x42, 0xdf, 0xc4, 0x7f,
-	0x75, 0xfc, 0x1b, 0x78, 0xdc, 0x0d, 0x18, 0xb9, 0x8d, 0x47, 0x42, 0x3f, 0xfe, 0x41, 0x13, 0x68,
-	0x6a, 0x74, 0x2e, 0x6f, 0xc4, 0xb9, 0x6f, 0x84, 0x59, 0xab, 0xc3, 0x47, 0x9f, 0xfe, 0xcb, 0x94,
-	0x21, 0x43, 0x9f, 0xc7, 0x93, 0xb2, 0xe4, 0x3a, 0x13, 0x25, 0x10, 0x53, 0x96, 0xa4, 0xb6, 0xb9,
-	0xcb, 0x00, 0x97, 0xfc, 0x89, 0xb3, 0x76, 0x5d, 0x16, 0x1f, 0x2e, 0x67, 0xed, 0xba, 0xfe, 0x0c,
-	0x61, 0x5d, 0x95, 0x05, 0xbc, 0xee, 0x63, 0xd2, 0xfd, 0x14, 0x38, 0x4e, 0xc5, 0x73, 0xec, 0x8e,
-	0x07, 0xbe, 0x31, 0x95, 0xf4, 0x87, 0xc0, 0xbd, 0xe8, 0x38, 0xc9, 0xdc, 0xef, 0x60, 0xfc, 0xbb,
-	0xa7, 0x00, 0x7e, 0xc5, 0x08, 0x07, 0xc0, 0x68, 0x0d, 0x80, 0x11, 0xce, 0x2d, 0x0c, 0x80, 0xb1,
-	0x61, 0x5a, 0x51, 0x6e, 0xf9, 0x4c, 0xa6, 0xfe, 0x36, 0xd2, 0x9c, 0x80, 0xd6, 0x43, 0xf3, 0xd0,
-	0x60, 0x34, 0x93, 0xf5, 0x0e, 0x39, 0x59, 0x29, 0xe7, 0x6a, 0x4f, 0x39, 0x21, 0xb9, 0x0e, 0x3d,
-	0x2b, 0x78, 0x36, 0x6a, 0x61, 0x58, 0x3e, 0x02, 0x2b, 0xc1, 0x30, 0x6e, 0xc1, 0x24, 0x27, 0x0d,
-	0xc1, 0x2b, 0x84, 0x8d, 0xb4, 0x15, 0xc0, 0x9c, 0x43, 0x84, 0x35, 0x75, 0x28, 0x34, 0xe8, 0x7a,
-	0xbc, 0x53, 0xea, 0x5c, 0x70, 0xad, 0x07, 0x82, 0xfe, 0x08, 0x84, 0x17, 0x1d, 0x27, 0x9d, 0xf0,
-	0x41, 0x4d, 0xd0, 0xcf, 0xc8, 0xb0, 0x14, 0xc8, 0xfd, 0x18, 0x36, 0x74, 0xb9, 0x86, 0x0d, 0x6e,
-	0xe4, 0x3c, 0x3c, 0x15, 0x0d, 0xcc, 0x06, 0x6c, 0xc0, 0x08, 0xba, 0xbd, 0xff, 0x22, 0xd3, 0xd7,
-	0xf0, 0xbf, 0xbe, 0x8a, 0x16, 0x0c, 0xa2, 0x3a, 0x48, 0x7f, 0x89, 0xf0, 0x74, 0x0a, 0x48, 0x70,
-	0x3b, 0xc0, 0xe3, 0x5e, 0x52, 0x10, 0xf4, 0x9d, 0x26, 0xac, 0xd6, 0xa4, 0x34, 0xb0, 0x38, 0xb9,
-	0xae, 0xee, 0x83, 0x29, 0x45, 0xc7, 0xe9, 0x69, 0xca, 0xa0, 0x26, 0xf1, 0x6b, 0x64, 0x8b, 0x1a,
-	0x34, 0x9d, 0x2d, 0x43, 0x97, 0x61, 0xcb, 0xc0, 0x86, 0x6e, 0xee, 0xdd, 0x28, 0xfe, 0x43, 0x6a,
-	0x25, 0x4f, 0x11, 0x1e, 0x09, 0x6f, 0x20, 0x49, 0xd8, 0xc4, 0xdd, 0x27, 0x37, 0x37, 0x9d, 0x22,
-	0x32, 0x44, 0xd5, 0xff, 0x3f, 0x7c, 0xff, 0xe5, 0x45, 0x56, 0x23, 0x79, 0xaa, 0x78, 0x65, 0x21,
-	0x6f, 0x50, 0xdc, 0x85, 0x20, 0x0b, 0x0a, 0x1c, 0xd5, 0x6d, 0xce, 0xdd, 0xea, 0x3f, 0x11, 0xf8,
-	0x2e, 0x48, 0xbe, 0x05, 0x42, 0xd3, 0xbf, 0x3f, 0xd1, 0x7d, 0xbb, 0x7e, 0x40, 0x5e, 0x23, 0xfc,
-	0x77, 0x77, 0xdd, 0xa2, 0xe3, 0x28, 0x55, 0xa8, 0xae, 0xb4, 0x52, 0x85, 0xf2, 0xe0, 0xea, 0x73,
-	0x52, 0xc5, 0x35, 0x32, 0x93, 0x5e, 0x05, 0xf9, 0xde, 0x73, 0xad, 0x92, 0x92, 0xda, 0xd6, 0x54,
-	0x97, 0x23, 0xb7, 0x76, 0xb1, 0x22, 0xa0, 0x70, 0x4d, 0x2a, 0x5c, 0x26, 0x4b, 0xf4, 0x7c, 0xaf,
-	0xa2, 0x61, 0xd3, 0xbe, 0x21, 0x3c, 0xa9, 0x06, 0x6c, 0x35, 0xb0, 0xa4, 0xee, 0xc3, 0xc5, 0x65,
-	0xa7, 0xbe, 0x7d, 0xfa, 0x8a, 0x94, 0xbd, 0x48, 0x16, 0xce, 0x29, 0x9b, 0xfc, 0x40, 0x78, 0x3c,
-	0x71, 0x03, 0x91, 0x65, 0x75, 0x6f, 0x7a, 0xed, 0xe2, 0xdc, 0xca, 0xb9, 0xf3, 0x41, 0xdf, 0x3d,
-	0xa9, 0x6f, 0x8b, 0x6c, 0xd2, 0x7e, 0xbf, 0x11, 0xe8, 0xbe, 0xf2, 0xea, 0x1d, 0x90, 0x8f, 0x08,
-	0xe7, 0x13, 0x09, 0xb4, 0xda, 0xbc, 0xac, 0xee, 0xd0, 0x85, 0xc4, 0xa7, 0xb9, 0x29, 0xfa, 0xa2,
-	0x14, 0x3f, 0x4f, 0x0a, 0x7d, 0x8b, 0x5f, 0xbd, 0x7b, 0x74, 0xa2, 0xa1, 0xe3, 0x13, 0x0d, 0x7d,
-	0x3e, 0xd1, 0xd0, 0xf3, 0x53, 0x2d, 0x73, 0x7c, 0xaa, 0x65, 0x3e, 0x9c, 0x6a, 0x99, 0xed, 0x1b,
-	0x96, 0x2d, 0x1e, 0x34, 0xab, 0x46, 0x8d, 0x37, 0xda, 0x65, 0x67, 0xe5, 0xda, 0x6a, 0x83, 0x3c,
-	0xee, 0x80, 0x11, 0x7b, 0x1e, 0x0b, 0xaa, 0x23, 0xf2, 0x93, 0x6b, 0xfe, 0x57, 0x00, 0x00, 0x00,
-	0xff, 0xff, 0x48, 0x97, 0x4e, 0xb3, 0xd6, 0x0e, 0x00, 0x00,
+	// 947 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x58, 0x4b, 0x4f, 0x3b, 0x55,
+	0x14, 0xef, 0x6d, 0x91, 0xc5, 0x35, 0x12, 0x73, 0xc5, 0x44, 0x9a, 0x32, 0xc2, 0xd5, 0x28, 0x10,
+	0x99, 0x49, 0x5b, 0x91, 0x87, 0x04, 0x2c, 0x25, 0x12, 0x57, 0x40, 0x59, 0xc9, 0xc2, 0x66, 0xda,
+	0x5e, 0xc7, 0x89, 0xd3, 0xb9, 0xc3, 0xcc, 0x14, 0x45, 0xc2, 0x06, 0xfd, 0x00, 0x26, 0x7e, 0x01,
+	0xbf, 0x84, 0x89, 0xba, 0x30, 0xae, 0x0c, 0x1b, 0x13, 0x12, 0x37, 0xc6, 0x85, 0x31, 0xe0, 0xc6,
+	0x95, 0x71, 0xe5, 0xce, 0x98, 0xde, 0x39, 0xd3, 0x3f, 0xf3, 0xef, 0xcc, 0xed, 0xf4, 0xc1, 0x8e,
+	0x30, 0xe7, 0xf1, 0x7b, 0x1c, 0xe6, 0x9c, 0x01, 0x2f, 0xf8, 0xac, 0xed, 0x70, 0x57, 0xb7, 0x34,
+	0xb3, 0xa9, 0x5f, 0x98, 0xcc, 0x6a, 0xb5, 0xb9, 0xa7, 0x9d, 0x75, 0x98, 0x7b, 0xa1, 0x3a, 0x2e,
+	0xf7, 0x39, 0x99, 0x0d, 0x23, 0xd4, 0x07, 0x11, 0xf9, 0x59, 0x83, 0x1b, 0x5c, 0x04, 0x68, 0xdd,
+	0x9f, 0x82, 0xd8, 0x7c, 0xc1, 0xe0, 0xdc, 0xb0, 0x98, 0xa6, 0x3b, 0xa6, 0xa6, 0xdb, 0x36, 0xf7,
+	0x75, 0xdf, 0xe4, 0xb6, 0x07, 0x4f, 0x17, 0x63, 0x7b, 0x39, 0xba, 0xab, 0xb7, 0xc3, 0x10, 0x2d,
+	0x36, 0xa4, 0xc9, 0x6d, 0xdf, 0xd5, 0x9b, 0x7e, 0xdd, 0x65, 0x6d, 0xee, 0xb3, 0xfa, 0x67, 0xdc,
+	0x66, 0x90, 0xb0, 0xd2, 0xe4, 0x5e, 0x37, 0xa4, 0xa1, 0x7b, 0x2c, 0x80, 0xad, 0x9d, 0x17, 0x1b,
+	0xcc, 0xd7, 0x8b, 0x9a, 0xa3, 0x1b, 0xa6, 0x2d, 0x00, 0x40, 0xec, 0x76, 0x6c, 0x71, 0xa8, 0xd9,
+	0xeb, 0xd1, 0xe4, 0x6d, 0x87, 0x77, 0xec, 0x56, 0xdd, 0x63, 0xbe, 0x6f, 0xda, 0x46, 0x08, 0xed,
+	0xad, 0x78, 0xf4, 0x2e, 0x3b, 0x37, 0x79, 0xc7, 0xab, 0xf7, 0xca, 0x04, 0xd9, 0xa6, 0x6d, 0x84,
+	0x08, 0x63, 0xf3, 0xcc, 0xa6, 0xde, 0xcf, 0x86, 0xce, 0x62, 0x72, 0xdc, 0xe5, 0x70, 0x24, 0x34,
+	0xa9, 0xb1, 0xb3, 0x0e, 0xf3, 0x7c, 0x7a, 0x8c, 0x5f, 0x88, 0xfc, 0xd6, 0x73, 0xb8, 0xed, 0x31,
+	0xb2, 0x85, 0xa7, 0x03, 0xed, 0x5e, 0x42, 0x0b, 0x68, 0xe9, 0xd9, 0x52, 0x41, 0x8d, 0x73, 0x4a,
+	0x0d, 0xb2, 0xf6, 0xa6, 0x6e, 0x7e, 0x7f, 0x39, 0x53, 0x83, 0x0c, 0x5a, 0xc6, 0x8b, 0xa2, 0xe4,
+	0x01, 0xf3, 0xab, 0x40, 0xbc, 0x26, 0xd0, 0x9c, 0x72, 0x9b, 0x41, 0x5f, 0x32, 0x83, 0xb3, 0x66,
+	0x4b, 0x14, 0x9f, 0xaa, 0x65, 0xcd, 0x16, 0xfd, 0x02, 0x61, 0x2a, 0xcb, 0x02, 0x5c, 0x1f, 0x60,
+	0xd2, 0xff, 0x14, 0x30, 0x2e, 0xc5, 0x63, 0xec, 0x8f, 0x07, 0xbc, 0x31, 0x95, 0xe8, 0xc7, 0x80,
+	0xbd, 0x62, 0x59, 0xc9, 0xd8, 0xdf, 0xc5, 0xf8, 0x89, 0xff, 0xd0, 0xfc, 0x35, 0x35, 0x18, 0x16,
+	0xb5, 0x3b, 0x2c, 0x6a, 0x30, 0xe3, 0x30, 0x2c, 0xea, 0x91, 0x6e, 0x84, 0xb9, 0xb5, 0x07, 0x99,
+	0xf4, 0xe7, 0x90, 0x73, 0x42, 0xb7, 0x01, 0x9c, 0x73, 0x93, 0xe1, 0x4c, 0x0e, 0x22, 0x74, 0xb2,
+	0x82, 0xce, 0xeb, 0x03, 0xe9, 0x04, 0xe0, 0x22, 0x7c, 0x76, 0xf1, 0x6a, 0x68, 0x61, 0x50, 0x3e,
+	0x6c, 0x56, 0x85, 0xc1, 0x3d, 0x81, 0xa9, 0x4f, 0x1a, 0x82, 0x6f, 0x10, 0x56, 0xd3, 0x56, 0x00,
+	0x71, 0xae, 0x11, 0x56, 0xe4, 0xa1, 0x60, 0xd0, 0x9b, 0xf1, 0x4a, 0xc9, 0x73, 0x41, 0xb5, 0x01,
+	0x1d, 0xe8, 0x27, 0x40, 0xbc, 0x62, 0x59, 0xe9, 0x88, 0x4f, 0x6a, 0x82, 0xfe, 0x0b, 0x05, 0x4b,
+	0xd1, 0x79, 0x18, 0xc1, 0x72, 0x8f, 0x2b, 0xd8, 0xe4, 0x46, 0xce, 0xc1, 0x4b, 0xe1, 0xc0, 0x1c,
+	0xc1, 0xdb, 0x32, 0x6c, 0xdd, 0x7b, 0x57, 0x86, 0xa2, 0xef, 0xe3, 0x79, 0x57, 0x06, 0x0b, 0x06,
+	0x51, 0x1e, 0x44, 0xbf, 0x46, 0x78, 0x39, 0x45, 0x4b, 0x50, 0xdb, 0xc3, 0x73, 0x4e, 0x52, 0x10,
+	0xf8, 0xae, 0x25, 0xbc, 0x5a, 0x93, 0xd2, 0x40, 0xe2, 0xe4, 0xba, 0xd4, 0x05, 0x51, 0x2a, 0x96,
+	0x35, 0x50, 0x94, 0x49, 0x4d, 0xe2, 0x5f, 0xa1, 0x2c, 0xf2, 0xa6, 0xe9, 0x64, 0xc9, 0x3d, 0x86,
+	0x2c, 0x93, 0x1b, 0x3a, 0x15, 0x17, 0xc2, 0x09, 0x78, 0xaf, 0x5a, 0x19, 0xbc, 0xdb, 0x1c, 0x3c,
+	0x9f, 0x10, 0x0f, 0x72, 0x1c, 0xe2, 0xe7, 0x22, 0x0f, 0xc0, 0x87, 0x57, 0xe2, 0x25, 0x88, 0x84,
+	0x02, 0xed, 0x68, 0x3e, 0xfd, 0x10, 0x10, 0x56, 0x2c, 0x2b, 0x16, 0xe1, 0xa4, 0x5c, 0xff, 0x0e,
+	0x01, 0xb5, 0xfe, 0x46, 0xc9, 0xd4, 0x72, 0xe3, 0x50, 0x9b, 0x98, 0x8b, 0xa5, 0x9f, 0x66, 0xf0,
+	0x33, 0x02, 0x3b, 0xf9, 0x1c, 0xe1, 0xe9, 0xe0, 0x92, 0x21, 0x09, 0xfb, 0xb4, 0xff, 0x70, 0xca,
+	0x2f, 0xa7, 0x88, 0x0c, 0xba, 0xd2, 0x57, 0xaf, 0x7f, 0xf9, 0xf3, 0xab, 0xac, 0x42, 0x0a, 0x9a,
+	0xe4, 0x48, 0x25, 0x3f, 0xa2, 0xb8, 0x3d, 0x4f, 0xd6, 0x25, 0x7d, 0x64, 0x17, 0x56, 0x7e, 0x63,
+	0xf8, 0x44, 0xc0, 0xbb, 0x2e, 0xf0, 0x16, 0x89, 0x96, 0xfe, 0x62, 0xd6, 0x2e, 0xcd, 0xd6, 0x15,
+	0xf9, 0x01, 0xe1, 0x17, 0xfb, 0xeb, 0x56, 0x2c, 0x4b, 0xca, 0x42, 0x76, 0x6b, 0x49, 0x59, 0x48,
+	0xcf, 0x26, 0x5a, 0x12, 0x2c, 0xde, 0x20, 0x2b, 0xe9, 0x59, 0x90, 0x7f, 0x06, 0x2e, 0x47, 0x52,
+	0x95, 0xcb, 0x9a, 0x6a, 0xff, 0xe7, 0xf7, 0xc7, 0x2b, 0x02, 0x0c, 0xf7, 0x05, 0xc3, 0x1d, 0xb2,
+	0xad, 0x8d, 0xf6, 0xf1, 0x11, 0x98, 0xf6, 0x37, 0xc2, 0x8b, 0xf2, 0x86, 0x5d, 0x03, 0xab, 0x72,
+	0x1f, 0xc6, 0xa7, 0x9d, 0xfa, 0x82, 0xa1, 0xbb, 0x82, 0xf6, 0x26, 0x59, 0x1f, 0x91, 0x36, 0xf9,
+	0x17, 0xe1, 0xb9, 0xc4, 0x3d, 0x42, 0x76, 0xe4, 0xde, 0x0c, 0xda, 0xa8, 0xf9, 0xdd, 0x91, 0xf3,
+	0x81, 0xdf, 0xfb, 0x82, 0xdf, 0x09, 0x39, 0xd6, 0x86, 0xfd, 0x2a, 0xd4, 0x2e, 0xa5, 0xb7, 0xcb,
+	0x15, 0xf9, 0x0d, 0xe1, 0x42, 0x22, 0x80, 0xae, 0xcd, 0x3b, 0x72, 0x87, 0xc6, 0x22, 0x9f, 0xe6,
+	0x32, 0xa0, 0x9b, 0x82, 0x7c, 0x99, 0x14, 0x87, 0x26, 0x4f, 0xbe, 0x47, 0x4f, 0xed, 0x1a, 0x52,
+	0x92, 0x5b, 0x11, 0xb7, 0x1a, 0xf3, 0xe5, 0xa1, 0x72, 0x00, 0xf5, 0x3b, 0x02, 0xf5, 0x16, 0xd9,
+	0xe8, 0xa1, 0x5e, 0x15, 0x6f, 0xc5, 0x34, 0x9f, 0xe7, 0xc1, 0x5f, 0xe1, 0xb7, 0x08, 0x3f, 0x1f,
+	0xa9, 0xdd, 0x75, 0xa3, 0x24, 0x57, 0x73, 0x68, 0xfc, 0x49, 0x5b, 0x9a, 0xbe, 0x2d, 0xf0, 0xaf,
+	0x91, 0xf2, 0x08, 0xf8, 0xf7, 0x0e, 0x6f, 0xee, 0x14, 0x74, 0x7b, 0xa7, 0xa0, 0x3f, 0xee, 0x14,
+	0xf4, 0xe5, 0xbd, 0x92, 0xb9, 0xbd, 0x57, 0x32, 0xbf, 0xde, 0x2b, 0x99, 0xd3, 0x35, 0xc3, 0xf4,
+	0x3f, 0xea, 0x34, 0xd4, 0x26, 0x6f, 0x27, 0x15, 0xfe, 0x34, 0x52, 0xda, 0xbf, 0x70, 0x98, 0xd7,
+	0x98, 0x16, 0xff, 0xb0, 0x28, 0xff, 0x1f, 0x00, 0x00, 0xff, 0xff, 0xac, 0xc1, 0x20, 0xcb, 0x40,
+	0x12, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -791,6 +987,9 @@ type QueryClient interface {
 	// Queries a list of PreviousRemoteCompounding items.
 	PreviousRemoteCompounding(ctx context.Context, in *QueryGetPreviousRemoteCompoundingRequest, opts ...grpc.CallOption) (*QueryGetPreviousRemoteCompoundingResponse, error)
 	PreviousRemoteCompoundingAll(ctx context.Context, in *QueryAllPreviousRemoteCompoundingRequest, opts ...grpc.CallOption) (*QueryAllPreviousRemoteCompoundingResponse, error)
+	// Queries a list of ICARemoteZone items.
+	ICARemoteZone(ctx context.Context, in *QueryGetICARemoteZoneRequest, opts ...grpc.CallOption) (*QueryGetICARemoteZoneResponse, error)
+	ICARemoteZoneAll(ctx context.Context, in *QueryAllICARemoteZoneRequest, opts ...grpc.CallOption) (*QueryAllICARemoteZoneResponse, error)
 }
 
 type queryClient struct {
@@ -864,6 +1063,24 @@ func (c *queryClient) PreviousRemoteCompoundingAll(ctx context.Context, in *Quer
 	return out, nil
 }
 
+func (c *queryClient) ICARemoteZone(ctx context.Context, in *QueryGetICARemoteZoneRequest, opts ...grpc.CallOption) (*QueryGetICARemoteZoneResponse, error) {
+	out := new(QueryGetICARemoteZoneResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Query/ICARemoteZone", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) ICARemoteZoneAll(ctx context.Context, in *QueryAllICARemoteZoneRequest, opts ...grpc.CallOption) (*QueryAllICARemoteZoneResponse, error) {
+	out := new(QueryAllICARemoteZoneResponse)
+	err := c.cc.Invoke(ctx, "/temporal.icayieldmos.Query/ICARemoteZoneAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
@@ -877,6 +1094,9 @@ type QueryServer interface {
 	// Queries a list of PreviousRemoteCompounding items.
 	PreviousRemoteCompounding(context.Context, *QueryGetPreviousRemoteCompoundingRequest) (*QueryGetPreviousRemoteCompoundingResponse, error)
 	PreviousRemoteCompoundingAll(context.Context, *QueryAllPreviousRemoteCompoundingRequest) (*QueryAllPreviousRemoteCompoundingResponse, error)
+	// Queries a list of ICARemoteZone items.
+	ICARemoteZone(context.Context, *QueryGetICARemoteZoneRequest) (*QueryGetICARemoteZoneResponse, error)
+	ICARemoteZoneAll(context.Context, *QueryAllICARemoteZoneRequest) (*QueryAllICARemoteZoneResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -903,6 +1123,12 @@ func (*UnimplementedQueryServer) PreviousRemoteCompounding(ctx context.Context, 
 }
 func (*UnimplementedQueryServer) PreviousRemoteCompoundingAll(ctx context.Context, req *QueryAllPreviousRemoteCompoundingRequest) (*QueryAllPreviousRemoteCompoundingResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PreviousRemoteCompoundingAll not implemented")
+}
+func (*UnimplementedQueryServer) ICARemoteZone(ctx context.Context, req *QueryGetICARemoteZoneRequest) (*QueryGetICARemoteZoneResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ICARemoteZone not implemented")
+}
+func (*UnimplementedQueryServer) ICARemoteZoneAll(ctx context.Context, req *QueryAllICARemoteZoneRequest) (*QueryAllICARemoteZoneResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ICARemoteZoneAll not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -1035,6 +1261,42 @@ func _Query_PreviousRemoteCompoundingAll_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_ICARemoteZone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetICARemoteZoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).ICARemoteZone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Query/ICARemoteZone",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).ICARemoteZone(ctx, req.(*QueryGetICARemoteZoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_ICARemoteZoneAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllICARemoteZoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).ICARemoteZoneAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.icayieldmos.Query/ICARemoteZoneAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).ICARemoteZoneAll(ctx, req.(*QueryAllICARemoteZoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "temporal.icayieldmos.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -1066,6 +1328,14 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PreviousRemoteCompoundingAll",
 			Handler:    _Query_PreviousRemoteCompoundingAll_Handler,
+		},
+		{
+			MethodName: "ICARemoteZone",
+			Handler:    _Query_ICARemoteZone_Handler,
+		},
+		{
+			MethodName: "ICARemoteZoneAll",
+			Handler:    _Query_ICARemoteZoneAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1563,6 +1833,151 @@ func (m *QueryAllPreviousRemoteCompoundingResponse) MarshalToSizedBuffer(dAtA []
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetICARemoteZoneRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetICARemoteZoneRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetICARemoteZoneRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetICARemoteZoneResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetICARemoteZoneResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetICARemoteZoneResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.ICARemoteZone.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllICARemoteZoneRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllICARemoteZoneRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllICARemoteZoneRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllICARemoteZoneResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllICARemoteZoneResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllICARemoteZoneResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.ICARemoteZone) > 0 {
+		for iNdEx := len(m.ICARemoteZone) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.ICARemoteZone[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -1748,6 +2163,61 @@ func (m *QueryAllPreviousRemoteCompoundingResponse) Size() (n int) {
 	_ = l
 	if len(m.PreviousRemoteCompounding) > 0 {
 		for _, e := range m.PreviousRemoteCompounding {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetICARemoteZoneRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovQuery(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *QueryGetICARemoteZoneResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.ICARemoteZone.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllICARemoteZoneRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllICARemoteZoneResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.ICARemoteZone) > 0 {
+		for _, e := range m.ICARemoteZone {
 			l = e.Size()
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -2912,6 +3382,364 @@ func (m *QueryAllPreviousRemoteCompoundingResponse) Unmarshal(dAtA []byte) error
 			}
 			m.PreviousRemoteCompounding = append(m.PreviousRemoteCompounding, PreviousRemoteCompounding{})
 			if err := m.PreviousRemoteCompounding[len(m.PreviousRemoteCompounding)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetICARemoteZoneRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetICARemoteZoneRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetICARemoteZoneRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetICARemoteZoneResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetICARemoteZoneResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetICARemoteZoneResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ICARemoteZone", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.ICARemoteZone.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllICARemoteZoneRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllICARemoteZoneRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllICARemoteZoneRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllICARemoteZoneResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllICARemoteZoneResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllICARemoteZoneResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ICARemoteZone", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ICARemoteZone = append(m.ICARemoteZone, ICARemoteZone{})
+			if err := m.ICARemoteZone[len(m.ICARemoteZone)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

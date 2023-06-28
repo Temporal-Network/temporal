@@ -26,7 +26,14 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	for _, elem := range genState.PreviousRemoteCompoundingList {
 		k.SetPreviousRemoteCompounding(ctx, elem)
 	}
-	// this line is used by starport scaffolding # genesis/module/init
+	// Set all the iCARemoteZone
+for _, elem := range genState.ICARemoteZoneList {
+	k.SetICARemoteZone(ctx, elem)
+}
+
+// Set iCARemoteZone count
+k.SetICARemoteZoneCount(ctx, genState.ICARemoteZoneCount)
+// this line is used by starport scaffolding # genesis/module/init
 	k.SetPort(ctx, genState.PortId)
 	// Only try to bind to port if it is not already bound, since we may already own
 	// port capability from capability InitGenesis
@@ -52,7 +59,9 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	genesis.RemoteContractCompoundSettingsList = k.GetAllRemoteContractCompoundSettings(ctx)
 	genesis.RemoteContractCompoundSettingsCount = k.GetRemoteContractCompoundSettingsCount(ctx)
 	genesis.PreviousRemoteCompoundingList = k.GetAllPreviousRemoteCompounding(ctx)
-	// this line is used by starport scaffolding # genesis/module/export
+	genesis.ICARemoteZoneList = k.GetAllICARemoteZone(ctx)
+genesis.ICARemoteZoneCount = k.GetICARemoteZoneCount(ctx)
+// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis
 }

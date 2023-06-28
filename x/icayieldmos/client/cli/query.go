@@ -31,7 +31,9 @@ func GetQueryCmd(queryRoute string) *cobra.Command {
 	cmd.AddCommand(CmdShowRemoteContractCompoundSettings())
 	cmd.AddCommand(CmdListPreviousRemoteCompounding())
 	cmd.AddCommand(CmdShowPreviousRemoteCompounding())
-	// this line is used by starport scaffolding # 1
+	cmd.AddCommand(CmdListICARemoteZone())
+	cmd.AddCommand(CmdShowICARemoteZone())
+// this line is used by starport scaffolding # 1
 
 	return cmd
 }

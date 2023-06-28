@@ -48,7 +48,16 @@ func TestGenesisState_Validate(t *testing.T) {
 						RemoteContractCompoundSetting: 1,
 					},
 				},
-				// this line is used by starport scaffolding # types/genesis/validField
+				ICARemoteZoneList: []types.ICARemoteZone{
+	{
+		Id: 0,
+	},
+	{
+		Id: 1,
+	},
+},
+ICARemoteZoneCount: 2,
+// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
 		},
@@ -118,7 +127,33 @@ func TestGenesisState_Validate(t *testing.T) {
 			},
 			valid: false,
 		},
-		// this line is used by starport scaffolding # types/genesis/testcase
+		{
+	desc:     "duplicated iCARemoteZone",
+	genState: &types.GenesisState{
+		ICARemoteZoneList: []types.ICARemoteZone{
+			{
+				Id: 0,
+			},
+			{
+				Id: 0,
+			},
+		},
+	},
+	valid:    false,
+},
+{
+	desc:     "invalid iCARemoteZone count",
+	genState: &types.GenesisState{
+		ICARemoteZoneList: []types.ICARemoteZone{
+			{
+				Id: 1,
+			},
+		},
+		ICARemoteZoneCount: 0,
+	},
+	valid:    false,
+},
+// this line is used by starport scaffolding # types/genesis/testcase
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			err := tc.genState.Validate()

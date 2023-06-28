@@ -16,6 +16,9 @@ func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreateRemoteContractCompoundSettings{}, "icayieldmos/CreateRemoteContractCompoundSettings", nil)
 cdc.RegisterConcrete(&MsgUpdateRemoteContractCompoundSettings{}, "icayieldmos/UpdateRemoteContractCompoundSettings", nil)
 cdc.RegisterConcrete(&MsgDeleteRemoteContractCompoundSettings{}, "icayieldmos/DeleteRemoteContractCompoundSettings", nil)
+cdc.RegisterConcrete(&MsgCreateICARemoteZone{}, "icayieldmos/CreateICARemoteZone", nil)
+cdc.RegisterConcrete(&MsgUpdateICARemoteZone{}, "icayieldmos/UpdateICARemoteZone", nil)
+cdc.RegisterConcrete(&MsgDeleteICARemoteZone{}, "icayieldmos/DeleteICARemoteZone", nil)
 // this line is used by starport scaffolding # 2
 }
 
@@ -35,6 +38,11 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 	&MsgCreateRemoteContractCompoundSettings{},
 	&MsgUpdateRemoteContractCompoundSettings{},
 	&MsgDeleteRemoteContractCompoundSettings{},
+)
+registry.RegisterImplementations((*sdk.Msg)(nil),
+	&MsgCreateICARemoteZone{},
+	&MsgUpdateICARemoteZone{},
+	&MsgDeleteICARemoteZone{},
 )
 // this line is used by starport scaffolding # 3
 

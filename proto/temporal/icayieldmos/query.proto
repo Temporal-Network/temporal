@@ -9,6 +9,7 @@ import "temporal/icayieldmos/contract_remote_zone.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "temporal/icayieldmos/remote_contract_compound_settings.proto";
 import "temporal/icayieldmos/previous_remote_compounding.proto";
+import "temporal/icayieldmos/ica_remote_zone.proto";
 
 option go_package = "github.com/temporal-zone/temporal/x/icayieldmos/types";
 
@@ -48,6 +49,16 @@ service Query {
   }
   rpc PreviousRemoteCompoundingAll (QueryAllPreviousRemoteCompoundingRequest) returns (QueryAllPreviousRemoteCompoundingResponse) {
     option (google.api.http).get = "/temporal/icayieldmos/previous_remote_compounding";
+  
+  }
+  
+  // Queries a list of ICARemoteZone items.
+  rpc ICARemoteZone    (QueryGetICARemoteZoneRequest) returns (QueryGetICARemoteZoneResponse) {
+    option (google.api.http).get = "/temporal-zone/temporal/icayieldmos/ica_remote_zone/{id}";
+  
+  }
+  rpc ICARemoteZoneAll (QueryAllICARemoteZoneRequest) returns (QueryAllICARemoteZoneResponse) {
+    option (google.api.http).get = "/temporal-zone/temporal/icayieldmos/ica_remote_zone";
   
   }
 }
@@ -110,5 +121,22 @@ message QueryAllPreviousRemoteCompoundingRequest {
 message QueryAllPreviousRemoteCompoundingResponse {
   repeated PreviousRemoteCompounding              previousRemoteCompounding = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination                = 2;
+}
+
+message QueryGetICARemoteZoneRequest {
+  uint64 id = 1;
+}
+
+message QueryGetICARemoteZoneResponse {
+  ICARemoteZone ICARemoteZone = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllICARemoteZoneRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllICARemoteZoneResponse {
+  repeated ICARemoteZone                          ICARemoteZone = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination    = 2;
 }
 

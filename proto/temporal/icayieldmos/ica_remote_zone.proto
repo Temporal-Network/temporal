@@ -1,0 +1,13 @@
+syntax = "proto3";
+package temporal.icayieldmos;
+
+option go_package = "github.com/temporal-zone/temporal/x/icayieldmos/types";
+
+message ICARemoteZone {
+  uint64 id = 1;
+  string connectionId = 2; 
+  string remoteChainId = 3; 
+  bool active = 4; 
+  string bech32Prefix = 5; 
+  string creator = 6;
+}
