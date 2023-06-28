@@ -34,7 +34,7 @@ func SetupConfig() {
 	config.SetBech32PrefixForValidator(Bech32Prefix+valoper, Bech32Prefix+valoperpub)
 }
 
-// Initializes a new StrideApp without IBC functionality
+// Initializes a new App without IBC functionality
 func InitTestApp(initChain bool) *App {
 	db := dbm.NewMemDB()
 	app := New(

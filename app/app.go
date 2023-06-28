@@ -113,6 +113,10 @@ import (
 	yieldmosmodule "github.com/temporal-zone/temporal/x/yieldmos"
 	yieldmosmodulekeeper "github.com/temporal-zone/temporal/x/yieldmos/keeper"
 	yieldmosmoduletypes "github.com/temporal-zone/temporal/x/yieldmos/types"
+
+	"github.com/temporal-zone/temporal/x/interchainquery"
+	interchainquerykeeper "github.com/temporal-zone/temporal/x/interchainquery/keeper"
+	interchainquerytypes "github.com/temporal-zone/temporal/x/interchainquery/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
 	appparams "github.com/temporal-zone/temporal/app/params"
@@ -174,6 +178,7 @@ var (
 		yieldmosmodule.AppModuleBasic{},
 		compoundermodule.AppModuleBasic{},
 		icayieldmosmodule.AppModuleBasic{},
+		interchainquery.AppModuleBasic{},
 		// this line is used by starport scaffolding # stargate/app/moduleBasic
 	)
 
@@ -190,6 +195,7 @@ var (
 		compoundermoduletypes.ModuleName:  {authtypes.Minter, authtypes.Burner, authtypes.Staking},
 		yieldmosmoduletypes.ModuleName:    nil,
 		icayieldmosmoduletypes.ModuleName: {authtypes.Minter, authtypes.Burner, authtypes.Staking},
+		interchainquerytypes.ModuleName:   nil,
 		// this line is used by starport scaffolding # stargate/app/maccPerms
 	}
 )
@@ -257,6 +263,7 @@ type App struct {
 	CompounderKeeper        compoundermodulekeeper.Keeper
 	ScopedIcayieldmosKeeper capabilitykeeper.ScopedKeeper
 	IcayieldmosKeeper       icayieldmosmodulekeeper.Keeper
+	InterchainqueryKeeper   interchainquerykeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// mm is the module manager
@@ -317,6 +324,7 @@ func New(
 		yieldmosmoduletypes.StoreKey,
 		compoundermoduletypes.StoreKey,
 		icayieldmosmoduletypes.StoreKey,
+		interchainquerytypes.StoreKey,
 		// this line is used by starport scaffolding # stargate/app/storeKey
 	)
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
@@ -557,6 +565,9 @@ func New(
 	)
 	compounderModule := compoundermodule.NewAppModule(appCodec, app.CompounderKeeper, app.AccountKeeper, app.BankKeeper)
 
+	app.InterchainqueryKeeper = interchainquerykeeper.NewKeeper(appCodec, keys[interchainquerytypes.StoreKey], app.IBCKeeper)
+	interchainQueryModule := interchainquery.NewAppModule(appCodec, app.InterchainqueryKeeper)
+
 	scopedIcayieldmosKeeper := app.CapabilityKeeper.ScopeToModule(icayieldmosmoduletypes.ModuleName)
 	app.ScopedIcayieldmosKeeper = scopedIcayieldmosKeeper
 	app.IcayieldmosKeeper = *icayieldmosmodulekeeper.NewKeeper(
@@ -571,10 +582,17 @@ func New(
 		app.BankKeeper,
 		app.MsgServiceRouter(),
 		app.ICAControllerKeeper,
+		app.InterchainqueryKeeper,
 	)
 	icayieldmosModule := icayieldmosmodule.NewAppModule(appCodec, app.IcayieldmosKeeper, app.AccountKeeper, app.BankKeeper)
 
 	icayieldmosIBCModule := icayieldmosmodule.NewIBCModule(app.IcayieldmosKeeper)
+
+	err := app.InterchainqueryKeeper.SetCallbackHandler(icayieldmosmoduletypes.ModuleName, app.IcayieldmosKeeper.ICQCallbackHandler())
+	if err != nil {
+		return nil
+	}
+
 	// this line is used by starport scaffolding # stargate/app/keeperDefinition
 
 	/**** IBC Routing ****/
@@ -650,6 +668,7 @@ func New(
 		yieldmosModule,
 		compounderModule,
 		icayieldmosModule,
+		interchainQueryModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 
@@ -682,6 +701,7 @@ func New(
 		yieldmosmoduletypes.ModuleName,
 		compoundermoduletypes.ModuleName,
 		icayieldmosmoduletypes.ModuleName,
+		interchainquerytypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	)
 
@@ -709,6 +729,7 @@ func New(
 		yieldmosmoduletypes.ModuleName,
 		compoundermoduletypes.ModuleName,
 		icayieldmosmoduletypes.ModuleName,
+		interchainquerytypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	)
 
@@ -741,6 +762,7 @@ func New(
 		yieldmosmoduletypes.ModuleName,
 		compoundermoduletypes.ModuleName,
 		icayieldmosmoduletypes.ModuleName,
+		interchainquerytypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	)
 
@@ -773,6 +795,7 @@ func New(
 		yieldmosModule,
 		compounderModule,
 		icayieldmosModule,
+		interchainQueryModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 	app.sm.RegisterStoreDecoders()
@@ -978,6 +1001,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 	paramsKeeper.Subspace(yieldmosmoduletypes.ModuleName)
 	paramsKeeper.Subspace(compoundermoduletypes.ModuleName)
 	paramsKeeper.Subspace(icayieldmosmoduletypes.ModuleName)
+	paramsKeeper.Subspace(interchainquerytypes.ModuleName)
 	// this line is used by starport scaffolding # stargate/app/paramSubspace
 
 	return paramsKeeper

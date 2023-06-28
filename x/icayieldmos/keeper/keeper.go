@@ -18,6 +18,7 @@ import (
 	"github.com/cosmos/ibc-go/v6/modules/core/exported"
 	"github.com/gogo/protobuf/proto"
 	"github.com/temporal-zone/temporal/x/icayieldmos/types"
+	interchainquerykeeper "github.com/temporal-zone/temporal/x/interchainquery/keeper"
 	"github.com/tendermint/tendermint/libs/log"
 )
 
@@ -37,9 +38,12 @@ type (
 
 		msgServiceRouter    *baseapp.MsgServiceRouter
 		iCAControllerKeeper icacontrollerkeeper.Keeper
+
+		interchainquery interchainquerykeeper.Keeper
 	}
 )
 
+// TODO change to module param
 const ICA_TIMEOUT = 3_600_000_000_000
 
 func NewKeeper(
@@ -56,6 +60,7 @@ func NewKeeper(
 
 	msgServiceRouter *baseapp.MsgServiceRouter,
 	iCAControllerKeeper icacontrollerkeeper.Keeper,
+	interchainquery interchainquerykeeper.Keeper,
 ) *Keeper {
 	// set KeyTable if it has not already been set
 	if !ps.HasKeyTable() {
@@ -76,6 +81,7 @@ func NewKeeper(
 		bankKeeper:          bankKeeper,
 		msgServiceRouter:    msgServiceRouter,
 		iCAControllerKeeper: iCAControllerKeeper,
+		interchainquery:     interchainquery,
 	}
 }
 
