@@ -2,6 +2,7 @@ package keeper
 
 import (
 	icacontrollerkeeper "github.com/cosmos/ibc-go/v6/modules/apps/27-interchain-accounts/controller/keeper"
+	interchainquerykeeper "github.com/temporal-zone/temporal/x/interchainquery/keeper"
 	"testing"
 
 	"github.com/temporal-zone/temporal/x/icayieldmos/keeper"
@@ -91,6 +92,7 @@ func IcayieldmosKeeper(t testing.TB) (*keeper.Keeper, sdk.Context) {
 		nil,
 		nil,
 		icacontrollerkeeper.Keeper{},
+		interchainquerykeeper.Keeper{},
 	)
 
 	ctx := sdk.NewContext(stateStore, tmproto.Header{}, false, logger)
