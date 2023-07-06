@@ -9,10 +9,13 @@ const TypeMsgSendTestContractMessages = "send_test_contract_messages"
 
 var _ sdk.Msg = &MsgSendTestContractMessages{}
 
-func NewMsgSendTestContractMessages(creator string, connectionId string) *MsgSendTestContractMessages {
+func NewMsgSendTestContractMessages(creator string, connectionId string, remoteDelegatorAddress string, remoteValidatorAddress string, remoteGranteeAddress string) *MsgSendTestContractMessages {
 	return &MsgSendTestContractMessages{
-		Creator:      creator,
-		ConnectionId: connectionId,
+		Creator:                creator,
+		ConnectionId:           connectionId,
+		RemoteDelegatorAddress: remoteDelegatorAddress,
+		RemoteValidatorAddress: remoteValidatorAddress,
+		RemoteGranteeAddress:   remoteGranteeAddress,
 	}
 }
 

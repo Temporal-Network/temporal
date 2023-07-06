@@ -14,11 +14,14 @@ var _ = strconv.Itoa(0)
 
 func CmdSendTestContractMessages() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "send-test-contract-messages [connection-id]",
+		Use:   "send-test-contract-messages [connection-id] [remoteDelegatorAddress] [remoteValidatorAddress] [remoteGranteeAddress]",
 		Short: "Broadcast message SendTestContractMessages",
-		Args:  cobra.ExactArgs(1),
+		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			argConnectionId := args[0]
+			argRemoteDelegatorAddress := args[1]
+			argRemoteValidatorAddress := args[2]
+			argRemoteGranteeAddress := args[3]
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -28,6 +31,9 @@ func CmdSendTestContractMessages() *cobra.Command {
 			msg := types.NewMsgSendTestContractMessages(
 				clientCtx.GetFromAddress().String(),
 				argConnectionId,
+				argRemoteDelegatorAddress,
+				argRemoteValidatorAddress,
+				argRemoteGranteeAddress,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err

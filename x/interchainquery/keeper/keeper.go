@@ -38,8 +38,6 @@ func NewKeeper(cdc codec.Codec, storeKey storetypes.StoreKey, ibckeeper *ibckeep
 }
 
 func (k *Keeper) SetCallbackHandler(module string, handler types.QueryCallbacks) error {
-	fmt.Println("call back set:")
-	fmt.Println(module)
 	_, found := k.callbacks[module]
 	if found {
 		return fmt.Errorf("callback handler already set for %s", module)

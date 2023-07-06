@@ -2,16 +2,21 @@ package keeper
 
 import (
 	"context"
-	"fmt"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/gogo/protobuf/proto"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/temporal-zone/temporal/x/icayieldmos/types"
 )
 
-//func BuildRemoteContractJson(delegatorAddress string, contractCompoundingPrefs)
+func (k msgServer) SendTestContractMessages(goCtx context.Context, msg *types.MsgSendTestContractMessages) (*types.MsgSendTestContractMessagesResponse, error) {
+	ctx := sdk.UnwrapSDKContext(goCtx)
 
+	k.QueryDelegations(ctx)
+
+	//k.RunICACompounding(ctx, *msg)
+
+	return &types.MsgSendTestContractMessagesResponse{}, nil
+}
+
+/*
 func (k msgServer) SendTestContractMessages(goCtx context.Context, msg *types.MsgSendTestContractMessages) (*types.MsgSendTestContractMessagesResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
@@ -46,3 +51,4 @@ func (k msgServer) SendTestContractMessages(goCtx context.Context, msg *types.Ms
 
 	return &types.MsgSendTestContractMessagesResponse{}, nil
 }
+*/

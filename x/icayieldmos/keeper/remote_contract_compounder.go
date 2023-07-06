@@ -9,10 +9,10 @@ import (
 )
 
 // TODO: Change the amount of compoundings per block to be a module level param
-const numberOfCompounds = 100
+const numberOfRemoteContractCompounds = 100
 
 // TODO Create unit test
-func (k Keeper) ShouldCompoundingHappen(ctx sdk.Context, remoteContractCompoundingSetting types.RemoteContractCompoundSettings) (bool, error) {
+func (k Keeper) ShouldRemoteContractCompoundingHappen(ctx sdk.Context, remoteContractCompoundingSetting types.RemoteContractCompoundSettings) (bool, error) {
 	previousRemoteCompounding, found := k.GetPreviousRemoteCompounding(ctx, remoteContractCompoundingSetting.Id)
 	if !found {
 		return true, nil
@@ -32,14 +32,14 @@ func (k Keeper) ShouldCompoundingHappen(ctx sdk.Context, remoteContractCompoundi
 }
 
 // TODO Create unit test
-func (k Keeper) RunRemoteCompounding(ctx sdk.Context) {
+func (k Keeper) RunRemoteContractCompounding(ctx sdk.Context) {
 	remoteContractCompoundingSettings := k.GetAllRemoteContractCompoundSettings(ctx)
 
 	// TODO: Profile/Benchmark what 100, 1K, 10K, 100K of compounds in one block does to block time/other resource usage?
-	numberOfCompoundsTemp := numberOfCompounds
+	numberOfCompoundsTemp := numberOfRemoteContractCompounds
 
 	for _, remoteContractCompoundingSetting := range remoteContractCompoundingSettings {
-		shouldCompoundingHappen, err := k.ShouldCompoundingHappen(ctx, remoteContractCompoundingSetting)
+		shouldCompoundingHappen, err := k.ShouldRemoteContractCompoundingHappen(ctx, remoteContractCompoundingSetting)
 		if err != nil {
 			k.Logger(ctx).Info(err.Error())
 			continue
@@ -51,7 +51,7 @@ func (k Keeper) RunRemoteCompounding(ctx sdk.Context) {
 
 		numberOfCompoundsTemp--
 
-		err = k.SendCompoundMsg(ctx, remoteContractCompoundingSetting)
+		err = k.SendRemoteContractCompoundMsg(ctx, remoteContractCompoundingSetting)
 		if err != nil {
 			k.Logger(ctx).Info(err.Error())
 			continue
@@ -64,7 +64,7 @@ func (k Keeper) RunRemoteCompounding(ctx sdk.Context) {
 }
 
 // TODO Create unit test
-func (k Keeper) SendCompoundMsg(ctx sdk.Context, remoteContractCompoundingSetting types.RemoteContractCompoundSettings) error {
+func (k Keeper) SendRemoteContractCompoundMsg(ctx sdk.Context, remoteContractCompoundingSetting types.RemoteContractCompoundSettings) error {
 	contractRemoteZone, found := k.GetContractRemoteZone(ctx, remoteContractCompoundingSetting.ContractRemoteZone)
 	if !found {
 		return sdkerrors.Wrap(sdkerrors.ErrInvalidType, fmt.Sprintf("ContractRemoteZone not found: %d", remoteContractCompoundingSetting.ContractRemoteZone))
